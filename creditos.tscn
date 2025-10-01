@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://d22dp6yssgai1"]
+
+[ext_resource type="Script" uid="uid://ccjngjjbm404i" path="res://creditos.gd" id="1_ilafw"]
+
+[node name="Creditos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ilafw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00434028
+anchor_top = 0.00308642
+anchor_right = 1.00434
+anchor_bottom = 1.00309
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ListaDeCreditos" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -209.0
+offset_top = 3.0
+offset_right = 199.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 2
+anchor_left = 0.34
+anchor_top = 0.063
+anchor_right = 0.694
+anchor_bottom = 0.978
+offset_left = -223.68
+offset_top = -14.824
+offset_right = 188.512
+offset_bottom = 0.255981
+text = "Elementos visuales:
+Arte---------------------------------------------------------------------------------------------------------------- Tania Miranda.
+
+Guión
+Historia-------------------------------------------------------------------------------------Kevin Leandro Camelo Suaste.
+
+Musica:
+mystical-flute-ritual-instrumental-399259---------------------------------------------------------------------Paijo_G.
+
+"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -79.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Menú Principal"
+
+[connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_button_pressed"]
