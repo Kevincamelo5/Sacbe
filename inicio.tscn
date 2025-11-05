@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://blwrc3rqgkjrw"]
+
+[ext_resource type="Script" uid="uid://ddg002kk75hgd" path="res://inicio.gd" id="1_ylum6"]
+[ext_resource type="Texture2D" uid="uid://bf6xg4fq6pu7x" path="res://global/textura/imagen_principal.jpg" id="2_q0xg8"]
+[ext_resource type="Texture2D" uid="uid://dmlkkqbxnlfsq" path="res://global/textura/logo_carga.png" id="3_yogrx"]
+
+[node name="Inicio" type="CanvasLayer"]
+script = ExtResource("1_ylum6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.0034722222
+anchor_top = 0.0061728396
+anchor_right = 1.0034722
+anchor_bottom = 1.1342592
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_q0xg8")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(584, 267.00003)
+scale = Vector2(0.90687793, 0.7436385)
+texture = ExtResource("3_yogrx")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

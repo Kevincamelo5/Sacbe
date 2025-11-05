@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnhkp34fgb1f4"]
+
+[ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://global/fuentes/Mayan.ttf" id="1_t0tsd"]
+
+[node name="Label" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_t0tsd")

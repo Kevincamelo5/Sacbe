@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://d38wh3lhl8s2c"]
+
+[sub_resource type="GDScript" id="GDScript_db4q2"]
+script/source = "extends CanvasLayer
+"
+
+[node name="MenuPausa" type="CanvasLayer"]
+script = SubResource("GDScript_db4q2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -176.0
+offset_right = 172.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="continuar" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
