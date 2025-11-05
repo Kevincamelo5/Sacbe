@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://caokkywjfo4gv"]
+
+[ext_resource type="Texture2D" uid="uid://beboyb012tlc5" path="res://icon.svg" id="1_0bpo2"]
+[ext_resource type="Script" uid="uid://b6oh18grdhan5" path="res://entidad/jugador/jugador.gd" id="1_bgsqy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71ocg"]
+atlas = ExtResource("1_0bpo2")
+region = Rect2(5.595, 26.952, 60, 101)
+margin = Rect2(0, 0, 0, 27.56)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgsqy"]
+radius = 50.0
+height = 128.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71ocg"]
+radius = 38.0
+height = 110.0
+
+[node name="Jugador" type="CharacterBody2D"]
+collision_layer = 3
+script = ExtResource("1_bgsqy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_71ocg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_bgsqy")
+
+[node name="AreaAtaque" type="Area2D" parent="."]
+position = Vector2(77, 0)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque"]
+shape = SubResource("CapsuleShape2D_71ocg")

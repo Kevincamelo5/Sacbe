@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://eb0oi31vn8rt"]
+
+[ext_resource type="Shader" uid="uid://cooprqs2pjbqy" path="res://global/shader/reemplazar.gdshader" id="1_kfojk"]
+[ext_resource type="Texture2D" uid="uid://beboyb012tlc5" path="res://icon.svg" id="2_ng5om"]
+[ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidad/jugador/jugador.tscn" id="3_uooar"]
+[ext_resource type="PackedScene" uid="uid://driv6f3ve55gi" path="res://global/Hurtbox.tscn" id="4_ng5om"]
+[ext_resource type="PackedScene" uid="uid://d38wh3lhl8s2c" path="res://menu_pausa.tscn" id="5_uooar"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7b0a2"]
+seed = 335
+frequency = 0.1298
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xahdc"]
+width = 1920
+height = 1080
+noise = SubResource("FastNoiseLite_7b0a2")
+
+[sub_resource type="Gradient" id="Gradient_7b0a2"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xahdc"]
+gradient = SubResource("Gradient_7b0a2")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfojk"]
+size = Vector2(1033, 156)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kfojk"]
+shader = ExtResource("1_kfojk")
+shader_parameter/target_color = Color(0.476413, 0.475391, 2.88785e-07, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ng5om"]
+radius = 38.71
+height = 125.27
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ng5om"]
+size = Vector2(66, 60)
+
+[node name="Pruebas" type="Node2D"]
+
+[node name="Objetos" type="Node2D" parent="."]
+
+[node name="FONDO" type="Sprite2D" parent="Objetos"]
+texture = SubResource("NoiseTexture2D_xahdc")
+
+[node name="Suelo" type="Node2D" parent="Objetos"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Objetos/Suelo"]
+position = Vector2(-445, 462)
+scale = Vector2(4.01562, 151.5)
+texture = SubResource("GradientTexture1D_xahdc")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Objetos/Suelo"]
+position = Vector2(-616, 300)
+rotation = 1.75643
+scale = Vector2(0.99902, 170.801)
+texture = SubResource("GradientTexture1D_xahdc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Objetos/Suelo"]
+position = Vector2(1137, 464)
+scale = Vector2(4.01562, 151.5)
+texture = SubResource("GradientTexture1D_xahdc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objetos/Suelo"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objetos/Suelo/StaticBody2D"]
+position = Vector2(-447.5, 460)
+shape = SubResource("RectangleShape2D_kfojk")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Objetos/Suelo/StaticBody2D"]
+position = Vector2(-613, 283)
+rotation = -1.38976
+scale = Vector2(0.225687, 1.07556)
+shape = SubResource("RectangleShape2D_kfojk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objetos/Suelo/StaticBody2D"]
+position = Vector2(1139, 465)
+shape = SubResource("RectangleShape2D_kfojk")
+
+[node name="Monedas" type="Node2D" parent="Objetos"]
+
+[node name="Moneda" type="Area2D" parent="Objetos/Monedas"]
+position = Vector2(-534, 287)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objetos/Monedas/Moneda"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Objetos/Monedas/Moneda"]
+material = SubResource("ShaderMaterial_kfojk")
+position = Vector2(-294, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ng5om")
+
+[node name="Jugador" parent="." instance=ExtResource("3_uooar")]
+fuerzaSalto = -800.0
+
+[node name="Camera2D" type="Camera2D" parent="Jugador"]
+position_smoothing_enabled = true
+
+[node name="Enemigo" type="RigidBody2D" parent="."]
+position = Vector2(904, 216)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo"]
+shape = SubResource("CapsuleShape2D_ng5om")
+
+[node name="Hurtbox" parent="Enemigo" instance=ExtResource("4_ng5om")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo/Hurtbox"]
+shape = SubResource("RectangleShape2D_ng5om")
+
+[node name="MenuPausa" parent="." instance=ExtResource("5_uooar")]
