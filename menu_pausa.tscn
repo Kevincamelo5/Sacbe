@@ -27,6 +27,10 @@ func _on_guardar_y_salir_pressed() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action(\"pausa\"):
 			mostrar()
+
+
+func _on_reinciar_pressed() -> void:
+	pass # Replace with function body.
 "
 
 [node name="MenuPausa" type="CanvasLayer"]
@@ -59,9 +63,15 @@ grow_vertical = 2
 layout_mode = 2
 text = "Continuar"
 
+[node name="reinciar" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Continuar"
+
 [node name="guardar y salir" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 text = "Regresar Menú Principal"
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/reinciar" to="." method="_on_reinciar_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/reinciar" to="." method="_on_continuar_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/guardar y salir" to="." method="_on_guardar_y_salir_pressed"]

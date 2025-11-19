@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://eb0oi31vn8rt"]
+[gd_scene load_steps=15 format=3 uid="uid://eb0oi31vn8rt"]
 
 [ext_resource type="Shader" uid="uid://cooprqs2pjbqy" path="res://global/shader/reemplazar.gdshader" id="1_kfojk"]
 [ext_resource type="Texture2D" uid="uid://beboyb012tlc5" path="res://icon.svg" id="2_ng5om"]
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidad/jugador/jugador.tscn" id="3_uooar"]
 [ext_resource type="PackedScene" uid="uid://driv6f3ve55gi" path="res://global/Hurtbox.tscn" id="4_ng5om"]
 [ext_resource type="PackedScene" uid="uid://d38wh3lhl8s2c" path="res://menu_pausa.tscn" id="5_uooar"]
+[ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://mapa/controles.tscn" id="6_c2dsd"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7b0a2"]
 seed = 335
@@ -37,6 +38,8 @@ height = 125.27
 size = Vector2(66, 60)
 
 [node name="Pruebas" type="Node2D"]
+
+[node name="controles" parent="." instance=ExtResource("6_c2dsd")]
 
 [node name="Objetos" type="Node2D" parent="."]
 
