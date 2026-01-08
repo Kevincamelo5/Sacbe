@@ -29,3 +29,15 @@ grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("2_yff8i")
 metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+anchor_left = 0.9340278
+anchor_top = 0.6589506
+anchor_right = 0.9852431
+anchor_bottom = 0.70679015
+offset_bottom = -3.0517578e-05
+text = "Skip>>"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

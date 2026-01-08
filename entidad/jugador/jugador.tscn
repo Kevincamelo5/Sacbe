@@ -1,12 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://caokkywjfo4gv"]
+[gd_scene load_steps=5 format=3 uid="uid://caokkywjfo4gv"]
 
-[ext_resource type="Texture2D" uid="uid://beboyb012tlc5" path="res://icon.svg" id="1_0bpo2"]
 [ext_resource type="Script" uid="uid://b6oh18grdhan5" path="res://entidad/jugador/jugador.gd" id="1_bgsqy"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_71ocg"]
-atlas = ExtResource("1_0bpo2")
-region = Rect2(5.595, 26.952, 60, 101)
-margin = Rect2(0, 0, 0, 27.56)
+[ext_resource type="Texture2D" uid="uid://bssyoiioal130" path="res://global/elementos/personaje/Quitzal/(512) Quitzal masculino v2 frentre.png" id="2_5flym"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgsqy"]
 radius = 50.0
@@ -21,7 +16,9 @@ collision_layer = 3
 script = ExtResource("1_bgsqy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_71ocg")
+position = Vector2(1.2950158, 2.375002)
+scale = Vector2(0.22150382, 0.24072267)
+texture = ExtResource("2_5flym")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 
