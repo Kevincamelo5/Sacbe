@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bdo5m76qf8k7i" path="res://mapa/Menu/menu_principal.gd" id="1_4ylty"]
 [ext_resource type="Texture2D" uid="uid://ggdjp1byjvlx" path="res://global/textura/menú_principal.png" id="2_pexi0"]
-[ext_resource type="AudioStream" uid="uid://ccr8oku4balhu" path="res://global/sonido/mystical-flute-ritual-instrumental-399259.mp3" id="3_yn8vj"]
+[ext_resource type="AudioStream" uid="uid://dkr6l5dk6ovfi" path="res://global/sonido/musicaEntrada2.mp3" id="3_xayrg"]
 [ext_resource type="AudioStream" uid="uid://sddmeoj6glwh" path="res://global/sonido/click menú.wav" id="4_yn8vj"]
 [ext_resource type="Texture2D" uid="uid://dnn8c6bdjyfnw" path="res://global/textura/(512) Quitzal masculino v2 frentre.png" id="5_xayrg"]
 
@@ -64,7 +64,7 @@ layout_mode = 2
 text = "Salir"
 
 [node name="Musica de fondo" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_yn8vj")
+stream = ExtResource("3_xayrg")
 autoplay = true
 
 [node name="Click" type="AudioStreamPlayer" parent="."]

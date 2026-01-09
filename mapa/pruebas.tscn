@@ -120,7 +120,7 @@ shape = SubResource("RectangleShape2D_ng5om")
 
 [node name="altar" type="Area2D" parent="."]
 script = ExtResource("7_rnd3v")
-next_scene_path = "res://mapa/enConstrucci[on.tscn"
+next_scene_path = "res://mapa/nivel1/nivel1_parte2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="altar"]
 position = Vector2(1560, 336)
