@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://caokkywjfo4gv"]
+[gd_scene load_steps=7 format=3 uid="uid://caokkywjfo4gv"]
 
 [ext_resource type="Script" uid="uid://b6oh18grdhan5" path="res://entidad/jugador/jugador.gd" id="1_bgsqy"]
 [ext_resource type="Texture2D" uid="uid://bssyoiioal130" path="res://global/elementos/personaje/Quitzal/(512) Quitzal masculino v2 frentre.png" id="2_5flym"]
+[ext_resource type="Script" uid="uid://d7oootbmqbsq" path="res://entidad/jugador/area_hurbox.gd" id="3_cuou6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgsqy"]
 radius = 50.0
@@ -10,6 +11,10 @@ height = 128.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71ocg"]
 radius = 38.0
 height = 110.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5flym"]
+radius = 30.0
+height = 136.0
 
 [node name="Jugador" type="CharacterBody2D"]
 collision_layer = 3
@@ -27,7 +32,18 @@ shape = SubResource("CapsuleShape2D_bgsqy")
 
 [node name="AreaAtaque" type="Area2D" parent="."]
 position = Vector2(77, 0)
-monitorable = false
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque"]
 shape = SubResource("CapsuleShape2D_71ocg")
+
+[node name="AreaHurbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 121
+script = ExtResource("3_cuou6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaHurbox"]
+shape = SubResource("CapsuleShape2D_5flym")
+
+[connection signal="body_entered" from="AreaHurbox" to="AreaHurbox" method="_on_body_entered"]

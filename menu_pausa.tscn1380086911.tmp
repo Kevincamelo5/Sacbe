@@ -34,7 +34,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_reinciar_pressed() -> void:
-	print(\"reiniciando...\")
+	
 "
 
 [node name="MenuPausa" type="CanvasLayer"]

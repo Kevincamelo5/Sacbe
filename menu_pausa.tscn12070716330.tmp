@@ -34,7 +34,12 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_reinciar_pressed() -> void:
-	print(\"reiniciando...\")
+	var tree = get_tree()
+	if tree:
+		# ¡IMPORTANTE! Primero quitamos la pausa
+		tree.paused = false 
+		# Luego recargamos
+		tree.reload_current_scene()
 "
 
 [node name="MenuPausa" type="CanvasLayer"]

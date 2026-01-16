@@ -7,20 +7,20 @@
 [ext_resource type="Script" uid="uid://cyyvpq7nhqmgd" path="res://mapa/nivel1/cuerda.gd" id="4_cbddg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_450ay"]
-size = Vector2(1096, 11)
+size = Vector2(1096, 79.05835)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2odhi"]
-size = Vector2(583, 16)
+size = Vector2(583, 177.33319)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_2odhi"]
 a = Vector2(-574, -157)
 b = Vector2(-574, 318)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vegg"]
-size = Vector2(1959, 11)
+size = Vector2(1959, 129.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbddg"]
-size = Vector2(1797, 20)
+size = Vector2(1797, 136)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_450ay"]
 a = Vector2(64, 192)
@@ -34,36 +34,45 @@ size = Vector2(51, 399)
 [node name="Objetos" type="Node2D" parent="."]
 
 [node name="fondo" type="Sprite2D" parent="Objetos"]
-position = Vector2(2648, 84)
-scale = Vector2(6.931889, 1.1910669)
+position = Vector2(1743, -61.547752)
+scale = Vector2(5.651889, 2.5039203)
 texture = ExtResource("1_2odhi")
 
 [node name="Jugador" parent="." instance=ExtResource("2_450ay")]
+position = Vector2(-184, -135)
 
 [node name="Camera2D" type="Camera2D" parent="Jugador"]
-position = Vector2(0, -5)
+position = Vector2(180, -133)
+scale = Vector2(0.3080219, -2.4909453)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-76, -2.0000076)
+scale = Vector2(0.6997688, 1)
 
 [node name="piso2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(843, 324.5)
+position = Vector2(843, 376.54407)
+scale = Vector2(0.9999999, 1.5293986)
 shape = SubResource("RectangleShape2D_450ay")
 
 [node name="piso 1" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-283, 323)
-scale = Vector2(1, 0.75000066)
+position = Vector2(-282.99997, 383.49994)
+scale = Vector2(0.99999994, 0.7500006)
 shape = SubResource("RectangleShape2D_2odhi")
 
 [node name="muro" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("SegmentShape2D_2odhi")
 
 [node name="piso3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2735, 328)
+position = Vector2(2735, 387.24994)
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_8vegg")
+debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="piso4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(4973.5, 326)
+position = Vector2(4973.5, 383.99994)
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_cbddg")
+debug_color = Color(0, 0.6, 0.69803923, 0.9019608)
 
 [node name="muro2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(5808, 131)
@@ -72,6 +81,8 @@ shape = SubResource("SegmentShape2D_450ay")
 [node name="controles" parent="." instance=ExtResource("3_450ay")]
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-1363.0001, -92)
+scale = Vector2(0.9200001, 1)
 script = ExtResource("4_cbddg")
 next_scene_path = "res://mapa/enConstrucci[on.tscn"
 
