@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csub1c2p7t1n1"
-path="res://.godot/imported/nivelEnConstruccion.jpg-40a9fadc5517c7281c75f70a457d6de1.ctex"
+uid="uid://44xgvscwmnau"
+path="res://.godot/imported/(256) Lanza.png-4a84c84cbdc0cb4cfbefb84079d254bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mapa/nivelEnConstruccion.jpg"
-dest_files=["res://.godot/imported/nivelEnConstruccion.jpg-40a9fadc5517c7281c75f70a457d6de1.ctex"]
+source_file="res://global/elementos/herramientas/(256) Lanza.png"
+dest_files=["res://.godot/imported/(256) Lanza.png-4a84c84cbdc0cb4cfbefb84079d254bc.ctex"]
 
 [params]
 
