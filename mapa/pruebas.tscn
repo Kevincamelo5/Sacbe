@@ -53,6 +53,8 @@ size = Vector2(78.5, 93)
 size = Vector2(3049, 20)
 
 [node name="Pruebas" type="Node2D"]
+light_mask = 32
+visibility_layer = 4
 
 [node name="controles" parent="." instance=ExtResource("6_c2dsd")]
 
@@ -137,9 +139,9 @@ shape = SubResource("RectangleShape2D_ng5om")
 
 [node name="altar" type="Area2D" parent="."]
 collision_layer = 64
-collision_mask = 3
+collision_mask = 6
 script = ExtResource("7_rnd3v")
-next_scene_path = "res://mapa/nivel1/nivel1_parte2.tscn"
+next_scene_path = "res://mapa/nivel1/nivel_1_sumador_1.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="altar"]
 position = Vector2(1560, 336)
