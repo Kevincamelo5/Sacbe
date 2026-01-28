@@ -19,6 +19,8 @@ var _operador:= '+'
 var _operandos:= []
 var _respuesta_correcta := "0"
 
+#contador de correctos
+var correctos:= 0
 
 func _ready() -> void:
 	
@@ -62,7 +64,7 @@ func _generar_problema() -> bool:
 	
 	var respuesta : int = 0
 	for i in 2:
-		var num := randi_range(0, 999)
+		var num := randi_range(0, 99)
 		_operandos.push_back(num)
 		respuesta += num
 	
@@ -142,8 +144,16 @@ func _es_respuesta_correcta() -> void:
 	await tween.finished
 	
 	# Limpiar y generar nuevo problema
+	_aumentar_aciertos()
 	canvas.queue_free()
 	_generar_problema()
+
+func _aumentar_aciertos() -> int:
+	correctos += 1
+	print(correctos)
+	if correctos >= 5:
+		get_tree().change_scene_to_file("res://mapa/nivel1/nivel1_parte2.tscn")
+	return correctos
 
 func _es_respuesta_incorrecta() -> void:
 	# Crear canvas layer para el efecto
