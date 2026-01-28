@@ -62,7 +62,7 @@ text = "Ayuda
 [node name="creditos" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_cdm0c")
-text = "Creditos"
+text = "Créditos"
 
 [node name="salir" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
