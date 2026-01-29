@@ -8,26 +8,39 @@
 script = ExtResource("1_vtdxt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+y_sort_enabled = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
 [node name="hacha" type="TouchScreenButton" parent="ColorRect/HBoxContainer"]
+position = Vector2(745, 223)
 
 [node name="lanza" type="TouchScreenButton" parent="ColorRect/HBoxContainer"]
+position = Vector2(382, 100)
 texture_normal = ExtResource("1_wopvq")
 
 [node name="cuchillo" type="TouchScreenButton" parent="ColorRect/HBoxContainer"]
+position = Vector2(978, 232)
 
 [node name="macuahuitle" type="TouchScreenButton" parent="ColorRect/HBoxContainer"]
 
 [node name="flauta" type="TouchScreenButton" parent="ColorRect/HBoxContainer"]
+position = Vector2(596, 416)
 
 [node name="escudo" type="TouchScreenButton" parent="ColorRect/HBoxContainer"]
+position = Vector2(19, 103)
 texture_normal = ExtResource("2_vtdxt")
 
 [connection signal="pressed" from="ColorRect/HBoxContainer/hacha" to="." method="_on_hacha_pressed"]
