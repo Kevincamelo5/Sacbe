@@ -115,3 +115,4 @@ layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="fondos2/derecha/CenterContainer"]
 layout_mode = 2
+columns = 3

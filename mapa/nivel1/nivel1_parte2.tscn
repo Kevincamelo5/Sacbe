@@ -93,7 +93,7 @@ shape = SubResource("SegmentShape2D_450ay")
 position = Vector2(-1363.0001, -92)
 scale = Vector2(0.9200001, 1)
 script = ExtResource("4_cbddg")
-next_scene_path = "res://mapa/enConstrucci[on.tscn"
+next_scene_path = "res://mapa/nivel1/nivel1_sumador2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(5762.5, 52.5)

@@ -10,10 +10,10 @@ const TEX_FONDO_PROBLEMA := preload("res://icon.svg")
 const OPERADOR := "+"
 
 #conexion de las funciones con sus respectivas terminales.
-@onready var _contenedor_botones: GridContainer = $fondos2/derecha/CenterContainer/GridContainer
-@onready var _campo_respuesta: LineEdit = $fondos2/izquierda/CenterContainer/VBoxContainer/LineEdit
-@onready var _campo_operandos: Label = $fondos2/izquierda/CenterContainer/VBoxContainer/Label
-@onready var _boton_enviar: Button = $fondos2/izquierda/MarginContainer/CenterContainer/BotonEnviar
+@onready var _contenedor_botones: GridContainer = $fondos2/VBoxContainer2/CenterContainer/GridContainer
+@onready var _campo_respuesta: LineEdit = $fondos2/VBoxContainer/CenterContainer/VBoxContainer/LineEdit
+@onready var _campo_operandos: Label = $fondos2/VBoxContainer/CenterContainer/VBoxContainer/Label
+@onready var _boton_enviar: Button = $fondos2/VBoxContainer/MarginContainer/CenterContainer/BotonEnviar
 
 var _operador:= '+'
 var _operandos:= []
@@ -39,7 +39,7 @@ func _crear_botones() -> void:
 		push_error("Contenedor de botones no seleccionado")
 		return
 	
-	for caracter in "1234567890.":
+	for caracter in "1234567890./":
 		if caracter.is_empty(): continue
 		
 		var btn := Button.new()
@@ -56,20 +56,25 @@ func _crear_botones() -> void:
 	btn_del.pressed.connect(func(): eliminar_caracter.emit())
 	
 	_contenedor_botones.add_child(btn_del)
-	
-	#boton para fracciones, funcion agregar el denominador
-	var btn_fraccion := Button.new()
-	btn_fraccion.set_text("/")
-	
-	#btn_fraccion.pressed.connect(func():)
-	
-	_contenedor_botones.add_child(btn_fraccion)
 
 func _generar_problema() -> bool:
 	randomize()
 	_operador = OPERADOR
 	_operandos = []
 	
+	#Seleccionar un tipo de problema al azar (0 a 3)
+	var tipo = randi() % 4
+	
+	match tipo:
+		0: _suma_enteros()
+		1:_suma_decimales()
+		2:_suma_fracciones()
+		3:_suma_fracciones_mixtas()
+	
+	return _actualizar_ui() 
+
+# --- Funciones de aritmetica basica ---
+func _suma_enteros():
 	var respuesta : int = 0
 	for i in 2:
 		var num := randi_range(0, 99)
@@ -77,8 +82,32 @@ func _generar_problema() -> bool:
 		respuesta += num
 	
 	_respuesta_correcta = str(respuesta)
+
+func _suma_decimales():
+	#generacion de decimales
+	var n1 = randf_range(1, 99) / 10.0
+	var n2 = randf_range(1, 99) / 10.0
+	_operandos = [n1, n2]
+	_respuesta_correcta = str(n1 + n2)
+
+func _suma_fracciones():
+	var den = randi_range(2, 9) # Mismo denominador para facilitar
+	var num1 = randi_range(1, 5)
+	var num2 = randi_range(1, 5)
 	
-	return _actualizar_ui() 
+	_operandos = [str(num1) + "/" + str(den), str(num2) + "/" + str(den)]
+	_respuesta_correcta = str(num1 + num2) + "/" + str(den)
+
+func _suma_fracciones_mixtas():
+	var entero = randi_range(1, 3)
+	var den = randi_range(2, 5)
+	var num = 1
+	# Ejemplo: 1 + 1/2 = 3/2
+	_operandos = [entero, str(num) + "/" + str(den)]
+	
+	# Cálculo: (entero * den + num) / den
+	var resultado_num = (entero * den) + num
+	_respuesta_correcta = str(resultado_num) + "/" + str(den)
 
 func _actualizar_ui() -> bool:
 	_campo_operandos.text = ""

@@ -72,6 +72,7 @@ func _generar_problema() -> bool:
 	
 	return _actualizar_ui() 
 
+
 func _actualizar_ui() -> bool:
 	_campo_operandos.text = ""
 	
