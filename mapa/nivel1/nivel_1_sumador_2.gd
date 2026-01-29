@@ -39,7 +39,7 @@ func _crear_botones() -> void:
 		push_error("Contenedor de botones no seleccionado")
 		return
 	
-	for caracter in "1234567890":
+	for caracter in "1234567890.":
 		if caracter.is_empty(): continue
 		
 		var btn := Button.new()
@@ -49,13 +49,21 @@ func _crear_botones() -> void:
 		
 		_contenedor_botones.add_child(btn)
 	
-	
+	#boton del funcion eliminar caracteres
 	var btn_del := Button.new()
 	btn_del.set_text("DEL")
 	
 	btn_del.pressed.connect(func(): eliminar_caracter.emit())
 	
 	_contenedor_botones.add_child(btn_del)
+	
+	#boton para fracciones, funcion agregar el denominador
+	var btn_fraccion := Button.new()
+	btn_fraccion.set_text("/")
+	
+	#btn_fraccion.pressed.connect(func():)
+	
+	_contenedor_botones.add_child(btn_fraccion)
 
 func _generar_problema() -> bool:
 	randomize()
