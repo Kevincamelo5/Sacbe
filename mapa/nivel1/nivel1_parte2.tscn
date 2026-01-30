@@ -55,36 +55,37 @@ position = Vector2(-184, -135)
 position = Vector2(180, -133)
 scale = Vector2(0.3080219, -2.4909453)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="piso" type="StaticBody2D" parent="."]
 position = Vector2(-76, -2.0000076)
 scale = Vector2(0.6997688, 1)
+collision_mask = 74
 
-[node name="piso2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="piso2" type="CollisionShape2D" parent="piso"]
 position = Vector2(843, 376.54407)
 scale = Vector2(0.9999999, 1.5293986)
 shape = SubResource("RectangleShape2D_450ay")
 
-[node name="piso 1" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="piso 1" type="CollisionShape2D" parent="piso"]
 position = Vector2(-282.99997, 383.49994)
 scale = Vector2(0.99999994, 0.7500006)
 shape = SubResource("RectangleShape2D_2odhi")
 
-[node name="muro" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="muro" type="CollisionShape2D" parent="piso"]
 shape = SubResource("SegmentShape2D_2odhi")
 
-[node name="piso3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="piso3" type="CollisionShape2D" parent="piso"]
 position = Vector2(2735, 387.24994)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_8vegg")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
-[node name="piso4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="piso4" type="CollisionShape2D" parent="piso"]
 position = Vector2(4973.5, 383.99994)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_cbddg")
 debug_color = Color(0, 0.6, 0.69803923, 0.9019608)
 
-[node name="muro2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="muro2" type="CollisionShape2D" parent="piso"]
 position = Vector2(5808, 131)
 shape = SubResource("SegmentShape2D_450ay")
 
@@ -129,7 +130,7 @@ scale = Vector2(21.488281, 2.140625)
 texture = SubResource("GradientTexture2D_1wdpe")
 
 [node name="vacio" type="Area2D" parent="."]
-visibility_layer = 2
+visibility_layer = 66
 script = ExtResource("6_1wdpe")
 
 [node name="vacio" type="CollisionShape2D" parent="vacio"]
@@ -276,6 +277,66 @@ scale = Vector2(0.35116348, 0.33211344)
 
 [node name="estalactita35" parent="Node2D" instance=ExtResource("7_at5ch")]
 position = Vector2(2553, -580.00006)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita36" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(2652, -580)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita37" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(2758.9998, -574)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita38" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(2853.9998, -574.00006)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita39" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(2959, -574)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita40" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(3058, -572.00006)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita41" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(3157, -572.00006)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita42" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(3242.9995, -572.00006)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita43" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(3330.9998, -570.00006)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita44" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(3420.9998, -574)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita45" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(3521.9998, -576.00006)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita46" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(3616.9998, -574.00006)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita47" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(3713.9998, -574)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita48" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(3807.9998, -574.00006)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita49" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(3906.9998, -578)
+scale = Vector2(0.35116348, 0.33211344)
+
+[node name="estalactita50" parent="Node2D" instance=ExtResource("7_at5ch")]
+position = Vector2(3998.9998, -574.00006)
 scale = Vector2(0.35116348, 0.33211344)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -28,14 +28,14 @@ func _reiniciar_estalactita() -> void:
 	timer.start()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Jugador"):
+	if body.name == "Jugador":
 		# Lógica de daño
 		if body.has_method("perder_vida"):
 			body.perder_vida()
 		# Reiniciar nivel (puedes llamar a un GameManager o recargar escena)
 		get_tree().reload_current_scene()
 		
-	elif body.is_in_group("Piso"):
+	elif body.get_collision_layer_value(1):
 		# Si toca el piso, desaparece y vuelve arriba
 		_reiniciar_estalactita()
 	elif body.is_in_group("vacio"):
