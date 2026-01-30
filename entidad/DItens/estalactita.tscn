@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bch1jv7ob4qa8"]
+
+[ext_resource type="Script" uid="uid://co3xrvvjqb6wu" path="res://entidad/DItens/estalactita.gd" id="1_gp1ra"]
+[ext_resource type="Texture2D" uid="uid://bbp8fqncwelo" path="res://global/elementos/niveles/estalactita1.png" id="1_x8c37"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gp1ra"]
+
+[node name="Area2D" type="Area2D"]
+light_mask = 64
+visibility_layer = 3
+script = ExtResource("1_gp1ra")
+
+[node name="TimerCaida" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(603, 193)
+scale = Vector2(3.896542, 11.839263)
+shape = SubResource("CapsuleShape2D_gp1ra")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(605, 269)
+scale = Vector2(0.23242052, 0.2550793)
+texture = ExtResource("1_x8c37")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

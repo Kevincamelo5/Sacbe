@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do7uod7s0lb2t"
-path="res://.godot/imported/stalactitasacudir.jpeg-b1c85b80789812a10ec641f97c3e3f9b.ctex"
+uid="uid://bbp8fqncwelo"
+path="res://.godot/imported/estalactita1.png-85cd13cda5a748e93447748a44560c26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://global/elementos/niveles/cueva/stalactitasacudir.jpeg"
-dest_files=["res://.godot/imported/stalactitasacudir.jpeg-b1c85b80789812a10ec641f97c3e3f9b.ctex"]
+source_file="res://global/elementos/niveles/estalactita1.png"
+dest_files=["res://.godot/imported/estalactita1.png-85cd13cda5a748e93447748a44560c26.ctex"]
 
 [params]
 

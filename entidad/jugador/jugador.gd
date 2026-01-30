@@ -183,6 +183,7 @@ func _input(event: InputEvent) -> void:
 			get_tree().reload_current_scene()
 	
 	if event.is_action_pressed("cambiar_objeto"):
+		#get_tree().change_scene_to_file("res://interfaz/menu_objetos.tscn")
 		objetoActual = wrap(objetoActual+1, 0, OBJETOS.size())
 		print_debug("Arma cambiada a ", objetoActual)
 		
