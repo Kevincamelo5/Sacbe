@@ -8,29 +8,28 @@ script = ExtResource("1_kgg8p")
 
 [node name="x" type="Label" parent="."]
 anchors_preset = -1
-anchor_left = 0.094000004
-anchor_top = 0.025
-anchor_right = 0.116000004
-anchor_bottom = 0.046000004
-offset_left = -0.288002
-offset_top = -0.20000076
-offset_right = 0.36799622
-offset_bottom = 9.191998
+anchor_left = 0.052083332
+anchor_top = 0.023148147
+anchor_right = 0.20833333
+anchor_bottom = 0.058641974
 theme_override_fonts/font = ExtResource("1_uj757")
-text = "x "
+theme_override_font_sizes/font_size = 20
+text = "Monedas obtenidas:"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="contador_monedas" type="Label" parent="."]
 anchors_preset = -1
-anchor_left = 0.11400001
-anchor_top = 0.022000002
-anchor_right = 0.15200001
-anchor_bottom = 0.046000004
-offset_left = -0.32800293
-offset_top = -0.25600147
-offset_right = -0.104003906
-offset_bottom = 7.1919975
+anchor_left = 0.20572917
+anchor_top = 0.021604938
+anchor_right = 0.2439236
+anchor_bottom = 0.057098765
 theme_override_fonts/font = ExtResource("1_uj757")
+theme_override_font_sizes/font_size = 25
 text = "x "
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = -1

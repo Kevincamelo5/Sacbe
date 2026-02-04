@@ -18,7 +18,6 @@ const OPERADOR := "+"
 var _operador:= '+'
 var _operandos:= []
 var _respuesta_correcta := "0"
-
 #contador de correctos
 var correctos:= 0
 
@@ -63,7 +62,7 @@ func _generar_problema() -> bool:
 	_operandos = []
 	
 	#Seleccionar un tipo de problema al azar (0 a 3)
-	var tipo = randi() % 4
+	var tipo = correctos
 	
 	match tipo:
 		0: _suma_enteros()
@@ -85,8 +84,10 @@ func _suma_enteros():
 
 func _suma_decimales():
 	#generacion de decimales
-	var n1 = randf_range(1, 99) / 10.0
-	var n2 = randf_range(1, 99) / 10.0
+	var n_raw1 = randf_range(1, 99) / 10.0
+	var n1 = snapped(n_raw1, 0.01)
+	var n_raw2 = randf_range(1, 99) / 10.0
+	var n2 = snapped(n_raw2, 0.01)
 	_operandos = [n1, n2]
 	_respuesta_correcta = str(n1 + n2)
 
@@ -188,8 +189,8 @@ func _es_respuesta_correcta() -> void:
 func _aumentar_aciertos() -> int:
 	correctos += 1
 	print(correctos)
-	if correctos >= 5:
-		get_tree().change_scene_to_file("res://mapa/nivel1/nivel1_parte2.tscn")
+	if correctos >= 4:
+		get_tree().change_scene_to_file("res://mapa/enConstrucci[on.tscn")
 	return correctos
 
 func _es_respuesta_incorrecta() -> void:
