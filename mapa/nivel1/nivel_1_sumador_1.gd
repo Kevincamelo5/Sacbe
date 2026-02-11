@@ -38,12 +38,25 @@ func _crear_botones() -> void:
 	if not _contenedor_botones: 
 		push_error("Contenedor de botones no seleccionado")
 		return
+		
+	# Definimos el tamaño que queremos para todos (Ancho, Alto)
+	var tamano_boton := Vector2(100, 100)
+	# Definimos el tamaño de la letra
+	var tamano_fuente := 32
 	
 	for caracter in "1234567890":
 		if caracter.is_empty(): continue
 		
 		var btn := Button.new()
 		btn.set_text(caracter)
+		
+		# --- CONFIGURACIÓN DE TAMAÑO ---
+		btn.custom_minimum_size = tamano_boton
+		btn.add_theme_font_size_override("font_size", tamano_fuente)
+		
+		# Esto hace que el botón se estire para llenar su celda en el Grid
+		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		btn.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		
 		btn.pressed.connect(func(): colocar_caracter.emit(caracter))
 		
@@ -52,6 +65,12 @@ func _crear_botones() -> void:
 	
 	var btn_del := Button.new()
 	btn_del.set_text("DEL")
+	
+	# Aplicamos el mismo tamaño y estilo
+	btn_del.custom_minimum_size = tamano_boton
+	btn_del.add_theme_font_size_override("font_size", tamano_fuente)
+	btn_del.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	btn_del.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	
 	btn_del.pressed.connect(func(): eliminar_caracter.emit())
 	
@@ -77,7 +96,7 @@ func _actualizar_ui() -> bool:
 	_campo_operandos.text = ""
 	
 	for operando in _operandos:
-		_campo_operandos.text += (str(operando) + '\n' + _operador)
+		_campo_operandos.text += (str(operando)  + '\n' + _operador + '\n')
 	
 	_campo_operandos.text = _campo_operandos.text.left(-2)
 	

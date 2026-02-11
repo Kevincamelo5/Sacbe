@@ -70,7 +70,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="izquierda" type="VBoxContainer" parent="fondos2"]
@@ -118,6 +118,4 @@ layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="fondos2/derecha/CenterContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
 columns = 3
