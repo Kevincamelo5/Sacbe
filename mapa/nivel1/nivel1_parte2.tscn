@@ -139,32 +139,12 @@ shape = SubResource("RectangleShape2D_at5ch")
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="estalactita" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(-656, -578)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita2" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(-564, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
 [node name="estalactita3" parent="Node2D" instance=ExtResource("7_at5ch")]
 position = Vector2(-475, -576.00006)
 scale = Vector2(0.35116348, 0.33211344)
 
-[node name="estalactita4" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(-376.99997, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
 [node name="estalactita5" parent="Node2D" instance=ExtResource("7_at5ch")]
 position = Vector2(-285.99997, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita6" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(-202, -576)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita7" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(-107.99998, -576)
 scale = Vector2(0.35116348, 0.33211344)
 
 [node name="estalactita8" parent="Node2D" instance=ExtResource("7_at5ch")]
@@ -175,16 +155,8 @@ scale = Vector2(0.35116348, 0.33211344)
 position = Vector2(72.00001, -574.00006)
 scale = Vector2(0.35116348, 0.33211344)
 
-[node name="estalactita10" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(175.00002, -576)
-scale = Vector2(0.35116348, 0.33211344)
-
 [node name="estalactita11" parent="Node2D" instance=ExtResource("7_at5ch")]
 position = Vector2(282, -574)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita12" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(387, -578.00006)
 scale = Vector2(0.35116348, 0.33211344)
 
 [node name="estalactita13" parent="Node2D" instance=ExtResource("7_at5ch")]
@@ -195,24 +167,12 @@ scale = Vector2(0.35116348, 0.33211344)
 position = Vector2(589, -574.00006)
 scale = Vector2(0.35116348, 0.33211344)
 
-[node name="estalactita15" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(694, -574)
-scale = Vector2(0.35116348, 0.33211344)
-
 [node name="estalactita16" parent="Node2D" instance=ExtResource("7_at5ch")]
 position = Vector2(793, -574.00006)
 scale = Vector2(0.35116348, 0.33211344)
 
-[node name="estalactita17" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(895.99994, -574)
-scale = Vector2(0.35116348, 0.33211344)
-
 [node name="estalactita18" parent="Node2D" instance=ExtResource("7_at5ch")]
 position = Vector2(991, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita19" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(1090, -576)
 scale = Vector2(0.35116348, 0.33211344)
 
 [node name="estalactita20" parent="Node2D" instance=ExtResource("7_at5ch")]
@@ -223,20 +183,12 @@ scale = Vector2(0.35116348, 0.33211344)
 position = Vector2(1288.9999, -572)
 scale = Vector2(0.35116348, 0.33211344)
 
-[node name="estalactita22" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(1394, -578)
-scale = Vector2(0.35116348, 0.33211344)
-
 [node name="estalactita23" parent="Node2D" instance=ExtResource("7_at5ch")]
 position = Vector2(1486, -574.00006)
 scale = Vector2(0.35116348, 0.33211344)
 
 [node name="estalactita24" parent="Node2D" instance=ExtResource("7_at5ch")]
 position = Vector2(1569.9999, -576)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita25" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(1668.9999, -576)
 scale = Vector2(0.35116348, 0.33211344)
 
 [node name="estalactita26" parent="Node2D" instance=ExtResource("7_at5ch")]
@@ -251,10 +203,6 @@ scale = Vector2(0.35116348, 0.33211344)
 position = Vector2(1974.9999, -578)
 scale = Vector2(0.35116348, 0.33211344)
 
-[node name="estalactita29" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(2067, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
 [node name="estalactita30" parent="Node2D" instance=ExtResource("7_at5ch")]
 position = Vector2(2166, -574)
 scale = Vector2(0.35116348, 0.33211344)
@@ -263,24 +211,12 @@ scale = Vector2(0.35116348, 0.33211344)
 position = Vector2(2271, -576.00006)
 scale = Vector2(0.35116348, 0.33211344)
 
-[node name="estalactita32" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(2369.9998, -576.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
 [node name="estalactita33" parent="Node2D" instance=ExtResource("7_at5ch")]
 position = Vector2(2465, -576.00006)
 scale = Vector2(0.35116348, 0.33211344)
 
-[node name="estalactita34" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(2553, -580.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
 [node name="estalactita35" parent="Node2D" instance=ExtResource("7_at5ch")]
 position = Vector2(2553, -580.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita36" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(2652, -580)
 scale = Vector2(0.35116348, 0.33211344)
 
 [node name="estalactita37" parent="Node2D" instance=ExtResource("7_at5ch")]
@@ -293,10 +229,6 @@ scale = Vector2(0.35116348, 0.33211344)
 
 [node name="estalactita39" parent="Node2D" instance=ExtResource("7_at5ch")]
 position = Vector2(2959, -574)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita40" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(3058, -572.00006)
 scale = Vector2(0.35116348, 0.33211344)
 
 [node name="estalactita41" parent="Node2D" instance=ExtResource("7_at5ch")]
@@ -313,10 +245,6 @@ scale = Vector2(0.35116348, 0.33211344)
 
 [node name="estalactita44" parent="Node2D" instance=ExtResource("7_at5ch")]
 position = Vector2(3420.9998, -574)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita45" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(3521.9998, -576.00006)
 scale = Vector2(0.35116348, 0.33211344)
 
 [node name="estalactita46" parent="Node2D" instance=ExtResource("7_at5ch")]
