@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2t002yqc4aif"]
+
+[ext_resource type="Script" uid="uid://clqjdcyxo31gm" path="res://interfaz/pantalla_carga.gd" id="1_l5hk2"]
+[ext_resource type="Texture2D" uid="uid://bf6xg4fq6pu7x" path="res://global/textura/imagen_principal.jpg" id="2_tao07"]
+
+[node name="carga" type="CanvasLayer"]
+script = ExtResource("1_l5hk2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_top = -0.06404321
+anchor_right = 1.0
+anchor_bottom = 1.0640432
+offset_top = 41.5
+offset_bottom = -41.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tao07")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
