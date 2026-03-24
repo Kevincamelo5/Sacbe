@@ -1,16 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://eb0oi31vn8rt"]
+[gd_scene load_steps=25 format=3 uid="uid://eb0oi31vn8rt"]
 
 [ext_resource type="Shader" uid="uid://cooprqs2pjbqy" path="res://global/shader/reemplazar.gdshader" id="1_kfojk"]
 [ext_resource type="Script" uid="uid://dnprpyuwykhn5" path="res://mapa/objetos/monedas.gd" id="2_jgftk"]
 [ext_resource type="Texture2D" uid="uid://beboyb012tlc5" path="res://icon.svg" id="2_ng5om"]
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidad/jugador/jugador.tscn" id="3_uooar"]
 [ext_resource type="PackedScene" uid="uid://driv6f3ve55gi" path="res://global/Hurtbox.tscn" id="4_ng5om"]
-[ext_resource type="PackedScene" uid="uid://d38wh3lhl8s2c" path="res://mapa/Menu/menu_pausa.tscn" id="5_uooar"]
+[ext_resource type="PackedScene" uid="uid://d38wh3lhl8s2c" path="res://menu_pausa.tscn" id="5_uooar"]
 [ext_resource type="PackedScene" uid="uid://c3k3qjmhw06ff" path="res://interfaz/contador_monedas.tscn" id="5_yebk7"]
-[ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/controles.tscn" id="6_c2dsd"]
+[ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://mapa/controles.tscn" id="6_c2dsd"]
 [ext_resource type="Texture2D" uid="uid://b2k8qyrbxroq1" path="res://global/elementos/personaje/Alux/(256x256) Alux frente.png" id="7_n72a3"]
-[ext_resource type="Script" uid="uid://cgno3ix56romu" path="res://mapa/objetos/altar.gd" id="7_rnd3v"]
+[ext_resource type="Script" uid="uid://cgno3ix56romu" path="res://mapa/altar.gd" id="7_rnd3v"]
 [ext_resource type="Script" uid="uid://cxbxkyb4hi7of" path="res://mapa/objetos/vacio.gd" id="10_me0id"]
+[ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/contador_vidas.tscn" id="11_y4woo"]
 [ext_resource type="Script" uid="uid://bpvp7k3nj73yd" path="res://mapa/game_manager.gd" id="12_25atv"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7b0a2"]
@@ -159,6 +160,8 @@ script = ExtResource("10_me0id")
 [node name="vacio" type="CollisionShape2D" parent="vacio"]
 position = Vector2(566.5, 530)
 shape = SubResource("RectangleShape2D_jgftk")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("11_y4woo")]
 
 [node name="Contador_Moneda" parent="." instance=ExtResource("5_yebk7")]
 

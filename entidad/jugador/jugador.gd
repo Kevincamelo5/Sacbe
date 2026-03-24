@@ -194,9 +194,9 @@ func _input(event: InputEvent) -> void:
 
 #perder vidas
 func _lose_lives() -> void:
-	vida-=1
-	vida_cambiada.emit(vida)
-	print("Vidas restantes: ", vida)
-	
+	var game_manager = get_node("%GameManager")
+	if game_manager:
+		game_manager.disminuir_vida()
+		
 	if vida <=0:
 		get_tree().call_deferred("reload_current_scene")

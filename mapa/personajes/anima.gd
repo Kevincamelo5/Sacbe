@@ -18,7 +18,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == player_node:
-		get_tree().call_deferred("reload_current_scene")
+		if body.has_method("_lose_lives"):
+			body._lose_lives()
 	if body.get_collision_layer_value(3):
 		recibir_daño()
 

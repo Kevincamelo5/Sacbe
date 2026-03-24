@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 # Asegúrate de arrastrar tu nodo Label aquí desde la jerarquía, o usar el nombre correcto
 @onready var texto_vidas: Label = $TextoVidas 
