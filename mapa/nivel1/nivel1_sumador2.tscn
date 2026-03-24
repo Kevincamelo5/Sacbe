@@ -97,6 +97,7 @@ layout_mode = 2
 [node name="BotonEnviar" type="Button" parent="fondos2/VBoxContainer/MarginContainer/CenterContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dwgox")
+theme_override_font_sizes/font_size = 26
 text = "Enviar"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="fondos2"]

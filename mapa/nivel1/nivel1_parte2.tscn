@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://daiqw1cnst2nc"]
+[gd_scene load_steps=19 format=3 uid="uid://daiqw1cnst2nc"]
 
 [ext_resource type="Texture2D" uid="uid://bf3mknjihaxd6" path="res://global/elementos/niveles/cueva/fondoCueva2remplazar.png" id="1_2odhi"]
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidad/jugador/jugador.tscn" id="2_450ay"]
-[ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/controles.tscn" id="3_450ay"]
+[ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://mapa/controles.tscn" id="3_450ay"]
 [ext_resource type="Texture2D" uid="uid://bns87gymx0fs6" path="res://global/elementos/niveles/cueva/cuerda.png" id="4_8vegg"]
 [ext_resource type="Script" uid="uid://cyyvpq7nhqmgd" path="res://mapa/nivel1/cuerda.gd" id="4_cbddg"]
 [ext_resource type="Script" uid="uid://d1mt1i8cu73yy" path="res://mapa/nivel1/vacio.gd" id="6_1wdpe"]
 [ext_resource type="PackedScene" uid="uid://bch1jv7ob4qa8" path="res://entidad/DItens/estalactita.tscn" id="7_at5ch"]
+[ext_resource type="Script" uid="uid://b6oh18grdhan5" path="res://entidad/jugador/jugador.gd" id="8_0ktwx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_450ay"]
 size = Vector2(1096, 79.05835)
@@ -266,6 +267,10 @@ scale = Vector2(0.35116348, 0.33211344)
 [node name="estalactita50" parent="Node2D" instance=ExtResource("7_at5ch")]
 position = Vector2(3998.9998, -574.00006)
 scale = Vector2(0.35116348, 0.33211344)
+
+[node name="Jugador2" type="CharacterBody2D" parent="."]
+script = ExtResource("8_0ktwx")
+metadata/_custom_type_script = "uid://b6oh18grdhan5"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="vacio" to="vacio" method="_on_body_entered"]

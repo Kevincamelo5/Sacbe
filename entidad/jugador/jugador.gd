@@ -1,12 +1,16 @@
 extends CharacterBody2D
 class_name Jugador
 
+signal vida_cambiada(vidas_actuales)
+
 @onready var sprite = $Sprite2D
 @onready var anim = $Sprite2D/AnimationPlayer
+var vida: int = 5
 
 func _ready() -> void:
 	if hayGravedad:
 		velocity.y = 0
+	call_deferred("emit_signal","vida_cambiada",vida)
 
 func _physics_process(delta: float) -> void:
 	_actualizar_temporizadores_salto(delta)
@@ -187,3 +191,12 @@ func _input(event: InputEvent) -> void:
 		objetoActual = wrap(objetoActual+1, 0, OBJETOS.size())
 		print_debug("Arma cambiada a ", objetoActual)
 		
+
+#perder vidas
+func _lose_lives() -> void:
+	vida-=1
+	vida_cambiada.emit(vida)
+	print("Vidas restantes: ", vida)
+	
+	if vida <=0:
+		get_tree().call_deferred("reload_current_scene")

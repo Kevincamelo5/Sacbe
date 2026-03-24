@@ -28,7 +28,7 @@ func _reiniciar_estalactita() -> void:
 	timer.start()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Jugador":
+	if body.get_collision_layer_value(2):
 		# Lógica de daño
 		if body.has_method("perder_vida"):
 			body.perder_vida()
