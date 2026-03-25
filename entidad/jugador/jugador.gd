@@ -47,9 +47,9 @@ func _movimiento_horizontal() -> void:
 	direccion.x = Input.get_axis("izquierda", "derecha")
 	
 	if direccion.x > 0:
-		$AnimatedSprite2D.flip_h = false
+		sprite.flip_h = false
 	elif direccion.x < 0:
-		$AnimatedSprite2D.flip_h = true
+		sprite.flip_h = true
 	
 	velocity.x = direccion.x * _aceleracion
 
