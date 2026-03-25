@@ -9,9 +9,12 @@ script = ExtResource("1_qi7j7")
 [node name="TextoVidas" type="Label" parent="."]
 anchors_preset = -1
 anchor_left = 0.11631945
-anchor_top = 0.11111111
-anchor_right = 0.15104167
-anchor_bottom = 0.14660494
+anchor_top = 0.10339506
+anchor_right = 0.1345486
+anchor_bottom = 0.1388889
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="contador_vidas" type="Label" parent="."]
