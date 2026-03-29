@@ -1,1 +1,1 @@
-extends VideoStreamPlayer
+xtends VideoStreamPlayer

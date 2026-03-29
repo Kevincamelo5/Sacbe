@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://bw8ubk8v43lho"]
+
+[ext_resource type="Script" uid="uid://brcdsuq38nok0" path="res://interfaz/hud/controles.gd" id="1_4hprl"]
+[ext_resource type="Texture2D" uid="uid://b74aptb743qcb" path="res://activos/arte/botones/arrow-27066_1920.png" id="1_bdtd0"]
+[ext_resource type="Texture2D" uid="uid://vgfvdehrf3e4" path="res://activos/arte/botones/arrow-left-27066_1920.png" id="2_4hprl"]
+[ext_resource type="Texture2D" uid="uid://blgctreic330j" path="res://activos/arte/botones/arrow-up-27066_1920.png" id="3_82l32"]
+[ext_resource type="Texture2D" uid="uid://b7exxeip5e0o" path="res://activos/arte/botones/arrow-down-27066_1920.png" id="4_06y37"]
+[ext_resource type="Texture2D" uid="uid://ddapt1xkgg73b" path="res://activos/arte/botones/pause-button-2148106_1280.png" id="5_totj0"]
+[ext_resource type="Texture2D" uid="uid://d3lb10g5lqvrv" path="res://activos/arte/botones/arrow-31177_1920.png" id="6_2mbvt"]
+[ext_resource type="Texture2D" uid="uid://qeevfbm1li0g" path="res://activos/arte/botones/bang-148261_1920.png" id="7_7aew7"]
+
+[node name="controles" type="CanvasLayer"]
+script = ExtResource("1_4hprl")
+
+[node name="Izquierda" type="TouchScreenButton" parent="."]
+position = Vector2(12, 379)
+scale = Vector2(0.07972903, 0.077083334)
+texture_normal = ExtResource("1_bdtd0")
+action = "izquierda"
+
+[node name="Derecha" type="TouchScreenButton" parent="."]
+position = Vector2(264, 361)
+scale = Vector2(0.07972903, 0.077083334)
+texture_normal = ExtResource("2_4hprl")
+action = "derecha"
+
+[node name="Saltar" type="TouchScreenButton" parent="."]
+position = Vector2(133, 235)
+scale = Vector2(0.07972903, 0.0771235)
+texture_normal = ExtResource("3_82l32")
+action = "saltar"
+
+[node name="Agacharse" type="TouchScreenButton" parent="."]
+position = Vector2(149, 496)
+scale = Vector2(0.07972903, 0.077083334)
+texture_normal = ExtResource("4_06y37")
+action = "saltar"
+
+[node name="Pausa" type="TouchScreenButton" parent="."]
+position = Vector2(1039, 28.000002)
+scale = Vector2(0.16879156, 0.15401298)
+texture_normal = ExtResource("5_totj0")
+action = "pausa"
+
+[node name="CambiarObjeto" type="TouchScreenButton" parent="."]
+position = Vector2(995.99994, 242.00002)
+scale = Vector2(0.07972903, 0.077083334)
+texture_normal = ExtResource("6_2mbvt")
+action = "cambiar_objeto"
+
+[node name="UsarObjeto" type="TouchScreenButton" parent="."]
+position = Vector2(809, 412)
+scale = Vector2(0.16097902, 0.16957764)
+texture_normal = ExtResource("7_7aew7")
+action = "usar_objeto"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.8559028
+anchor_top = 0.38271606
+anchor_right = 0.9800347
+anchor_bottom = 0.59876543
+grow_horizontal = 0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Izquierda" to="." method="_on_izquierda_pressed"]
+[connection signal="released" from="Izquierda" to="." method="_on_izquierda_released"]
+[connection signal="pressed" from="Derecha" to="." method="_on_derecha_pressed"]
+[connection signal="released" from="Derecha" to="." method="_on_derecha_released"]
+[connection signal="pressed" from="Saltar" to="." method="_on_saltar_pressed"]
+[connection signal="released" from="Saltar" to="." method="_on_saltar_released"]
+[connection signal="pressed" from="Agacharse" to="." method="_on_agacharse_pressed"]
+[connection signal="released" from="Agacharse" to="." method="_on_agacharse_released"]
+[connection signal="pressed" from="Pausa" to="." method="_on_pausa_pressed"]
+[connection signal="released" from="Pausa" to="." method="_on_pausa_released"]
+[connection signal="pressed" from="CambiarObjeto" to="." method="_on_cambiar_objeto_pressed"]
+[connection signal="released" from="CambiarObjeto" to="." method="_on_cambiar_objeto_released"]
+[connection signal="pressed" from="UsarObjeto" to="." method="_on_usar_objeto_pressed"]
+[connection signal="released" from="UsarObjeto" to="." method="_on_usar_objeto_released"]

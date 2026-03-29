@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj20pti0is7s5"]
+
+[ext_resource type="Script" uid="uid://c0a1xwfv3g6xv" path="res://interfaz/pantallas/en_construccion.gd" id="1_oommh"]
+[ext_resource type="Texture2D" uid="uid://0sqdfngoslei" path="res://activos/arte/nivelEnConstruccion.jpg" id="1_pi3k2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oommh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pi3k2")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4296875
+anchor_top = 0.055555556
+anchor_right = 0.5373264
+anchor_bottom = 0.10339506
+text = "Menú Principal"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

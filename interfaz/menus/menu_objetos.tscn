@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd85dj2htnytf"]
+
+[ext_resource type="Script" uid="uid://dewnkd2qjhcxk" path="res://interfaz/menus/menu_objetos.gd" id="1_vtdxt"]
+[ext_resource type="Texture2D" uid="uid://44xgvscwmnau" path="res://activos/arte/(256) Lanza.png" id="1_wopvq"]
+[ext_resource type="Texture2D" uid="uid://dpyicnkndmbk6" path="res://activos/arte/(256) Escudo.png" id="2_vtdxt"]
+
+[node name="MenuObjetos" type="CanvasLayer"]
+script = ExtResource("1_vtdxt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+y_sort_enabled = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="hacha" type="TouchScreenButton" parent="HBoxContainer"]
+position = Vector2(745, 223)
+
+[node name="lanza" type="TouchScreenButton" parent="HBoxContainer"]
+position = Vector2(382, 100)
+texture_normal = ExtResource("1_wopvq")
+
+[node name="cuchillo" type="TouchScreenButton" parent="HBoxContainer"]
+position = Vector2(978, 232)
+
+[node name="macuahuitle" type="TouchScreenButton" parent="HBoxContainer"]
+
+[node name="flauta" type="TouchScreenButton" parent="HBoxContainer"]
+position = Vector2(596, 416)
+
+[node name="escudo" type="TouchScreenButton" parent="HBoxContainer"]
+position = Vector2(19, 103)
+texture_normal = ExtResource("2_vtdxt")
+
+[connection signal="pressed" from="HBoxContainer/hacha" to="." method="_on_hacha_pressed"]
+[connection signal="pressed" from="HBoxContainer/lanza" to="." method="_on_lanza_pressed"]
+[connection signal="pressed" from="HBoxContainer/cuchillo" to="." method="_on_cuchillo_pressed"]
+[connection signal="pressed" from="HBoxContainer/macuahuitle" to="." method="_on_macuahuitle_pressed"]
+[connection signal="pressed" from="HBoxContainer/flauta" to="." method="_on_flauta_pressed"]
+[connection signal="pressed" from="HBoxContainer/escudo" to="." method="_on_escudo_pressed"]

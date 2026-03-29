@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://tjghr8hq2r40"]
+
+[ext_resource type="Script" uid="uid://bdo5m76qf8k7i" path="res://niveles/Menu/menu_principal.gd" id="1_4ylty"]
+[ext_resource type="Texture2D" uid="uid://ggdjp1byjvlx" path="res://activos/arte/menú_principal.png" id="2_pexi0"]
+[ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="3_cdm0c"]
+[ext_resource type="AudioStream" uid="uid://dkr6l5dk6ovfi" path="res://activos/audio/musicaEntrada2.mp3" id="3_xayrg"]
+[ext_resource type="AudioStream" uid="uid://sddmeoj6glwh" path="res://activos/audio/click menú.wav" id="4_yn8vj"]
+[ext_resource type="Texture2D" uid="uid://dnn8c6bdjyfnw" path="res://activos/arte/(512) Quitzal masculino v2 frentre.png" id="5_xayrg"]
+
+[node name="menu_principal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ylty")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pexi0")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+light_mask = 0
+layout_mode = 0
+offset_left = 595.0
+offset_top = 133.0
+offset_right = 793.0
+offset_bottom = 304.0
+scale = Vector2(1.24, 2.0400004)
+
+[node name="play" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cdm0c")
+text = "Iniciar partida"
+
+[node name="cargar_partida" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cdm0c")
+text = "Cargar partida guardada"
+
+[node name="opciones" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cdm0c")
+text = "Ayuda
+"
+
+[node name="creditos" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cdm0c")
+text = "Créditos"
+
+[node name="salir" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cdm0c")
+text = "Salir"
+
+[node name="Musica de fondo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xayrg")
+autoplay = true
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yn8vj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.20987654
+anchor_right = 0.44444445
+anchor_bottom = 1.0
+offset_top = 472.0
+offset_right = -472.0
+grow_vertical = 0
+texture = ExtResource("5_xayrg")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/cargar_partida" to="." method="_on_cargar_partida_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/creditos" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/salir" to="." method="_on_salir_pressed"]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://byjivyj4012bj"]
+
+[ext_resource type="Script" uid="uid://dne4ufmpbqm1p" path="res://entidades/enemigos/anima.gd" id="1_xpqcx"]
+[ext_resource type="Texture2D" uid="uid://b7ytp13iv03or" path="res://activos/arte/proto_ghostIce_all.png" id="2_bq7ep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpswq"]
+size = Vector2(108, 116)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cya0i"]
+radius = 28.0
+height = 72.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1y3bi"]
+radius = 69.260376
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cya0i"]
+radius = 468.46558
+
+[node name="anima" type="CharacterBody2D"]
+script = ExtResource("1_xpqcx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(330, 240)
+shape = SubResource("RectangleShape2D_xpswq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 8
+texture_filter = 1
+position = Vector2(326.28732, 240.5)
+scale = Vector2(2.497868, 3.4242432)
+texture = ExtResource("2_bq7ep")
+region_enabled = true
+region_rect = Rect2(-2, 63.5, 35, 33)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(332, 243)
+shape = SubResource("CapsuleShape2D_cya0i")
+
+[node name="enter_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enter_area"]
+position = Vector2(326, 244)
+shape = SubResource("CircleShape2D_1y3bi")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+light_mask = 8
+visibility_layer = 7
+position = Vector2(330, 246)
+shape = SubResource("CircleShape2D_cya0i")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="enter_area" to="." method="_on_enter_area_body_entered"]

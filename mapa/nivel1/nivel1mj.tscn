@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://lauyhdfrbua0"]
-
-[ext_resource type="Script" uid="uid://gdyvg4opyw75" path="res://mapa/nivel1/nivel_1_parte_2.gd" id="1_sbjy6"]
-
-[node name="CanvasLayer" type="CanvasLayer"]
-script = ExtResource("1_sbjy6")
