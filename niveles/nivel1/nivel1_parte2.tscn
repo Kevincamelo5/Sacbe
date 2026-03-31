@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="2_450ay"]
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="3_450ay"]
 [ext_resource type="Texture2D" uid="uid://bns87gymx0fs6" path="res://activos/arte/cuerda.png" id="4_8vegg"]
-[ext_resource type="Script" uid="uid://cyyvpq7nhqmgd" path="res://niveles/nivel1/cuerda.gd" id="4_cbddg"]
-[ext_resource type="Script" uid="uid://d1mt1i8cu73yy" path="res://niveles/nivel1/vacio.gd" id="6_1wdpe"]
+[ext_resource type="Script" uid="uid://cyyvpq7nhqmgd" path="res://objetos/interactuables/cuerda.gd" id="4_cbddg"]
+[ext_resource type="Script" uid="uid://d1mt1i8cu73yy" path="res://objetos/interactuables/vacio.gd" id="6_1wdpe"]
 [ext_resource type="PackedScene" uid="uid://bch1jv7ob4qa8" path="res://entidades/DItens/estalactita.tscn" id="7_at5ch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_450ay"]

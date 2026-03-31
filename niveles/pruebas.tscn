@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://eb0oi31vn8rt"]
 
 [ext_resource type="Shader" uid="uid://cooprqs2pjbqy" path="res://activos/reemplazar.gdshader" id="1_kfojk"]
-[ext_resource type="Script" uid="uid://dnprpyuwykhn5" path="res://niveles/objetos/monedas.gd" id="2_jgftk"]
+[ext_resource type="Script" uid="uid://dnprpyuwykhn5" path="res://objetos/coleccionables/monedas.gd" id="2_jgftk"]
 [ext_resource type="Texture2D" uid="uid://beboyb012tlc5" path="res://icon.svg" id="2_ng5om"]
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="3_uooar"]
 [ext_resource type="PackedScene" uid="uid://driv6f3ve55gi" path="res://globales/Hurtbox.tscn" id="4_ng5om"]
@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c3k3qjmhw06ff" path="res://interfaz/hud/contador_monedas.tscn" id="5_yebk7"]
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="6_c2dsd"]
 [ext_resource type="Texture2D" uid="uid://b2k8qyrbxroq1" path="res://activos/arte/(256x256) Alux frente.png" id="7_n72a3"]
-[ext_resource type="Script" uid="uid://cgno3ix56romu" path="res://objetos/altar.gd" id="7_rnd3v"]
-[ext_resource type="Script" uid="uid://cxbxkyb4hi7of" path="res://niveles/objetos/vacio.gd" id="10_me0id"]
+[ext_resource type="Script" uid="uid://cgno3ix56romu" path="res://objetos/interactuables/altar.gd" id="7_rnd3v"]
+[ext_resource type="Script" uid="uid://cxbxkyb4hi7of" path="res://objetos/vacio.gd" id="10_me0id"]
 [ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/hud/contador_vidas.tscn" id="11_y4woo"]
 [ext_resource type="Script" uid="uid://bpvp7k3nj73yd" path="res://globales/game_manager.gd" id="12_25atv"]
 
@@ -142,7 +142,7 @@ shape = SubResource("RectangleShape2D_ng5om")
 collision_layer = 64
 collision_mask = 6
 script = ExtResource("7_rnd3v")
-next_scene_path = "res://mapa/nivel1/nivel_1_sumador_1.tscn"
+next_scene_path = "res://niveles/nivel1/nive1_parte1.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="altar"]
 position = Vector2(1560, 336)
