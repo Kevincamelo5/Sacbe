@@ -4,7 +4,7 @@ extends  Control
 func _on_play_pressed() -> void:
 	$"Musica de fondo".stop()
 	$"Click".play()
-	get_tree().change_scene_to_file("res://Cinematica inicial.tscn")
+	get_tree().change_scene_to_file("res://interfaz/pantallas/Cinematica inicial.tscn")
 	pass # Replace with function body.
 
 
@@ -17,7 +17,7 @@ func _on_opciones_pressed() -> void:
 func _on_creditos_pressed() -> void:
 	$"Musica de fondo".stop()
 	$"Click".play()
-	get_tree().change_scene_to_file("res://creditos.tscn")
+	get_tree().change_scene_to_file("res://interfaz/pantallas/creditos.tscn")
 	pass # Replace with function body.
 
 
@@ -30,5 +30,5 @@ func _on_salir_pressed() -> void:
 
 func _on_cargar_partida_pressed() -> void:
 	$"Musica de fondo".stop()
-	get_tree().change_scene_to_file("res://mapa/pruebas.tscn")
+	get_tree().change_scene_to_file("res://niveles/pruebas.tscn")
 	pass # Replace with function body.

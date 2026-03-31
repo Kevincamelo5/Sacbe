@@ -1,1 +1,1 @@
-	xtends VideoStreamPlayer
+extends VideoStreamPlayer
