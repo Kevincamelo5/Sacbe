@@ -26,8 +26,8 @@ func skip_cinematic():
 	cambiar_a_juego()
 
 func cambiar_a_juego():
-	get_tree().change_scene_to_file("res://mapa/pruebas.tscn")
+	get_tree().change_scene_to_file("res://niveles/pruebas.tscn")
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://mapa/pruebas.tscn")
+	get_tree().change_scene_to_file("res://niveles/pruebas.tscn")

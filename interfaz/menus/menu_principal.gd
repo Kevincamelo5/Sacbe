@@ -1,6 +1,6 @@
 extends  Control
 
-
+# inicio directo de pantalla
 func _on_play_pressed() -> void:
 	$"Musica de fondo".stop()
 	$"Click".play()
@@ -13,14 +13,14 @@ func _on_opciones_pressed() -> void:
 	$"Click".play()
 	pass # Replace with function body.
 
-
+# visualización de los creditos para todos los trabajadores
 func _on_creditos_pressed() -> void:
 	$"Musica de fondo".stop()
 	$"Click".play()
 	get_tree().change_scene_to_file("res://interfaz/pantallas/creditos.tscn")
 	pass # Replace with function body.
 
-
+# salida del juego
 func _on_salir_pressed() -> void:
 	$"Musica de fondo".stop()
 	$Salir.play()

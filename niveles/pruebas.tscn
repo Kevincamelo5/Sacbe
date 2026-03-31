@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://beboyb012tlc5" path="res://icon.svg" id="2_ng5om"]
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="3_uooar"]
 [ext_resource type="PackedScene" uid="uid://driv6f3ve55gi" path="res://globales/Hurtbox.tscn" id="4_ng5om"]
-[ext_resource type="PackedScene" uid="uid://d38wh3lhl8s2c" path="res://niveles/Menu/menu_pausa.tscn" id="5_uooar"]
+[ext_resource type="PackedScene" uid="uid://d38wh3lhl8s2c" path="res://interfaz/menus/menu_pausa.tscn" id="5_uooar"]
 [ext_resource type="PackedScene" uid="uid://c3k3qjmhw06ff" path="res://interfaz/hud/contador_monedas.tscn" id="5_yebk7"]
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="6_c2dsd"]
 [ext_resource type="Texture2D" uid="uid://b2k8qyrbxroq1" path="res://activos/arte/(256x256) Alux frente.png" id="7_n72a3"]

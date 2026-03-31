@@ -1,16 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://d38wh3lhl8s2c"]
+[gd_scene load_steps=3 format=3 uid="uid://d38wh3lhl8s2c"]
+
+[ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="1_jd2x8"]
 
 [sub_resource type="GDScript" id="GDScript_db4q2"]
 script/source = "extends CanvasLayer
 
 func _ready():
 	visible = false #cuadro oculto al principio
+	# Es mejor configurar esto en el Inspector, pero por código sería:
+	process_mode = Node.PROCESS_MODE_ALWAYS 
 	
 func mostrar():
-	visible = true
-	process_mode = Node.PROCESS_MODE_ALWAYS
-	get_tree().paused = true #pausa el juego
-	# Permiso de responder a los nodos UI
+	var tree = get_tree()
+	if tree:
+		visible = true
+		tree.paused = true
+	else:
+		print(\"Error: El SceneTree no está disponible todavía.\")
 	
 #ocultar el cuadro y continuar
 func _on_continuar_pressed():
@@ -25,13 +31,12 @@ func _on_guardar_y_salir_pressed() -> void:
 	pass # Replace with function body.
 
 func _input(event: InputEvent) -> void:
-	if event.is_action(\"pausa\"):
+	if event.is_action_pressed(\"pausa\"):
 			mostrar()
 
 
 func _on_reinciar_pressed() -> void:
-	
-	pass # Replace with function body.
+	print(\"reiniciando...\")
 "
 
 [node name="MenuPausa" type="CanvasLayer"]
@@ -62,18 +67,20 @@ grow_vertical = 2
 
 [node name="continuar" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jd2x8")
 text = "Continuar"
 
 [node name="reinciar" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jd2x8")
 text = "Reiniciar"
-metadata/_edit_group_ = true
 
 [node name="guardar y salir" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jd2x8")
 text = "Regresar Menú Principal"
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/continuar" to="." method="_on_continuar_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/reinciar" to="." method="_on_reinciar_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/reinciar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/reinciar" to="." method="_on_reinciar_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/guardar y salir" to="." method="_on_guardar_y_salir_pressed"]
