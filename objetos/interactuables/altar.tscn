@@ -1,13 +1,31 @@
-[gd_scene format=3 uid="uid://cst7pui2fssf2"]
+[gd_scene format=3 uid="uid://cno7e1ivf3yc5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u155x"]
+[ext_resource type="Texture2D" uid="uid://ypuv6ftf66fp" path="res://niveles/nivel1/(256x256) Alux frente.png" id="1_bviys"]
+[ext_resource type="Script" uid="uid://r25oiaso1nqv" path="res://objetos/interactuables/altar.gd" id="1_tn4cc"]
 
-[node name="Node2D" type="Node2D" unique_id=1175491682]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3g2fe"]
+size = Vector2(20.434782, 24.170506)
+
+[node name="Altar" type="Node2D" unique_id=708447874]
+script = ExtResource("1_tn4cc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1977714824]
 light_mask = 32
 visibility_layer = 6
+collision_layer = 48
+collision_mask = 6
 
-[node name="Area2D" type="Area2D" parent="." unique_id=801817985]
-metadata/_edit_group_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=224649025]
+light_mask = 33
+visibility_layer = 6
+position = Vector2(0.9999986, 18.099998)
+scale = Vector2(4.6, 8.68)
+shape = SubResource("RectangleShape2D_3g2fe")
+debug_color = Color(0.52655107, 0.57173777, 0.08348694, 0.41960785)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1909528640]
-shape = SubResource("RectangleShape2D_u155x")
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1758738005]
+light_mask = 33
+visibility_layer = 6
+texture = ExtResource("1_bviys")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

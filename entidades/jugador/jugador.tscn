@@ -14,7 +14,7 @@ height = 110.0
 
 [node name="Jugador" type="CharacterBody2D" unique_id=594628309]
 collision_layer = 6
-collision_mask = 105
+collision_mask = 121
 script = ExtResource("1_bgsqy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2105921725]
