@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://caokkywjfo4gv"]
+[gd_scene format=3 uid="uid://caokkywjfo4gv"]
 
 [ext_resource type="Script" uid="uid://b6oh18grdhan5" path="res://entidades/jugador/jugador.gd" id="1_bgsqy"]
 [ext_resource type="Texture2D" uid="uid://uy1ovh6uyxhv" path="res://activos/arte/(512) Quitzal masculino v2 frentre.png" id="2_5flym"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgsqy"]
+resource_name = "jugador"
 radius = 21.0
 height = 106.0
 
@@ -11,26 +12,28 @@ height = 106.0
 radius = 38.0
 height = 110.0
 
-[node name="Jugador" type="CharacterBody2D"]
+[node name="Jugador" type="CharacterBody2D" unique_id=594628309]
 collision_layer = 6
 collision_mask = 105
 script = ExtResource("1_bgsqy")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2105921725]
 position = Vector2(1.2950158, 2.375002)
 scale = Vector2(0.22150382, 0.24072267)
 texture = ExtResource("2_5flym")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=668100216]
 
-[node name="hurtbox" type="CollisionShape2D" parent="."]
+[node name="hurtbox2" type="CollisionShape2D" parent="." unique_id=2082370552]
 position = Vector2(2, 9)
+scale = Vector2(0.9599991, 1)
 shape = SubResource("CapsuleShape2D_bgsqy")
 
-[node name="AreaAtaque" type="Area2D" parent="."]
-position = Vector2(77, 0)
+[node name="AreaAtaque" type="Area2D" parent="." unique_id=1958222257]
+position = Vector2(67, 5)
+scale = Vector2(1.2191788, 1.2399994)
 collision_layer = 4
 collision_mask = 8
 
-[node name="hitbox" type="CollisionShape2D" parent="AreaAtaque"]
+[node name="hitbox" type="CollisionShape2D" parent="AreaAtaque" unique_id=362286580]
 shape = SubResource("CapsuleShape2D_71ocg")

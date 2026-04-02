@@ -1,18 +1,22 @@
-[gd_scene load_steps=18 format=3 uid="uid://daiqw1cnst2nc"]
+[gd_scene format=3 uid="uid://daiqw1cnst2nc"]
 
 [ext_resource type="Texture2D" uid="uid://bf3mknjihaxd6" path="res://activos/arte/fondoCueva2remplazar.png" id="1_2odhi"]
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="2_450ay"]
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="3_450ay"]
 [ext_resource type="Texture2D" uid="uid://bns87gymx0fs6" path="res://activos/arte/cuerda.png" id="4_8vegg"]
 [ext_resource type="Script" uid="uid://cyyvpq7nhqmgd" path="res://objetos/interactuables/cuerda.gd" id="4_cbddg"]
-[ext_resource type="Script" uid="uid://d1mt1i8cu73yy" path="res://objetos/interactuables/vacio.gd" id="6_1wdpe"]
-[ext_resource type="PackedScene" uid="uid://bch1jv7ob4qa8" path="res://entidades/DItens/estalactita.tscn" id="7_at5ch"]
+[ext_resource type="PackedScene" uid="uid://dgaku384lbo3k" path="res://objetos/peligrosos/vacio.tscn" id="7_kjwuy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_450ay"]
 size = Vector2(1096, 79.05835)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2odhi"]
 size = Vector2(583, 177.33319)
+
+[sub_resource type="Gradient" id="Gradient_cbddg"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1wdpe"]
+gradient = SubResource("Gradient_cbddg")
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_2odhi"]
 a = Vector2(-574, -157)
@@ -31,241 +35,96 @@ b = Vector2(68, -288)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1wdpe"]
 size = Vector2(51, 399)
 
-[sub_resource type="Gradient" id="Gradient_cbddg"]
+[node name="Node2D" type="Node2D" unique_id=632905074]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_1wdpe"]
-gradient = SubResource("Gradient_cbddg")
+[node name="Objetos" type="Node2D" parent="." unique_id=290793190]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_at5ch"]
-size = Vector2(5514.5, 23.5)
-
-[node name="Node2D" type="Node2D"]
-
-[node name="Objetos" type="Node2D" parent="."]
-
-[node name="fondo" type="Sprite2D" parent="Objetos"]
+[node name="fondo" type="Sprite2D" parent="Objetos" unique_id=741493400]
 position = Vector2(1743, -61.547752)
 scale = Vector2(5.651889, 2.5039203)
 texture = ExtResource("1_2odhi")
 
-[node name="Jugador" parent="." instance=ExtResource("2_450ay")]
+[node name="Jugador" parent="." unique_id=1203516821 instance=ExtResource("2_450ay")]
 position = Vector2(-184, -135)
 
-[node name="Camera2D" type="Camera2D" parent="Jugador"]
+[node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=929699108]
 position = Vector2(180, -133)
 scale = Vector2(0.3080219, -2.4909453)
 
-[node name="piso" type="StaticBody2D" parent="."]
+[node name="piso" type="StaticBody2D" parent="." unique_id=1471127512]
 position = Vector2(-76, -2.0000076)
 scale = Vector2(0.6997688, 1)
 collision_mask = 74
 
-[node name="piso2" type="CollisionShape2D" parent="piso"]
+[node name="piso2" type="CollisionShape2D" parent="piso" unique_id=1087188881]
 position = Vector2(843, 376.54407)
 scale = Vector2(0.9999999, 1.5293986)
 shape = SubResource("RectangleShape2D_450ay")
 
-[node name="piso 1" type="CollisionShape2D" parent="piso"]
+[node name="piso 1" type="CollisionShape2D" parent="piso" unique_id=1527279627]
 position = Vector2(-282.99997, 383.49994)
 scale = Vector2(0.99999994, 0.7500006)
 shape = SubResource("RectangleShape2D_2odhi")
 
-[node name="muro" type="CollisionShape2D" parent="piso"]
+[node name="piso 3" type="Sprite2D" parent="piso" unique_id=799006849]
+position = Vector2(845.63635, 385.99997)
+scale = Vector2(17.115028, 2.1406248)
+texture = SubResource("GradientTexture2D_1wdpe")
+
+[node name="muro" type="CollisionShape2D" parent="piso" unique_id=579371884]
 shape = SubResource("SegmentShape2D_2odhi")
 
-[node name="piso3" type="CollisionShape2D" parent="piso"]
+[node name="piso3" type="CollisionShape2D" parent="piso" unique_id=1742891380]
 position = Vector2(2735, 387.24994)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_8vegg")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
-[node name="piso4" type="CollisionShape2D" parent="piso"]
+[node name="piso 4" type="Sprite2D" parent="piso" unique_id=1711705159]
+position = Vector2(2732.8667, 387.99997)
+scale = Vector2(30.707687, 2.1406248)
+texture = SubResource("GradientTexture2D_1wdpe")
+
+[node name="piso4" type="CollisionShape2D" parent="piso" unique_id=943171440]
 position = Vector2(4973.5, 383.99994)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_cbddg")
 debug_color = Color(0, 0.6, 0.69803923, 0.9019608)
 
-[node name="muro2" type="CollisionShape2D" parent="piso"]
+[node name="piso 2" type="Sprite2D" parent="piso" unique_id=1075145513]
+position = Vector2(-282.23608, 383.49997)
+scale = Vector2(9.132481, 2.1406248)
+texture = SubResource("GradientTexture2D_1wdpe")
+
+[node name="piso 5" type="Sprite2D" parent="piso" unique_id=1701524448]
+position = Vector2(5051.6685, 385.99994)
+scale = Vector2(30.707687, 2.1406245)
+texture = SubResource("GradientTexture2D_1wdpe")
+
+[node name="muro2" type="CollisionShape2D" parent="piso" unique_id=384096811]
 position = Vector2(5808, 131)
 shape = SubResource("SegmentShape2D_450ay")
 
-[node name="controles" parent="." instance=ExtResource("3_450ay")]
+[node name="controles" parent="." unique_id=1246349502 instance=ExtResource("3_450ay")]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=524774169]
 position = Vector2(-1363.0001, -92)
 scale = Vector2(0.9200001, 1)
 script = ExtResource("4_cbddg")
 next_scene_path = "res://mapa/nivel1/nivel1_sumador2.tscn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1938446193]
 position = Vector2(5762.5, 52.5)
 shape = SubResource("RectangleShape2D_1wdpe")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=480607332]
 position = Vector2(5756, 53.499992)
 scale = Vector2(0.116210826, 0.2192383)
 texture = ExtResource("4_8vegg")
 
-[node name="Piso" type="Node2D" parent="."]
-
-[node name="piso 1" type="Sprite2D" parent="Piso"]
-position = Vector2(-273.5, 381.5)
-scale = Vector2(6.390625, 2.140625)
-texture = SubResource("GradientTexture2D_1wdpe")
-
-[node name="piso 2" type="Sprite2D" parent="Piso"]
-position = Vector2(515.74994, 384)
-scale = Vector2(11.9765625, 2.140625)
-texture = SubResource("GradientTexture2D_1wdpe")
-
-[node name="piso 3" type="Sprite2D" parent="Piso"]
-position = Vector2(1836.375, 386)
-scale = Vector2(21.488281, 2.140625)
-texture = SubResource("GradientTexture2D_1wdpe")
-
-[node name="piso 4" type="Sprite2D" parent="Piso"]
-position = Vector2(3459, 384)
-scale = Vector2(21.488281, 2.140625)
-texture = SubResource("GradientTexture2D_1wdpe")
-
-[node name="vacio" type="Area2D" parent="."]
-visibility_layer = 66
-script = ExtResource("6_1wdpe")
-
-[node name="vacio" type="CollisionShape2D" parent="vacio"]
-position = Vector2(2262, 461.75)
-shape = SubResource("RectangleShape2D_at5ch")
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="estalactita3" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(-475, -576.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita5" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(-285.99997, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita8" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(-17.999977, -578)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita9" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(72.00001, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita11" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(282, -574)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita13" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(490, -574)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita14" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(589, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita16" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(793, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita18" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(991, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita20" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(1195, -576)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita21" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(1288.9999, -572)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita23" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(1486, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita24" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(1569.9999, -576)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita26" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(1762.9998, -574)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita27" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(1866, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita28" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(1974.9999, -578)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita30" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(2166, -574)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita31" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(2271, -576.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita33" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(2465, -576.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita35" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(2553, -580.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita37" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(2758.9998, -574)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita38" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(2853.9998, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita39" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(2959, -574)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita41" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(3157, -572.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita42" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(3242.9995, -572.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita43" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(3330.9998, -570.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita44" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(3420.9998, -574)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita46" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(3616.9998, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita47" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(3713.9998, -574)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita48" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(3807.9998, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita49" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(3906.9998, -578)
-scale = Vector2(0.35116348, 0.33211344)
-
-[node name="estalactita50" parent="Node2D" instance=ExtResource("7_at5ch")]
-position = Vector2(3998.9998, -574.00006)
-scale = Vector2(0.35116348, 0.33211344)
+[node name="Vacio" parent="." unique_id=278364109 instance=ExtResource("7_kjwuy")]
+position = Vector2(1790.9999, 495)
+scale = Vector2(276.25287, -5.593966)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="vacio" to="vacio" method="_on_body_entered"]

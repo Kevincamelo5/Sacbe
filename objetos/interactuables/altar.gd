@@ -18,5 +18,6 @@ func change_scene() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	change_scene()
+	if body is Jugador:
+		change_scene()
 	pass # Replace with function body.

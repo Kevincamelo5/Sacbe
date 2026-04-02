@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="6_c2dsd"]
 [ext_resource type="Texture2D" uid="uid://b2k8qyrbxroq1" path="res://activos/arte/(256x256) Alux frente.png" id="7_n72a3"]
 [ext_resource type="Script" uid="uid://cgno3ix56romu" path="res://objetos/interactuables/altar.gd" id="7_rnd3v"]
+[ext_resource type="Script" uid="uid://cxbxkyb4hi7of" path="res://objetos/vacio.gd" id="10_me0id"]
 [ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/hud/contador_vidas.tscn" id="11_y4woo"]
 [ext_resource type="Script" uid="uid://bpvp7k3nj73yd" path="res://globales/game_manager.gd" id="12_25atv"]
-[ext_resource type="PackedScene" uid="uid://dgaku384lbo3k" path="res://objetos/peligrosos/vacio.tscn" id="12_cg0ct"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7b0a2"]
 seed = 335
@@ -41,6 +41,9 @@ radius = 29.068884
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnd3v"]
 size = Vector2(78.5, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgftk"]
+size = Vector2(3049, 20)
 
 [node name="Pruebas" type="Node2D" unique_id=130760522]
 light_mask = 32
@@ -116,13 +119,12 @@ position_smoothing_enabled = true
 [node name="MenuPausa" parent="." unique_id=728444167 instance=ExtResource("5_uooar")]
 
 [node name="altar" type="Area2D" parent="." unique_id=563109060]
-collision_layer = 66
-collision_mask = 70
+collision_layer = 64
+collision_mask = 6
 script = ExtResource("7_rnd3v")
 next_scene_path = "res://niveles/nivel1/nive1_parte1.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="altar" unique_id=10980101]
-visibility_layer = 6
 position = Vector2(1560, 336)
 shape = SubResource("RectangleShape2D_rnd3v")
 debug_color = Color(0.6121881, 0.5238849, 0.35354236, 0.41960785)
@@ -132,6 +134,13 @@ position = Vector2(1559, 336)
 scale = Vector2(0.52734375, 0.41015625)
 texture = ExtResource("7_n72a3")
 
+[node name="vacio" type="Area2D" parent="." unique_id=145103804]
+script = ExtResource("10_me0id")
+
+[node name="vacio" type="CollisionShape2D" parent="vacio" unique_id=1269887082]
+position = Vector2(566.5, 530)
+shape = SubResource("RectangleShape2D_jgftk")
+
 [node name="CanvasLayer" parent="." unique_id=226619273 instance=ExtResource("11_y4woo")]
 
 [node name="Contador_Moneda" parent="." unique_id=855606469 instance=ExtResource("5_yebk7")]
@@ -140,11 +149,8 @@ texture = ExtResource("7_n72a3")
 unique_name_in_owner = true
 script = ExtResource("12_25atv")
 
-[node name="Vacio" parent="." unique_id=278364109 instance=ExtResource("12_cg0ct")]
-position = Vector2(215, 543)
-scale = Vector2(154.89072, 3.438751)
-
 [connection signal="area_entered" from="Objetos/Monedas/Moneda" to="Objetos/Monedas" method="_on_moneda_area_entered"]
 [connection signal="body_entered" from="Objetos/Monedas/Moneda" to="Objetos/Monedas" method="_on_moneda_body_entered"]
 [connection signal="area_entered" from="altar" to="controles" method="_on_altar_area_entered"]
 [connection signal="body_entered" from="altar" to="altar" method="_on_body_entered"]
+[connection signal="area_entered" from="vacio" to="vacio" method="_on_area_entered"]

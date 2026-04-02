@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cst7pui2fssf2"]
+[gd_scene format=3 uid="uid://cst7pui2fssf2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u155x"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=1175491682]
+light_mask = 32
+visibility_layer = 6
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=801817985]
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1909528640]
 shape = SubResource("RectangleShape2D_u155x")

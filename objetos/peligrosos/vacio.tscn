@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dgaku384lbo3k"]
+
+[ext_resource type="Script" uid="uid://c18uogn437ciw" path="res://objetos/peligrosos/vacio.gd" id="1_dxnu3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep8cp"]
+
+[sub_resource type="GDScript" id="GDScript_elujd"]
+script/source = "extends CollisionShape2D
+"
+
+[node name="Vacio" type="Node2D" unique_id=278364109]
+script = ExtResource("1_dxnu3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=869866238]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=294797412]
+shape = SubResource("RectangleShape2D_ep8cp")
+script = SubResource("GDScript_elujd")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
