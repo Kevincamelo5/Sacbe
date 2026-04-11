@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cno7e1ivf3yc5"]
 
-[ext_resource type="Texture2D" uid="uid://ypuv6ftf66fp" path="res://niveles/nivel1/(256x256) Alux frente.png" id="1_bviys"]
 [ext_resource type="Script" uid="uid://r25oiaso1nqv" path="res://objetos/interactuables/altar.gd" id="1_tn4cc"]
+[ext_resource type="Texture2D" uid="uid://b2k8qyrbxroq1" path="res://activos/arte/(256x256) Alux frente.png" id="2_tn4cc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3g2fe"]
 size = Vector2(20.434782, 24.170506)
@@ -26,6 +26,6 @@ debug_color = Color(0.52655107, 0.57173777, 0.08348694, 0.41960785)
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1758738005]
 light_mask = 33
 visibility_layer = 6
-texture = ExtResource("1_bviys")
+texture = ExtResource("2_tn4cc")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

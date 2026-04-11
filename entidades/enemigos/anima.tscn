@@ -1,56 +1,73 @@
-[gd_scene load_steps=7 format=3 uid="uid://byjivyj4012bj"]
+[gd_scene format=3 uid="uid://byjivyj4012bj"]
 
 [ext_resource type="Script" uid="uid://dne4ufmpbqm1p" path="res://entidades/enemigos/anima.gd" id="1_xpqcx"]
 [ext_resource type="Texture2D" uid="uid://b7ytp13iv03or" path="res://activos/arte/proto_ghostIce_all.png" id="2_bq7ep"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpswq"]
-size = Vector2(108, 116)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xpqcx"]
+radius = 19.0
+height = 74.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cya0i"]
-radius = 28.0
-height = 72.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_bq7ep"]
+radius = 76.655075
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1y3bi"]
-radius = 69.260376
+radius = 333.006
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cya0i"]
-radius = 468.46558
+radius = 602.29974
 
-[node name="anima" type="CharacterBody2D"]
+[node name="anima" type="CharacterBody2D" unique_id=199130893]
+collision_layer = 6
+collision_mask = 8
+motion_mode = 1
 script = ExtResource("1_xpqcx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(330, 240)
-shape = SubResource("RectangleShape2D_xpswq")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1129812371]
 light_mask = 8
 texture_filter = 1
-position = Vector2(326.28732, 240.5)
+position = Vector2(-7.712677, -10.5)
 scale = Vector2(2.497868, 3.4242432)
 texture = ExtResource("2_bq7ep")
 region_enabled = true
 region_rect = Rect2(-2, 63.5, 35, 33)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="cuerpoFisico" type="CollisionShape2D" parent="." unique_id=1630829753]
+position = Vector2(-6, 0)
+shape = SubResource("CapsuleShape2D_xpqcx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(332, 243)
-shape = SubResource("CapsuleShape2D_cya0i")
+[node name="atack_area" type="Area2D" parent="." unique_id=408474615]
+position = Vector2(-334, -251)
+collision_layer = 8
+collision_mask = 6
 
-[node name="enter_area" type="Area2D" parent="."]
+[node name="ahitbox" type="CollisionShape2D" parent="atack_area" unique_id=799921322]
+position = Vector2(329, 254)
+shape = SubResource("CircleShape2D_bq7ep")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enter_area"]
-position = Vector2(326, 244)
+[node name="enter_area" type="Area2D" parent="." unique_id=159174040]
+position = Vector2(-334, -251)
+collision_layer = 8
+collision_mask = 6
+
+[node name="persecucion" type="CollisionShape2D" parent="enter_area" unique_id=978266271]
+position = Vector2(331, 244)
 shape = SubResource("CircleShape2D_1y3bi")
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="exit_area" type="Area2D" parent="." unique_id=432149919]
+position = Vector2(-334, -251)
+collision_layer = 8
+collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+[node name="dejar de persegir" type="CollisionShape2D" parent="exit_area" unique_id=865528666]
 light_mask = 8
 visibility_layer = 7
-position = Vector2(330, 246)
+position = Vector2(332, 246)
 shape = SubResource("CircleShape2D_cya0i")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="attacktimer" type="Timer" parent="." unique_id=815882876]
+one_shot = true
+
+[connection signal="body_entered" from="atack_area" to="." method="_on_atack_area_body_entered"]
 [connection signal="body_entered" from="enter_area" to="." method="_on_enter_area_body_entered"]
+[connection signal="body_exited" from="exit_area" to="." method="_on_exit_area_body_exited"]
+[connection signal="timeout" from="attacktimer" to="." method="_on_attacktimer_timeout"]

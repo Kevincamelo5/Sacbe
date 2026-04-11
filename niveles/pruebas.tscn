@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/hud/contador_vidas.tscn" id="11_y4woo"]
 [ext_resource type="Script" uid="uid://bpvp7k3nj73yd" path="res://globales/game_manager.gd" id="12_25atv"]
 [ext_resource type="PackedScene" uid="uid://dgaku384lbo3k" path="res://objetos/peligrosos/vacio.tscn" id="12_cg0ct"]
+[ext_resource type="PackedScene" uid="uid://byjivyj4012bj" path="res://entidades/enemigos/anima.tscn" id="12_icrbv"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7b0a2"]
 seed = 335
@@ -129,6 +130,9 @@ visibility_layer = 38
 position = Vector2(1614, 349)
 scale = Vector2(0.40000072, 0.3338586)
 next_scene_path = "res://niveles/nivel1/nivel_1_sumador_1.tscn"
+
+[node name="anima" parent="." unique_id=199130893 instance=ExtResource("12_icrbv")]
+position = Vector2(384, -101)
 
 [connection signal="area_entered" from="Objetos/Monedas/Moneda" to="Objetos/Monedas" method="_on_moneda_area_entered"]
 [connection signal="body_entered" from="Objetos/Monedas/Moneda" to="Objetos/Monedas" method="_on_moneda_body_entered"]

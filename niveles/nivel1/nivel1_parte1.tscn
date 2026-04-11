@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://b84m0p56sxsa4"]
+[gd_scene format=3 uid="uid://1pmnp3stap1j"]
 
-[node name="Nivel1Parte1" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://dm0q8p7fcffb" path="res://activos/arte/cueva.jpg" id="1_r5pcl"]
+
+[node name="Nivel1Parte1" type="Node2D" unique_id=1181751365]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=35196844]
+texture = ExtResource("1_r5pcl")

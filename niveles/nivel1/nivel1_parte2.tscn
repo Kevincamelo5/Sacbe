@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://daiqw1cnst2nc"]
 
-[ext_resource type="Texture2D" uid="uid://bf3mknjihaxd6" path="res://activos/arte/fondoCueva2remplazar.png" id="1_2odhi"]
+[ext_resource type="Texture2D" uid="uid://dm0q8p7fcffb" path="res://activos/arte/cueva.jpg" id="1_kjwuy"]
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="2_450ay"]
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="3_450ay"]
+[ext_resource type="PackedScene" uid="uid://bch1jv7ob4qa8" path="res://entidades/DItens/estalactita.tscn" id="5_37m0b"]
+[ext_resource type="Script" uid="uid://c4m5nxx8wo7" path="res://niveles/nivel1/cuerda.gd" id="6_kjwuy"]
+[ext_resource type="Texture2D" uid="uid://bns87gymx0fs6" path="res://activos/arte/cuerda.png" id="6_m23g8"]
 [ext_resource type="PackedScene" uid="uid://dgaku384lbo3k" path="res://objetos/peligrosos/vacio.tscn" id="7_kjwuy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_450ay"]
@@ -26,9 +29,8 @@ size = Vector2(1959, 129.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbddg"]
 size = Vector2(1797, 136)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_450ay"]
-a = Vector2(64, 192)
-b = Vector2(68, -288)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m23g8"]
+size = Vector2(19, 20)
 
 [node name="Node2D" type="Node2D" unique_id=632905074]
 
@@ -37,7 +39,7 @@ b = Vector2(68, -288)
 [node name="fondo" type="Sprite2D" parent="Objetos" unique_id=741493400]
 position = Vector2(1743, -61.547752)
 scale = Vector2(5.651889, 2.5039203)
-texture = ExtResource("1_2odhi")
+texture = ExtResource("1_kjwuy")
 
 [node name="Jugador" parent="." unique_id=1203516821 instance=ExtResource("2_450ay")]
 position = Vector2(-184, -135)
@@ -96,12 +98,166 @@ position = Vector2(5051.6685, 385.99994)
 scale = Vector2(30.707687, 2.1406245)
 texture = SubResource("GradientTexture2D_1wdpe")
 
-[node name="muro2" type="CollisionShape2D" parent="piso" unique_id=384096811]
-position = Vector2(5808, 131)
-shape = SubResource("SegmentShape2D_450ay")
-
 [node name="controles" parent="." unique_id=1246349502 instance=ExtResource("3_450ay")]
 
 [node name="Vacio" parent="." unique_id=278364109 instance=ExtResource("7_kjwuy")]
 position = Vector2(1790.9999, 495)
 scale = Vector2(276.25287, -5.593966)
+
+[node name="Estalactitas" type="Node2D" parent="." unique_id=499655939]
+
+[node name="Area2D" parent="Estalactitas" unique_id=809678345 instance=ExtResource("5_37m0b")]
+position = Vector2(-308.00003, -574)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D2" parent="Estalactitas" unique_id=2097891731 instance=ExtResource("5_37m0b")]
+position = Vector2(-223.00003, -574)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D3" parent="Estalactitas" unique_id=1345574881 instance=ExtResource("5_37m0b")]
+position = Vector2(-104.000046, -574)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D4" parent="Estalactitas" unique_id=815781023 instance=ExtResource("5_37m0b")]
+position = Vector2(147.99998, -571)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D5" parent="Estalactitas" unique_id=1932026291 instance=ExtResource("5_37m0b")]
+position = Vector2(241, -571)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D6" parent="Estalactitas" unique_id=1891798091 instance=ExtResource("5_37m0b")]
+position = Vector2(344.9999, -580)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D7" parent="Estalactitas" unique_id=168825145 instance=ExtResource("5_37m0b")]
+position = Vector2(444.9999, -580)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D8" parent="Estalactitas" unique_id=1013202076 instance=ExtResource("5_37m0b")]
+position = Vector2(831.99994, -571)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D9" parent="Estalactitas" unique_id=1730841986 instance=ExtResource("5_37m0b")]
+position = Vector2(924.99994, -571)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D10" parent="Estalactitas" unique_id=1324403247 instance=ExtResource("5_37m0b")]
+position = Vector2(1028.9999, -580)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D11" parent="Estalactitas" unique_id=1797518935 instance=ExtResource("5_37m0b")]
+position = Vector2(1128.9999, -580)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D12" parent="Estalactitas" unique_id=144028260 instance=ExtResource("5_37m0b")]
+position = Vector2(1233, -574)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D13" parent="Estalactitas" unique_id=440331508 instance=ExtResource("5_37m0b")]
+position = Vector2(1326, -574)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D14" parent="Estalactitas" unique_id=1417037225 instance=ExtResource("5_37m0b")]
+position = Vector2(1429.9999, -583)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D15" parent="Estalactitas" unique_id=1060000751 instance=ExtResource("5_37m0b")]
+position = Vector2(1529.9999, -583)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D16" parent="Estalactitas" unique_id=1764859764 instance=ExtResource("5_37m0b")]
+position = Vector2(2018, -570)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D17" parent="Estalactitas" unique_id=2055246730 instance=ExtResource("5_37m0b")]
+position = Vector2(2111, -570)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D18" parent="Estalactitas" unique_id=1212956220 instance=ExtResource("5_37m0b")]
+position = Vector2(2214.9998, -579)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D19" parent="Estalactitas" unique_id=201951504 instance=ExtResource("5_37m0b")]
+position = Vector2(2314.9998, -579)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D20" parent="Estalactitas" unique_id=660072313 instance=ExtResource("5_37m0b")]
+position = Vector2(2402, -574)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D21" parent="Estalactitas" unique_id=1796392856 instance=ExtResource("5_37m0b")]
+position = Vector2(2495, -574)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D22" parent="Estalactitas" unique_id=1276481017 instance=ExtResource("5_37m0b")]
+position = Vector2(2598.9998, -583)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D23" parent="Estalactitas" unique_id=1572737752 instance=ExtResource("5_37m0b")]
+position = Vector2(2698.9998, -583)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D24" parent="Estalactitas" unique_id=95038853 instance=ExtResource("5_37m0b")]
+position = Vector2(2802, -570)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D25" parent="Estalactitas" unique_id=701196132 instance=ExtResource("5_37m0b")]
+position = Vector2(2895, -570)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D26" parent="Estalactitas" unique_id=420813160 instance=ExtResource("5_37m0b")]
+position = Vector2(2998.9998, -579)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D27" parent="Estalactitas" unique_id=861577838 instance=ExtResource("5_37m0b")]
+position = Vector2(3098.9998, -579)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D28" parent="Estalactitas" unique_id=835541239 instance=ExtResource("5_37m0b")]
+position = Vector2(3186, -570)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D29" parent="Estalactitas" unique_id=2006027413 instance=ExtResource("5_37m0b")]
+position = Vector2(3279, -570)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D30" parent="Estalactitas" unique_id=411677796 instance=ExtResource("5_37m0b")]
+position = Vector2(3382.9998, -579)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D31" parent="Estalactitas" unique_id=1394742880 instance=ExtResource("5_37m0b")]
+position = Vector2(3482.9998, -579)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D32" parent="Estalactitas" unique_id=2106396640 instance=ExtResource("5_37m0b")]
+position = Vector2(3586, -570)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D33" parent="Estalactitas" unique_id=1473402312 instance=ExtResource("5_37m0b")]
+position = Vector2(3679, -570)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D34" parent="Estalactitas" unique_id=932806920 instance=ExtResource("5_37m0b")]
+position = Vector2(3782.9998, -579)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="Area2D35" parent="Estalactitas" unique_id=1594968867 instance=ExtResource("5_37m0b")]
+position = Vector2(3882.9998, -579)
+scale = Vector2(0.35117388, 0.4494392)
+
+[node name="cuerda" type="Area2D" parent="." unique_id=1086389765]
+position = Vector2(4210, 130)
+collision_mask = 7
+script = ExtResource("6_kjwuy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cuerda" unique_id=1358089240]
+position = Vector2(44, -198)
+scale = Vector2(1, 53.119995)
+shape = SubResource("RectangleShape2D_m23g8")
+
+[node name="Sprite2D" type="Sprite2D" parent="cuerda" unique_id=1257296330]
+scale = Vector2(0.5805322, 0.6973757)
+texture = ExtResource("6_m23g8")
+
+[connection signal="body_entered" from="cuerda" to="cuerda" method="_on_body_entered"]
