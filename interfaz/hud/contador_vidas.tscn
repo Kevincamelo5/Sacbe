@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm40afqfwxlta"]
+[gd_scene format=3 uid="uid://bm40afqfwxlta"]
 
 [ext_resource type="Script" uid="uid://t50imfjkrxsi" path="res://interfaz/hud/contador_vidas.gd" id="1_qi7j7"]
 [ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="2_s3y11"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=330364085]
 script = ExtResource("1_qi7j7")
 
-[node name="TextoVidas" type="Label" parent="."]
+[node name="TextoVidas" type="Label" parent="." unique_id=245698170]
 anchors_preset = -1
 anchor_left = 0.11631945
 anchor_top = 0.10339506
@@ -17,7 +17,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="contador_vidas" type="Label" parent="."]
+[node name="contador_vidas" type="Label" parent="." unique_id=2112217960]
 anchors_preset = -1
 anchor_left = 0.009548611
 anchor_top = 0.1095679
@@ -27,7 +27,7 @@ theme_override_fonts/font = ExtResource("2_s3y11")
 text = "Vidas restantes:"
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=54425951]
 anchors_preset = -1
 anchor_top = 0.0046296297
 anchor_right = 0.034722224
