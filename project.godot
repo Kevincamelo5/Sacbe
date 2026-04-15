@@ -15,13 +15,14 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="sacbe"
-run/main_scene="uid://driv6f3ve55gi"
+run/main_scene="uid://blwrc3rqgkjrw"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GLOBAL="*res://globales/global.gd"
+GameManager="*uid://bpvp7k3nj73yd"
 
 [display]
 

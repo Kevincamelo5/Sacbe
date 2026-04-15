@@ -2,15 +2,22 @@ extends CharacterBody2D
 class_name Jugador
 
 signal vida_cambiada(vidas_actuales)
+var spawn_position : Vector2
 
 @onready var sprite = $Sprite2D
 @onready var anim = $Sprite2D/AnimationPlayer
-var vida: int = 5
 
 func _ready() -> void:
+	add_to_group("jugador")
+	spawn_position = global_position
+	
 	if hayGravedad:
 		velocity.y = 0
-	call_deferred("emit_signal","vida_cambiada",vida)
+	call_deferred("emit_signal","vida_cambiada")
+
+func volver_al_inicio() -> void:
+	global_position = spawn_position
+	velocity = Vector2.ZERO #Detenemos cualquier movimiento previo
 
 func _physics_process(delta: float) -> void:
 	_actualizar_temporizadores_salto(delta)
@@ -194,9 +201,4 @@ func _input(event: InputEvent) -> void:
 
 #perder vidas
 func _lose_lives() -> void:
-	var game_manager = get_node("%GameManager")
-	if game_manager:
-		game_manager.disminuir_vida()
-		
-	if vida <=0:
-		get_tree().call_deferred("reload_current_scene")
+	GameManager.disminuir_vida()
