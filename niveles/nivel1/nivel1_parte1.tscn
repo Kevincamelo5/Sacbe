@@ -1,12 +1,36 @@
 [gd_scene format=3 uid="uid://1pmnp3stap1j"]
 
+[ext_resource type="Script" uid="uid://5ewht513dpt8" path="res://niveles/nivel1/nivel_1_parte_1.gd" id="1_iy3o0"]
 [ext_resource type="Texture2D" uid="uid://dm0q8p7fcffb" path="res://activos/arte/cueva.jpg" id="1_r5pcl"]
 [ext_resource type="AudioStream" uid="uid://ccr8oku4balhu" path="res://activos/audio/mystical-flute-ritual-instrumental-399259.mp3" id="2_nen1f"]
+[ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="4_utin6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utin6"]
+size = Vector2(497, 60)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_utin6"]
 
 [node name="Nivel1Parte1" type="Node2D" unique_id=1181751365]
+script = ExtResource("1_iy3o0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=35196844]
 texture = ExtResource("1_r5pcl")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=252242202]
 stream = ExtResource("2_nen1f")
+
+[node name="Jugador" parent="." unique_id=594628309 instance=ExtResource("4_utin6")]
+position = Vector2(-833, 266)
+
+[node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=791852935]
+
+[node name="pisos" type="StaticBody2D" parent="." unique_id=1749734021]
+
+[node name="piso" type="CollisionShape2D" parent="pisos" unique_id=1219876204]
+position = Vector2(-708.5, 504)
+shape = SubResource("RectangleShape2D_utin6")
+
+[node name="piso1" type="Sprite2D" parent="pisos" unique_id=1616143121]
+position = Vector2(-707.00006, 487.99997)
+scale = Vector2(0.96840405, 0.05018495)
+texture = SubResource("NoiseTexture2D_utin6")

@@ -1,9 +1,9 @@
-extends CanvasLayer
+extends Node2D
 
 
 #funcion dice si un cuadro es visible
 func _ready() -> void:
-	visible=false
+	$musicadefondo.play()
 
 func mostrar():
 	visible = true 

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://daiqw1cnst2nc"]
 
+[ext_resource type="Script" uid="uid://gdyvg4opyw75" path="res://niveles/nivel1/nivel_1_parte_2.gd" id="1_dqs1d"]
 [ext_resource type="Texture2D" uid="uid://dm0q8p7fcffb" path="res://activos/arte/cueva.jpg" id="1_kjwuy"]
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="2_450ay"]
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="3_450ay"]
@@ -7,6 +8,8 @@
 [ext_resource type="Script" uid="uid://c4m5nxx8wo7" path="res://niveles/nivel1/cuerda.gd" id="6_kjwuy"]
 [ext_resource type="Texture2D" uid="uid://bns87gymx0fs6" path="res://activos/arte/cuerda.png" id="6_m23g8"]
 [ext_resource type="PackedScene" uid="uid://dgaku384lbo3k" path="res://objetos/peligrosos/vacio.tscn" id="7_kjwuy"]
+[ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/hud/contador_vidas.tscn" id="8_8gt42"]
+[ext_resource type="AudioStream" uid="uid://dkr6l5dk6ovfi" path="res://activos/audio/musicaEntrada2.mp3" id="9_8gt42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_450ay"]
 size = Vector2(1096, 79.05835)
@@ -32,7 +35,8 @@ size = Vector2(1797, 136)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m23g8"]
 size = Vector2(19, 20)
 
-[node name="Node2D" type="Node2D" unique_id=632905074]
+[node name="nivel1_parte2" type="Node2D" unique_id=632905074]
+script = ExtResource("1_dqs1d")
 
 [node name="Objetos" type="Node2D" parent="." unique_id=290793190]
 
@@ -99,10 +103,6 @@ scale = Vector2(30.707687, 2.1406245)
 texture = SubResource("GradientTexture2D_1wdpe")
 
 [node name="controles" parent="." unique_id=1246349502 instance=ExtResource("3_450ay")]
-
-[node name="Vacio" parent="." unique_id=278364109 instance=ExtResource("7_kjwuy")]
-position = Vector2(1790.9999, 495)
-scale = Vector2(276.25287, -5.593966)
 
 [node name="Estalactitas" type="Node2D" parent="." unique_id=499655939]
 
@@ -259,5 +259,15 @@ shape = SubResource("RectangleShape2D_m23g8")
 [node name="Sprite2D" type="Sprite2D" parent="cuerda" unique_id=1257296330]
 scale = Vector2(0.5805322, 0.6973757)
 texture = ExtResource("6_m23g8")
+
+[node name="CanvasLayer" parent="." unique_id=330364085 instance=ExtResource("8_8gt42")]
+
+[node name="Vacio" parent="." unique_id=278364109 instance=ExtResource("7_kjwuy")]
+position = Vector2(1534, 461)
+scale = Vector2(545.3086, 1.8183305)
+
+[node name="musicadefondo" type="AudioStreamPlayer" parent="." unique_id=578440838]
+stream = ExtResource("9_8gt42")
+parameters/looping = true
 
 [connection signal="body_entered" from="cuerda" to="cuerda" method="_on_body_entered"]
