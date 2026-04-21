@@ -4,33 +4,198 @@
 [ext_resource type="Texture2D" uid="uid://dm0q8p7fcffb" path="res://activos/arte/cueva.jpg" id="1_r5pcl"]
 [ext_resource type="AudioStream" uid="uid://ccr8oku4balhu" path="res://activos/audio/mystical-flute-ritual-instrumental-399259.mp3" id="2_nen1f"]
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="4_utin6"]
+[ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="5_dbo7o"]
+[ext_resource type="PackedScene" uid="uid://dgaku384lbo3k" path="res://objetos/peligrosos/vacio.tscn" id="6_u8g0n"]
+[ext_resource type="PackedScene" uid="uid://cno7e1ivf3yc5" path="res://objetos/interactuables/altar.tscn" id="7_jv2t6"]
+[ext_resource type="PackedScene" uid="uid://c3k3qjmhw06ff" path="res://interfaz/hud/contador_monedas.tscn" id="8_v4ga4"]
+[ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/hud/contador_vidas.tscn" id="9_h8rg4"]
+[ext_resource type="PackedScene" uid="uid://crq1d3r1wakbo" path="res://componentes/moneda.tscn" id="10_5r6b0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utin6"]
-size = Vector2(497, 60)
+size = Vector2(2788.25, 230)
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_utin6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbo7o"]
+size = Vector2(1713, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8g0n"]
+size = Vector2(894, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jv2t6"]
+size = Vector2(472.875, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4ga4"]
+size = Vector2(1129, 176.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8rg4"]
+size = Vector2(1241, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5r6b0"]
+size = Vector2(205.5, 243)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_utin6"]
+a = Vector2(5502, 3626)
+b = Vector2(5502, -1205)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkerh"]
+size = Vector2(498, 262)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37vol"]
+size = Vector2(1015, 217.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juixx"]
+size = Vector2(959.5, 183.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13m32"]
+size = Vector2(1044, 244)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8l4ya"]
+size = Vector2(1542, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kn6dp"]
+size = Vector2(2135, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21mbn"]
+size = Vector2(1696.5, 360)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tv0tb"]
+size = Vector2(1857.5, 195)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ikl3"]
+size = Vector2(943, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nlxb"]
+size = Vector2(304, 149)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc766"]
+size = Vector2(500, 25.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdf5k"]
+size = Vector2(18072, 215)
 
 [node name="Nivel1Parte1" type="Node2D" unique_id=1181751365]
 script = ExtResource("1_iy3o0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=35196844]
+position = Vector2(7767.0005, 135)
+scale = Vector2(9.4244795, 1.2752315)
 texture = ExtResource("1_r5pcl")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=252242202]
 stream = ExtResource("2_nen1f")
 
 [node name="Jugador" parent="." unique_id=594628309 instance=ExtResource("4_utin6")]
-position = Vector2(-833, 266)
+position = Vector2(-698, 392)
 
 [node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=791852935]
+position = Vector2(72, -58)
 
 [node name="pisos" type="StaticBody2D" parent="." unique_id=1749734021]
+position = Vector2(-54, -608)
 
 [node name="piso" type="CollisionShape2D" parent="pisos" unique_id=1219876204]
-position = Vector2(-708.5, 504)
+position = Vector2(181.875, 1289)
 shape = SubResource("RectangleShape2D_utin6")
 
-[node name="piso1" type="Sprite2D" parent="pisos" unique_id=1616143121]
-position = Vector2(-707.00006, 487.99997)
-scale = Vector2(0.96840405, 0.05018495)
+[node name="vpiso" type="Sprite2D" parent="pisos" unique_id=1616143121]
+position = Vector2(-144.22784, 1282.9999)
+scale = Vector2(3.9969838, 0.4453125)
 texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="piso2" type="CollisionShape2D" parent="pisos" unique_id=1602932799]
+position = Vector2(113.5, 1133.5)
+shape = SubResource("RectangleShape2D_dbo7o")
+
+[node name="piso3" type="CollisionShape2D" parent="pisos" unique_id=1637589368]
+position = Vector2(172, 1029)
+shape = SubResource("RectangleShape2D_u8g0n")
+
+[node name="piso4" type="CollisionShape2D" parent="pisos" unique_id=103024184]
+position = Vector2(1319, 1025)
+shape = SubResource("RectangleShape2D_jv2t6")
+
+[node name="piso18" type="CollisionShape2D" parent="pisos" unique_id=1871195943]
+position = Vector2(1891, 944)
+shape = SubResource("RectangleShape2D_jv2t6")
+
+[node name="piso5" type="CollisionShape2D" parent="pisos" unique_id=230413979]
+position = Vector2(2742.5, 1290)
+shape = SubResource("RectangleShape2D_v4ga4")
+
+[node name="piso6" type="CollisionShape2D" parent="pisos" unique_id=1736531126]
+position = Vector2(155.5, 1074)
+shape = SubResource("RectangleShape2D_h8rg4")
+
+[node name="piso7" type="CollisionShape2D" parent="pisos" unique_id=1924956606]
+position = Vector2(3417.75, 1274.5)
+shape = SubResource("RectangleShape2D_5r6b0")
+
+[node name="pared" type="CollisionShape2D" parent="pisos" unique_id=1560083017]
+position = Vector2(6217, -1073)
+shape = SubResource("SegmentShape2D_utin6")
+
+[node name="piso8" type="CollisionShape2D" parent="pisos" unique_id=1693492886]
+position = Vector2(4995, 1268)
+shape = SubResource("RectangleShape2D_fkerh")
+
+[node name="piso9" type="CollisionShape2D" parent="pisos" unique_id=1814647313]
+position = Vector2(5913.5, 1284.75)
+shape = SubResource("RectangleShape2D_37vol")
+
+[node name="piso10" type="CollisionShape2D" parent="pisos" unique_id=898869469]
+position = Vector2(4001, 1303.75)
+shape = SubResource("RectangleShape2D_juixx")
+
+[node name="piso11" type="CollisionShape2D" parent="pisos" unique_id=1346938970]
+position = Vector2(9491, 1251)
+shape = SubResource("RectangleShape2D_13m32")
+
+[node name="piso12" type="CollisionShape2D" parent="pisos" unique_id=1124442050]
+position = Vector2(11818, 1251)
+shape = SubResource("RectangleShape2D_8l4ya")
+
+[node name="piso13" type="CollisionShape2D" parent="pisos" unique_id=483816952]
+position = Vector2(7755, 1348)
+shape = SubResource("RectangleShape2D_kn6dp")
+
+[node name="piso14" type="CollisionShape2D" parent="pisos" unique_id=99749073]
+position = Vector2(10170.75, 1177)
+shape = SubResource("RectangleShape2D_21mbn")
+
+[node name="piso15" type="CollisionShape2D" parent="pisos" unique_id=271499628]
+position = Vector2(15983, 1218)
+shape = SubResource("RectangleShape2D_tv0tb")
+
+[node name="piso16" type="CollisionShape2D" parent="pisos" unique_id=870721509]
+position = Vector2(13875.5, 1254)
+shape = SubResource("RectangleShape2D_6ikl3")
+
+[node name="piso17" type="CollisionShape2D" parent="pisos" unique_id=1726715057]
+position = Vector2(15200, 1078.5)
+shape = SubResource("RectangleShape2D_3nlxb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pisos" unique_id=1951432132]
+position = Vector2(1287, 865.875)
+shape = SubResource("RectangleShape2D_fc766")
+
+[node name="techo" type="CollisionShape2D" parent="pisos" unique_id=1736847932]
+position = Vector2(7858, 44.5)
+shape = SubResource("RectangleShape2D_gdf5k")
+
+[node name="controles" parent="." unique_id=1405605016 instance=ExtResource("5_dbo7o")]
+
+[node name="Vacio" parent="." unique_id=278364109 instance=ExtResource("6_u8g0n")]
+position = Vector2(6462, 826)
+scale = Vector2(1090, 2)
+
+[node name="Altar" parent="." unique_id=708447874 instance=ExtResource("7_jv2t6")]
+position = Vector2(16533, 372)
+next_scene_path = "res://niveles/nivel1/nivel_1_sumador_1.tscn"
+
+[node name="Contador_moneda" parent="." unique_id=174534471 instance=ExtResource("8_v4ga4")]
+
+[node name="CanvasLayer" parent="." unique_id=330364085 instance=ExtResource("9_h8rg4")]
+
+[node name="Moneda" parent="." unique_id=2125446172 instance=ExtResource("10_5r6b0")]
+position = Vector2(13, 245)

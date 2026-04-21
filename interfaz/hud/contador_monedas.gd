@@ -8,5 +8,3 @@ func _ready() -> void:
 	
 func _on_puntuacion_actualizada(puntuacion_actual: int)->void:
 	contador_monedas.text = str(puntuacion_actual)
-	
-	

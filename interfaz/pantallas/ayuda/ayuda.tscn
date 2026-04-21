@@ -30,27 +30,151 @@ grow_vertical = 2
 texture = ExtResource("1_epqtl")
 expand_mode = 1
 
-[node name="Izquierda" type="TouchScreenButton" parent="." unique_id=312113651]
-position = Vector2(12, 379)
-scale = Vector2(0.07972903, 0.077083334)
-texture_normal = ExtResource("1_3ckml")
-action = "izquierda"
-
-[node name="informacion izquierda" type="Label" parent="Izquierda" unique_id=400203658]
+[node name="Lizquierda" type="Label" parent="." unique_id=400203658]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -11.5
-offset_bottom = 11.5
+offset_left = -849.0
+offset_top = -47.0
+offset_right = -320.0
+offset_bottom = 28.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.4072413, 0, 0.3245714, 1)
 theme_override_fonts/font = ExtResource("4_rsd26")
-text = "Al presionarse este boton el Jugador se movera a la izquierda."
-horizontal_alignment = 2
+theme_override_font_sizes/font_size = 35
+text = "Al presionarse este boton el 
+ Jugador se movera a la izquierda."
+horizontal_alignment = 1
+
+[node name="Lderecha" type="Label" parent="." unique_id=427385643]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -785.0
+offset_top = -70.0
+offset_right = -342.0
+offset_bottom = 5.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.40784314, 0, 0.3254902, 1)
+theme_override_fonts/font = ExtResource("4_rsd26")
+theme_override_font_sizes/font_size = 35
+text = "Al presionarse este boton se 
+movera a la derecha."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lsaltar" type="Label" parent="." unique_id=520893336]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -765.0
+offset_top = -68.0
+offset_right = -370.0
+offset_bottom = 7.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.42352942, 0.023529412, 0.3372549, 1)
+theme_override_fonts/font = ExtResource("4_rsd26")
+theme_override_font_sizes/font_size = 35
+text = "Al presionarse este boton
+ saltará."
+horizontal_alignment = 1
+
+[node name="Lcaer" type="Label" parent="." unique_id=228256332]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -788.0
+offset_top = -64.0
+offset_right = -325.0
+offset_bottom = 11.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.43137255, 0.043137256, 0.34509805, 1)
+theme_override_fonts/font = ExtResource("4_rsd26")
+theme_override_font_sizes/font_size = 35
+text = "Al presionarse este boton 
+acelerá la caida del personaje."
+horizontal_alignment = 1
+
+[node name="Lpausa" type="Label" parent="." unique_id=1900414790]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 387.0
+offset_top = -384.0
+offset_right = 794.0
+offset_bottom = -309.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.43137255, 0.039215688, 0.34509805, 1)
+theme_override_fonts/font = ExtResource("4_rsd26")
+theme_override_font_sizes/font_size = 35
+text = "Al presionar este boton el 
+juego se pondra en pausa."
+horizontal_alignment = 1
+
+[node name="Latacar" type="Label" parent="." unique_id=1664396421]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 262.0
+offset_top = -76.0
+offset_right = 908.0
+offset_bottom = 38.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.45882353, 0.08235294, 0.3647059, 1)
+theme_override_fonts/font = ExtResource("4_rsd26")
+theme_override_font_sizes/font_size = 35
+text = "al presionarse este boton el 
+personaje ataca o hace uso del 
+objeto que tenga activo."
+horizontal_alignment = 1
+
+[node name="Lcambiar" type="Label" parent="." unique_id=1697032035]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.63454854
+anchor_top = 0.39025685
+anchor_right = -0.63454854
+anchor_bottom = 0.59087414
+offset_left = 995.99994
+offset_top = -8.886444
+offset_right = 1664.0
+offset_bottom = 14.113556
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.43137255, 0.043137256, 0.34509805, 1)
+theme_override_fonts/font = ExtResource("4_rsd26")
+theme_override_font_sizes/font_size = 35
+text = "al presionar este boton el 
+jugador cambia de objeto a 
+cualquiera que tenga 
+disponible."
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Izquierda" type="TouchScreenButton" parent="." unique_id=312113651]
+position = Vector2(12, 379)
+scale = Vector2(0.07972903, 0.077083334)
+texture_normal = ExtResource("1_3ckml")
+action = "izquierda"
 
 [node name="Derecha" type="TouchScreenButton" parent="." unique_id=917183440]
 position = Vector2(264, 361)
@@ -58,41 +182,11 @@ scale = Vector2(0.07972903, 0.077083334)
 texture_normal = ExtResource("2_qsycm")
 action = "derecha"
 
-[node name="informacion derecha" type="Label" parent="Derecha" unique_id=427385643]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -11.5
-offset_bottom = 11.5
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 8
-text = "Al presionarse este boton se movera a la derecha."
-horizontal_alignment = 2
-vertical_alignment = 1
-
 [node name="Saltar" type="TouchScreenButton" parent="." unique_id=1602296050]
 position = Vector2(133, 235)
 scale = Vector2(0.07972903, 0.0771235)
 texture_normal = ExtResource("3_qsycm")
 action = "saltar"
-
-[node name="información saltar" type="Label" parent="Saltar" unique_id=520893336]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -11.5
-offset_bottom = 11.5
-grow_horizontal = 0
-grow_vertical = 2
-text = "Al presionarse este boton saltará."
-horizontal_alignment = 2
 
 [node name="Agacharse" type="TouchScreenButton" parent="." unique_id=2083162998]
 position = Vector2(149, 496)
@@ -100,33 +194,11 @@ scale = Vector2(0.07972903, 0.077083334)
 texture_normal = ExtResource("4_1gc0a")
 action = "saltar"
 
-[node name="información caer" type="Label" parent="Agacharse" unique_id=228256332]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -11.5
-offset_bottom = 11.5
-grow_horizontal = 0
-grow_vertical = 2
-text = "Al presionarse este boton acelerá la caida del personaje."
-
 [node name="Pausa" type="TouchScreenButton" parent="." unique_id=1147639206]
 position = Vector2(1039, 28.000002)
 scale = Vector2(0.16879156, 0.15401298)
 texture_normal = ExtResource("5_kyba4")
 action = "pausa"
-
-[node name="informacion pausa" type="Label" parent="Pausa" unique_id=1900414790]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 40.0
-grow_vertical = 0
-text = "Al presionar este boton el juego se pondra en pausa."
 
 [node name="CambiarObjeto" type="TouchScreenButton" parent="." unique_id=580009967]
 position = Vector2(995.99994, 242.00002)
@@ -134,29 +206,36 @@ scale = Vector2(0.07972903, 0.077083334)
 texture_normal = ExtResource("6_q1pts")
 action = "cambiar_objeto"
 
-[node name="Label" type="Label" parent="CambiarObjeto" unique_id=1697032035]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -11.5
-offset_right = 40.0
-offset_bottom = 11.5
-grow_vertical = 2
-text = "al presionar este boton el jugador cambia de objeto a cualquiera que tenga disponible."
-metadata/_edit_use_anchors_ = true
-
 [node name="UsarObjeto" type="TouchScreenButton" parent="." unique_id=413166722]
 position = Vector2(809, 412)
 scale = Vector2(0.16097902, 0.16957764)
 texture_normal = ExtResource("7_adacy")
 action = "usar_objeto"
 
-[node name="Label" type="Label" parent="UsarObjeto" unique_id=1664396421]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -11.5
-offset_right = 40.0
-offset_bottom = 11.5
-grow_vertical = 2
-text = "al presionarse este boton el personaje ataca o hace uso del objeto que tenga activo."
+[node name="Infoinicial" type="Label" parent="." unique_id=1852653385]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 237.0
+offset_right = 939.0
+offset_bottom = 273.0
+theme_override_colors/font_color = Color(0.5137255, 0.17254902, 0.40392157, 1)
+theme_override_fonts/font = ExtResource("4_rsd26")
+theme_override_font_sizes/font_size = 35
+text = "Presione cualquier boton para 
+conocer lo que hace"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Izquierda" to="." method="_on_izquierda_pressed"]
+[connection signal="released" from="Izquierda" to="." method="_on_izquierda_released"]
+[connection signal="pressed" from="Derecha" to="." method="_on_derecha_pressed"]
+[connection signal="released" from="Derecha" to="." method="_on_derecha_released"]
+[connection signal="pressed" from="Saltar" to="." method="_on_saltar_pressed"]
+[connection signal="released" from="Saltar" to="." method="_on_saltar_released"]
+[connection signal="pressed" from="Agacharse" to="." method="_on_agacharse_pressed"]
+[connection signal="released" from="Agacharse" to="." method="_on_agacharse_released"]
+[connection signal="pressed" from="Pausa" to="." method="_on_pausa_pressed"]
+[connection signal="released" from="Pausa" to="." method="_on_pausa_released"]
+[connection signal="pressed" from="CambiarObjeto" to="." method="_on_cambiar_objeto_pressed"]
+[connection signal="released" from="CambiarObjeto" to="." method="_on_cambiar_objeto_released"]
+[connection signal="pressed" from="UsarObjeto" to="." method="_on_usar_objeto_pressed"]
+[connection signal="released" from="UsarObjeto" to="." method="_on_usar_objeto_released"]

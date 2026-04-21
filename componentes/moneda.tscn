@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://crq1d3r1wakbo"]
+
+[ext_resource type="Script" uid="uid://cilqm0lv8b65" path="res://componentes/moneda.gd" id="1_ulqir"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3cuav"]
+radius = 55.7315
+
+[sub_resource type="ImageTexture" id="ImageTexture_3cuav"]
+
+[node name="Moneda" type="Node2D" unique_id=2125446172]
+script = ExtResource("1_ulqir")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1819356155]
+collision_layer = 16
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1259966695]
+shape = SubResource("CircleShape2D_3cuav")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=71126467]
+position = Vector2(35.75, -35)
+scale = Vector2(-76.277214, 77)
+texture = SubResource("ImageTexture_3cuav")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

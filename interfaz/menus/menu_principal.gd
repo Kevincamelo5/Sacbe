@@ -10,6 +10,7 @@ func _on_play_pressed() -> void:
 
 func _on_opciones_pressed() -> void:
 	$"Musica de fondo".stop()
+	get_tree().change_scene_to_file("res://interfaz/pantallas/ayuda/ayuda.tscn")
 	$"Click".play()
 	pass # Replace with function body.
 

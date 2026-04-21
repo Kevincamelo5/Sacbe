@@ -39,6 +39,9 @@ shader_parameter/target_color = Color(0.476413, 0.475391, 2.88785e-07, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_me0id"]
 radius = 29.068884
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cg0ct"]
+radius = 38.327538
+
 [node name="Pruebas" type="Node2D" unique_id=130760522]
 light_mask = 32
 visibility_layer = 4
@@ -103,6 +106,10 @@ texture = ExtResource("2_ng5om")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objetos/Monedas/Moneda" unique_id=1367164287]
 position = Vector2(-294, 1)
 shape = SubResource("CircleShape2D_me0id")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objetos/Monedas/Moneda" unique_id=1804348095]
+position = Vector2(147, -6)
+shape = SubResource("CircleShape2D_cg0ct")
 
 [node name="Jugador" parent="." unique_id=612614936 instance=ExtResource("3_uooar")]
 fuerzaSalto = -800.0
