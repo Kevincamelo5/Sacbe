@@ -9,6 +9,7 @@ func _ready() -> void:
 	$Lpausa.hide()
 	$Lcambiar.hide()
 	$Latacar.hide()
+	$AudioStreamPlayer.autoplay
 
 
 func _on_izquierda_pressed() -> void:
@@ -71,3 +72,8 @@ func _on_usar_objeto_pressed() -> void:
 
 func _on_usar_objeto_released() -> void:
 	$Latacar.hide() # Replace with function body.
+
+
+func _on_button_pressed() -> void:
+	$AudioStreamPlayer.stop()
+	get_tree().change_scene_to_file("res://interfaz/menus/menu_principal.tscn")

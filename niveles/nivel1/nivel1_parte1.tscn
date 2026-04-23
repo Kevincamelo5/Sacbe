@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c3k3qjmhw06ff" path="res://interfaz/hud/contador_monedas.tscn" id="8_v4ga4"]
 [ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/hud/contador_vidas.tscn" id="9_h8rg4"]
 [ext_resource type="PackedScene" uid="uid://crq1d3r1wakbo" path="res://componentes/moneda.tscn" id="10_5r6b0"]
+[ext_resource type="PackedScene" uid="uid://byjivyj4012bj" path="res://entidades/enemigos/anima.tscn" id="11_fkerh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utin6"]
 size = Vector2(2788.25, 230)
@@ -48,7 +49,7 @@ size = Vector2(1015, 217.5)
 size = Vector2(959.5, 183.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13m32"]
-size = Vector2(1044, 244)
+size = Vector2(1044, 208)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8l4ya"]
 size = Vector2(1542, 208)
@@ -57,7 +58,7 @@ size = Vector2(1542, 208)
 size = Vector2(2135, 176)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21mbn"]
-size = Vector2(1696.5, 360)
+size = Vector2(1695, 275)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tv0tb"]
 size = Vector2(1857.5, 195)
@@ -66,13 +67,27 @@ size = Vector2(1857.5, 195)
 size = Vector2(943, 176)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nlxb"]
-size = Vector2(304, 149)
+size = Vector2(298.5, 351.8125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fc766"]
-size = Vector2(500, 25.75)
+size = Vector2(479, 25.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdf5k"]
-size = Vector2(18072, 215)
+size = Vector2(18110, 215)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lv4h8"]
+size = Vector2(116, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvhjw"]
+size = Vector2(4498, 20)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5r6b0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fkerh"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_37vol"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_juixx"]
 
 [node name="Nivel1Parte1" type="Node2D" unique_id=1181751365]
 script = ExtResource("1_iy3o0")
@@ -99,8 +114,93 @@ position = Vector2(181.875, 1289)
 shape = SubResource("RectangleShape2D_utin6")
 
 [node name="vpiso" type="Sprite2D" parent="pisos" unique_id=1616143121]
-position = Vector2(-144.22784, 1282.9999)
-scale = Vector2(3.9969838, 0.4453125)
+position = Vector2(181.5, 1282.9999)
+scale = Vector2(5.458985, 0.4453125)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso2" type="Sprite2D" parent="pisos" unique_id=1999336952]
+position = Vector2(100.5, 1136)
+scale = Vector2(3.2792966, 0.12109368)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso3" type="Sprite2D" parent="pisos" unique_id=827903749]
+position = Vector2(155.99997, 1064.5)
+scale = Vector2(2.4296875, 0.1464843)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso4" type="Sprite2D" parent="pisos" unique_id=2128074313]
+position = Vector2(168, 996.5)
+scale = Vector2(1.75, 0.10742189)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso5" type="Sprite2D" parent="pisos" unique_id=761125602]
+position = Vector2(1317.75, 1022.75)
+scale = Vector2(0.90722644, 0.05566407)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso6" type="Sprite2D" parent="pisos" unique_id=1076905299]
+position = Vector2(1285, 865)
+scale = Vector2(0.9023438, 0.046874996)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso7" type="Sprite2D" parent="pisos" unique_id=1971971565]
+position = Vector2(1886, 941.75)
+scale = Vector2(0.93359387, 0.061523434)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso8" type="Sprite2D" parent="pisos" unique_id=1756835855]
+position = Vector2(2848.5, 1308.125)
+scale = Vector2(2.6035156, 0.42138672)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso9" type="Sprite2D" parent="pisos" unique_id=836044078]
+position = Vector2(3418, 1283)
+scale = Vector2(0.37890634, 0.51953125)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso10" type="Sprite2D" parent="pisos" unique_id=2023213155]
+position = Vector2(4001, 1316)
+scale = Vector2(1.8710941, 0.390625)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso11" type="Sprite2D" parent="pisos" unique_id=761590974]
+position = Vector2(4993, 1277.5)
+scale = Vector2(0.972656, 0.5410156)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso12" type="Sprite2D" parent="pisos" unique_id=1710419899]
+position = Vector2(5916.5, 1299.5)
+scale = Vector2(1.9785151, 0.45507804)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso13" type="Sprite2D" parent="pisos" unique_id=1824832902]
+position = Vector2(7751.5, 1340)
+scale = Vector2(4.2089853, 0.29687503)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso14" type="Sprite2D" parent="pisos" unique_id=790915582]
+position = Vector2(9999, 1290.5)
+scale = Vector2(4.0117173, 0.49023443)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso15" type="Sprite2D" parent="pisos" unique_id=1245164399]
+position = Vector2(10173, 1122)
+scale = Vector2(3.304689, 0.16015624)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso16" type="Sprite2D" parent="pisos" unique_id=1479912195]
+position = Vector2(11822, 1281.5)
+scale = Vector2(3.01953, 0.5097656)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso18" type="Sprite2D" parent="pisos" unique_id=829493917]
+position = Vector2(14120, 1243)
+scale = Vector2(0.59375006, 0.66015625)
+texture = SubResource("NoiseTexture2D_utin6")
+
+[node name="vpiso17" type="Sprite2D" parent="pisos" unique_id=1606874041]
+position = Vector2(13325.75, 1326.75)
+scale = Vector2(1.8290997, 0.34277347)
 texture = SubResource("NoiseTexture2D_utin6")
 
 [node name="piso2" type="CollisionShape2D" parent="pisos" unique_id=1602932799]
@@ -119,6 +219,14 @@ shape = SubResource("RectangleShape2D_jv2t6")
 position = Vector2(1891, 944)
 shape = SubResource("RectangleShape2D_jv2t6")
 
+[node name="piso19" type="CollisionShape2D" parent="pisos" unique_id=483175775]
+position = Vector2(2402, 880)
+shape = SubResource("RectangleShape2D_jv2t6")
+
+[node name="piso20" type="CollisionShape2D" parent="pisos" unique_id=1735779403]
+position = Vector2(2896, 821)
+shape = SubResource("RectangleShape2D_jv2t6")
+
 [node name="piso5" type="CollisionShape2D" parent="pisos" unique_id=230413979]
 position = Vector2(2742.5, 1290)
 shape = SubResource("RectangleShape2D_v4ga4")
@@ -132,7 +240,7 @@ position = Vector2(3417.75, 1274.5)
 shape = SubResource("RectangleShape2D_5r6b0")
 
 [node name="pared" type="CollisionShape2D" parent="pisos" unique_id=1560083017]
-position = Vector2(6217, -1073)
+position = Vector2(10909, -990)
 shape = SubResource("SegmentShape2D_utin6")
 
 [node name="piso8" type="CollisionShape2D" parent="pisos" unique_id=1693492886]
@@ -148,7 +256,7 @@ position = Vector2(4001, 1303.75)
 shape = SubResource("RectangleShape2D_juixx")
 
 [node name="piso11" type="CollisionShape2D" parent="pisos" unique_id=1346938970]
-position = Vector2(9491, 1251)
+position = Vector2(9491, 1269)
 shape = SubResource("RectangleShape2D_13m32")
 
 [node name="piso12" type="CollisionShape2D" parent="pisos" unique_id=1124442050]
@@ -160,28 +268,89 @@ position = Vector2(7755, 1348)
 shape = SubResource("RectangleShape2D_kn6dp")
 
 [node name="piso14" type="CollisionShape2D" parent="pisos" unique_id=99749073]
-position = Vector2(10170.75, 1177)
+position = Vector2(10171.5, 1219.5)
 shape = SubResource("RectangleShape2D_21mbn")
 
 [node name="piso15" type="CollisionShape2D" parent="pisos" unique_id=271499628]
-position = Vector2(15983, 1218)
+position = Vector2(15323, 1311)
 shape = SubResource("RectangleShape2D_tv0tb")
 
 [node name="piso16" type="CollisionShape2D" parent="pisos" unique_id=870721509]
-position = Vector2(13875.5, 1254)
+position = Vector2(13324, 1327)
 shape = SubResource("RectangleShape2D_6ikl3")
 
 [node name="piso17" type="CollisionShape2D" parent="pisos" unique_id=1726715057]
-position = Vector2(15200, 1078.5)
+position = Vector2(14119, 1249.9063)
 shape = SubResource("RectangleShape2D_3nlxb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pisos" unique_id=1951432132]
-position = Vector2(1287, 865.875)
+position = Vector2(1276.5, 865.875)
 shape = SubResource("RectangleShape2D_fc766")
 
 [node name="techo" type="CollisionShape2D" parent="pisos" unique_id=1736847932]
-position = Vector2(7858, 44.5)
+position = Vector2(7824, 45)
 shape = SubResource("RectangleShape2D_gdf5k")
+
+[node name="piso21" type="CollisionShape2D" parent="pisos" unique_id=1150887320]
+position = Vector2(13880, 1153)
+shape = SubResource("RectangleShape2D_lv4h8")
+
+[node name="piso22" type="CollisionShape2D" parent="pisos" unique_id=1251078550]
+position = Vector2(13712, 1095)
+shape = SubResource("RectangleShape2D_lv4h8")
+
+[node name="piso23" type="CollisionShape2D" parent="pisos" unique_id=1693583773]
+position = Vector2(13576, 1027)
+shape = SubResource("RectangleShape2D_lv4h8")
+
+[node name="piso24" type="CollisionShape2D" parent="pisos" unique_id=1485935045]
+position = Vector2(13453, 954)
+shape = SubResource("RectangleShape2D_lv4h8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="pisos" unique_id=1573620272]
+position = Vector2(11056, 895)
+shape = SubResource("RectangleShape2D_dvhjw")
+
+[node name="vpiso19" type="Sprite2D" parent="pisos" unique_id=252822639]
+position = Vector2(2402.5, 881)
+scale = Vector2(0.9238278, 0.054687504)
+texture = SubResource("NoiseTexture2D_5r6b0")
+
+[node name="vpiso20" type="Sprite2D" parent="pisos" unique_id=1617296258]
+position = Vector2(2898, 822)
+scale = Vector2(0.9238278, 0.054687504)
+texture = SubResource("NoiseTexture2D_5r6b0")
+
+[node name="vpiso21" type="Sprite2D" parent="pisos" unique_id=2013114373]
+position = Vector2(-65703.484, 951.8926)
+scale = Vector2(8.798828, 0.033203125)
+texture = SubResource("NoiseTexture2D_fkerh")
+offset = Vector2(8724, -1849)
+
+[node name="vpiso22" type="Sprite2D" parent="pisos" unique_id=2013430638]
+position = Vector2(15446, 1338)
+scale = Vector2(4.09375, 0.44531247)
+texture = SubResource("NoiseTexture2D_37vol")
+
+[node name="vpiso23" type="Sprite2D" parent="pisos" unique_id=291800808]
+position = Vector2(13452.999, 957.00006)
+scale = Vector2(0.22168025, 0.0400388)
+texture = SubResource("NoiseTexture2D_juixx")
+
+[node name="vpiso24" type="Sprite2D" parent="pisos" unique_id=663077751]
+position = Vector2(13575.999, 1030)
+scale = Vector2(0.22168025, 0.0400388)
+texture = SubResource("NoiseTexture2D_juixx")
+
+[node name="vpiso25" type="Sprite2D" parent="pisos" unique_id=1902366904]
+position = Vector2(13711.999, 1098)
+scale = Vector2(0.22168025, 0.0400388)
+texture = SubResource("NoiseTexture2D_juixx")
+
+[node name="vpiso26" type="Sprite2D" parent="pisos" unique_id=1290158960]
+position = Vector2(13876.999, 1157)
+scale = Vector2(0.22168025, 0.0400388)
+texture = SubResource("NoiseTexture2D_juixx")
 
 [node name="controles" parent="." unique_id=1405605016 instance=ExtResource("5_dbo7o")]
 
@@ -190,7 +359,8 @@ position = Vector2(6462, 826)
 scale = Vector2(1090, 2)
 
 [node name="Altar" parent="." unique_id=708447874 instance=ExtResource("7_jv2t6")]
-position = Vector2(16533, 372)
+position = Vector2(16132, 517)
+scale = Vector2(0.75, 0.75)
 next_scene_path = "res://niveles/nivel1/nivel_1_sumador_1.tscn"
 
 [node name="Contador_moneda" parent="." unique_id=174534471 instance=ExtResource("8_v4ga4")]
@@ -198,4 +368,250 @@ next_scene_path = "res://niveles/nivel1/nivel_1_sumador_1.tscn"
 [node name="CanvasLayer" parent="." unique_id=330364085 instance=ExtResource("9_h8rg4")]
 
 [node name="Moneda" parent="." unique_id=2125446172 instance=ExtResource("10_5r6b0")]
-position = Vector2(13, 245)
+position = Vector2(-81, 288)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda2" parent="." unique_id=2064214143 instance=ExtResource("10_5r6b0")]
+position = Vector2(103, 285)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda3" parent="." unique_id=917730881 instance=ExtResource("10_5r6b0")]
+position = Vector2(362, 289)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda4" parent="." unique_id=1486166640 instance=ExtResource("10_5r6b0")]
+position = Vector2(1039, 183)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda5" parent="." unique_id=796466316 instance=ExtResource("10_5r6b0")]
+position = Vector2(1136, 184)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda6" parent="." unique_id=2105641276 instance=ExtResource("10_5r6b0")]
+position = Vector2(1231, 183)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda7" parent="." unique_id=740066584 instance=ExtResource("10_5r6b0")]
+position = Vector2(1326, 184)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda8" parent="." unique_id=1774388176 instance=ExtResource("10_5r6b0")]
+position = Vector2(1418, 188)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda9" parent="." unique_id=554488229 instance=ExtResource("10_5r6b0")]
+position = Vector2(1865, 277)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda10" parent="." unique_id=1712164162 instance=ExtResource("10_5r6b0")]
+position = Vector2(1973, 277)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda11" parent="." unique_id=1065877078 instance=ExtResource("10_5r6b0")]
+position = Vector2(2050, 165)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda12" parent="." unique_id=466336280 instance=ExtResource("10_5r6b0")]
+position = Vector2(2422, 212)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda13" parent="." unique_id=1773613288 instance=ExtResource("10_5r6b0")]
+position = Vector2(2530, 209)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda14" parent="." unique_id=1639856971 instance=ExtResource("10_5r6b0")]
+position = Vector2(2950, 158)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda15" parent="." unique_id=1341024461 instance=ExtResource("10_5r6b0")]
+position = Vector2(3030, 158)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda16" parent="." unique_id=1755952055 instance=ExtResource("10_5r6b0")]
+position = Vector2(3118, 123)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda17" parent="." unique_id=901531796 instance=ExtResource("10_5r6b0")]
+position = Vector2(3296, 387)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda18" parent="." unique_id=2141922751 instance=ExtResource("10_5r6b0")]
+position = Vector2(3370, 385)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda19" parent="." unique_id=45984073 instance=ExtResource("10_5r6b0")]
+position = Vector2(3444, 386)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda20" parent="." unique_id=1486675852 instance=ExtResource("10_5r6b0")]
+position = Vector2(3579, 521)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda21" parent="." unique_id=1313447654 instance=ExtResource("10_5r6b0")]
+position = Vector2(3648, 520)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda22" parent="." unique_id=1359971562 instance=ExtResource("10_5r6b0")]
+position = Vector2(3716, 520)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda23" parent="." unique_id=1425518099 instance=ExtResource("10_5r6b0")]
+position = Vector2(3786, 521)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda25" parent="." unique_id=511851181 instance=ExtResource("10_5r6b0")]
+position = Vector2(4426, 498)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda24" parent="." unique_id=1496012581 instance=ExtResource("10_5r6b0")]
+position = Vector2(4588, 463)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda26" parent="." unique_id=1232850183 instance=ExtResource("10_5r6b0")]
+position = Vector2(5212, 470)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda27" parent="." unique_id=2076402674 instance=ExtResource("10_5r6b0")]
+position = Vector2(5715, 410)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda30" parent="." unique_id=1771332018 instance=ExtResource("10_5r6b0")]
+position = Vector2(5990, 409)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda31" parent="." unique_id=114042923 instance=ExtResource("10_5r6b0")]
+position = Vector2(6079, 410)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda32" parent="." unique_id=693628155 instance=ExtResource("10_5r6b0")]
+position = Vector2(6430, 455)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda33" parent="." unique_id=1974847337 instance=ExtResource("10_5r6b0")]
+position = Vector2(6650, 510)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda34" parent="." unique_id=1015799291 instance=ExtResource("10_5r6b0")]
+position = Vector2(6733, 510)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda35" parent="." unique_id=185623123 instance=ExtResource("10_5r6b0")]
+position = Vector2(7552, 595)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda38" parent="." unique_id=297954359 instance=ExtResource("10_5r6b0")]
+position = Vector2(7830, 592)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda39" parent="." unique_id=2948150 instance=ExtResource("10_5r6b0")]
+position = Vector2(8840, 451)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda40" parent="." unique_id=1092219191 instance=ExtResource("10_5r6b0")]
+position = Vector2(8909, 404)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda41" parent="." unique_id=138308846 instance=ExtResource("10_5r6b0")]
+position = Vector2(8762, 174)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda42" parent="." unique_id=829599402 instance=ExtResource("10_5r6b0")]
+position = Vector2(8832, 173)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda45" parent="." unique_id=535571398 instance=ExtResource("10_5r6b0")]
+position = Vector2(8895, 171)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda46" parent="." unique_id=665680086 instance=ExtResource("10_5r6b0")]
+position = Vector2(8895, 242)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda47" parent="." unique_id=932147248 instance=ExtResource("10_5r6b0")]
+position = Vector2(8962, 244)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda48" parent="." unique_id=1380625171 instance=ExtResource("10_5r6b0")]
+position = Vector2(8965, 165)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda49" parent="." unique_id=88458848 instance=ExtResource("10_5r6b0")]
+position = Vector2(9661, 149)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda50" parent="." unique_id=1518940487 instance=ExtResource("10_5r6b0")]
+position = Vector2(9734, 148)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda51" parent="." unique_id=1379693412 instance=ExtResource("10_5r6b0")]
+position = Vector2(9806, 148)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda52" parent="." unique_id=285721577 instance=ExtResource("10_5r6b0")]
+position = Vector2(9878, 150)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda53" parent="." unique_id=973557341 instance=ExtResource("10_5r6b0")]
+position = Vector2(11038, 384)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda54" parent="." unique_id=1160141376 instance=ExtResource("10_5r6b0")]
+position = Vector2(11111, 384)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda55" parent="." unique_id=577318500 instance=ExtResource("10_5r6b0")]
+position = Vector2(11183, 384)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda56" parent="." unique_id=1987891525 instance=ExtResource("10_5r6b0")]
+position = Vector2(11256, 353)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda57" parent="." unique_id=743281788 instance=ExtResource("10_5r6b0")]
+position = Vector2(11326, 348)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda43" parent="." unique_id=1987421804 instance=ExtResource("10_5r6b0")]
+position = Vector2(8763, 240)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda44" parent="." unique_id=1819550917 instance=ExtResource("10_5r6b0")]
+position = Vector2(8833, 241)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda36" parent="." unique_id=1076894422 instance=ExtResource("10_5r6b0")]
+position = Vector2(7652, 593)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda37" parent="." unique_id=1078472300 instance=ExtResource("10_5r6b0")]
+position = Vector2(7739, 593)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda28" parent="." unique_id=1820567379 instance=ExtResource("10_5r6b0")]
+position = Vector2(5815, 407)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda29" parent="." unique_id=2094279307 instance=ExtResource("10_5r6b0")]
+position = Vector2(5901, 408)
+scale = Vector2(0.5, 0.5)
+
+[node name="anima" parent="." unique_id=199130893 instance=ExtResource("11_fkerh")]
+position = Vector2(1269, -69)
+
+[node name="anima6" parent="." unique_id=509229629 instance=ExtResource("11_fkerh")]
+position = Vector2(2696, 494)
+
+[node name="anima7" parent="." unique_id=685187040 instance=ExtResource("11_fkerh")]
+position = Vector2(4928, 192)
+
+[node name="anima2" parent="." unique_id=1756334798 instance=ExtResource("11_fkerh")]
+position = Vector2(7684, 324)
+
+[node name="anima3" parent="." unique_id=2082832611 instance=ExtResource("11_fkerh")]
+position = Vector2(9322, -80)
+
+[node name="anima4" parent="." unique_id=1728423037 instance=ExtResource("11_fkerh")]
+position = Vector2(12056, 1)
+
+[node name="anima5" parent="." unique_id=1448445897 instance=ExtResource("11_fkerh")]
+position = Vector2(15932, 267)

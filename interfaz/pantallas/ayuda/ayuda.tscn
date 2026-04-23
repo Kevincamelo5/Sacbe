@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ddapt1xkgg73b" path="res://activos/arte/botones/pause-button-2148106_1280.png" id="5_kyba4"]
 [ext_resource type="Texture2D" uid="uid://d3lb10g5lqvrv" path="res://activos/arte/botones/arrow-31177_1920.png" id="6_q1pts"]
 [ext_resource type="Texture2D" uid="uid://qeevfbm1li0g" path="res://activos/arte/botones/bang-148261_1920.png" id="7_adacy"]
+[ext_resource type="AudioStream" uid="uid://dkr6l5dk6ovfi" path="res://activos/audio/musicaEntrada2.mp3" id="11_r1aba"]
 
 [node name="Ayuda" type="Control" unique_id=2093168201]
 layout_mode = 3
@@ -225,6 +226,17 @@ text = "Presione cualquier boton para
 conocer lo que hace"
 horizontal_alignment = 1
 
+[node name="Button" type="Button" parent="." unique_id=1281394045]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 68.0
+offset_right = 248.0
+offset_bottom = 113.0
+text = "<< Regresar al menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=250551087]
+stream = ExtResource("11_r1aba")
+
 [connection signal="pressed" from="Izquierda" to="." method="_on_izquierda_pressed"]
 [connection signal="released" from="Izquierda" to="." method="_on_izquierda_released"]
 [connection signal="pressed" from="Derecha" to="." method="_on_derecha_pressed"]
@@ -239,3 +251,4 @@ horizontal_alignment = 1
 [connection signal="released" from="CambiarObjeto" to="." method="_on_cambiar_objeto_released"]
 [connection signal="pressed" from="UsarObjeto" to="." method="_on_usar_objeto_pressed"]
 [connection signal="released" from="UsarObjeto" to="." method="_on_usar_objeto_released"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -9,5 +9,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 	if body is Jugador or body.name == "Jugador" or body.is_in_group("jugador"):
+		$AudioStreamPlayer.play() 	   	
 		GameManager.incrementar_monedas()
+		await $AudioStreamPlayer.finished
 		queue_free()
