@@ -31,5 +31,5 @@ func _on_salir_pressed() -> void:
 
 func _on_cargar_partida_pressed() -> void:
 	$"Musica de fondo".stop()
-	get_tree().change_scene_to_file("res://niveles/pruebas.tscn")
+	get_tree().change_scene_to_file("res://niveles/nivel1/nivel1_parte1.tscn")
 	pass # Replace with function body.

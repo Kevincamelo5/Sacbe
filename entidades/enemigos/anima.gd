@@ -61,7 +61,6 @@ func recibir_daño() -> void:
 	if vida <= 0:
 		queue_free()
 
-
 func _on_cuerpo_area_entered(area: Area2D) -> void:
 	if get_collision_layer_value(3):
 		recibir_daño()
