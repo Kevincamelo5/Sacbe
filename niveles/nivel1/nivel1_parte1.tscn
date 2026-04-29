@@ -93,8 +93,39 @@ size = Vector2(4498, 20)
 script = ExtResource("1_iy3o0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=35196844]
-position = Vector2(7767.0005, 135)
-scale = Vector2(9.4244795, 1.2752315)
+position = Vector2(-187, 104)
+texture = ExtResource("1_r5pcl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1993551908]
+position = Vector2(1748, 150)
+texture = ExtResource("1_r5pcl")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2146802324]
+position = Vector2(3677, 148)
+texture = ExtResource("1_r5pcl")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=128930828]
+position = Vector2(5605, 148)
+texture = ExtResource("1_r5pcl")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=243096188]
+position = Vector2(7538, 153)
+texture = ExtResource("1_r5pcl")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=1954857670]
+position = Vector2(9471, 148)
+texture = ExtResource("1_r5pcl")
+
+[node name="Sprite2D7" type="Sprite2D" parent="." unique_id=2089953218]
+position = Vector2(11394, 133)
+texture = ExtResource("1_r5pcl")
+
+[node name="Sprite2D8" type="Sprite2D" parent="." unique_id=1437959543]
+position = Vector2(13312, 133)
+texture = ExtResource("1_r5pcl")
+
+[node name="Sprite2D9" type="Sprite2D" parent="." unique_id=1273723359]
+position = Vector2(15230, 128)
 texture = ExtResource("1_r5pcl")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=252242202]
@@ -112,6 +143,7 @@ position = Vector2(-54, -608)
 [node name="piso" type="CollisionShape2D" parent="pisos" unique_id=1219876204]
 position = Vector2(181.875, 1289)
 shape = SubResource("RectangleShape2D_utin6")
+metadata/_edit_group_ = true
 
 [node name="vpiso" type="Sprite2D" parent="pisos" unique_id=1616143121]
 position = Vector2(181.5, 1282.9999)
@@ -288,7 +320,7 @@ position = Vector2(1276.5, 865.875)
 shape = SubResource("RectangleShape2D_fc766")
 
 [node name="techo" type="CollisionShape2D" parent="pisos" unique_id=1736847932]
-position = Vector2(7824, 45)
+position = Vector2(7824, 148)
 shape = SubResource("RectangleShape2D_gdf5k")
 
 [node name="piso21" type="CollisionShape2D" parent="pisos" unique_id=1150887320]

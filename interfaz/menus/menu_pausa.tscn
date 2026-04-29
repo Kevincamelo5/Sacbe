@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://d38wh3lhl8s2c"]
+[gd_scene format=3 uid="uid://d38wh3lhl8s2c"]
 
 [ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="1_jd2x8"]
 
@@ -27,7 +27,7 @@ func _on_continuar_pressed():
 
 func _on_guardar_y_salir_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file(\"res://mapa/Menu/menu_principal.tscn\")
+	get_tree().change_scene_to_file(\"res://interfaz/menus/menu_principal.tscn\")
 	pass # Replace with function body.
 
 func _input(event: InputEvent) -> void:
@@ -39,11 +39,11 @@ func _on_reinciar_pressed() -> void:
 	print(\"reiniciando...\")
 "
 
-[node name="MenuPausa" type="CanvasLayer"]
+[node name="MenuPausa" type="CanvasLayer" unique_id=1774867333]
 process_mode = 3
 script = SubResource("GDScript_db4q2")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=289865368]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -51,7 +51,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.184314, 0.184314, 0.184314, 0.709804)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=103466585]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -65,22 +65,22 @@ offset_bottom = 172.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="continuar" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="continuar" type="Button" parent="ColorRect/VBoxContainer" unique_id=536357235]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_jd2x8")
 text = "Continuar"
 
-[node name="reinciar" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="reinciar" type="Button" parent="ColorRect/VBoxContainer" unique_id=1896810298]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_jd2x8")
 text = "Reiniciar"
 
-[node name="guardar y salir" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="guardar y salir" type="Button" parent="ColorRect/VBoxContainer" unique_id=667589493]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_jd2x8")
 text = "Regresar Menú Principal"
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/continuar" to="." method="_on_continuar_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/reinciar" to="." method="_on_continuar_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/reinciar" to="." method="_on_reinciar_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/reinciar" to="." method="_on_continuar_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/guardar y salir" to="." method="_on_guardar_y_salir_pressed"]

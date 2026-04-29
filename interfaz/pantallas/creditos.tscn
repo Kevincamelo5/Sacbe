@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d22dp6yssgai1"]
+[gd_scene format=3 uid="uid://d22dp6yssgai1"]
 
 [ext_resource type="Script" uid="uid://ccjngjjbm404i" path="res://interfaz/pantallas/creditos.gd" id="1_ilafw"]
 [ext_resource type="Texture2D" uid="uid://cvvdksictpxo6" path="res://activos/arte/fondo menús ajenos.jpg" id="2_7flbs"]
 
-[node name="Creditos" type="Control"]
+[node name="Creditos" type="Control" unique_id=121923054]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ilafw")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1164437517]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.00434028
@@ -23,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=498701869]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.33333334
@@ -40,7 +40,7 @@ texture = ExtResource("2_7flbs")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="ListaDeCreditos" type="VBoxContainer" parent="."]
+[node name="ListaDeCreditos" type="VBoxContainer" parent="." unique_id=731320102]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -52,7 +52,7 @@ offset_right = 199.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1106949560]
 layout_mode = 0
 anchor_left = 0.14583333
 anchor_top = 0.040123455
@@ -98,7 +98,7 @@ Graficos creados con Krita y ...
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1164773340]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -110,10 +110,52 @@ offset_top = -79.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Button" type="Button" parent="VBoxContainer2"]
+[node name="Button" type="Button" parent="VBoxContainer2" unique_id=1320669250]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Menú Principal"
+
+[node name="Reconocimiento" type="Label" parent="." unique_id=1687575313]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Creditos:
+Desarrollado por  prestadores del servicio social UADY-UMT.
+
+Dirección y producción
+Director del juego:
+Productor ejecutivo:
+Gionista: Kevin Leandro Camelo Suaste
+
+Diseño y programación
+Diseñador principal:
+Programación del gameplay:
+Progrmación de interfaz:
+
+Arte y Animación
+Director de arte:
+Artista de personajes:  Tania Miranda.
+Artista de escenarios:  Tania Miranda.
+Animación 2D:  Tania Miranda.
+
+Músca y sonido
+Compositor:
+mystical-flute-ritual-instrumental-399259: Paijo_G.
+Diseño de sonido:
+
+QA y pruebas
+Tester líder:
+Testers:
+
+Agradecimientos Especiales
+
+Herramientas
+Desarrollado en Godot Engine,
+Graficos creados con Krita y ...	
+
+2026 Servicio Social UADY-UMT.
+
+"
 
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_button_pressed"]
