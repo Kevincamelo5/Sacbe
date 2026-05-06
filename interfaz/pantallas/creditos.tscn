@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccjngjjbm404i" path="res://interfaz/pantallas/creditos.gd" id="1_ilafw"]
 [ext_resource type="Texture2D" uid="uid://cvvdksictpxo6" path="res://activos/arte/fondo menús ajenos.jpg" id="2_7flbs"]
+[ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="3_gyq5y"]
 
 [node name="Creditos" type="Control" unique_id=121923054]
 layout_mode = 3
@@ -52,52 +53,6 @@ offset_right = 199.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextEdit" type="TextEdit" parent="." unique_id=1106949560]
-layout_mode = 0
-anchor_left = 0.14583333
-anchor_top = 0.040123455
-anchor_right = 0.8576389
-anchor_bottom = 0.97839504
-theme_override_colors/font_color = Color(0.69934183, 0.6524714, 0.08708406, 1)
-text = "Creditos:
-Desarrollado por  prestadores del servicio social UADY-UMT.
-
-Dirección y producción
-Director del juego:
-Productor ejecutivo:
-Gionista: Kevin Leandro Camelo Suaste
-
-Diseño y programación
-Diseñador principal:
-Programación del gameplay:
-Progrmación de interfaz:
-
-Arte y Animación
-Director de arte:
-Artista de personajes:  Tania Miranda.
-Artista de escenarios:  Tania Miranda.
-Animación 2D:  Tania Miranda.
-
-Músca y sonido
-Compositor:
-mystical-flute-ritual-instrumental-399259: Paijo_G.
-Diseño de sonido:
-
-QA y pruebas
-Tester líder:
-Testers:
-
-Agradecimientos Especiales
-
-Herramientas
-Desarrollado en Godot Engine,
-Graficos creados con Krita y ...	
-
-2026 Servicio Social UADY-UMT.
-
-"
-metadata/_edit_use_anchors_ = true
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1164773340]
 layout_mode = 1
 anchors_preset = 3
@@ -110,16 +65,11 @@ offset_top = -79.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Button" type="Button" parent="VBoxContainer2" unique_id=1320669250]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "Menú Principal"
-
 [node name="Reconocimiento" type="Label" parent="." unique_id=1687575313]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 1152.0
+offset_bottom = 959.0
+theme_override_fonts/font = ExtResource("3_gyq5y")
 text = "Creditos:
 Desarrollado por  prestadores del servicio social UADY-UMT.
 
@@ -157,5 +107,16 @@ Graficos creados con Krita y ...
 2026 Servicio Social UADY-UMT.
 
 "
+horizontal_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_button_pressed"]
+[node name="Button" type="Button" parent="." unique_id=1320669250]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 32.0
+offset_right = 163.0
+offset_bottom = 63.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Menú Principal"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

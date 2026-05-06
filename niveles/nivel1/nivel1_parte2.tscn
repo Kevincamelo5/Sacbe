@@ -41,8 +41,18 @@ script = ExtResource("1_dqs1d")
 [node name="Objetos" type="Node2D" parent="." unique_id=290793190]
 
 [node name="fondo" type="Sprite2D" parent="Objetos" unique_id=741493400]
-position = Vector2(1743, -61.547752)
-scale = Vector2(5.651889, 2.5039203)
+position = Vector2(290.0001, 95.499985)
+scale = Vector2(0.81041664, 0.73611116)
+texture = ExtResource("1_kjwuy")
+
+[node name="fondo3" type="Sprite2D" parent="Objetos" unique_id=2032737017]
+position = Vector2(1836, 105)
+scale = Vector2(0.81041664, 0.73611116)
+texture = ExtResource("1_kjwuy")
+
+[node name="fondo2" type="Sprite2D" parent="Objetos" unique_id=1981231598]
+position = Vector2(3590.5002, 93.250015)
+scale = Vector2(1.0171876, 0.7412038)
 texture = ExtResource("1_kjwuy")
 
 [node name="Jugador" parent="." unique_id=1203516821 instance=ExtResource("2_450ay")]
@@ -105,6 +115,7 @@ texture = SubResource("GradientTexture2D_1wdpe")
 [node name="controles" parent="." unique_id=1246349502 instance=ExtResource("3_450ay")]
 
 [node name="Estalactitas" type="Node2D" parent="." unique_id=499655939]
+position = Vector2(-15, 284)
 
 [node name="Area2D" parent="Estalactitas" unique_id=809678345 instance=ExtResource("5_37m0b")]
 position = Vector2(-308.00003, -574)
@@ -263,7 +274,7 @@ texture = ExtResource("6_m23g8")
 [node name="CanvasLayer" parent="." unique_id=330364085 instance=ExtResource("8_8gt42")]
 
 [node name="Vacio" parent="." unique_id=278364109 instance=ExtResource("7_kjwuy")]
-position = Vector2(1534, 461)
+position = Vector2(1921, 476)
 scale = Vector2(545.3086, 1.8183305)
 
 [node name="Area2D2" type="Area2D" parent="Vacio" unique_id=1368988135]

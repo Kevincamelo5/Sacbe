@@ -8,22 +8,33 @@ script = ExtResource("1_qi7j7")
 
 [node name="TextoVidas" type="Label" parent="." unique_id=245698170]
 anchors_preset = -1
-anchor_left = 0.11631945
-anchor_top = 0.10339506
-anchor_right = 0.1345486
-anchor_bottom = 0.1388889
+anchor_left = 0.14322917
+anchor_top = 0.06790123
+anchor_right = 0.16145833
+anchor_bottom = 0.103395075
+offset_left = 47.0
+offset_top = -3.9999962
+offset_right = 47.0
+offset_bottom = 0.9999924
+theme_override_font_sizes/font_size = 20
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
 [node name="contador_vidas" type="Label" parent="." unique_id=2112217960]
 anchors_preset = -1
-anchor_left = 0.009548611
-anchor_top = 0.1095679
-anchor_right = 0.11631945
-anchor_bottom = 0.14506173
+anchor_left = 0.032986112
+anchor_top = 0.072530866
+anchor_right = 0.13975695
+anchor_bottom = 0.108024694
+offset_left = 36.0
+offset_top = -2.0
+offset_right = 53.0
+offset_bottom = -2.0
 theme_override_fonts/font = ExtResource("2_s3y11")
+theme_override_font_sizes/font_size = 20
 text = "Vidas restantes:"
 metadata/_edit_use_anchors_ = true
 

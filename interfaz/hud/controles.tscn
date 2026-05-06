@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bw8ubk8v43lho"]
+[gd_scene format=3 uid="uid://bw8ubk8v43lho"]
 
 [ext_resource type="Script" uid="uid://brcdsuq38nok0" path="res://interfaz/hud/controles.gd" id="1_4hprl"]
 [ext_resource type="Texture2D" uid="uid://b74aptb743qcb" path="res://activos/arte/botones/arrow-27066_1920.png" id="1_bdtd0"]
@@ -9,60 +9,50 @@
 [ext_resource type="Texture2D" uid="uid://d3lb10g5lqvrv" path="res://activos/arte/botones/arrow-31177_1920.png" id="6_2mbvt"]
 [ext_resource type="Texture2D" uid="uid://qeevfbm1li0g" path="res://activos/arte/botones/bang-148261_1920.png" id="7_7aew7"]
 
-[node name="controles" type="CanvasLayer"]
+[node name="controles" type="CanvasLayer" unique_id=1652164061]
 script = ExtResource("1_4hprl")
 
-[node name="Izquierda" type="TouchScreenButton" parent="."]
-position = Vector2(12, 379)
-scale = Vector2(0.07972903, 0.077083334)
+[node name="Izquierda" type="TouchScreenButton" parent="." unique_id=1027431052]
+position = Vector2(44.999996, 424)
+scale = Vector2(0.065, 0.062)
 texture_normal = ExtResource("1_bdtd0")
 action = "izquierda"
 
-[node name="Derecha" type="TouchScreenButton" parent="."]
-position = Vector2(264, 361)
-scale = Vector2(0.07972903, 0.077083334)
+[node name="Derecha" type="TouchScreenButton" parent="." unique_id=2031550420]
+position = Vector2(226, 432)
+scale = Vector2(0.065, 0.062)
 texture_normal = ExtResource("2_4hprl")
 action = "derecha"
 
-[node name="Saltar" type="TouchScreenButton" parent="."]
-position = Vector2(133, 235)
-scale = Vector2(0.07972903, 0.0771235)
+[node name="Saltar" type="TouchScreenButton" parent="." unique_id=684978161]
+position = Vector2(140, 337.99997)
+scale = Vector2(0.065, 0.062)
 texture_normal = ExtResource("3_82l32")
 action = "saltar"
 
-[node name="Agacharse" type="TouchScreenButton" parent="."]
-position = Vector2(149, 496)
-scale = Vector2(0.07972903, 0.077083334)
+[node name="Agacharse" type="TouchScreenButton" parent="." unique_id=1317160531]
+position = Vector2(132, 515.99994)
+scale = Vector2(0.065, 0.062)
 texture_normal = ExtResource("4_06y37")
 action = "saltar"
 
-[node name="Pausa" type="TouchScreenButton" parent="."]
-position = Vector2(1039, 28.000002)
-scale = Vector2(0.16879156, 0.15401298)
+[node name="Pausa" type="TouchScreenButton" parent="." unique_id=733398235]
+position = Vector2(1062, 27)
+scale = Vector2(0.113207445, 0.11320753)
 texture_normal = ExtResource("5_totj0")
 action = "pausa"
 
-[node name="CambiarObjeto" type="TouchScreenButton" parent="."]
-position = Vector2(995.99994, 242.00002)
-scale = Vector2(0.07972903, 0.077083334)
+[node name="CambiarObjeto" type="TouchScreenButton" parent="." unique_id=1649098856]
+position = Vector2(1007, 285)
+scale = Vector2(0.065, 0.059895832)
 texture_normal = ExtResource("6_2mbvt")
 action = "cambiar_objeto"
 
-[node name="UsarObjeto" type="TouchScreenButton" parent="."]
+[node name="UsarObjeto" type="TouchScreenButton" parent="." unique_id=741971071]
 position = Vector2(809, 412)
 scale = Vector2(0.16097902, 0.16957764)
 texture_normal = ExtResource("7_7aew7")
 action = "usar_objeto"
-
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = -1
-anchor_left = 0.8559028
-anchor_top = 0.38271606
-anchor_right = 0.9800347
-anchor_bottom = 0.59876543
-grow_horizontal = 0
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Izquierda" to="." method="_on_izquierda_pressed"]
 [connection signal="released" from="Izquierda" to="." method="_on_izquierda_released"]
