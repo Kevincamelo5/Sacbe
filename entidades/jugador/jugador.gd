@@ -6,7 +6,7 @@ var spawn_position : Vector2
 
 @onready var sprite = $Sprite2D
 @onready var anim = $Sprite2D/AnimationPlayer
-
+@onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 func _ready() -> void:
 	add_to_group("jugador")
 	spawn_position = global_position
@@ -54,9 +54,18 @@ func _movimiento_horizontal() -> void:
 	direccion.x = Input.get_axis("izquierda", "derecha")
 	
 	if direccion.x > 0:
-		sprite.flip_h = false
+		animatedSprite.flip_h = false
+		$AnimatedSprite2D.show()
+		$Sprite2D.hide()
+		animatedSprite.play("correr")
 	elif direccion.x < 0:
-		sprite.flip_h = true
+		animatedSprite.flip_h = true
+		$AnimatedSprite2D.show()
+		$Sprite2D.hide()
+		animatedSprite.play("correr")
+	else:
+		$AnimatedSprite2D.hide()
+		$Sprite2D.show()
 	
 	velocity.x = direccion.x * _aceleracion
 

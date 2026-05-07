@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6oh18grdhan5" path="res://entidades/jugador/jugador.gd" id="1_bgsqy"]
 [ext_resource type="Texture2D" uid="uid://uy1ovh6uyxhv" path="res://activos/arte/(512) Quitzal masculino v2 frentre.png" id="2_5flym"]
+[ext_resource type="Texture2D" uid="uid://1ca45r1b2ggk" path="res://activos/arte/Gemini_Generated_Image_2i1ycr2i1ycr2i1y (1).png" id="3_i8lgo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgsqy"]
 resource_name = "jugador"
@@ -11,6 +12,35 @@ height = 106.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71ocg"]
 radius = 38.0
 height = 110.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hhml"]
+atlas = ExtResource("3_i8lgo")
+region = Rect2(0, 0, 682, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xbqb"]
+atlas = ExtResource("3_i8lgo")
+region = Rect2(682, 0, 682, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rudo"]
+atlas = ExtResource("3_i8lgo")
+region = Rect2(682, 1024, 682, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_78n3h"]
+animations = [{
+"frames": [{
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_5hhml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xbqb")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_2rudo")
+}],
+"loop": true,
+"name": &"correr",
+"speed": 5.0
+}]
 
 [node name="Jugador" type="CharacterBody2D" unique_id=594628309]
 collision_layer = 6
@@ -37,3 +67,9 @@ collision_mask = 8
 
 [node name="hitbox" type="CollisionShape2D" parent="AreaAtaque" unique_id=362286580]
 shape = SubResource("CapsuleShape2D_71ocg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1332510698]
+position = Vector2(-3.5000017, -3.9999995)
+scale = Vector2(0.11583578, 0.12890625)
+sprite_frames = SubResource("SpriteFrames_78n3h")
+animation = &"correr"
