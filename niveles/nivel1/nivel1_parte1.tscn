@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dm0q8p7fcffb" path="res://activos/arte/cueva.jpg" id="1_r5pcl"]
 [ext_resource type="AudioStream" uid="uid://ccr8oku4balhu" path="res://activos/audio/mystical-flute-ritual-instrumental-399259.mp3" id="2_nen1f"]
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="4_utin6"]
+[ext_resource type="Texture2D" uid="uid://c7gg742kpsnej" path="res://activos/arte/pruebassuelo2d.png" id="5_37vol"]
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="5_dbo7o"]
 [ext_resource type="PackedScene" uid="uid://dgaku384lbo3k" path="res://objetos/peligrosos/vacio.tscn" id="6_u8g0n"]
 [ext_resource type="PackedScene" uid="uid://cno7e1ivf3yc5" path="res://objetos/interactuables/altar.tscn" id="7_jv2t6"]
@@ -14,10 +15,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utin6"]
 size = Vector2(2788.25, 230)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fkerh"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_utin6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbo7o"]
 size = Vector2(1713, 59)
@@ -83,14 +80,6 @@ size = Vector2(116, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvhjw"]
 size = Vector2(4498, 20)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5r6b0"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fkerh"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_37vol"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_juixx"]
-
 [node name="Nivel1Parte1" type="Node2D" unique_id=1181751365]
 script = ExtResource("1_iy3o0")
 
@@ -154,94 +143,144 @@ shape = SubResource("RectangleShape2D_utin6")
 metadata/_edit_group_ = true
 
 [node name="vpiso" type="Sprite2D" parent="pisos" unique_id=1616143121]
-position = Vector2(201, 1302.5)
-scale = Vector2(2784, 244.99995)
-texture = SubResource("PlaceholderTexture2D_fkerh")
+position = Vector2(183.96875, 1310.5)
+scale = Vector2(3.4364183, 1.9379311)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso2" type="Sprite2D" parent="pisos" unique_id=1999336952]
-position = Vector2(100.5, 1136)
-scale = Vector2(3.2792966, 0.12109368)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso2" type="Sprite2D" parent="pisos" unique_id=1177354403]
+position = Vector2(229.99997, 1279.5)
+scale = Vector2(2.4153275, 2.3931034)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso3" type="Sprite2D" parent="pisos" unique_id=827903749]
-position = Vector2(155.99997, 1064.5)
-scale = Vector2(2.4296875, 0.1464843)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso3" type="Sprite2D" parent="pisos" unique_id=44946223]
+position = Vector2(155.99997, 1241.125)
+scale = Vector2(1.5352286, 2.936207)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso4" type="Sprite2D" parent="pisos" unique_id=2128074313]
-position = Vector2(168, 996.5)
-scale = Vector2(1.75, 0.10742189)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso4" type="Sprite2D" parent="pisos" unique_id=1791236085]
+position = Vector2(171.5, 1212)
+scale = Vector2(1.106304, 3.3655171)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso5" type="Sprite2D" parent="pisos" unique_id=761125602]
-position = Vector2(1317.75, 1022.75)
-scale = Vector2(0.90722644, 0.05566407)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso5" type="Sprite2D" parent="pisos" unique_id=2098513456]
+position = Vector2(1319, 1026)
+scale = Vector2(0.58096427, 0.19310339)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso6" type="Sprite2D" parent="pisos" unique_id=1076905299]
-position = Vector2(1285, 865)
-scale = Vector2(0.9023438, 0.046874996)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso6" type="Sprite2D" parent="pisos" unique_id=1462603481]
+position = Vector2(1278.5, 867)
+scale = Vector2(0.5871447, 0.17931028)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso7" type="Sprite2D" parent="pisos" unique_id=1971971565]
-position = Vector2(1886, 941.75)
-scale = Vector2(0.93359387, 0.061523434)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso7" type="Sprite2D" parent="pisos" unique_id=338084805]
+position = Vector2(1891.9999, 943.5)
+scale = Vector2(0.5834363, 0.18620667)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso8" type="Sprite2D" parent="pisos" unique_id=1756835855]
-position = Vector2(2848.5, 1308.125)
-scale = Vector2(2.6035156, 0.42138672)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso8" type="Sprite2D" parent="pisos" unique_id=2068203732]
+position = Vector2(1891.9999, 943.5)
+scale = Vector2(0.5834363, 0.18620667)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso9" type="Sprite2D" parent="pisos" unique_id=836044078]
-position = Vector2(3418, 1283)
-scale = Vector2(0.37890634, 0.51953125)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso9" type="Sprite2D" parent="pisos" unique_id=1570301570]
+position = Vector2(2402, 881)
+scale = Vector2(0.5859086, 0.18620667)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso10" type="Sprite2D" parent="pisos" unique_id=2023213155]
-position = Vector2(4001, 1316)
-scale = Vector2(1.8710941, 0.390625)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso10" type="Sprite2D" parent="pisos" unique_id=1970446023]
+position = Vector2(2895.5, 820.5)
+scale = Vector2(0.5846726, 0.18620692)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso11" type="Sprite2D" parent="pisos" unique_id=761590974]
-position = Vector2(4993, 1277.5)
-scale = Vector2(0.972656, 0.5410156)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso11" type="Sprite2D" parent="pisos" unique_id=533100964]
+position = Vector2(3999.5, 1342)
+scale = Vector2(1.1804693, 1.7103447)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso12" type="Sprite2D" parent="pisos" unique_id=1710419899]
-position = Vector2(5916.5, 1299.5)
-scale = Vector2(1.9785151, 0.45507804)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso12" type="Sprite2D" parent="pisos" unique_id=898154078]
+position = Vector2(3414.5, 1310.5)
+scale = Vector2(0.26823202, 2.1448276)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso13" type="Sprite2D" parent="pisos" unique_id=1824832902]
-position = Vector2(7751.5, 1340)
-scale = Vector2(4.2089853, 0.29687503)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso13" type="Sprite2D" parent="pisos" unique_id=194156451]
+position = Vector2(4995, 1302)
+scale = Vector2(0.6131026, 2.262069)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso14" type="Sprite2D" parent="pisos" unique_id=790915582]
-position = Vector2(9999, 1290.5)
-scale = Vector2(4.0117173, 0.49023443)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso14" type="Sprite2D" parent="pisos" unique_id=1931959416]
+position = Vector2(5914.0005, 1321.5)
+scale = Vector2(1.2533997, 1.9931033)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso15" type="Sprite2D" parent="pisos" unique_id=1245164399]
-position = Vector2(10173, 1122)
-scale = Vector2(3.304689, 0.16015624)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso15" type="Sprite2D" parent="pisos" unique_id=1117470740]
+position = Vector2(7760.5, 1364.5)
+scale = Vector2(2.644005, 1.4000001)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso16" type="Sprite2D" parent="pisos" unique_id=1479912195]
-position = Vector2(11822, 1281.5)
-scale = Vector2(3.01953, 0.5097656)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso16" type="Sprite2D" parent="pisos" unique_id=816999121]
+position = Vector2(9493.5, 1319)
+scale = Vector2(1.2867748, 2.027586)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso18" type="Sprite2D" parent="pisos" unique_id=829493917]
-position = Vector2(14120, 1243)
-scale = Vector2(0.59375006, 0.66015625)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso17" type="Sprite2D" parent="pisos" unique_id=1014246711]
+position = Vector2(10170.5, 1275.5)
+scale = Vector2(2.1001248, 2.6275861)
+texture = ExtResource("5_37vol")
 
-[node name="vpiso17" type="Sprite2D" parent="pisos" unique_id=1606874041]
-position = Vector2(13325.75, 1326.75)
-scale = Vector2(1.8290997, 0.34277347)
-texture = SubResource("NoiseTexture2D_utin6")
+[node name="vpiso18" type="Sprite2D" parent="pisos" unique_id=1524862642]
+position = Vector2(11056.001, 894.5)
+scale = Vector2(5.5574765, 0.13103452)
+texture = ExtResource("5_37vol")
+
+[node name="vpiso21" type="Sprite2D" parent="pisos" unique_id=1329533224]
+position = Vector2(11817.5, 1305)
+scale = Vector2(1.9097645, 2.1655176)
+texture = ExtResource("5_37vol")
+
+[node name="vpiso22" type="Sprite2D" parent="pisos" unique_id=720185717]
+position = Vector2(13325, 1350.5)
+scale = Vector2(1.1668726, 1.5379311)
+texture = ExtResource("5_37vol")
+
+[node name="vpiso23" type="Sprite2D" parent="pisos" unique_id=708071617]
+position = Vector2(14118, 1270.5)
+scale = Vector2(0.3683561, 2.6827586)
+texture = ExtResource("5_37vol")
+
+[node name="vpiso28" type="Sprite2D" parent="pisos" unique_id=304578846]
+position = Vector2(15323, 1341)
+scale = Vector2(2.2966616, 1.7103448)
+texture = ExtResource("5_37vol")
+
+[node name="vpiso24" type="Sprite2D" parent="pisos" unique_id=1312980340]
+position = Vector2(13880.5, 1152.5)
+scale = Vector2(0.14215024, 0.10344854)
+texture = ExtResource("5_37vol")
+
+[node name="vpiso25" type="Sprite2D" parent="pisos" unique_id=570221155]
+position = Vector2(13712, 1095.5)
+scale = Vector2(0.14091463, 0.117241494)
+texture = ExtResource("5_37vol")
+
+[node name="vpiso26" type="Sprite2D" parent="pisos" unique_id=1411784344]
+position = Vector2(13576, 1027)
+scale = Vector2(0.14338617, 0.11034491)
+texture = ExtResource("5_37vol")
+
+[node name="vpiso27" type="Sprite2D" parent="pisos" unique_id=620153061]
+position = Vector2(13453, 954)
+scale = Vector2(0.14338803, 0.11034471)
+texture = ExtResource("5_37vol")
+
+[node name="vpiso19" type="Sprite2D" parent="pisos" unique_id=712283514]
+position = Vector2(2745, 1328)
+scale = Vector2(1.394314, 1.7241379)
+texture = ExtResource("5_37vol")
+
+[node name="vpiso20" type="Sprite2D" parent="pisos" unique_id=978083386]
+position = Vector2(2745, 1328)
+scale = Vector2(1.394314, 1.7241379)
+texture = ExtResource("5_37vol")
 
 [node name="piso2" type="CollisionShape2D" parent="pisos" unique_id=1602932799]
 position = Vector2(113.5, 1133.5)
@@ -350,47 +389,6 @@ shape = SubResource("RectangleShape2D_lv4h8")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="pisos" unique_id=1573620272]
 position = Vector2(11056, 895)
 shape = SubResource("RectangleShape2D_dvhjw")
-
-[node name="vpiso19" type="Sprite2D" parent="pisos" unique_id=252822639]
-position = Vector2(2402.5, 881)
-scale = Vector2(0.9238278, 0.054687504)
-texture = SubResource("NoiseTexture2D_5r6b0")
-
-[node name="vpiso20" type="Sprite2D" parent="pisos" unique_id=1617296258]
-position = Vector2(2898, 822)
-scale = Vector2(0.9238278, 0.054687504)
-texture = SubResource("NoiseTexture2D_5r6b0")
-
-[node name="vpiso21" type="Sprite2D" parent="pisos" unique_id=2013114373]
-position = Vector2(-65703.484, 951.8926)
-scale = Vector2(8.798828, 0.033203125)
-texture = SubResource("NoiseTexture2D_fkerh")
-offset = Vector2(8724, -1849)
-
-[node name="vpiso22" type="Sprite2D" parent="pisos" unique_id=2013430638]
-position = Vector2(15446, 1338)
-scale = Vector2(4.09375, 0.44531247)
-texture = SubResource("NoiseTexture2D_37vol")
-
-[node name="vpiso23" type="Sprite2D" parent="pisos" unique_id=291800808]
-position = Vector2(13452.999, 957.00006)
-scale = Vector2(0.22168025, 0.0400388)
-texture = SubResource("NoiseTexture2D_juixx")
-
-[node name="vpiso24" type="Sprite2D" parent="pisos" unique_id=663077751]
-position = Vector2(13575.999, 1030)
-scale = Vector2(0.22168025, 0.0400388)
-texture = SubResource("NoiseTexture2D_juixx")
-
-[node name="vpiso25" type="Sprite2D" parent="pisos" unique_id=1902366904]
-position = Vector2(13711.999, 1098)
-scale = Vector2(0.22168025, 0.0400388)
-texture = SubResource("NoiseTexture2D_juixx")
-
-[node name="vpiso26" type="Sprite2D" parent="pisos" unique_id=1290158960]
-position = Vector2(13876.999, 1157)
-scale = Vector2(0.22168025, 0.0400388)
-texture = SubResource("NoiseTexture2D_juixx")
 
 [node name="controles" parent="." unique_id=1405605016 instance=ExtResource("5_dbo7o")]
 

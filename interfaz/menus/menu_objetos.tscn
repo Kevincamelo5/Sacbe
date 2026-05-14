@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cd85dj2htnytf"]
 
 [ext_resource type="Script" uid="uid://dewnkd2qjhcxk" path="res://interfaz/menus/menu_objetos.gd" id="1_vtdxt"]
+[ext_resource type="Texture2D" uid="uid://dpyicnkndmbk6" path="res://activos/arte/(256) Escudo.png" id="3_grkpp"]
 [ext_resource type="Texture2D" uid="uid://beboyb012tlc5" path="res://icon.svg" id="4_4q85u"]
 [ext_resource type="Texture2D" uid="uid://ctpebtatsckvt" path="res://activos/arte/(512) Quitzal flauta v2 frentre.png" id="5_mtgl7"]
 [ext_resource type="PackedScene" uid="uid://c3k3qjmhw06ff" path="res://interfaz/hud/contador_monedas.tscn" id="7_4q85u"]
@@ -16,6 +17,15 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 
+[node name="macuahuitle" type="TouchScreenButton" parent="VBoxContainer" unique_id=588121433]
+position = Vector2(0, 152)
+scale = Vector2(1.953125, 2.9453125)
+texture_normal = ExtResource("4_4q85u")
+
+[node name="escudo" type="TouchScreenButton" parent="VBoxContainer" unique_id=1787789025]
+position = Vector2(428, 218)
+texture_normal = ExtResource("3_grkpp")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1464333704]
 y_sort_enabled = true
 layout_direction = 4
@@ -23,13 +33,10 @@ layout_mode = 2
 alignment = 1
 metadata/_edit_group_ = true
 
-[node name="vida" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer" unique_id=1295808351]
+[node name="vida" type="TouchScreenButton" parent="VBoxContainer" unique_id=1295808351]
+position = Vector2(812, 188)
+scale = Vector2(0.6542969, 0.6328125)
 texture_normal = ExtResource("5_mtgl7")
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer" unique_id=588121433]
-visible = false
-scale = Vector2(1.953125, 2.9453125)
-texture_normal = ExtResource("4_4q85u")
 
 [node name="Control" type="Control" parent="." unique_id=112642622]
 visible = false
@@ -127,4 +134,8 @@ text = "Monedas insuficientes."
 [node name="Timer" type="Timer" parent="." unique_id=223519538]
 wait_time = 3.0
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/vida" to="." method="_on_vida_pressed"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=842751625]
+
+[connection signal="pressed" from="VBoxContainer/macuahuitle" to="." method="_on_macuahuitle_pressed"]
+[connection signal="pressed" from="VBoxContainer/escudo" to="." method="_on_escudo_pressed"]
+[connection signal="pressed" from="VBoxContainer/vida" to="." method="_on_vida_pressed"]

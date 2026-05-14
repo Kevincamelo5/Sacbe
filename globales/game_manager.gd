@@ -2,6 +2,15 @@ extends Node
 var moneda = 0
 var vida = 5
 
+var armasDesbloqueadas = {
+	"cuchillo": true,
+	"hacha": false,
+	"lanza": false,
+	"escudo": false,
+	"flauta":false,
+	"macuahuitle": false 
+}
+
 signal puntuacion_actualizada(moneda_actual:int)
 signal vida_actualizada(vida_actual:int)
 
@@ -48,3 +57,9 @@ func comprar_vida(costo: int = 30) -> bool:
 	else:
 		print("Monedas insuficientes. Tienes ", moneda, " y necesitas ", costo)
 		return false
+
+func desbloquearArma(nombreArma: String):
+	if armasDesbloqueadas.has(nombreArma):
+		armasDesbloqueadas[nombreArma] = true
+		print(nombreArma, "desbloqueada")
+	else: print_debug("Error: El arma '", nombreArma, "' no existe en el diccionario.")

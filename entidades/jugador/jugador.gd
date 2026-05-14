@@ -4,8 +4,6 @@ class_name Jugador
 signal vida_cambiada(vidas_actuales)
 var spawn_position : Vector2
 
-@onready var sprite = $Sprite2D
-@onready var anim = $Sprite2D/AnimationPlayer
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 func _ready() -> void:
 	add_to_group("jugador")
@@ -53,15 +51,21 @@ func _movimiento(delta: float) -> void:
 func _movimiento_horizontal() -> void:
 	direccion.x = Input.get_axis("izquierda", "derecha")
 	
+	# 1. Primero controlamos hacia dónde mira el personaje (flip_h)
 	if direccion.x > 0:
 		animatedSprite.flip_h = false
-		animatedSprite.play("correr")
 	elif direccion.x < 0:
 		animatedSprite.flip_h = true
+	
+	# 2. Luego controlamos las animaciones basándonos en si está en el suelo o no
+	if not is_on_floor():
+		animatedSprite.play("saltar")
+	elif direccion.x != 0:
 		animatedSprite.play("correr")
 	else:
 		animatedSprite.play("parado")
 	
+	# 3. Aplicamos la velocidad
 	velocity.x = direccion.x * _aceleracion
 
 @export_category("salto")
@@ -121,7 +125,7 @@ func _actualizar_estado_suelo() -> void:
 
 # OBJETOS
 @export_category("objeto")
-enum OBJETOS {CUCHILLO, LANZA, ESCUDO}
+enum OBJETOS {CUCHILLO, LANZA, ESCUDO, MACUAHUITLE, FLAUTA}
 @export var objetoActual := OBJETOS.CUCHILLO
 var _estaUsandoObjeto := false
 var _temporizadorObjeto := 0.0
@@ -131,9 +135,13 @@ var _temporizadorObjeto := 0.0
 @export var enfriamientoCuchillo = 0.6
 @export var dañoLanza:= 2.0
 @export var enfriamientoLanza:= 0.35
+@export var dañoHacha = 9
+@export var enfriamientoHacha = 1.5
+@export var dañoMacuahuitle = 7
+@export var enfriamientoMacuahuitle = 0.85
 
 func _usar_objeto() -> void:
-	if not sprite.flip_h:
+	if not animatedSprite.flip_h:
 		areaCuchillo.position.x = 77
 	else:
 		areaCuchillo.position.x = -77
@@ -178,7 +186,7 @@ func lanzar():
 	print_debug("Lanzando")
 	var nuevaLanza: Lanza = lanza.instantiate()
 	
-	if sprite.flip_h:
+	if animatedSprite.flip_h:
 		nuevaLanza.x = -1
 	nuevaLanza.daño = dañoLanza
 	get_parent().add_child(nuevaLanza)
@@ -198,11 +206,22 @@ func _input(event: InputEvent) -> void:
 			get_tree().reload_current_scene()
 	
 	if event.is_action_pressed("cambiar_objeto"):
-		#get_tree().change_scene_to_file("res://interfaz/menu_objetos.tscn")
-		objetoActual = wrap(objetoActual+1, 0, OBJETOS.size())
-		print_debug("Arma cambiada a ", objetoActual)
+		_cambiar_siguiente_objeto_desbloqueado()
 		
-
+func _cambiar_siguiente_objeto_desbloqueado():
+	var total_objetos = OBJETOS.size()
+	var nombreArmas = ["cuchillo", "lanza", "escudo", "hacha", "flauta", "macuahuitle"]
+	
+	for i in range(total_objetos):
+		#Avanza uno de los objetos a la vez en el ciclo del enum
+		objetoActual = wrap(objetoActual + 1, 0, total_objetos)
+	
+		#verificamos si la nueva esta desbloqueada en el GameManager
+		var nombre_arma_actual = nombreArmas[objetoActual]
+		if GameManager.armasDesbloqueadas.get(nombre_arma_actual, false):
+			print_debug("Arma cambiada a ", nombre_arma_actual)
+			break 
+	
 #perder vidas
 func _lose_lives() -> void:
 	GameManager.disminuir_vida()
