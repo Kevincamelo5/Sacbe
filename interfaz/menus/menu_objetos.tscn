@@ -1,43 +1,130 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd85dj2htnytf"]
+[gd_scene format=3 uid="uid://cd85dj2htnytf"]
 
 [ext_resource type="Script" uid="uid://dewnkd2qjhcxk" path="res://interfaz/menus/menu_objetos.gd" id="1_vtdxt"]
-[ext_resource type="Texture2D" uid="uid://44xgvscwmnau" path="res://activos/arte/(256) Lanza.png" id="1_wopvq"]
-[ext_resource type="Texture2D" uid="uid://dpyicnkndmbk6" path="res://activos/arte/(256) Escudo.png" id="2_vtdxt"]
+[ext_resource type="Texture2D" uid="uid://beboyb012tlc5" path="res://icon.svg" id="4_4q85u"]
+[ext_resource type="Texture2D" uid="uid://ctpebtatsckvt" path="res://activos/arte/(512) Quitzal flauta v2 frentre.png" id="5_mtgl7"]
+[ext_resource type="PackedScene" uid="uid://c3k3qjmhw06ff" path="res://interfaz/hud/contador_monedas.tscn" id="7_4q85u"]
 
-[node name="MenuObjetos" type="CanvasLayer"]
+[node name="MenuObjetos" type="CanvasLayer" unique_id=1687533581]
 script = ExtResource("1_vtdxt")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-y_sort_enabled = true
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=456765047]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1464333704]
+y_sort_enabled = true
+layout_direction = 4
+layout_mode = 2
 alignment = 1
+metadata/_edit_group_ = true
 
-[node name="hacha" type="TouchScreenButton" parent="HBoxContainer"]
-position = Vector2(745, 223)
+[node name="vida" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer" unique_id=1295808351]
+texture_normal = ExtResource("5_mtgl7")
 
-[node name="lanza" type="TouchScreenButton" parent="HBoxContainer"]
-position = Vector2(382, 100)
-texture_normal = ExtResource("1_wopvq")
+[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer" unique_id=588121433]
+visible = false
+scale = Vector2(1.953125, 2.9453125)
+texture_normal = ExtResource("4_4q85u")
 
-[node name="cuchillo" type="TouchScreenButton" parent="HBoxContainer"]
-position = Vector2(978, 232)
+[node name="Control" type="Control" parent="." unique_id=112642622]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="macuahuitle" type="TouchScreenButton" parent="HBoxContainer"]
+[node name="costo escudo" type="Label" parent="Control" unique_id=1916861612]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10763889
+anchor_top = 0.37037036
+anchor_right = 0.12413195
+anchor_bottom = 0.4058642
+grow_vertical = 2
+text = "50"
+metadata/_edit_use_anchors_ = true
 
-[node name="flauta" type="TouchScreenButton" parent="HBoxContainer"]
-position = Vector2(596, 416)
+[node name="costo vidas" type="Label" parent="Control" unique_id=306778502]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.39322916
+anchor_top = 0.7669753
+anchor_right = 0.4279514
+anchor_bottom = 0.80246913
+text = "50"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="escudo" type="TouchScreenButton" parent="HBoxContainer"]
-position = Vector2(19, 103)
-texture_normal = ExtResource("2_vtdxt")
+[node name="costo flauta" type="Label" parent="Control" unique_id=672530943]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6484375
+anchor_top = 0.75617284
+anchor_right = 0.6831597
+anchor_bottom = 0.7916667
+text = "50"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="HBoxContainer/hacha" to="." method="_on_hacha_pressed"]
-[connection signal="pressed" from="HBoxContainer/lanza" to="." method="_on_lanza_pressed"]
-[connection signal="pressed" from="HBoxContainer/cuchillo" to="." method="_on_cuchillo_pressed"]
-[connection signal="pressed" from="HBoxContainer/macuahuitle" to="." method="_on_macuahuitle_pressed"]
-[connection signal="pressed" from="HBoxContainer/flauta" to="." method="_on_flauta_pressed"]
-[connection signal="pressed" from="HBoxContainer/escudo" to="." method="_on_escudo_pressed"]
+[node name="costo macuahuitle" type="Label" parent="Control" unique_id=1353541332]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8454861
+anchor_top = 0.33179012
+anchor_right = 0.8802083
+anchor_bottom = 0.36728394
+text = "50"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="costo lanza" type="Label" parent="Control" unique_id=817600259]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4296875
+anchor_top = 0.35030866
+anchor_right = 0.4644097
+anchor_bottom = 0.38580248
+text = "50"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="costo hacha" type="Label" parent="Control" unique_id=1340088370]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6501736
+anchor_top = 0.34104937
+anchor_right = 0.6848958
+anchor_bottom = 0.37654322
+text = "50"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Contador_moneda" parent="." unique_id=1647204287 instance=ExtResource("7_4q85u")]
+
+[node name="noteAlcanza" type="Label" parent="." unique_id=1311535399]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.5
+offset_top = -31.5
+offset_right = 249.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "Monedas insuficientes."
+
+[node name="Timer" type="Timer" parent="." unique_id=223519538]
+wait_time = 3.0
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/vida" to="." method="_on_vida_pressed"]

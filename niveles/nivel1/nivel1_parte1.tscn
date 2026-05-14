@@ -95,27 +95,33 @@ size = Vector2(4498, 20)
 script = ExtResource("1_iy3o0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=35196844]
-position = Vector2(-187, 104)
+position = Vector2(-177, 104)
+scale = Vector2(1.0104166, 1)
 texture = ExtResource("1_r5pcl")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1993551908]
-position = Vector2(1748, 150)
+position = Vector2(1758, 150)
+scale = Vector2(1.0104166, 1)
 texture = ExtResource("1_r5pcl")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2146802324]
-position = Vector2(3677, 148)
+position = Vector2(3682.5, 148)
+scale = Vector2(1.0057292, 1)
 texture = ExtResource("1_r5pcl")
 
 [node name="Sprite2D4" type="Sprite2D" parent="." unique_id=128930828]
-position = Vector2(5605, 148)
+position = Vector2(5614, 148)
+scale = Vector2(1.009375, 1)
 texture = ExtResource("1_r5pcl")
 
 [node name="Sprite2D5" type="Sprite2D" parent="." unique_id=243096188]
-position = Vector2(7538, 153)
+position = Vector2(7551.5, 153)
+scale = Vector2(1.0140625, 1)
 texture = ExtResource("1_r5pcl")
 
 [node name="Sprite2D6" type="Sprite2D" parent="." unique_id=1954857670]
-position = Vector2(9471, 148)
+position = Vector2(9475.5, 148)
+scale = Vector2(1.0046875, 1)
 texture = ExtResource("1_r5pcl")
 
 [node name="Sprite2D7" type="Sprite2D" parent="." unique_id=2089953218]

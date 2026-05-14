@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b2hk6bfw58q6g" path="res://activos/arte/Coin.png" id="4_v4gt8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cuav"]
-radius = 63.1981
+radius = 49.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v4gt8"]
 atlas = ExtResource("4_v4gt8")
@@ -81,7 +81,7 @@ mix_target = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1320295395]
 texture_filter = 1
 position = Vector2(-2, 3.8146973e-06)
-scale = Vector2(0.40687492, 0.375)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_mukx6")
 animation = &"gira"
 frame_progress = 0.3835842

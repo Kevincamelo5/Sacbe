@@ -27,3 +27,24 @@ func aumentar_vida():
 	vida += 1
 	vida_actualizada.emit(vida)
 	print("Vida aumentada: ", vida)
+
+func comprar_vida(costo: int = 30) -> bool:
+	if moneda >= costo: # Si monedas es 30 o más (mayor a 29)
+		# 1. Ajustamos las variables
+		moneda -= costo
+		vida += 1
+		
+		# 2. Emitimos las señales para que el HUD en pantalla cambie de número
+		vida_actualizada.emit(vida)
+		
+		# ADVERTENCIA: Usa el nombre exacto de la señal que ya usas en 
+		# incrementar_monedas() para actualizar el HUD de monedas.
+		# Asumiré que se llama "monedas_actualizadas" o "monedas_cambiadas".
+		if has_signal("monedas_actualizadas"):
+			emit_signal("monedas_actualizadas", moneda)
+			
+		print("¡Compra exitosa! Vidas: ", vida, " | Monedas restantes: ", moneda)
+		return true
+	else:
+		print("Monedas insuficientes. Tienes ", moneda, " y necesitas ", costo)
+		return false

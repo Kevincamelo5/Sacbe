@@ -80,6 +80,8 @@ func _generar_problema() -> bool:
 	_operador = OPERADOR
 	_operandos = []
 	
+	$Label.hide()
+	
 	#Seleccionar un tipo de problema al azar (0 a 3)
 	var tipo = correctos
 	
@@ -111,14 +113,31 @@ func _suma_decimales():
 	_respuesta_correcta = str(n1 + n2)
 
 func _suma_fracciones():
-	var den = randi_range(2, 9) # Mismo denominador para facilitar
+	# Mostramos el label para este tipo de problema 
+	$Label.show()
+	
+	# 1. Denominadores diferentes
+	var den1 = randi_range(2, 9) 
+	var den2 = randi_range(2, 9)
 	var num1 = randi_range(1, 5)
 	var num2 = randi_range(1, 5)
 	
-	_operandos = [str(num1) + "/" + str(den), str(num2) + "/" + str(den)]
-	_respuesta_correcta = str(num1 + num2) + "/" + str(den)
+	_operandos = [str(num1) + "/" + str(den1), str(num2) + "/" + str(den2)]
+	
+	# 2. Calculamos el numerador cruzado: (num1 * den2) + (num2 * den1)
+	var resultado_num = (num1 * den2) + (num2 * den1)
+	
+	# 3. Calculamos el denominador: (den1 * den2)
+	var resultado_den = den1 * den2
+	
+	# 4. Guardamos la respuesta con formato de fracción (ej. "11/12")
+	_respuesta_correcta = str(resultado_num) + "/" + str(resultado_den)
 
 func _suma_fracciones_mixtas():
+	
+	#Mostramos label para este tipo de problemas
+	$Label.show()
+	
 	var entero = randi_range(1, 3)
 	var den = randi_range(2, 5)
 	var num = 1
@@ -142,9 +161,11 @@ func _actualizar_ui() -> bool:
 	return true
 
 func _on_colocar_caracter(caracter: String) -> void:
+	$Label.hide()
 	_campo_respuesta.text += caracter
 
 func _on_eliminar_caracter() -> void:
+	$Label.hide()
 	_campo_respuesta.text = _campo_respuesta.text.left(-1)
 
 func _on_comprobar_respuesta(respuesta: String) -> void:

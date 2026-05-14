@@ -3,6 +3,7 @@ extends CanvasLayer
 func _ready() -> void:
 	visible = false
 	mostrar()
+	$noteAlcanza.hide()
 
 func mostrar():
 	var tree = get_tree()
@@ -43,6 +44,20 @@ func _on_flauta_pressed() -> void:
 
 
 func _on_escudo_pressed() -> void:
+	visible = false
+	get_tree().paused = false
+	pass # Replace with function body.
+
+
+func _on_vida_pressed() -> void:
+	var compra_exitosa = GameManager.comprar_vida(30)
+	if compra_exitosa:
+		pass
+	else:
+		$noteAlcanza.show()
+		$Timer.start(3.0)
+		await $Timer.timeout
+		$noteAlcanza.hide()
 	visible = false
 	get_tree().paused = false
 	pass # Replace with function body.

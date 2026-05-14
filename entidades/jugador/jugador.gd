@@ -55,17 +55,12 @@ func _movimiento_horizontal() -> void:
 	
 	if direccion.x > 0:
 		animatedSprite.flip_h = false
-		$AnimatedSprite2D.show()
-		$Sprite2D.hide()
 		animatedSprite.play("correr")
 	elif direccion.x < 0:
 		animatedSprite.flip_h = true
-		$AnimatedSprite2D.show()
-		$Sprite2D.hide()
 		animatedSprite.play("correr")
 	else:
-		$AnimatedSprite2D.hide()
-		$Sprite2D.show()
+		animatedSprite.play("parado")
 	
 	velocity.x = direccion.x * _aceleracion
 
