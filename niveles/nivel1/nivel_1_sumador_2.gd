@@ -32,6 +32,7 @@ func _ready() -> void:
 	_boton_enviar.pressed.connect(func(): comprobar_respuesta.emit(_campo_respuesta.get_text()))
 	
 	_generar_problema()
+	$AnimatedSprite2D.play("static")
 
 func _crear_botones() -> void:
 	if not _contenedor_botones: 

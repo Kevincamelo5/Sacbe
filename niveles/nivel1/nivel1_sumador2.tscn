@@ -3,6 +3,48 @@
 [ext_resource type="Script" uid="uid://ce6dct3m3apps" path="res://niveles/nivel1/nivel_1_sumador_2.gd" id="1_cuxei"]
 [ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="2_dwgox"]
 [ext_resource type="Texture2D" uid="uid://beboyb012tlc5" path="res://icon.svg" id="2_yw272"]
+[ext_resource type="Texture2D" uid="uid://bvkha0yr7i400" path="res://activos/arte/cuerda estatica.png" id="3_fybjc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8cl7"]
+atlas = ExtResource("3_fybjc")
+region = Rect2(0, 768, 1408, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnwia"]
+atlas = ExtResource("3_fybjc")
+region = Rect2(0, 0, 1408, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f13tn"]
+atlas = ExtResource("3_fybjc")
+region = Rect2(1408, 768, 1408, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33oht"]
+atlas = ExtResource("3_fybjc")
+region = Rect2(1408, 0, 1408, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sl1ed"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"acerted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8cl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnwia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f13tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33oht")
+}],
+"loop": true,
+"name": &"static",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yw272"]
 
@@ -55,6 +97,12 @@ alignment = 1
 [node name="ColorRect" type="ColorRect" parent="fondos/VBoxContainer2" unique_id=2051555869]
 layout_mode = 2
 color = Color(0.73141456, 0.19853768, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=54267791]
+position = Vector2(576, 325.5)
+scale = Vector2(0.81676143, 0.83463544)
+sprite_frames = SubResource("SpriteFrames_sl1ed")
+animation = &"static"
 
 [node name="fondos2" type="HBoxContainer" parent="." unique_id=467505096]
 layout_mode = 1
