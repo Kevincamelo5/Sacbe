@@ -183,6 +183,7 @@ func _es_respuesta_correcta() -> void:
 	canvas.layer = 100  # Alta prioridad para que esté por encima de todo
 	get_tree().root.add_child(canvas)
 	
+	$AnimatedSprite2D.play("acerted")
 	# Crear fondo semitransparente verde
 	var color_rect := ColorRect.new()
 	color_rect.color = Color(0.2, 0.8, 0.3, 0.0)  # Verde más suave
@@ -240,6 +241,7 @@ func _es_respuesta_incorrecta() -> void:
 	canvas.layer = 100  # Alta prioridad para que esté por encima de todo
 	get_tree().root.add_child(canvas)
 	
+	$AnimatedSprite2D.play("static")
 	# Crear fondo semitransparente verde
 	var color_rect := ColorRect.new()
 	color_rect.color = Color(0.588, 0.11, 0.344, 0.0)  # Verde más suave
