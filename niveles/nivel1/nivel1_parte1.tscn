@@ -143,13 +143,13 @@ shape = SubResource("RectangleShape2D_utin6")
 metadata/_edit_group_ = true
 
 [node name="vpiso" type="Sprite2D" parent="pisos" unique_id=1616143121]
-position = Vector2(183.96875, 1310.5)
-scale = Vector2(3.4364183, 1.9379311)
+position = Vector2(187.46877, 1313.5)
+scale = Vector2(3.445071, 1.8965516)
 texture = ExtResource("5_37vol")
 
 [node name="vpiso2" type="Sprite2D" parent="pisos" unique_id=1177354403]
-position = Vector2(229.99997, 1279.5)
-scale = Vector2(2.4153275, 2.3931034)
+position = Vector2(105.49999, 1279.5)
+scale = Vector2(2.1075404, 2.3931034)
 texture = ExtResource("5_37vol")
 
 [node name="vpiso3" type="Sprite2D" parent="pisos" unique_id=44946223]

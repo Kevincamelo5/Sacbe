@@ -9,6 +9,8 @@ var aceleracion: float = 7.0
 var should_chase: bool = false
 var can_attack: bool = true
 
+var puede_recibir_daño: bool = true
+
 func _physics_process(delta: float) -> void:
 	#el enemigo se mueve solo si should_chase = true
 	if should_chase and player_node:
@@ -57,10 +59,30 @@ func _on_attacktimer_timeout() -> void:
 	#volver a atacar mediante la señal body_entered o verificar overlapping_bodies.
 	
 func recibir_daño() -> void:
+	# 1. Si no puede recibir daño en este momento, ignoramos la función
+	if not puede_recibir_daño:
+		return 
+		
+	# 2. Restamos la vida
 	vida -= 1
+	
+	# 3. Comprobamos si muere
 	if vida <= 0:
 		queue_free()
+	else:
+		# 4. Si sobrevive, lo hacemos invulnerable temporalmente
+		puede_recibir_daño = false
+		
+		# (Opcional) Cambiamos el color a rojo para indicar daño
+		$Sprite2D.modulate = Color(1, 0, 0) # Rojo
+		
+		# 5. Esperamos medio segundo (0.5). Puedes ajustar este tiempo.
+		await get_tree().create_timer(1).timeout
+		
+		# 6. Le devolvemos su color normal y le permitimos recibir daño de nuevo
+		$Sprite2D.modulate = Color(1, 1, 1) # Blanco (Normal)
+		puede_recibir_daño = true
 
-func _on_cuerpo_area_entered(area: Area2D) -> void:
-	if get_collision_layer_value(3):
-		recibir_daño()
+#func _on_cuerpo_area_entered(area: Area2D) -> void:
+#	if get_collision_layer_value(3):
+#		recibir_daño()

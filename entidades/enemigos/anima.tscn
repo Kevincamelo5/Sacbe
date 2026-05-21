@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://byjivyj4012bj"]
 
 [ext_resource type="Script" uid="uid://dne4ufmpbqm1p" path="res://entidades/enemigos/anima.gd" id="1_xpqcx"]
+[ext_resource type="Script" uid="uid://qt8vbjryc7my" path="res://entidades/enemigos/cuerpo.gd" id="2_bq7ep"]
 [ext_resource type="Texture2D" uid="uid://ckji50narfg28" path="res://activos/arte/Anima armada.png" id="2_xpqcx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bq7ep"]
-radius = 76.655075
+radius = 69.426216
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1y3bi"]
 radius = 333.006
@@ -13,8 +14,8 @@ radius = 333.006
 radius = 602.29974
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xpqcx"]
-radius = 69.0
-height = 142.0
+radius = 45.0
+height = 100.0
 
 [node name="anima" type="CharacterBody2D" unique_id=199130893]
 collision_layer = 6
@@ -52,11 +53,13 @@ position = Vector2(332, 246)
 shape = SubResource("CircleShape2D_cya0i")
 
 [node name="attacktimer" type="Timer" parent="." unique_id=815882876]
+wait_time = 4.0
 one_shot = true
 
 [node name="cuerpo" type="Area2D" parent="." unique_id=1930933342]
 collision_layer = 8
 collision_mask = 6
+script = ExtResource("2_bq7ep")
 
 [node name="cuerpoFisico" type="CollisionShape2D" parent="cuerpo" unique_id=1630829753]
 position = Vector2(-6, 0)
