@@ -17,7 +17,7 @@ const OPERADOR := "+"
 
 var _operador:= '+'
 var _operandos:= []
-var _respuesta_correcta := "0"
+var _respuesta_correcta := []
 #contador de correctos
 var correctos:= 0
 
@@ -102,7 +102,7 @@ func _suma_enteros():
 		_operandos.push_back(num)
 		respuesta += num
 	
-	_respuesta_correcta = str(respuesta)
+	_respuesta_correcta = [str(respuesta)]
 
 func _suma_decimales():
 	#generacion de decimales
@@ -111,7 +111,7 @@ func _suma_decimales():
 	var n_raw2 = randf_range(1, 99) / 10.0
 	var n2 = snapped(n_raw2, 0.01)
 	_operandos = [n1, n2]
-	_respuesta_correcta = str(n1 + n2)
+	_respuesta_correcta = [str(n1 + n2)]
 
 func _suma_fracciones():
 	# Mostramos el label para este tipo de problema 
@@ -132,7 +132,22 @@ func _suma_fracciones():
 	var resultado_den = den1 * den2
 	
 	# 4. Guardamos la respuesta con formato de fracción (ej. "11/12")
-	_respuesta_correcta = str(resultado_num) + "/" + str(resultado_den)
+	var opcion_fraccion = str(resultado_num) + "/" + str(resultado_den)
+	var opcion_decimal= str(float(resultado_num)/(resultado_den))
+	
+	# 5. fraccion simplificada
+	var mcd = _obtener_mcd(resultado_num, resultado_den)
+	var num_simplificado = resultado_num / mcd
+	var den_simplificado = resultado_den / mcd
+	
+	var opcion_simplificada = str(num_simplificado) + "/" + str(den_simplificado)
+	
+	_respuesta_correcta = [opcion_fraccion, opcion_decimal, opcion_simplificada]
+	
+	# (Opcional) Si al simplificar el denominador queda en 1 (ej. 4/1), 
+	# agregamos el número entero como respuesta válida.
+	if den_simplificado == 1:
+		_respuesta_correcta.append(str(num_simplificado))
 
 func _suma_fracciones_mixtas():
 	
@@ -147,7 +162,7 @@ func _suma_fracciones_mixtas():
 	
 	# Cálculo: (entero * den + num) / den
 	var resultado_num = (entero * den) + num
-	_respuesta_correcta = str(resultado_num) + "/" + str(den)
+	_respuesta_correcta = [str(resultado_num) + "/" + str(den)]
 
 func _actualizar_ui() -> bool:
 	_campo_operandos.text = ""
@@ -170,7 +185,7 @@ func _on_eliminar_caracter() -> void:
 	_campo_respuesta.text = _campo_respuesta.text.left(-1)
 
 func _on_comprobar_respuesta(respuesta: String) -> void:
-	if respuesta == _respuesta_correcta:
+	if respuesta in _respuesta_correcta:
 		print("Respuesta correcta")
 		_es_respuesta_correcta()
 	else:
@@ -284,3 +299,12 @@ func _es_respuesta_incorrecta() -> void:
 	# Limpiar y generar nuevo problema
 	canvas.queue_free()
 	_generar_problema()
+
+# Función para calcular el Máximo Común Divisor (MCD)
+func _obtener_mcd(a: int, b: int) -> int:
+	var temp: int
+	while b != 0:
+		temp = b
+		b = a % b
+		a = temp
+	return abs(a)

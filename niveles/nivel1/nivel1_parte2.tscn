@@ -277,8 +277,6 @@ texture = ExtResource("6_m23g8")
 position = Vector2(1921, 476)
 scale = Vector2(545.3086, 1.8183305)
 
-[node name="Area2D2" type="Area2D" parent="Vacio" unique_id=1368988135]
-
 [node name="musicadefondo" type="AudioStreamPlayer" parent="." unique_id=578440838]
 stream = ExtResource("9_8gt42")
 parameters/looping = true

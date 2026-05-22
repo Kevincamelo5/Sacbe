@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cd85dj2htnytf"]
 
-[ext_resource type="Script" uid="uid://dewnkd2qjhcxk" path="res://interfaz/menus/menu_objetos.gd" id="1_vtdxt"]
-[ext_resource type="Texture2D" uid="uid://dpyicnkndmbk6" path="res://activos/arte/(256) Escudo.png" id="3_grkpp"]
-[ext_resource type="Texture2D" uid="uid://beboyb012tlc5" path="res://icon.svg" id="4_4q85u"]
-[ext_resource type="Texture2D" uid="uid://ctpebtatsckvt" path="res://activos/arte/(512) Quitzal flauta v2 frentre.png" id="5_mtgl7"]
-[ext_resource type="PackedScene" uid="uid://c3k3qjmhw06ff" path="res://interfaz/hud/contador_monedas.tscn" id="7_4q85u"]
+[ext_resource type="Script" uid="uid://dewnkd2qjhcxk" path="res://niveles/nivel1/menu_objetosn1.gd" id="1_4085x"]
+[ext_resource type="Texture2D" uid="uid://beboyb012tlc5" path="res://icon.svg" id="2_0mvkh"]
+[ext_resource type="Texture2D" uid="uid://dpyicnkndmbk6" path="res://activos/arte/(256) Escudo.png" id="3_37k0s"]
+[ext_resource type="Texture2D" uid="uid://ctpebtatsckvt" path="res://activos/arte/(512) Quitzal flauta v2 frentre.png" id="4_dmwvj"]
+[ext_resource type="PackedScene" uid="uid://c3k3qjmhw06ff" path="res://interfaz/hud/contador_monedas.tscn" id="5_1w5yc"]
 
 [node name="MenuObjetos" type="CanvasLayer" unique_id=1687533581]
-script = ExtResource("1_vtdxt")
+script = ExtResource("1_4085x")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=456765047]
 anchors_preset = 15
@@ -20,11 +20,11 @@ size_flags_horizontal = 0
 [node name="macuahuitle" type="TouchScreenButton" parent="VBoxContainer" unique_id=588121433]
 position = Vector2(0, 152)
 scale = Vector2(1.953125, 2.9453125)
-texture_normal = ExtResource("4_4q85u")
+texture_normal = ExtResource("2_0mvkh")
 
 [node name="escudo" type="TouchScreenButton" parent="VBoxContainer" unique_id=1787789025]
 position = Vector2(428, 218)
-texture_normal = ExtResource("3_grkpp")
+texture_normal = ExtResource("3_37k0s")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1464333704]
 y_sort_enabled = true
@@ -36,7 +36,7 @@ metadata/_edit_group_ = true
 [node name="vida" type="TouchScreenButton" parent="VBoxContainer" unique_id=1295808351]
 position = Vector2(812, 188)
 scale = Vector2(0.6542969, 0.6328125)
-texture_normal = ExtResource("5_mtgl7")
+texture_normal = ExtResource("4_dmwvj")
 
 [node name="Control" type="Control" parent="." unique_id=112642622]
 visible = false
@@ -113,7 +113,7 @@ text = "50"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Contador_moneda" parent="." unique_id=1647204287 instance=ExtResource("7_4q85u")]
+[node name="Contador_moneda" parent="." unique_id=1647204287 instance=ExtResource("5_1w5yc")]
 
 [node name="noteAlcanza" type="Label" parent="." unique_id=1311535399]
 anchors_preset = 8
