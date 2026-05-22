@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dgaku384lbo3k" path="res://objetos/peligrosos/vacio.tscn" id="7_kjwuy"]
 [ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/hud/contador_vidas.tscn" id="8_8gt42"]
 [ext_resource type="AudioStream" uid="uid://dkr6l5dk6ovfi" path="res://activos/audio/musicaEntrada2.mp3" id="9_8gt42"]
+[ext_resource type="PackedScene" uid="uid://cd85dj2htnytf" path="res://niveles/nivel1/menu_objetosn1.tscn" id="11_leelx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_450ay"]
 size = Vector2(1096, 79.05835)
@@ -280,5 +281,7 @@ scale = Vector2(545.3086, 1.8183305)
 [node name="musicadefondo" type="AudioStreamPlayer" parent="." unique_id=578440838]
 stream = ExtResource("9_8gt42")
 parameters/looping = true
+
+[node name="MenuObjetos" parent="." unique_id=1687533581 instance=ExtResource("11_leelx")]
 
 [connection signal="body_entered" from="cuerda" to="cuerda" method="_on_body_entered"]
