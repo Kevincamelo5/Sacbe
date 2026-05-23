@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cd85dj2htnytf"]
 
 [ext_resource type="Script" uid="uid://dewnkd2qjhcxk" path="res://niveles/nivel1/menu_objetosn1.gd" id="1_4085x"]
-[ext_resource type="Texture2D" uid="uid://beboyb012tlc5" path="res://icon.svg" id="2_0mvkh"]
+[ext_resource type="Texture2D" uid="uid://chw0anm52ymwm" path="res://activos/arte/Hacha.png" id="2_4085x"]
 [ext_resource type="Texture2D" uid="uid://dpyicnkndmbk6" path="res://activos/arte/(256) Escudo.png" id="3_37k0s"]
 [ext_resource type="Texture2D" uid="uid://ctpebtatsckvt" path="res://activos/arte/(512) Quitzal flauta v2 frentre.png" id="4_dmwvj"]
 [ext_resource type="PackedScene" uid="uid://c3k3qjmhw06ff" path="res://interfaz/hud/contador_monedas.tscn" id="5_1w5yc"]
@@ -17,10 +17,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 
-[node name="macuahuitle" type="TouchScreenButton" parent="VBoxContainer" unique_id=588121433]
-position = Vector2(0, 152)
-scale = Vector2(1.953125, 2.9453125)
-texture_normal = ExtResource("2_0mvkh")
+[node name="hacha" type="TouchScreenButton" parent="VBoxContainer" unique_id=588121433]
+position = Vector2(30, 206.00002)
+scale = Vector2(0.3423517, 0.21888402)
+texture_normal = ExtResource("2_4085x")
 
 [node name="escudo" type="TouchScreenButton" parent="VBoxContainer" unique_id=1787789025]
 position = Vector2(428, 218)
@@ -34,12 +34,11 @@ alignment = 1
 metadata/_edit_group_ = true
 
 [node name="vida" type="TouchScreenButton" parent="VBoxContainer" unique_id=1295808351]
-position = Vector2(812, 188)
-scale = Vector2(0.6542969, 0.6328125)
+position = Vector2(824, 194.00002)
+scale = Vector2(0.57812494, 0.5527344)
 texture_normal = ExtResource("4_dmwvj")
 
 [node name="Control" type="Control" parent="." unique_id=112642622]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,54 +49,23 @@ grow_vertical = 2
 [node name="costo escudo" type="Label" parent="Control" unique_id=1916861612]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.10763889
-anchor_top = 0.37037036
-anchor_right = 0.12413195
-anchor_bottom = 0.4058642
+anchor_left = 0.4626736
+anchor_top = 0.6882716
+anchor_right = 0.49739584
+anchor_bottom = 0.76388896
 grow_vertical = 2
+theme_override_font_sizes/font_size = 35
 text = "50"
 metadata/_edit_use_anchors_ = true
 
 [node name="costo vidas" type="Label" parent="Control" unique_id=306778502]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.39322916
-anchor_top = 0.7669753
-anchor_right = 0.4279514
-anchor_bottom = 0.80246913
-text = "50"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="costo flauta" type="Label" parent="Control" unique_id=672530943]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.6484375
-anchor_top = 0.75617284
-anchor_right = 0.6831597
-anchor_bottom = 0.7916667
-text = "50"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="costo macuahuitle" type="Label" parent="Control" unique_id=1353541332]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.8454861
-anchor_top = 0.33179012
-anchor_right = 0.8802083
-anchor_bottom = 0.36728394
-text = "50"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="costo lanza" type="Label" parent="Control" unique_id=817600259]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.4296875
-anchor_top = 0.35030866
-anchor_right = 0.4644097
-anchor_bottom = 0.38580248
+anchor_left = 0.8350694
+anchor_top = 0.72530866
+anchor_right = 0.8697917
+anchor_bottom = 0.8009259
+theme_override_font_sizes/font_size = 35
 text = "50"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -105,10 +73,11 @@ metadata/_edit_use_anchors_ = true
 [node name="costo hacha" type="Label" parent="Control" unique_id=1340088370]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.6501736
-anchor_top = 0.34104937
-anchor_right = 0.6848958
-anchor_bottom = 0.37654322
+anchor_left = 0.15277778
+anchor_top = 0.654321
+anchor_right = 0.1875
+anchor_bottom = 0.72993827
+theme_override_font_sizes/font_size = 35
 text = "50"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -136,6 +105,6 @@ wait_time = 3.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=842751625]
 
-[connection signal="pressed" from="VBoxContainer/macuahuitle" to="." method="_on_macuahuitle_pressed"]
+[connection signal="pressed" from="VBoxContainer/hacha" to="." method="_on_hacha_pressed"]
 [connection signal="pressed" from="VBoxContainer/escudo" to="." method="_on_escudo_pressed"]
 [connection signal="pressed" from="VBoxContainer/vida" to="." method="_on_vida_pressed"]

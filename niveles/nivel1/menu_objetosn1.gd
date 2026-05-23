@@ -1,8 +1,13 @@
 extends CanvasLayer
 
+var costoH = 30
+var costoE = 25
+
 func _ready() -> void:
+	
+	#permite que el menú, los botones y el timer funcionen mientras el juego esta en pausa
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
-	mostrar()
 	$noteAlcanza.hide()
 
 func mostrar():
@@ -19,48 +24,39 @@ func equipar_arma_al_jugador(id_arma: int):
 	if jugador:
 		jugador.objetoActual = id_arma
 
+# --- FUNCIÓN AUXILIAR PARA EL MENSAJE DE ERROR ---
+func mostrar_error_dinero():
+	$noteAlcanza.show()
+	$Timer.start(3.0)
+	await $Timer.timeout
+	$noteAlcanza.hide()
+
 func _on_hacha_pressed() -> void:
-	GameManager.desbloquear_arma("hacha")
-	equipar_arma_al_jugador(3) # 3 es el ID del Hacha en tu enum del jugador
-	cerrar_menu()
+	# Intentamos cobrar 35 monedas
+	if GameManager.gastar_monedas(35):
+		GameManager.desbloquear_arma("hacha")
+		equipar_arma_al_jugador(3) 
+		cerrar_menu()
+	else:
+		mostrar_error_dinero()
 
-func _on_lanza_pressed() -> void:
-	GameManager.desbloquear_arma("lanza")
-	equipar_arma_al_jugador(1) # 1 es el ID de la Lanza
-	cerrar_menu()
-
-func _on_cuchillo_pressed() -> void:
-	# El cuchillo ya está desbloqueado, solo lo equipamos
-	equipar_arma_al_jugador(0)
-	cerrar_menu()
-
-func _on_macuahuitle_pressed() -> void:
-	GameManager.desbloquear_arma("macuahuitle")
-	equipar_arma_al_jugador(4)
-	cerrar_menu()
-
-func _on_flauta_pressed() -> void:
-	GameManager.desbloquear_arma("flauta")
-	equipar_arma_al_jugador(5)
-	cerrar_menu()
 
 func _on_escudo_pressed() -> void:
-	GameManager.desbloquear_arma("escudo")
-	equipar_arma_al_jugador(2)
-	cerrar_menu()
+	# Intentamos cobrar 25 monedas
+	if GameManager.gastar_monedas(25):
+		GameManager.desbloquear_arma("escudo")
+		equipar_arma_al_jugador(2)
+		cerrar_menu()
+	else:
+		mostrar_error_dinero()
 
 func cerrar_menu():
 	visible = false
 	get_tree().paused = false
 
 func _on_vida_pressed() -> void:
-	var compra_exitosa = GameManager.comprar_vida(30)
-	if compra_exitosa:
-		pass
+	# Intentamos comprar la vida por 30 monedas
+	if GameManager.comprar_vida(30):
+		cerrar_menu()
 	else:
-		$noteAlcanza.show()
-		$Timer.start(3.0)
-		await $Timer.timeout
-		$noteAlcanza.hide()
-	cerrar_menu()
-	pass # Replace with function body.
+		mostrar_error_dinero()

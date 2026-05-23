@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="3_450ay"]
 [ext_resource type="PackedScene" uid="uid://bch1jv7ob4qa8" path="res://entidades/DItens/estalactita.tscn" id="5_37m0b"]
 [ext_resource type="Script" uid="uid://c4m5nxx8wo7" path="res://niveles/nivel1/cuerda.gd" id="6_kjwuy"]
-[ext_resource type="Texture2D" uid="uid://bns87gymx0fs6" path="res://activos/arte/cuerda.png" id="6_m23g8"]
 [ext_resource type="PackedScene" uid="uid://dgaku384lbo3k" path="res://objetos/peligrosos/vacio.tscn" id="7_kjwuy"]
 [ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/hud/contador_vidas.tscn" id="8_8gt42"]
 [ext_resource type="AudioStream" uid="uid://dkr6l5dk6ovfi" path="res://activos/audio/musicaEntrada2.mp3" id="9_8gt42"]
@@ -269,8 +268,8 @@ scale = Vector2(1, 53.119995)
 shape = SubResource("RectangleShape2D_m23g8")
 
 [node name="Sprite2D" type="Sprite2D" parent="cuerda" unique_id=1257296330]
-scale = Vector2(0.5805322, 0.6973757)
-texture = ExtResource("6_m23g8")
+position = Vector2(1.1610644, -362.06195)
+scale = Vector2(0.5805322, 774.062)
 
 [node name="CanvasLayer" parent="." unique_id=330364085 instance=ExtResource("8_8gt42")]
 

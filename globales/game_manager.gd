@@ -63,3 +63,12 @@ func desbloquearArma(nombreArma: String):
 		armasDesbloqueadas[nombreArma] = true
 		print(nombreArma, "desbloqueada")
 	else: print_debug("Error: El arma '", nombreArma, "' no existe en el diccionario.")
+
+# Añadir al final de game_manager.gd
+func gastar_monedas(costo: int) -> bool:
+	if moneda >= costo: # Usamos tu variable 'moneda' en singular
+		moneda -= costo
+		puntuacion_actualizada.emit(moneda) # Actualiza el HUD
+		return true
+	else:
+		return false
