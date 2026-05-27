@@ -73,6 +73,8 @@ scale = Vector2(0.054352988, 0.04710027)
 texture = ExtResource("2_xpqcx")
 region_rect = Rect2(-2, 63.5, 35, 33)
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=698091156]
+
 [connection signal="body_entered" from="atack_area" to="." method="_on_atack_area_body_entered"]
 [connection signal="body_entered" from="enter_area" to="." method="_on_enter_area_body_entered"]
 [connection signal="body_exited" from="exit_area" to="." method="_on_exit_area_body_exited"]

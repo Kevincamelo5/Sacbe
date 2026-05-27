@@ -35,10 +35,10 @@ func _on_hacha_pressed() -> void:
 	# Intentamos cobrar 35 monedas
 	if GameManager.gastar_monedas(35):
 		GameManager.desbloquear_arma("hacha")
-		equipar_arma_al_jugador(3) 
-		cerrar_menu()
+		equipar_arma_al_jugador(3)
 	else:
 		mostrar_error_dinero()
+	cerrar_menu()
 
 
 func _on_escudo_pressed() -> void:
@@ -46,9 +46,9 @@ func _on_escudo_pressed() -> void:
 	if GameManager.gastar_monedas(25):
 		GameManager.desbloquear_arma("escudo")
 		equipar_arma_al_jugador(2)
-		cerrar_menu()
 	else:
 		mostrar_error_dinero()
+	cerrar_menu()
 
 func cerrar_menu():
 	visible = false
@@ -60,3 +60,4 @@ func _on_vida_pressed() -> void:
 		cerrar_menu()
 	else:
 		mostrar_error_dinero()
+		cerrar_menu()
