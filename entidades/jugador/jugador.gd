@@ -3,6 +3,7 @@ class_name Jugador
 
 signal vida_cambiada(vidas_actuales)
 var spawn_position : Vector2
+var _estaProtegido := false
 
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 func _ready() -> void:
@@ -167,6 +168,7 @@ func _actualizar_temporizador_objeto(delta: float):
 	
 	if _estaUsandoObjeto and _temporizadorObjeto <= 0:
 		_estaUsandoObjeto = false
+		_estaProtegido = false
 
 # Ataques
 @onready var areaCuchillo: Area2D = $AreaAtaque
@@ -197,6 +199,8 @@ func lanzar():
 # ESCUDO
 func escudar():
 	print_debug("Escudando")
+	_estaProtegido = true
+	animatedSprite.play("escudarse")
 
 #ENTRADAS
 func _input(event: InputEvent) -> void:
@@ -226,4 +230,7 @@ func _cambiar_siguiente_objeto_desbloqueado():
 	
 #perder vidas
 func _lose_lives() -> void:
-	GameManager.disminuir_vida()
+	if not _estaProtegido:
+		GameManager.disminuir_vida()
+	else:
+		print("Ataque bloqueado")
