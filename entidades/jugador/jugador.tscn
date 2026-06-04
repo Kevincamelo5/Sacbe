@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://caokkywjfo4gv"]
 
 [ext_resource type="Script" uid="uid://b6oh18grdhan5" path="res://entidades/jugador/jugador.gd" id="1_bgsqy"]
+[ext_resource type="Texture2D" uid="uid://6fh0hh0fhiex" path="res://activos/arte/Quitzal m peleando.png" id="2_5xbqb"]
 [ext_resource type="Texture2D" uid="uid://ixxtnekgox7m" path="res://activos/arte/Quitzal masculino v2 (1).png" id="3_5hhml"]
 [ext_resource type="Texture2D" uid="uid://1ca45r1b2ggk" path="res://activos/arte/Gemini_Generated_Image_2i1ycr2i1ycr2i1y (1).png" id="3_i8lgo"]
 [ext_resource type="Texture2D" uid="uid://ugkegv7cqdtv" path="res://activos/arte/Gemini_Generated_Image_wj6rkkwj6rkkwj6r.png" id="4_5hhml"]
@@ -11,8 +12,28 @@ radius = 21.0
 height = 106.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71ocg"]
-radius = 38.0
+radius = 23.786499
 height = 110.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsx3y"]
+atlas = ExtResource("2_5xbqb")
+region = Rect2(1364, 1024, 682, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qoy5"]
+atlas = ExtResource("2_5xbqb")
+region = Rect2(0, 0, 682, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow0e5"]
+atlas = ExtResource("2_5xbqb")
+region = Rect2(682, 0, 682, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tel5y"]
+atlas = ExtResource("2_5xbqb")
+region = Rect2(1364, 0, 682, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ne8r"]
+atlas = ExtResource("2_5xbqb")
+region = Rect2(682, 1024, 682, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hhml"]
 atlas = ExtResource("3_i8lgo")
@@ -45,6 +66,26 @@ region = Rect2(1364, 0, 682, 1024)
 [sub_resource type="SpriteFrames" id="SpriteFrames_78n3h"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsx3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qoy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow0e5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tel5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ne8r")
+}],
+"loop": false,
+"name": &"acuchillar",
+"speed": 10.0
+}, {
+"frames": [{
 "duration": 0.6,
 "texture": SubResource("AtlasTexture_5hhml")
 }, {
@@ -76,7 +117,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s2aq0")
 }],
-"loop": true,
+"loop": false,
 "name": &"saltar",
 "speed": 5.0
 }]
@@ -98,9 +139,11 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="hitbox" type="CollisionShape2D" parent="AreaAtaque" unique_id=362286580]
+position = Vector2(-18.044933, -12.09678)
 shape = SubResource("CapsuleShape2D_71ocg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1332510698]
+position = Vector2(-4.9999995, 13.999999)
 scale = Vector2(0.1143695, 0.11425781)
 sprite_frames = SubResource("SpriteFrames_78n3h")
-animation = &"parado"
+animation = &"saltar"

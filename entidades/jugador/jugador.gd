@@ -58,12 +58,13 @@ func _movimiento_horizontal() -> void:
 		animatedSprite.flip_h = true
 	
 	# 2. Luego controlamos las animaciones basándonos en si está en el suelo o no
-	if not is_on_floor():
-		animatedSprite.play("saltar")
-	elif direccion.x != 0:
-		animatedSprite.play("correr")
-	else:
-		animatedSprite.play("parado")
+	if not _estaUsandoObjeto:
+		if not is_on_floor():
+			animatedSprite.play("saltar")
+		elif direccion.x != 0:
+			animatedSprite.play("correr")
+		else:
+			animatedSprite.play("parado")
 	
 	# 3. Aplicamos la velocidad
 	velocity.x = direccion.x * _aceleracion
@@ -180,6 +181,7 @@ func acuchillar():
 		for area in areas:
 			if area is Hurtbox:
 				area.lastimar(dañoCuchillo)
+	animatedSprite.play("acuchillar")
 
 # LANZA
 func lanzar():

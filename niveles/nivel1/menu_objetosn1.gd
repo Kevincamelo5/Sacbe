@@ -61,3 +61,4 @@ func _on_vida_pressed() -> void:
 	else:
 		mostrar_error_dinero()
 		cerrar_menu()
+		
