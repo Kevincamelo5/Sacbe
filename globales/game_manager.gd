@@ -25,7 +25,7 @@ func disminuir_vida():
 	
 	if vida <= 0:
 		# Ir a pantalla de fin de juego o construcción
-		get_tree().change_scene_to_file("res://interfaz/pantallas/enConstrucci[on.tscn")
+		get_tree().change_scene_to_file("res://interfaz/pantallas/muerto.tscn")
 	else:
 		# Buscamos al jugador en la escena actual para moverlo
 		var jugador = get_tree().get_first_node_in_group("jugador") 

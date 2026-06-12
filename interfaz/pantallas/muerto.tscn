@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://clhins0qiydig"]
 
+[ext_resource type="Script" uid="uid://cwsn2rygtw1y0" path="res://interfaz/pantallas/muerto.gd" id="1_sbqs3"]
+
 [node name="Menu de muerte" type="Control" unique_id=316390178]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_sbqs3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1850787056]
 layout_mode = 1
@@ -29,7 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 51
 text = "Eso fue muy bueno, pero no lo suficiente.
-¿Quieres volver a intentarlo?"
+Intentemoslo desde cero."
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -49,12 +52,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
-text = "Sí   "
+text = "Volver al menú principal   "
 
 [node name="No" type="Button" parent="HBoxContainer" unique_id=1373903169]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 30
-text = "   No"
+text = "   Ir al primer nivel"
 icon_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/Sí" to="." method="_on_sí_pressed"]
+[connection signal="pressed" from="HBoxContainer/No" to="." method="_on_no_pressed"]

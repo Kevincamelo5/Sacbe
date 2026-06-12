@@ -13,7 +13,7 @@ radius = 21.0
 height = 106.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71ocg"]
-radius = 23.786499
+radius = 31.988745
 height = 110.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsx3y"]
@@ -166,7 +166,7 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="hitbox" type="CollisionShape2D" parent="AreaAtaque" unique_id=362286580]
-position = Vector2(-18.044933, -12.09678)
+position = Vector2(-28.707848, -12.09678)
 shape = SubResource("CapsuleShape2D_71ocg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1332510698]

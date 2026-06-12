@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var player_node: CharacterBody2D = get_parent().get_node("Jugador")
 @onready var attack_timer: Timer = $attacktimer
 
-var speed: float = 150.0
+var speed: float = 100.0
 var vida: int = 3
 var aceleracion: float = 7.0
 var should_chase: bool = false
@@ -65,6 +65,16 @@ func recibir_daño() -> void:
 		
 	# 2. Restamos la vida
 	vida -= 1
+	
+	var direccion_retroceso = 1
+	if player_node:
+		direccion_retroceso = sign(global_position.x - player_node.global_position.x)
+		
+		if direccion_retroceso == 0:
+			direccion_retroceso = 1
+	
+	var tween = create_tween()
+	tween.tween_property(self,"global_position:x",global_position.x + ( 50 * direccion_retroceso), 0.2)
 	
 	# 3. Comprobamos si muere
 	if vida <= 0:

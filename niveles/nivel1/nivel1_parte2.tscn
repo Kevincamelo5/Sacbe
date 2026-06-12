@@ -41,18 +41,18 @@ script = ExtResource("1_dqs1d")
 [node name="Objetos" type="Node2D" parent="." unique_id=290793190]
 
 [node name="fondo" type="Sprite2D" parent="Objetos" unique_id=741493400]
-position = Vector2(290.0001, 95.499985)
-scale = Vector2(0.81041664, 0.73611116)
+position = Vector2(290.0001, 162.50003)
+scale = Vector2(0.81041664, 0.8601853)
 texture = ExtResource("1_kjwuy")
 
 [node name="fondo3" type="Sprite2D" parent="Objetos" unique_id=2032737017]
-position = Vector2(1836, 105)
-scale = Vector2(0.81041664, 0.73611116)
+position = Vector2(1836, 156.75)
+scale = Vector2(0.81041664, 0.8319445)
 texture = ExtResource("1_kjwuy")
 
 [node name="fondo2" type="Sprite2D" parent="Objetos" unique_id=1981231598]
-position = Vector2(3590.5002, 93.250015)
-scale = Vector2(1.0171876, 0.7412038)
+position = Vector2(3590.5002, 154.99997)
+scale = Vector2(1.0171876, 0.85555553)
 texture = ExtResource("1_kjwuy")
 
 [node name="Jugador" parent="." unique_id=1203516821 instance=ExtResource("2_450ay")]

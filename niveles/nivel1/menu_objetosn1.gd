@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-var costoH = 30
-var costoE = 25
+var costoH = 0
+var costoE = 0
 
 func _ready() -> void:
 	
