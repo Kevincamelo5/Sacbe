@@ -54,6 +54,8 @@ func atacar_jugador(player: Node2D) -> void:
 
 #Se activa cuando el AttackTimer termina
 func _on_attacktimer_timeout() -> void:
+	$AudioStreamPlayer.play()
+	await $AudioStreamPlayer.finished
 	can_attack = true
 	#si el jugador sigue en el area de ataque al terminar el segundo,
 	#volver a atacar mediante la señal body_entered o verificar overlapping_bodies.

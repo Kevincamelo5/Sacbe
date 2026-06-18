@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 
 func _iniciar_caida() -> void:
 	cayendo = true
+	$AudioStreamPlayer.play()
 
 func _reiniciar_estalactita() -> void:
 	cayendo = false

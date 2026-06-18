@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dne4ufmpbqm1p" path="res://entidades/enemigos/anima.gd" id="1_xpqcx"]
 [ext_resource type="Script" uid="uid://qt8vbjryc7my" path="res://entidades/enemigos/cuerpo.gd" id="2_bq7ep"]
 [ext_resource type="Texture2D" uid="uid://ckji50narfg28" path="res://activos/arte/Anima armada.png" id="2_xpqcx"]
+[ext_resource type="AudioStream" uid="uid://bmdmrjjdmws7" path="res://activos/audio/freesound_community-knife-draw-48223.mp3" id="4_qiv3v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bq7ep"]
 radius = 56.0357
@@ -53,7 +54,7 @@ position = Vector2(332, 246)
 shape = SubResource("CircleShape2D_cya0i")
 
 [node name="attacktimer" type="Timer" parent="." unique_id=815882876]
-wait_time = 4.0
+wait_time = 5.0
 one_shot = true
 
 [node name="cuerpo" type="Area2D" parent="." unique_id=1930933342]
@@ -76,6 +77,7 @@ region_rect = Rect2(-2, 63.5, 35, 33)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=698091156]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1128057794]
+stream = ExtResource("4_qiv3v")
 
 [connection signal="body_entered" from="atack_area" to="." method="_on_atack_area_body_entered"]
 [connection signal="body_entered" from="enter_area" to="." method="_on_enter_area_body_entered"]
