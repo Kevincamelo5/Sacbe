@@ -4,27 +4,32 @@ extends  Control
 func _on_play_pressed() -> void:
 	$"Musica de fondo".stop()
 	$"Click".play()
+	await $"Click".finished
 	get_tree().change_scene_to_file("res://interfaz/pantallas/Cinematica inicial.tscn")
 	pass # Replace with function body.
 
 
 func _on_opciones_pressed() -> void:
 	$"Musica de fondo".stop()
-	get_tree().change_scene_to_file("res://interfaz/pantallas/ayuda/ayuda.tscn")
 	$"Click".play()
+	await $"Click".finished
+	get_tree().change_scene_to_file("res://interfaz/pantallas/ayuda/ayuda.tscn")
 	pass # Replace with function body.
 
 # visualización de los creditos para todos los trabajadores
 func _on_creditos_pressed() -> void:
 	$"Musica de fondo".stop()
 	$"Click".play()
+	await $"Click".finished
 	get_tree().change_scene_to_file("res://interfaz/pantallas/creditos.tscn")
 	pass # Replace with function body.
 
 # salida del juego
 func _on_salir_pressed() -> void:
 	$"Musica de fondo".stop()
+	$"Click".play()
 	$Salir.play()
+	await $"Click".finished
 	get_tree().quit()
 	pass
 

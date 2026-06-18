@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ggdjp1byjvlx" path="res://activos/arte/menú_principal.png" id="2_pexi0"]
 [ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="3_cdm0c"]
 [ext_resource type="AudioStream" uid="uid://dkr6l5dk6ovfi" path="res://activos/audio/musicaEntrada2.mp3" id="3_xayrg"]
-[ext_resource type="AudioStream" uid="uid://sddmeoj6glwh" path="res://activos/audio/click menú.wav" id="4_yn8vj"]
+[ext_resource type="AudioStream" uid="uid://yd8k2q5r7rhp" path="res://activos/audio/click menú (mp3cut.net).wav" id="5_tv2aa"]
 [ext_resource type="Texture2D" uid="uid://uy1ovh6uyxhv" path="res://activos/arte/(512) Quitzal masculino v2 frentre.png" id="5_xayrg"]
 
 [node name="menu_principal" type="Control" unique_id=1762141391]
@@ -74,7 +74,7 @@ stream = ExtResource("3_xayrg")
 autoplay = true
 
 [node name="Click" type="AudioStreamPlayer" parent="." unique_id=1274285583]
-stream = ExtResource("4_yn8vj")
+stream = ExtResource("5_tv2aa")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=759931021]
 layout_mode = 1

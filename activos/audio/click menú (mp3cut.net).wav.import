@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://yd8k2q5r7rhp"
+path="res://.godot/imported/click menú (mp3cut.net).wav-4325194cd2f41609ba61cf3ea0b9d860.sample"
+
+[deps]
+
+source_file="res://activos/audio/click menú (mp3cut.net).wav"
+dest_files=["res://.godot/imported/click menú (mp3cut.net).wav-4325194cd2f41609ba61cf3ea0b9d860.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
