@@ -47,15 +47,13 @@ func _on_atack_area_body_entered(body: Node2D) -> void:
 func atacar_jugador(player: Node2D) -> void:
 	if player.has_method("_lose_lives"):
 		player._lose_lives()
-		
+		$AudioStreamPlayer.play()
 		#Logica de esperar un segundo
 		can_attack = false
 		attack_timer.start() #Inicia temporizador de 1 segundo
 
 #Se activa cuando el AttackTimer termina
 func _on_attacktimer_timeout() -> void:
-	$AudioStreamPlayer.play()
-	await $AudioStreamPlayer.finished
 	can_attack = true
 	#si el jugador sigue en el area de ataque al terminar el segundo,
 	#volver a atacar mediante la señal body_entered o verificar overlapping_bodies.

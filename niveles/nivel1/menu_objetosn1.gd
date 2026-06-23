@@ -4,11 +4,11 @@ var costoH = 0
 var costoE = 0
 
 func _ready() -> void:
-	
 	#permite que el menú, los botones y el timer funcionen mientras el juego esta en pausa
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 	$noteAlcanza.hide()
+	mostrar()
 
 func mostrar():
 	var tree = get_tree()

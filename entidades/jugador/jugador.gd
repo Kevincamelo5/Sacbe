@@ -141,6 +141,7 @@ var _temporizadorObjeto := 0.0
 @export var enfriamientoHacha = 1.5
 @export var dañoMacuahuitle = 7
 @export var enfriamientoMacuahuitle = 0.85
+@export var tiempoEscudo = 1.5
 
 func _usar_objeto() -> void:
 	if not animatedSprite.flip_h:
@@ -158,6 +159,7 @@ func _usar_objeto() -> void:
 				_temporizadorObjeto = enfriamientoLanza
 				lanzar()
 			OBJETOS.ESCUDO:
+				_temporizadorObjeto = tiempoEscudo
 				escudar()
 			_: print_debug("Objeto extraño")
 	
@@ -201,6 +203,7 @@ func escudar():
 	print_debug("Escudando")
 	_estaProtegido = true
 	animatedSprite.play("escudarse")
+	
 
 #ENTRADAS
 func _input(event: InputEvent) -> void:
