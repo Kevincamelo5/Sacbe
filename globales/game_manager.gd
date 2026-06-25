@@ -58,7 +58,7 @@ func comprar_vida(costo: int = 30) -> bool:
 		print("Monedas insuficientes. Tienes ", moneda, " y necesitas ", costo)
 		return false
 
-func desbloquearArma(nombreArma: String):
+func desbloquear_arma(nombreArma: String):
 	if armasDesbloqueadas.has(nombreArma):
 		armasDesbloqueadas[nombreArma] = true
 		print(nombreArma, "desbloqueada")

@@ -33,7 +33,8 @@ func _physics_process(delta: float) -> void:
 func _on_enter_area_body_entered(body: Node2D) -> void:
 	if body == player_node:
 		should_chase = true
-		
+		$AnimatedSprite2D.hide()
+
 #deteccion para detener la persecucion (opcional, si quieres que se rinda)
 func _on_exit_area_body_exited(body: Node2D) -> void:
 	if body == player_node:

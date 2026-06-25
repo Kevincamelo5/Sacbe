@@ -29,5 +29,6 @@ texture = ExtResource("1_x8c37")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1991922131]
 stream = ExtResource("3_xp7im")
+volume_db = -2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://crq1d3r1wakbo"]
 
 [ext_resource type="Script" uid="uid://cilqm0lv8b65" path="res://componentes/moneda.gd" id="1_ulqir"]
-[ext_resource type="AudioStream" uid="uid://l2r1amnlirit" path="res://activos/arte/ribhavagrawal-coin-recieved-230517.mp3" id="3_mukx6"]
+[ext_resource type="AudioStream" uid="uid://l2r1amnlirit" path="res://activos/audio/ribhavagrawal-coin-recieved-230517.mp3" id="3_mukx6"]
 [ext_resource type="Texture2D" uid="uid://b2hk6bfw58q6g" path="res://activos/arte/Coin.png" id="4_v4gt8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cuav"]

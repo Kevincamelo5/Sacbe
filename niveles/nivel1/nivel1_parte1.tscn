@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5ewht513dpt8" path="res://niveles/nivel1/nivel_1_parte_1.gd" id="1_iy3o0"]
 [ext_resource type="Texture2D" uid="uid://dm0q8p7fcffb" path="res://activos/arte/cueva.jpg" id="1_r5pcl"]
-[ext_resource type="AudioStream" uid="uid://ccr8oku4balhu" path="res://activos/audio/mystical-flute-ritual-instrumental-399259.mp3" id="2_nen1f"]
+[ext_resource type="AudioStream" uid="uid://br612tbtkb2ri" path="res://activos/audio/musicaprueba1.mp3" id="3_37vol"]
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="4_utin6"]
 [ext_resource type="Texture2D" uid="uid://c7gg742kpsnej" path="res://activos/arte/pruebassuelo2d.png" id="5_37vol"]
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="5_dbo7o"]
@@ -126,7 +126,7 @@ position = Vector2(15230, 128)
 texture = ExtResource("1_r5pcl")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=252242202]
-stream = ExtResource("2_nen1f")
+stream = ExtResource("3_37vol")
 
 [node name="Jugador" parent="." unique_id=594628309 instance=ExtResource("4_utin6")]
 position = Vector2(-698, 392)

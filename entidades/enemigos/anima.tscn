@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dne4ufmpbqm1p" path="res://entidades/enemigos/anima.gd" id="1_xpqcx"]
 [ext_resource type="Script" uid="uid://qt8vbjryc7my" path="res://entidades/enemigos/cuerpo.gd" id="2_bq7ep"]
 [ext_resource type="Texture2D" uid="uid://ckji50narfg28" path="res://activos/arte/Anima armada.png" id="2_xpqcx"]
+[ext_resource type="Texture2D" uid="uid://w8cvmqqtlwll" path="res://activos/arte/Animas armadas niebla.png" id="4_gy81s"]
 [ext_resource type="AudioStream" uid="uid://bmdmrjjdmws7" path="res://activos/audio/freesound_community-knife-draw-48223.mp3" id="4_qiv3v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bq7ep"]
@@ -17,6 +18,21 @@ radius = 602.29974
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xpqcx"]
 radius = 53.0
 height = 106.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rn7o"]
+atlas = ExtResource("4_gy81s")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qiv3v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rn7o")
+}],
+"loop": true,
+"name": &"estatico y muerte",
+"speed": 5.0
+}]
 
 [node name="anima" type="CharacterBody2D" unique_id=199130893]
 collision_layer = 6
@@ -75,6 +91,10 @@ texture = ExtResource("2_xpqcx")
 region_rect = Rect2(-2, 63.5, 35, 33)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=698091156]
+position = Vector2(-6, -2)
+scale = Vector2(0.2548828, 0.2910156)
+sprite_frames = SubResource("SpriteFrames_qiv3v")
+animation = &"estatico y muerte"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1128057794]
 stream = ExtResource("4_qiv3v")

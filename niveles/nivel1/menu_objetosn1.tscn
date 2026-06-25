@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cd85dj2htnytf"]
 
 [ext_resource type="Script" uid="uid://dewnkd2qjhcxk" path="res://niveles/nivel1/menu_objetosn1.gd" id="1_4085x"]
+[ext_resource type="Texture2D" uid="uid://c4730iaatv2jl" path="res://activos/arte/card.png" id="2_0mvkh"]
 [ext_resource type="Texture2D" uid="uid://chw0anm52ymwm" path="res://activos/arte/Hacha.png" id="2_4085x"]
 [ext_resource type="Texture2D" uid="uid://dpyicnkndmbk6" path="res://activos/arte/(256) Escudo.png" id="3_37k0s"]
 [ext_resource type="Texture2D" uid="uid://ctpebtatsckvt" path="res://activos/arte/(512) Quitzal flauta v2 frentre.png" id="4_dmwvj"]
@@ -8,6 +9,48 @@
 
 [node name="MenuObjetos" type="CanvasLayer" unique_id=1687533581]
 script = ExtResource("1_4085x")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1151100670]
+anchors_preset = -1
+anchor_left = 0.017361112
+anchor_top = 0.31790122
+anchor_right = 0.3064236
+anchor_bottom = 0.8256173
+offset_left = 17.0
+offset_top = -3.0
+offset_right = 15.0
+offset_bottom = -3.0
+texture = ExtResource("2_0mvkh")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1658513028]
+anchors_preset = -1
+anchor_left = 0.3298611
+anchor_top = 0.31790122
+anchor_right = 0.6171875
+anchor_bottom = 0.8256173
+offset_left = 21.0
+offset_top = -2.0
+offset_right = 19.0
+offset_bottom = -2.0
+texture = ExtResource("2_0mvkh")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1300567251]
+anchors_preset = -1
+anchor_left = 0.3298611
+anchor_top = 0.31790122
+anchor_right = 0.6171875
+anchor_bottom = 0.8256173
+offset_left = 399.0
+offset_top = -3.0
+offset_right = 397.0
+offset_bottom = -3.0
+texture = ExtResource("2_0mvkh")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=456765047]
 anchors_preset = 15
@@ -18,13 +61,19 @@ grow_vertical = 2
 size_flags_horizontal = 0
 
 [node name="hacha" type="TouchScreenButton" parent="VBoxContainer" unique_id=588121433]
-position = Vector2(30, 206.00002)
+position = Vector2(47, 202.00002)
 scale = Vector2(0.3423517, 0.21888402)
 texture_normal = ExtResource("2_4085x")
 
 [node name="escudo" type="TouchScreenButton" parent="VBoxContainer" unique_id=1787789025]
-position = Vector2(428, 218)
+position = Vector2(476, 261)
+scale = Vector2(0.7421873, 0.75390625)
 texture_normal = ExtResource("3_37k0s")
+
+[node name="vida" type="TouchScreenButton" parent="VBoxContainer" unique_id=1295808351]
+position = Vector2(842, 250.99998)
+scale = Vector2(0.41812494, 0.35273558)
+texture_normal = ExtResource("4_dmwvj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1464333704]
 y_sort_enabled = true
@@ -32,11 +81,6 @@ layout_direction = 4
 layout_mode = 2
 alignment = 1
 metadata/_edit_group_ = true
-
-[node name="vida" type="TouchScreenButton" parent="VBoxContainer" unique_id=1295808351]
-position = Vector2(824, 194.00002)
-scale = Vector2(0.57812494, 0.5527344)
-texture_normal = ExtResource("4_dmwvj")
 
 [node name="Control" type="Control" parent="." unique_id=112642622]
 layout_mode = 3
@@ -49,11 +93,12 @@ grow_vertical = 2
 [node name="costo escudo" type="Label" parent="Control" unique_id=1916861612]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4626736
-anchor_top = 0.6882716
-anchor_right = 0.49739584
-anchor_bottom = 0.76388896
+anchor_left = 0.4782986
+anchor_top = 0.6898148
+anchor_right = 0.5130208
+anchor_bottom = 0.7654321
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.19966345, 0.18631536, 0.22935726, 1)
 theme_override_font_sizes/font_size = 35
 text = "50"
 metadata/_edit_use_anchors_ = true
@@ -61,12 +106,13 @@ metadata/_edit_use_anchors_ = true
 [node name="costo vidas" type="Label" parent="Control" unique_id=306778502]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.8350694
-anchor_top = 0.72530866
-anchor_right = 0.8697917
-anchor_bottom = 0.8009259
+anchor_left = 0.8081597
+anchor_top = 0.67901236
+anchor_right = 0.8428819
+anchor_bottom = 0.7546296
+theme_override_colors/font_color = Color(0.06100855, 0.19966345, 0.06100855, 1)
 theme_override_font_sizes/font_size = 35
-text = "50"
+text = "30"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -77,8 +123,9 @@ anchor_left = 0.15277778
 anchor_top = 0.654321
 anchor_right = 0.1875
 anchor_bottom = 0.72993827
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
-text = "50"
+text = "40"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
