@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ixxtnekgox7m" path="res://activos/arte/Quitzal masculino v2 (1).png" id="3_5hhml"]
 [ext_resource type="Texture2D" uid="uid://1ca45r1b2ggk" path="res://activos/arte/Gemini_Generated_Image_2i1ycr2i1ycr2i1y (1).png" id="3_i8lgo"]
 [ext_resource type="Texture2D" uid="uid://b5pn6vnx6uu0w" path="res://activos/arte/Quitzal m cubriendose.png" id="4_2rudo"]
-[ext_resource type="Texture2D" uid="uid://ugkegv7cqdtv" path="res://activos/arte/Gemini_Generated_Image_wj6rkkwj6rkkwj6r.png" id="4_5hhml"]
+[ext_resource type="Texture2D" uid="uid://fk8jaxb1gv1a" path="res://activos/arte/saltoQM.png" id="6_2rudo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgsqy"]
 resource_name = "jugador"
@@ -65,15 +65,15 @@ atlas = ExtResource("3_5hhml")
 region = Rect2(0, 0, 682, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_deohb"]
-atlas = ExtResource("4_5hhml")
-region = Rect2(682, 0, 682, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_firrh"]
-atlas = ExtResource("4_5hhml")
+atlas = ExtResource("6_2rudo")
 region = Rect2(0, 0, 682, 1024)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_firrh"]
+atlas = ExtResource("6_2rudo")
+region = Rect2(682, 0, 682, 1024)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_s2aq0"]
-atlas = ExtResource("4_5hhml")
+atlas = ExtResource("6_2rudo")
 region = Rect2(1364, 0, 682, 1024)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_78n3h"]
@@ -96,7 +96,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"acuchillar",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 0.6,
@@ -173,4 +173,4 @@ shape = SubResource("CapsuleShape2D_71ocg")
 position = Vector2(-4.9999995, 13.999999)
 scale = Vector2(0.1143695, 0.11425781)
 sprite_frames = SubResource("SpriteFrames_78n3h")
-animation = &"escudarse"
+animation = &"saltar"

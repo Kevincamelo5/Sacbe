@@ -14,6 +14,8 @@ func _ready() -> void:
 		# 3. ¡IMPORTANTE!: Actualizar el texto inmediatamente al cargar
 		# Esto garantiza que tras el reload_current_scene, el HUD lea la vida actual
 		_on_vida_actualizada(gm.vida)
+	
+	texto_vidas.text = str(GameManager.vida)
 
 func _on_vida_actualizada(nueva_vida: int) -> void:
 	if texto_vidas:

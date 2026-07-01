@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dne4ufmpbqm1p" path="res://entidades/enemigos/anima.gd" id="1_xpqcx"]
 [ext_resource type="Script" uid="uid://qt8vbjryc7my" path="res://entidades/enemigos/cuerpo.gd" id="2_bq7ep"]
 [ext_resource type="Texture2D" uid="uid://ckji50narfg28" path="res://activos/arte/Anima armada.png" id="2_xpqcx"]
+[ext_resource type="Texture2D" uid="uid://cpop2t2ybldmk" path="res://activos/arte/anima estocada.png" id="4_4rn7o"]
 [ext_resource type="Texture2D" uid="uid://w8cvmqqtlwll" path="res://activos/arte/Animas armadas niebla.png" id="4_gy81s"]
 [ext_resource type="AudioStream" uid="uid://bmdmrjjdmws7" path="res://activos/audio/freesound_community-knife-draw-48223.mp3" id="4_qiv3v"]
 
@@ -19,12 +20,45 @@ radius = 602.29974
 radius = 53.0
 height = 106.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_71sbs"]
+atlas = ExtResource("4_4rn7o")
+region = Rect2(0, 0, 832, 832)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqbio"]
+atlas = ExtResource("4_4rn7o")
+region = Rect2(832, 0, 832, 832)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72fdw"]
+atlas = ExtResource("4_4rn7o")
+region = Rect2(1664, 0, 832, 832)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oak0v"]
+atlas = ExtResource("4_4rn7o")
+region = Rect2(832, 832, 832, 832)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4rn7o"]
 atlas = ExtResource("4_gy81s")
 region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qiv3v"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71sbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqbio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72fdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oak0v")
+}],
+"loop": false,
+"name": &"anima estocada",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4rn7o")
@@ -91,8 +125,8 @@ texture = ExtResource("2_xpqcx")
 region_rect = Rect2(-2, 63.5, 35, 33)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=698091156]
-position = Vector2(-6, -2)
-scale = Vector2(0.2548828, 0.2910156)
+position = Vector2(6.0000014, -2.9999962)
+scale = Vector2(0.1610577, 0.140625)
 sprite_frames = SubResource("SpriteFrames_qiv3v")
 animation = &"estatico y muerte"
 
