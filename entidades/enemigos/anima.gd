@@ -46,16 +46,17 @@ func _on_atack_area_body_entered(body: Node2D) -> void:
 		atacar_jugador(body)
 
 func atacar_jugador(player: Node2D) -> void:
+	$Sprite2D.hide()
+	$AnimatedSprite2D.show()
+	$AudioStreamPlayer.play()
+	$AnimatedSprite2D.play("anima estocada")
+	await $AudioStreamPlayer.finished	
 	if player.has_method("_lose_lives"):
 		player._lose_lives()
-		$Sprite2D.hide()
-		$AnimatedSprite2D.show()
-		$AudioStreamPlayer.play()
-		$AnimatedSprite2D.play("anima estocada")
-		await $AudioStreamPlayer.finished
+		
 		#Logica de esperar un segundo
-		can_attack = false
-		attack_timer.start() #Inicia temporizador de 1 segundo
+	can_attack = false
+	attack_timer.start() #Inicia temporizador de 1 segundo
 
 #Se activa cuando el AttackTimer termina
 func _on_attacktimer_timeout() -> void:

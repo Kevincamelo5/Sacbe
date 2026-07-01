@@ -4,6 +4,7 @@ class_name Jugador
 signal vida_cambiada(vidas_actuales)
 var spawn_position : Vector2
 var _estaProtegido := false
+var _recibiendo_dano := false
 
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 func _ready() -> void:
@@ -59,14 +60,13 @@ func _movimiento_horizontal() -> void:
 		animatedSprite.flip_h = true
 	
 	# 2. Luego controlamos las animaciones basándonos en si está en el suelo o no
-	if not _estaUsandoObjeto:
+	if not _estaUsandoObjeto and not _recibiendo_dano:
 		if not is_on_floor():
 			animatedSprite.play("saltar")
 		elif direccion.x != 0:
 			animatedSprite.play("correr")
 		else:
 			animatedSprite.play("parado")
-	
 	# 3. Aplicamos la velocidad
 	velocity.x = direccion.x * _aceleracion
 
@@ -233,8 +233,15 @@ func _cambiar_siguiente_objeto_desbloqueado():
 	
 #perder vidas
 func _lose_lives() -> void:
-	if not _estaProtegido:
-		$AnimatedSprite2D.play("recibirDaño")
+	if not _estaProtegido and not _recibiendo_dano:
+		_recibiendo_dano = true
+		
+		animatedSprite.play("recibirDaño")
+		
+		await animatedSprite.animation_finished
+		
 		GameManager.disminuir_vida()
+		
+		_recibiendo_dano = false
 	else:
 		print("Ataque bloqueado")
