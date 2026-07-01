@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://1ca45r1b2ggk" path="res://activos/arte/Gemini_Generated_Image_2i1ycr2i1ycr2i1y (1).png" id="3_i8lgo"]
 [ext_resource type="Texture2D" uid="uid://b5pn6vnx6uu0w" path="res://activos/arte/Quitzal m cubriendose.png" id="4_2rudo"]
 [ext_resource type="Texture2D" uid="uid://fk8jaxb1gv1a" path="res://activos/arte/saltoQM.png" id="6_2rudo"]
+[ext_resource type="Texture2D" uid="uid://dtnh68eb774sb" path="res://activos/arte/Quitzal m recibe daño.png" id="6_r0ul3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgsqy"]
 resource_name = "jugador"
@@ -63,6 +64,18 @@ region = Rect2(0, 1024, 682, 1024)
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0ul3"]
 atlas = ExtResource("3_5hhml")
 region = Rect2(0, 0, 682, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os0gh"]
+atlas = ExtResource("6_r0ul3")
+region = Rect2(1364, 0, 682, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axss4"]
+atlas = ExtResource("6_r0ul3")
+region = Rect2(682, 0, 682, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmh0w"]
+atlas = ExtResource("6_r0ul3")
+region = Rect2(1364, 1024, 682, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_deohb"]
 atlas = ExtResource("6_2rudo")
@@ -136,6 +149,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_os0gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axss4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmh0w")
+}],
+"loop": true,
+"name": &"recibirDaño",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_deohb")
 }, {
 "duration": 1.0,
@@ -173,4 +200,4 @@ shape = SubResource("CapsuleShape2D_71ocg")
 position = Vector2(-4.9999995, 13.999999)
 scale = Vector2(0.1143695, 0.11425781)
 sprite_frames = SubResource("SpriteFrames_78n3h")
-animation = &"saltar"
+animation = &"recibirDaño"

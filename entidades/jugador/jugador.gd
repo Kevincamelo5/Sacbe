@@ -234,6 +234,7 @@ func _cambiar_siguiente_objeto_desbloqueado():
 #perder vidas
 func _lose_lives() -> void:
 	if not _estaProtegido:
+		$AnimatedSprite2D.play("recibirDaño")
 		GameManager.disminuir_vida()
 	else:
 		print("Ataque bloqueado")
