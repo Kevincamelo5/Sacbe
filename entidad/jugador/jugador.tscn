@@ -1,8 +1,53 @@
-[gd_scene load_steps=7 format=3 uid="uid://caokkywjfo4gv"]
+[gd_scene load_steps=16 format=3 uid="uid://caokkywjfo4gv"]
 
 [ext_resource type="Script" uid="uid://b6oh18grdhan5" path="res://entidad/jugador/jugador.gd" id="1_bgsqy"]
-[ext_resource type="Texture2D" uid="uid://bssyoiioal130" path="res://global/elementos/personaje/Quitzal/(512) Quitzal masculino v2 frentre.png" id="2_5flym"]
+[ext_resource type="Texture2D" uid="uid://cfbga4fsvtqcl" path="res://entidad/jugador/Quitzal 1.1.png" id="2_1nftk"]
+[ext_resource type="Texture2D" uid="uid://cpssa5krlitf5" path="res://global/elementos/herramientas/flauta peque.png" id="2_4hj0g"]
+[ext_resource type="Texture2D" uid="uid://doi5uk7g0qy6n" path="res://entidad/jugador/(512) Quitzal masculino v2 frentre.png" id="2_po4bg"]
+[ext_resource type="Texture2D" uid="uid://ckxx5po5s3g8f" path="res://global/elementos/herramientas/hacha peque.png" id="3_3exiq"]
 [ext_resource type="Script" uid="uid://d7oootbmqbsq" path="res://entidad/jugador/area_hurbox.gd" id="3_cuou6"]
+[ext_resource type="Texture2D" uid="uid://iq4t35c4xr2q" path="res://global/elementos/herramientas/lanza peque.png" id="4_7w41j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afr1a"]
+atlas = ExtResource("2_1nftk")
+region = Rect2(0, 0, 560, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hj0g"]
+atlas = ExtResource("2_1nftk")
+region = Rect2(560, 0, 560, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3exiq"]
+atlas = ExtResource("2_1nftk")
+region = Rect2(1076, 0, 538, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po4bg"]
+atlas = ExtResource("2_po4bg")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r117y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afr1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hj0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3exiq")
+}],
+"loop": true,
+"name": &"Correr",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po4bg")
+}],
+"loop": true,
+"name": &"Quieto",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgsqy"]
 radius = 50.0
@@ -19,16 +64,22 @@ height = 96.0
 [node name="Jugador" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_bgsqy")
+img_flauta = ExtResource("2_4hj0g")
+img_hacha = ExtResource("3_3exiq")
+img_lanza = ExtResource("4_7w41j")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.2950158, 2.375002)
-scale = Vector2(0.22150382, 0.24072267)
-texture = ExtResource("2_5flym")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.5000095, 1.9999976)
+scale = Vector2(0.21289065, 0.25)
+sprite_frames = SubResource("SpriteFrames_r117y")
+animation = &"Correr"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_bgsqy")
+
+[node name="SpriteArma" type="Sprite2D" parent="."]
+position = Vector2(3.5000095, 1.9999976)
+scale = Vector2(0.21289065, 0.25)
 
 [node name="AreaAtaque" type="Area2D" parent="."]
 position = Vector2(77, 0)

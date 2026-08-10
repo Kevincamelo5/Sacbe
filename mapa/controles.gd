@@ -53,6 +53,8 @@ var current_index := 0
 var textures: Array[Texture2D] = []
 
 func _ready():
-	# Asegurate de que el array no esta vacio
+# Verificamos si el array tiene texturas cargadas
 	if textures.size() == 0:
-		push_error("No se cargaron las texturas!")
+		# En lugar de un error que detenga todo, ponemos un aviso
+		print("Aviso: No hay texturas, usando modo de prueba (invisible o default)") 
+	

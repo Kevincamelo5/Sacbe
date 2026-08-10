@@ -3,11 +3,10 @@ class_name Jugador
 
 signal vida_cambiada(vidas_actuales)
 
-@onready var sprite = $Sprite2D
-@onready var anim = $Sprite2D/AnimationPlayer
+@onready var sprite = $AnimatedSprite2D
 var vida: int = 5
 
-func _ready() -> void:
+func _ready() -> void:	
 	if hayGravedad:
 		velocity.y = 0
 	call_deferred("emit_signal","vida_cambiada",vida)
@@ -18,11 +17,11 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	_actualizar_temporizador_objeto(delta)
+	#_actualizar_temporizador_objeto(delta)
 	_actualizar_estado_suelo()
 	
-	if Input.is_action_pressed("usar_objeto") and hayGravedad:
-		_usar_objeto()
+	#if Input.is_action_pressed("usar_objeto") and hayGravedad:
+		#_usar_objeto()
 
 # MOVIMIENTO
 @export_category("movimiento")
@@ -48,8 +47,13 @@ func _movimiento_horizontal() -> void:
 	
 	if direccion.x > 0:
 		sprite.flip_h = false
+		sprite.play("Correr") # Inicia la animación al mover a la derecha
 	elif direccion.x < 0:
 		sprite.flip_h = true
+		sprite.play("Correr") # Inicia la animación al mover a la izquierda
+	else:
+		sprite.play("Quieto") # Detiene la animación si no tocas ningún botón
+		# (O si tienes una animación de estar quieto puedes poner: sprite.play("Idle"))
 	
 	velocity.x = direccion.x * _aceleracion
 
@@ -109,7 +113,7 @@ func _actualizar_estado_suelo() -> void:
 	_estaEnSuelo = is_on_floor()
 
 # OBJETOS
-@export_category("objeto")
+"""@export_category("objeto")
 enum OBJETOS {CUCHILLO, LANZA, ESCUDO}
 @export var objetoActual := OBJETOS.CUCHILLO
 var _estaUsandoObjeto := false
@@ -138,18 +142,18 @@ func _usar_objeto() -> void:
 				lanzar()
 			OBJETOS.ESCUDO:
 				escudar()
-			_: print_debug("Objeto extraño")
+			_: print_debug("Objeto extraño")"""
 	
-
+"""
 func _actualizar_temporizador_objeto(delta: float):
 	if _temporizadorObjeto > 0:
 		_temporizadorObjeto -= delta
 	
 	if _estaUsandoObjeto and _temporizadorObjeto <= 0:
-		_estaUsandoObjeto = false
+		_estaUsandoObjeto = false"""
 
 # Ataques
-@onready var areaCuchillo: Area2D = $AreaAtaque
+"""@onready var areaCuchillo: Area2D = $AreaAtaque
 var lanza: PackedScene = preload("res://entidad/Lanza/lanza.tscn")
 
 # CUCHILLO
@@ -172,7 +176,7 @@ func lanzar():
 	nuevaLanza.daño = dañoLanza
 	get_parent().add_child(nuevaLanza)
 	nuevaLanza.set_global_position(areaCuchillo.get_global_position() + Vector2(0, -20))
-
+"""
 # ESCUDO
 func escudar():
 	print_debug("Escudando")
@@ -200,3 +204,36 @@ func _lose_lives() -> void:
 	
 	if vida <=0:
 		get_tree().call_deferred("reload_current_scene")
+		
+
+func recibir_empujon(direccion_x: float, fuerza_empujon: float):
+	# Damos un salto hacia arriba (negativo en Y) y nos movemos hacia un lado
+	velocity.y = -fuerza_empujon * 0.8
+	velocity.x = direccion_x * fuerza_empujon
+
+# --- REFERENCIAS Y VARIABLES DE ARMAS ---
+@onready var sprite_arma = $SpriteArma # Tu nuevo nodo visual
+
+# Actualizamos el Enum para que coincida con tu minijuego
+enum OBJETOS { NINGUNO, FLAUTA, HACHA, LANZA }
+@export var objetoActual := OBJETOS.NINGUNO
+
+# Exportamos texturas para que arrastres las imágenes de tus armas en el Inspector
+@export var img_flauta: Texture2D
+@export var img_hacha: Texture2D
+@export var img_lanza: Texture2D
+
+# --- FUNCIÓN PARA RECIBIR EL ARMA ---
+func equipar_arma(nombre_arma: String):
+	match nombre_arma:
+		"flauta":
+			objetoActual = OBJETOS.FLAUTA
+			sprite_arma.texture = img_flauta
+		"hacha":
+			objetoActual = OBJETOS.HACHA
+			sprite_arma.texture = img_hacha
+		"lanza":
+			objetoActual = OBJETOS.LANZA
+			sprite_arma.texture = img_lanza
+	
+	sprite_arma.show() # Hacemos visible el arma

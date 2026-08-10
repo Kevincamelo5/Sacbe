@@ -1,3 +1,334 @@
-[gd_scene format=3 uid="uid://b2dt0fv7bfom7"]
+[gd_scene load_steps=37 format=3 uid="uid://b2dt0fv7bfom7"]
+
+[ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidad/jugador/jugador.tscn" id="1_1xc8m"]
+[ext_resource type="Script" uid="uid://be4q0kv8lkb1s" path="res://mapa/nivel2/m_inijuego.gd" id="1_5xsud"]
+[ext_resource type="Texture2D" uid="uid://cpssa5krlitf5" path="res://global/elementos/herramientas/flauta peque.png" id="2_b4qib"]
+[ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://mapa/controles.tscn" id="2_cablh"]
+[ext_resource type="Texture2D" uid="uid://caqvfsynytvbw" path="res://global/elementos/escenarios/Fondo-nivel2.jpg" id="2_e7ble"]
+[ext_resource type="Texture2D" uid="uid://csx1i2q5o1ht4" path="res://global/elementos/escenarios/FondoSP-nivel2.jpg" id="3_8mxly"]
+[ext_resource type="Texture2D" uid="uid://ckxx5po5s3g8f" path="res://global/elementos/herramientas/hacha peque.png" id="3_el20e"]
+[ext_resource type="Texture2D" uid="uid://b8q4xrn4sfvjg" path="res://global/elementos/escenarios/Casal2.png" id="4_u4ah2"]
+[ext_resource type="Texture2D" uid="uid://iq4t35c4xr2q" path="res://global/elementos/herramientas/lanza peque.png" id="4_y541q"]
+[ext_resource type="Script" uid="uid://bb5r0vtk3m588" path="res://mapa/nivel2/character_body_2d_ki_men.gd" id="6_dasm1"]
+[ext_resource type="Script" uid="uid://c7d17tfql84jg" path="res://mapa/nivel2/area_2d.gd" id="8_jeh34"]
+[ext_resource type="Texture2D" uid="uid://cluqlg8dhyxmc" path="res://global/elementos/escenarios/Altarproto.png" id="9_5xsud"]
+[ext_resource type="Texture2D" uid="uid://ctjiqjdax0eli" path="res://global/elementos/escenarios/fuego-removebg-preview.png" id="11_44th5"]
+[ext_resource type="Texture2D" uid="uid://va1mx53fy3e6" path="res://global/elementos/personaje/Ki-Men/kimen2.png" id="11_b4qib"]
+[ext_resource type="Script" uid="uid://bbn8ko7ch0ull" path="res://mapa/nivel2/area_fuego_1.gd" id="14_el20e"]
+[ext_resource type="Script" uid="uid://c45fdxt7xfmld" path="res://mapa/nivel2/area_salida.gd" id="15_b4qib"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_y1rvv"]
+
+[sub_resource type="Gradient" id="Gradient_vmqr1"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8mxly"]
+gradient = SubResource("Gradient_vmqr1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cablh"]
+size = Vector2(5034.5, 32.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mxly"]
+size = Vector2(567, 131.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4ah2"]
+size = Vector2(1.5162497, 0.86875033)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el20e"]
+atlas = ExtResource("11_b4qib")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y541q"]
+atlas = ExtResource("11_b4qib")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svrav"]
+atlas = ExtResource("11_b4qib")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qejmo"]
+atlas = ExtResource("11_b4qib")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buush"]
+atlas = ExtResource("11_b4qib")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pqfy"]
+atlas = ExtResource("11_b4qib")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu0ok"]
+atlas = ExtResource("11_b4qib")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3h66"]
+atlas = ExtResource("11_b4qib")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xkoe"]
+atlas = ExtResource("11_b4qib")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_36fgi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el20e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y541q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svrav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qejmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buush")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pqfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu0ok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3h66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xkoe")
+}],
+"loop": true,
+"name": &"Ataque",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dasm1"]
+radius = 33.0
+height = 66.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44th5"]
+size = Vector2(278.5, 253)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y1rvv"]
+radius = 25.019993
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_784w0"]
+radius = 113.35784
 
 [node name="Nivel2Parte1" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 2
+
+[node name="MInijuego" type="Control" parent="CanvasLayer"]
+process_mode = 3
+process_priority = 1
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+script = ExtResource("1_5xsud")
+
+[node name="Label" type="Label" parent="CanvasLayer/MInijuego"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 71.547005
+anchor_top = 4.675
+anchor_right = 78.755005
+anchor_bottom = 5.4350004
+offset_left = -411.0
+offset_top = 119.0
+offset_right = -373.0
+offset_bottom = 142.0
+text = "label"
+
+[node name="Button" type="Button" parent="CanvasLayer/MInijuego"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = -419.0
+offset_top = 181.0
+offset_right = -364.0
+offset_bottom = 231.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "a
+"
+icon = SubResource("ImageTexture_y1rvv")
+
+[node name="Button2" type="Button" parent="CanvasLayer/MInijuego"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = -296.0
+offset_top = 183.0
+offset_right = -235.0
+offset_bottom = 236.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "b"
+
+[node name="Button3" type="Button" parent="CanvasLayer/MInijuego"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = -538.0
+offset_top = 183.0
+offset_right = -471.0
+offset_bottom = 234.0
+text = "a"
+
+[node name="ContenedorObjetos" type="HBoxContainer" parent="CanvasLayer/MInijuego"]
+visible = false
+layout_mode = 0
+offset_left = -1142.0
+offset_top = 219.0
+offset_right = 138.0
+offset_bottom = 366.0
+alignment = 1
+
+[node name="BotonFlauta" type="TextureButton" parent="CanvasLayer/MInijuego/ContenedorObjetos"]
+layout_mode = 2
+texture_normal = ExtResource("2_b4qib")
+
+[node name="BotonHacha" type="TextureButton" parent="CanvasLayer/MInijuego/ContenedorObjetos"]
+layout_mode = 2
+texture_normal = ExtResource("3_el20e")
+
+[node name="BotonLanza" type="TextureButton" parent="CanvasLayer/MInijuego/ContenedorObjetos"]
+layout_mode = 2
+texture_normal = ExtResource("4_y541q")
+
+[node name="controles" parent="." instance=ExtResource("2_cablh")]
+
+[node name="Piso" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Piso"]
+position = Vector2(2226.5845, 655)
+scale = Vector2(17.425125, -7.8796105)
+texture = SubResource("GradientTexture1D_8mxly")
+
+[node name="Sprite2DF1" type="Sprite2D" parent="Piso"]
+position = Vector2(1050, 422.81253)
+scale = Vector2(0.76380813, 0.53930676)
+texture = ExtResource("2_e7ble")
+
+[node name="Sprite2DF2" type="Sprite2D" parent="Piso"]
+position = Vector2(3576.9622, 423.26703)
+scale = Vector2(1.0748821, 0.5426211)
+texture = ExtResource("3_8mxly")
+
+[node name="Casal2" type="Sprite2D" parent="Piso"]
+position = Vector2(2262.0002, 537)
+scale = Vector2(1.3411808, 1.1749328)
+texture = ExtResource("4_u4ah2")
+
+[node name="StaticBody2D-PisoVilla" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
+position = Vector2(2527.75, 665.25)
+shape = SubResource("RectangleShape2D_cablh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
+position = Vector2(205.5, 587)
+shape = SubResource("RectangleShape2D_8mxly")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
+position = Vector2(2268, 578)
+shape = SubResource("RectangleShape2D_8mxly")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
+position = Vector2(1907, 600)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_u4ah2")
+
+[node name="Jugador" parent="." groups=["player"] instance=ExtResource("1_1xc8m")]
+position = Vector2(57, 255)
+
+[node name="Camera2D" type="Camera2D" parent="Jugador"]
+position = Vector2(526, 76)
+limit_bottom = 800
+
+[node name="CharacterBody2DKi-Men" type="CharacterBody2D" parent="."]
+script = ExtResource("6_dasm1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men"]
+position = Vector2(1434, 573)
+scale = Vector2(2.429687, 2.6250007)
+sprite_frames = SubResource("SpriteFrames_36fgi")
+animation = &"Ataque"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men"]
+position = Vector2(1436, 554)
+shape = SubResource("CapsuleShape2D_dasm1")
+
+[node name="CharacterBody2DKi-Men2" type="CharacterBody2D" parent="."]
+script = ExtResource("6_dasm1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men2"]
+position = Vector2(835, 546)
+scale = Vector2(2.429687, 2.6250007)
+sprite_frames = SubResource("SpriteFrames_36fgi")
+animation = &"Ataque"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men2"]
+position = Vector2(832, 545)
+shape = SubResource("CapsuleShape2D_dasm1")
+
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("MInijuego")]
+process_mode = 3
+script = ExtResource("8_jeh34")
+MInijuego = NodePath("../CanvasLayer/MInijuego")
+
+[node name="Altarproto" type="Sprite2D" parent="Area2D"]
+position = Vector2(3953, 481)
+scale = Vector2(1.3389956, 1.204607)
+texture = ExtResource("9_5xsud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3954, 506)
+shape = SubResource("RectangleShape2D_44th5")
+
+[node name="AreaFuego1" type="Area2D" parent="."]
+position = Vector2(2031, 478)
+script = ExtResource("14_el20e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFuego1"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_y1rvv")
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaFuego1"]
+position = Vector2(-0.9999771, -5)
+scale = Vector2(0.18000002, 0.16099997)
+texture = ExtResource("11_44th5")
+
+[node name="AreaFuego2" type="Area2D" parent="."]
+position = Vector2(2527, 484)
+script = ExtResource("14_el20e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFuego2"]
+position = Vector2(-17, 3)
+shape = SubResource("CircleShape2D_y1rvv")
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaFuego2"]
+position = Vector2(-12.9999695, -15)
+scale = Vector2(0.18000002, 0.16099997)
+texture = ExtResource("11_44th5")
+
+[node name="AreaSalida" type="Area2D" parent="."]
+script = ExtResource("15_b4qib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSalida"]
+position = Vector2(4938, 574)
+shape = SubResource("CircleShape2D_784w0")
+
+[connection signal="pressed" from="CanvasLayer/MInijuego/Button" to="CanvasLayer/MInijuego" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MInijuego/Button2" to="CanvasLayer/MInijuego" method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/MInijuego/Button3" to="CanvasLayer/MInijuego" method="_on_button_3_pressed"]
+[connection signal="body_entered" from="AreaFuego1" to="AreaFuego1" method="_on_body_entered"]
+[connection signal="body_entered" from="AreaFuego2" to="AreaFuego2" method="_on_body_entered"]
+[connection signal="body_entered" from="AreaSalida" to="AreaSalida" method="on_area_salida_body_entered"]
