@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqyiyxfwautbj"]
+
+[ext_resource type="Texture2D" uid="uid://w7hdm6baj0j" path="res://componentes/escenarios/Fondo-jabali.jpg" id="1_ewmrq"]
+[ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="2_44hai"]
+[ext_resource type="PackedScene" uid="uid://cf1cdu71ifkog" path="res://entidades/enemigos/Jabali/jabali_jefe.tscn" id="3_lkqam"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44hai"]
+size = Vector2(2250.5, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkqam"]
+size = Vector2(73, 455)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0t5y7"]
+size = Vector2(64.125, 370.5)
+
+[node name="Arena_Batalla" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1187, 227)
+scale = Vector2(1.4855556, 1.07125)
+texture = ExtResource("1_ewmrq")
+
+[node name="JabaliJefe" parent="." instance=ExtResource("3_lkqam")]
+position = Vector2(1797, 421)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(25, -14)
+
+[node name="CollisionShapePiso" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1163.75, 623)
+shape = SubResource("RectangleShape2D_44hai")
+
+[node name="CollisionShape2LI" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.5, 433.5)
+shape = SubResource("RectangleShape2D_lkqam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2037, 417)
+shape = SubResource("RectangleShape2D_0t5y7")
+
+[node name="Jugador" parent="." instance=ExtResource("2_44hai")]
+position = Vector2(57, 255)
+
+[node name="Camera2D" type="Camera2D" parent="Jugador"]
+position = Vector2(526, 76)
+zoom = Vector2(0.8, 0.8)
+limit_left = -100
+limit_right = 2000
+limit_bottom = 610

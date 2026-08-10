@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://8je75oamupgh"]
+[gd_scene load_steps=2 format=3 uid="uid://8je75oamupgh"]
+
+[ext_resource type="Texture2D" uid="uid://doi5uk7g0qy6n" path="res://entidad/jugador/(512) Quitzal masculino v2 frentre.png" id="1_00hd5"]
 
 [node name="Nivel2Parte4" type="Node2D"]
+
+[node name="(512)QuitzalMasculinoV2Frentre" type="Sprite2D" parent="."]
+position = Vector2(87, 80)
+scale = Vector2(0.2993164, 0.28271484)
+texture = ExtResource("1_00hd5")

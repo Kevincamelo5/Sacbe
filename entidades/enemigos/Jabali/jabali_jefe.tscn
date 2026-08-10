@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://cf1cdu71ifkog"]
+
+[ext_resource type="Script" uid="uid://c2mglvswo4qpt" path="res://global/elementos/personaje/Jabali/jabali_jefe.gd" id="1_g6vvp"]
+[ext_resource type="Texture2D" uid="uid://cjetwsh7kik8r" path="res://global/elementos/personaje/Jabali/Jabali sprites.png" id="2_e3xkd"]
+[ext_resource type="Shader" uid="uid://bpyv0jyl861lv" path="res://global/elementos/personaje/Jabali/jabali_jefe.gdshader" id="2_w3t30"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ynue"]
+shader = ExtResource("2_w3t30")
+shader_parameter/color_to_remove = Color(1, 1, 1, 1)
+shader_parameter/threshold = 0.05
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3t30"]
+atlas = ExtResource("2_e3xkd")
+region = Rect2(0, 0, 355, 245)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ynue"]
+atlas = ExtResource("2_e3xkd")
+region = Rect2(355, 0, 355, 245)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_borwg"]
+atlas = ExtResource("2_e3xkd")
+region = Rect2(710, 0, 355, 245)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2ctc"]
+atlas = ExtResource("2_e3xkd")
+region = Rect2(1400, 0, 350, 245)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71s1s"]
+atlas = ExtResource("2_e3xkd")
+region = Rect2(1775, 490, 355, 245)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7my0f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3t30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ynue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_borwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2ctc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71s1s")
+}],
+"loop": true,
+"name": &"Embestida",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5tkwg"]
+radius = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aten3"]
+radius = 90.04999
+
+[node name="JabaliJefe" type="CharacterBody2D"]
+script = ExtResource("1_g6vvp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_4ynue")
+position = Vector2(2.250002, 0)
+scale = Vector2(1.012676, 1)
+sprite_frames = SubResource("SpriteFrames_7my0f")
+animation = &"Embestida"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -12)
+shape = SubResource("CircleShape2D_5tkwg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(9, 23)
+shape = SubResource("CircleShape2D_aten3")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
