@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c0q2x2lobg8bg"]
+
+[ext_resource type="PackedScene" uid="uid://cd85dj2htnytf" path="res://niveles/nivel1/menu_objetosn1.tscn" id="1_7nqle"]
+
+[node name="Nivel3objetos" type="Node2D" unique_id=706804237]
+
+[node name="MenuObjetos" parent="." unique_id=1687533581 instance=ExtResource("1_7nqle")]

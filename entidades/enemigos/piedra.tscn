@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://nuff45mpura6"]
+
+[ext_resource type="Script" uid="uid://cirlkebpa2as8" path="res://entidades/enemigos/piedra.gd" id="1_8mi3e"]
+[ext_resource type="Texture2D" uid="uid://yp5egfgy4tfu" path="res://activos/arte/roca.png" id="2_ihwb0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3i3b"]
+radius = 13.038404
+
+[node name="Piedra" type="Area2D" unique_id=1887506509]
+collision_mask = 6
+script = ExtResource("1_8mi3e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1603012031]
+position = Vector2(-1.7706977, -0.4687463)
+scale = Vector2(0.02068173, 0.030611055)
+texture = ExtResource("2_ihwb0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1365478598]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_a3i3b")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=993992831]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://wiwo8yryyxte"]
+
+[ext_resource type="Script" uid="uid://dka1xc5std673" path="res://entidades/enemigos/pajaro.gd" id="1_wulyk"]
+[ext_resource type="Texture2D" uid="uid://d1a8jic80f0cs" path="res://activos/arte/pajaro.png" id="2_aylog"]
+[ext_resource type="PackedScene" uid="uid://nuff45mpura6" path="res://entidades/enemigos/piedra.tscn" id="2_ps2we"]
+[ext_resource type="PackedScene" uid="uid://c8pykmps6padi" path="res://entidades/enemigos/llave.tscn" id="3_xhir8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8b16g"]
+radius = 14.142136
+
+[node name="Pajaro" type="CharacterBody2D" unique_id=1371614823]
+script = ExtResource("1_wulyk")
+escena_piedra = ExtResource("2_ps2we")
+escena_llave = ExtResource("3_xhir8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1592660059]
+position = Vector2(4.7683716e-07, 4.7683716e-07)
+scale = Vector2(0.1989813, 0.1989813)
+texture = ExtResource("2_aylog")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1822256788]
+scale = Vector2(2.1367407, 2.1367407)
+shape = SubResource("CircleShape2D_8b16g")
+
+[node name="DropTimer" type="Timer" parent="." unique_id=679905549]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="DropTimer" to="." method="_on_drop_timer_timeout"]
