@@ -127,7 +127,7 @@ func _actualizar_estado_suelo() -> void:
 
 # OBJETOS
 @export_category("objeto")
-enum OBJETOS {CUCHILLO, LANZA, ESCUDO, MACUAHUITLE, FLAUTA}
+enum OBJETOS {CUCHILLO, LANZA, ESCUDO, HACHA, FLAUTA, MACUAHUITLE}
 @export var objetoActual := OBJETOS.CUCHILLO
 var _estaUsandoObjeto := false
 var _temporizadorObjeto := 0.0
@@ -245,3 +245,11 @@ func _lose_lives() -> void:
 		_recibiendo_dano = false
 	else:
 		print("Ataque bloqueado")
+		
+func recibir_empujon(direccion: float, fuerza: float):
+	# Aplica la fuerza horizontal (hacia la izquierda o derecha)
+	velocity.x = direccion * fuerza
+	
+	# Aplica una fuerza vertical para que el jugador "salte" al quemarse
+	# Recuerda que en Godot, el eje Y negativo es hacia arriba
+	velocity.y = -600.0

@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjw2u5sdc8y3e"]
+
+[ext_resource type="Script" uid="uid://b5krva0kgpyry" path="res://ave.gd" id="1_ikabe"]
+[ext_resource type="Texture2D" uid="uid://c8k6hiprhava8" path="res://entidades/enemigos/Ave-maya.png" id="2_bq6ke"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_quo25"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bq6ke")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_468ol"]
+radius = 49.47727
+
+[node name="Ave" type="CharacterBody2D"]
+position = Vector2(127, 103)
+script = ExtResource("1_ikabe")
+rango_patrulla = 350.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(209.25, 29.499996)
+scale = Vector2(0.26700002, 0.222)
+sprite_frames = SubResource("SpriteFrames_quo25")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(217, 29)
+shape = SubResource("CircleShape2D_468ol")
+
+[node name="TimerAtaque" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="PuntoDisparo" type="Marker2D" parent="."]
+position = Vector2(227, 89)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(265, -5)
+rect = Rect2(-103, -10, 113, 286)
+
+[connection signal="timeout" from="TimerAtaque" to="." method="_on_timer_ataque_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

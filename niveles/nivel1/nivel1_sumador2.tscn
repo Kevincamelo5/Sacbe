@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bnaryljsm52t7"]
+[gd_scene load_steps=17 format=3 uid="uid://bnaryljsm52t7"]
 
 [ext_resource type="Script" uid="uid://ce6dct3m3apps" path="res://niveles/nivel1/nivel_1_sumador_2.gd" id="1_cuxei"]
 [ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="2_dwgox"]
@@ -79,7 +79,7 @@ animations = [{
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qojxw"]
 
-[node name="Control" type="Control" unique_id=1273573286]
+[node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,7 +88,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cuxei")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=781875740]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,7 +96,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1430536803]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,7 +104,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="fondos" type="HBoxContainer" parent="." unique_id=360933445]
+[node name="fondos" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -112,28 +112,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="fondos" unique_id=464409524]
+[node name="VBoxContainer" type="VBoxContainer" parent="fondos"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="fondos/VBoxContainer" unique_id=1052524131]
+[node name="TextureRect" type="TextureRect" parent="fondos/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_yw272")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="fondos" unique_id=1947340907]
+[node name="VBoxContainer2" type="VBoxContainer" parent="fondos"]
 layout_mode = 2
 alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="fondos/VBoxContainer2" unique_id=2051555869]
+[node name="ColorRect" type="ColorRect" parent="fondos/VBoxContainer2"]
 layout_mode = 2
 color = Color(0.73141456, 0.19853768, 0, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=54267791]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(576, 325.5)
 scale = Vector2(0.81676143, 0.83463544)
 sprite_frames = SubResource("SpriteFrames_sl1ed")
 animation = &"static"
 
-[node name="fondos2" type="HBoxContainer" parent="." unique_id=467505096]
+[node name="fondos2" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -143,17 +143,17 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="fondos2" unique_id=1359503225]
+[node name="VBoxContainer" type="VBoxContainer" parent="fondos2"]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="fondos2/VBoxContainer" unique_id=404040668]
+[node name="CenterContainer" type="CenterContainer" parent="fondos2/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="fondos2/VBoxContainer/CenterContainer" unique_id=1087601964]
+[node name="VBoxContainer" type="VBoxContainer" parent="fondos2/VBoxContainer/CenterContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="fondos2/VBoxContainer/CenterContainer/VBoxContainer" unique_id=215621990]
+[node name="Label" type="Label" parent="fondos2/VBoxContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 29
 theme_override_styles/normal = SubResource("StyleBoxFlat_yw272")
@@ -161,34 +161,34 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_qojxw")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="fondos2/VBoxContainer/CenterContainer/VBoxContainer" unique_id=1195352775]
+[node name="LineEdit" type="LineEdit" parent="fondos2/VBoxContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 
-[node name="MarginContainer" type="MarginContainer" parent="fondos2/VBoxContainer" unique_id=1245415913]
+[node name="MarginContainer" type="MarginContainer" parent="fondos2/VBoxContainer"]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="fondos2/VBoxContainer/MarginContainer" unique_id=1260560861]
+[node name="CenterContainer" type="CenterContainer" parent="fondos2/VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="BotonEnviar" type="Button" parent="fondos2/VBoxContainer/MarginContainer/CenterContainer" unique_id=2040411823]
+[node name="BotonEnviar" type="Button" parent="fondos2/VBoxContainer/MarginContainer/CenterContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dwgox")
 theme_override_font_sizes/font_size = 26
 text = "Enviar"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="fondos2" unique_id=1523068735]
+[node name="VBoxContainer2" type="VBoxContainer" parent="fondos2"]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="fondos2/VBoxContainer2" unique_id=453488353]
+[node name="CenterContainer" type="CenterContainer" parent="fondos2/VBoxContainer2"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="fondos2/VBoxContainer2/CenterContainer" unique_id=78989151]
+[node name="GridContainer" type="GridContainer" parent="fondos2/VBoxContainer2/CenterContainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 2.5
 columns = 3
 
-[node name="Label" type="Label" parent="." unique_id=844309181]
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4826389

@@ -89,15 +89,27 @@ func _mostrar_recompensas():
 	contenedor_objetos.show()
 
 # Nueva función que se llama cuando eligen un arma
+# Nueva función adaptada al sistema de tu compañero
 func _seleccionar_objeto(objeto_elegido: String):
 	print("Quitzal ha obtenido: ", objeto_elegido)
 	
-	# Buscamos a Quitzal en el nivel usando su grupo
-	var jugador = get_tree().get_first_node_in_group("player")
+	# 1. Desbloqueamos el arma en el GameManager de tu compañero
+	if GameManager:
+		GameManager.armasDesbloqueadas[objeto_elegido] = true
+		print("Arma registrada en GameManager")
 	
-	# Si lo encontramos y tiene nuestra nueva función, le damos el arma
-	if jugador and jugador.has_method("equipar_arma"):
-		jugador.equipar_arma(objeto_elegido)
+	# 2. Buscamos al jugador con el nombre de grupo correcto ("jugador")
+	var jugador = get_tree().get_first_node_in_group("jugador")
+	
+	# 3. Equipamos el arma automáticamente forzando el cambio en el Enum
+	if jugador:
+		match objeto_elegido:
+			"flauta":
+				jugador.objetoActual = jugador.OBJETOS.FLAUTA
+			"hacha":
+				jugador.objetoActual = jugador.OBJETOS.HACHA # *Nota: Ver el punto 3 abajo
+			"lanza":
+				jugador.objetoActual = jugador.OBJETOS.LANZA
 	
 	_cerrar_minijuego()
 

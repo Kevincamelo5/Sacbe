@@ -8,9 +8,12 @@ func _ready():
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body):
-	# Verificamos si lo que entró es el jugador (Quitzal)
-	if body is Jugador:
-		print("¡Altar activado!")
+# Este print nos dirá si el área funciona físicamente
+	print("El altar detectó una colisión con: ", body.name) 
+	
+	# Usamos el grupo en lugar de 'is Jugador'
+	if body.is_in_group("jugador"):
+		print("¡Altar activado correctamente!")
 		activar_reto_matematico()
 
 func activar_reto_matematico():

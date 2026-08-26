@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b2dt0fv7bfom7"]
+[gd_scene load_steps=42 format=3 uid="uid://b2dt0fv7bfom7"]
 
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="1_1xc8m"]
 [ext_resource type="Script" uid="uid://be4q0kv8lkb1s" path="res://niveles/nivel2/m_inijuego.gd" id="1_5xsud"]
@@ -10,12 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://b8q4xrn4sfvjg" path="res://componentes/escenarios/Casal2.png" id="4_u4ah2"]
 [ext_resource type="Texture2D" uid="uid://iq4t35c4xr2q" path="res://objetos/lanza peque.png" id="4_y541q"]
 [ext_resource type="Script" uid="uid://bb5r0vtk3m588" path="res://niveles/nivel2/character_body_2d_ki_men.gd" id="6_dasm1"]
+[ext_resource type="PackedScene" uid="uid://c3k3qjmhw06ff" path="res://interfaz/hud/contador_monedas.tscn" id="6_tb35q"]
+[ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/hud/contador_vidas.tscn" id="7_4mwl0"]
 [ext_resource type="Script" uid="uid://c7d17tfql84jg" path="res://niveles/nivel2/area_2d.gd" id="8_jeh34"]
 [ext_resource type="Texture2D" uid="uid://cluqlg8dhyxmc" path="res://componentes/escenarios/Altarproto.png" id="9_5xsud"]
 [ext_resource type="Texture2D" uid="uid://ctjiqjdax0eli" path="res://componentes/escenarios/fuego-removebg-preview.png" id="11_44th5"]
 [ext_resource type="Texture2D" uid="uid://va1mx53fy3e6" path="res://entidades/enemigos/kimen2.png" id="11_b4qib"]
 [ext_resource type="Script" uid="uid://bbn8ko7ch0ull" path="res://niveles/nivel2/area_fuego_1.gd" id="14_el20e"]
 [ext_resource type="Script" uid="uid://c45fdxt7xfmld" path="res://niveles/nivel2/area_salida.gd" id="15_b4qib"]
+[ext_resource type="PackedScene" uid="uid://cjw2u5sdc8y3e" path="res://niveles/nivel2/ave.tscn" id="17_eicml"]
+[ext_resource type="PackedScene" uid="uid://bu6yaukh0g4g6" path="res://niveles/nivel2/piedra.tscn" id="18_7r5rn"]
+[ext_resource type="PackedScene" uid="uid://crq1d3r1wakbo" path="res://componentes/moneda.tscn" id="21_4mwl0"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_y1rvv"]
 
@@ -25,13 +30,13 @@
 gradient = SubResource("Gradient_vmqr1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cablh"]
-size = Vector2(5034.5, 32.5)
+size = Vector2(7269.5, 32.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mxly"]
-size = Vector2(567, 131.625)
+size = Vector2(596.5, 186)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4ah2"]
-size = Vector2(1.5162497, 0.86875033)
+size = Vector2(1.5162497, 0.8771876)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_el20e"]
 atlas = ExtResource("11_b4qib")
@@ -205,6 +210,10 @@ texture_normal = ExtResource("4_y541q")
 
 [node name="controles" parent="." instance=ExtResource("2_cablh")]
 
+[node name="Contador_moneda" parent="." instance=ExtResource("6_tb35q")]
+
+[node name="CanvasLayer2" parent="." instance=ExtResource("7_4mwl0")]
+
 [node name="Piso" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Piso"]
@@ -213,24 +222,24 @@ scale = Vector2(17.425125, -7.8796105)
 texture = SubResource("GradientTexture1D_8mxly")
 
 [node name="Sprite2DF1" type="Sprite2D" parent="Piso"]
-position = Vector2(1050, 422.81253)
-scale = Vector2(0.76380813, 0.53930676)
+position = Vector2(1268, 322.775)
+scale = Vector2(1.01, 0.8161133)
 texture = ExtResource("2_e7ble")
 
 [node name="Sprite2DF2" type="Sprite2D" parent="Piso"]
-position = Vector2(3576.9622, 423.26703)
-scale = Vector2(1.0748821, 0.5426211)
+position = Vector2(5317, 322.77502)
+scale = Vector2(1.98, 0.82001954)
 texture = ExtResource("3_8mxly")
 
 [node name="Casal2" type="Sprite2D" parent="Piso"]
-position = Vector2(2262.0002, 537)
-scale = Vector2(1.3411808, 1.1749328)
+position = Vector2(2729, 434.3906)
+scale = Vector2(1.5602579, 1.412282)
 texture = ExtResource("4_u4ah2")
 
 [node name="StaticBody2D-PisoVilla" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
-position = Vector2(2527.75, 665.25)
+position = Vector2(3645.25, 665.25)
 shape = SubResource("RectangleShape2D_cablh")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
@@ -238,93 +247,168 @@ position = Vector2(205.5, 587)
 shape = SubResource("RectangleShape2D_8mxly")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
-position = Vector2(2268, 578)
+position = Vector2(2737.75, 556)
 shape = SubResource("RectangleShape2D_8mxly")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
-position = Vector2(1907, 600)
+position = Vector2(2347, 600.8594)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_u4ah2")
 
 [node name="Jugador" parent="." groups=["player"] instance=ExtResource("1_1xc8m")]
-position = Vector2(57, 255)
+position = Vector2(56, 274)
 
 [node name="Camera2D" type="Camera2D" parent="Jugador"]
-position = Vector2(526, 76)
-limit_bottom = 800
+position = Vector2(526, 62)
 
 [node name="CharacterBody2DKi-Men" type="CharacterBody2D" parent="."]
 script = ExtResource("6_dasm1")
+is_vertical = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men"]
-position = Vector2(1434, 573)
+light_mask = 7
+visibility_layer = 7
+position = Vector2(1468.0001, 467)
 scale = Vector2(2.429687, 2.6250007)
 sprite_frames = SubResource("SpriteFrames_36fgi")
 animation = &"Ataque"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men"]
-position = Vector2(1436, 554)
+light_mask = 7
+visibility_layer = 7
+position = Vector2(1481, 451)
 shape = SubResource("CapsuleShape2D_dasm1")
 
 [node name="CharacterBody2DKi-Men2" type="CharacterBody2D" parent="."]
 script = ExtResource("6_dasm1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men2"]
-position = Vector2(835, 546)
+light_mask = 7
+visibility_layer = 7
+position = Vector2(865, 591)
 scale = Vector2(2.429687, 2.6250007)
 sprite_frames = SubResource("SpriteFrames_36fgi")
 animation = &"Ataque"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men2"]
-position = Vector2(832, 545)
+light_mask = 7
+visibility_layer = 7
+position = Vector2(867, 577)
 shape = SubResource("CapsuleShape2D_dasm1")
 
 [node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("MInijuego")]
 process_mode = 3
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("8_jeh34")
 MInijuego = NodePath("../CanvasLayer/MInijuego")
 
 [node name="Altarproto" type="Sprite2D" parent="Area2D"]
-position = Vector2(3953, 481)
-scale = Vector2(1.3389956, 1.204607)
+position = Vector2(4398, 474.37497)
+scale = Vector2(1.4209752, 1.3258808)
 texture = ExtResource("9_5xsud")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(3954, 506)
+light_mask = 3
+visibility_layer = 3
+position = Vector2(4391, 492)
 shape = SubResource("RectangleShape2D_44th5")
 
 [node name="AreaFuego1" type="Area2D" parent="."]
-position = Vector2(2031, 478)
+light_mask = 7
+visibility_layer = 7
+position = Vector2(2555, 433)
+collision_layer = 15
+collision_mask = 15
 script = ExtResource("14_el20e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFuego1"]
-position = Vector2(0, 7)
+light_mask = 7
+visibility_layer = 7
+position = Vector2(4, 4)
 shape = SubResource("CircleShape2D_y1rvv")
 
 [node name="Sprite2D" type="Sprite2D" parent="AreaFuego1"]
-position = Vector2(-0.9999771, -5)
+light_mask = 7
+visibility_layer = 7
+position = Vector2(4.0000305, -12)
 scale = Vector2(0.18000002, 0.16099997)
 texture = ExtResource("11_44th5")
 
 [node name="AreaFuego2" type="Area2D" parent="."]
-position = Vector2(2527, 484)
+light_mask = 7
+visibility_layer = 7
+position = Vector2(2900, 434)
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("14_el20e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFuego2"]
-position = Vector2(-17, 3)
+light_mask = 7
+visibility_layer = 7
+position = Vector2(-3, 2)
 shape = SubResource("CircleShape2D_y1rvv")
 
 [node name="Sprite2D" type="Sprite2D" parent="AreaFuego2"]
-position = Vector2(-12.9999695, -15)
+light_mask = 7
+visibility_layer = 7
+position = Vector2(-1.9999695, -12)
 scale = Vector2(0.18000002, 0.16099997)
 texture = ExtResource("11_44th5")
 
 [node name="AreaSalida" type="Area2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("15_b4qib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSalida"]
-position = Vector2(4938, 574)
+light_mask = 3
+visibility_layer = 3
+position = Vector2(7246, 532)
 shape = SubResource("CircleShape2D_784w0")
+
+[node name="Ave" parent="." instance=ExtResource("17_eicml")]
+position = Vector2(5604, 323)
+rango_patrulla = 250.0
+piedra_scene = ExtResource("18_7r5rn")
+
+[node name="Moneda" parent="." instance=ExtResource("21_4mwl0")]
+position = Vector2(1478, 599)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda2" parent="." instance=ExtResource("21_4mwl0")]
+position = Vector2(1402, 601)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda3" parent="." instance=ExtResource("21_4mwl0")]
+position = Vector2(1316, 605)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda4" parent="." instance=ExtResource("21_4mwl0")]
+position = Vector2(1221, 609)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda5" parent="." instance=ExtResource("21_4mwl0")]
+position = Vector2(3156, 322)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda6" parent="." instance=ExtResource("21_4mwl0")]
+position = Vector2(3158, 391)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda7" parent="." instance=ExtResource("21_4mwl0")]
+position = Vector2(3158, 464)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda8" parent="." instance=ExtResource("21_4mwl0")]
+position = Vector2(3160, 530)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda9" parent="." instance=ExtResource("21_4mwl0")]
+position = Vector2(3160, 603)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="pressed" from="CanvasLayer/MInijuego/Button" to="CanvasLayer/MInijuego" method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MInijuego/Button2" to="CanvasLayer/MInijuego" method="_on_button_2_pressed"]

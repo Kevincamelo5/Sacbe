@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 func on_area_salida_body_entered(body: Node2D) -> void:
 	print("Entró algo al área")
 	if body.name == "Jugador":
-		get_tree().change_scene_to_file("res://mapa/nivel2/batalla_jabali.tscn")
+		get_tree().change_scene_to_file("res://niveles/nivel2/batalla_jabali.tscn")
