@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dfyfpf6s8tsct"]
+
+[ext_resource type="Script" uid="uid://7qs2ggvgiip7" path="res://componentes/moneda_especial.gd" id="1_m31gr"]
+[ext_resource type="AudioStream" uid="uid://l2r1amnlirit" path="res://activos/audio/ribhavagrawal-coin-recieved-230517.mp3" id="2_5vrgj"]
+[ext_resource type="Texture2D" uid="uid://dnon0tkllapa4" path="res://objetos/coleccionables/Coin_Gems/MonedaR.png" id="3_m31gr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3cuav"]
+radius = 49.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vrgj"]
+atlas = ExtResource("3_m31gr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kb5p"]
+atlas = ExtResource("3_m31gr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3sm4"]
+atlas = ExtResource("3_m31gr")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vahsk"]
+atlas = ExtResource("3_m31gr")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7q5m"]
+atlas = ExtResource("3_m31gr")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mukx6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vrgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kb5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3sm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vahsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7q5m")
+}],
+"loop": true,
+"name": &"gira",
+"speed": 4.0
+}]
+
+[node name="Moneda" type="Node2D" unique_id=2125446172]
+script = ExtResource("1_m31gr")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1819356155]
+collision_layer = 16
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1259966695]
+shape = SubResource("CircleShape2D_3cuav")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1254786146]
+stream = ExtResource("2_5vrgj")
+volume_db = -4.0
+mix_target = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1320295395]
+texture_filter = 1
+position = Vector2(1, 2)
+scale = Vector2(5.354324, 5.524058)
+sprite_frames = SubResource("SpriteFrames_mukx6")
+animation = &"gira"
+frame_progress = 0.97702783
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
