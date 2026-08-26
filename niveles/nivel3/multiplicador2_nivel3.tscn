@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://67rmtlg5b5dc"]
+
+[ext_resource type="Script" uid="uid://dvews8ruxafom" path="res://niveles/nivel3/multiplicador_2_nivel_3.gd" id="1_rdkpt"]
+[ext_resource type="Texture2D" uid="uid://crmuas4pqr5n2" path="res://activos/arte/Gemini_Generated_Image_80ljf80ljf80ljf8.png" id="2_efvgq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efvgq"]
+bg_color = Color(0.6, 0.6, 0.6, 0.49803922)
+
+[node name="Multiplicador2Nivel3" type="Control" unique_id=785533501]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rdkpt")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1704597466]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_efvgq")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=121082409]
+layout_mode = 0
+offset_right = 1147.0
+offset_bottom = 646.0
+alignment = 1
+
+[node name="LabelProblema" type="Label" parent="VBoxContainer" unique_id=632036730]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_efvgq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=718284256]
+layout_mode = 2
+alignment = 1
+
+[node name="Boton1" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1140223252]
+layout_mode = 2
+
+[node name="Boton2" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=225503998]
+layout_mode = 2
+
+[node name="Boton3" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=610189771]
+layout_mode = 2

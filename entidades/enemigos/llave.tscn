@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c8pykmps6padi"]
+
+[ext_resource type="Script" uid="uid://bhoo0sx8nfbiy" path="res://entidades/enemigos/llave.gd" id="1_vmubx"]
+[ext_resource type="Texture2D" uid="uid://n8d5bfjitcjc" path="res://activos/arte/llave.png" id="2_sdsda"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdaly"]
+
+[node name="Llave" type="Area2D" unique_id=458112570]
+script = ExtResource("1_vmubx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1995295578]
+scale = Vector2(0.04749999, 0.04749999)
+texture = ExtResource("2_sdsda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=463528072]
+shape = SubResource("RectangleShape2D_cdaly")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

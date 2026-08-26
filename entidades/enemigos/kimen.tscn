@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://c1m6hpenpeauf"]
+
+[ext_resource type="Script" uid="uid://dxyaulnxtrm7q" path="res://entidades/enemigos/kimen.gd" id="1_0j53r"]
+[ext_resource type="Script" uid="uid://qt8vbjryc7my" path="res://entidades/enemigos/cuerpo.gd" id="2_2cjvc"]
+[ext_resource type="Texture2D" uid="uid://ckji50narfg28" path="res://activos/arte/Anima armada.png" id="3_d7wmh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_33hlx"]
+radius = 69.426216
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q57q1"]
+radius = 274.08942
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5vkw"]
+radius = 509.14145
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1nqfl"]
+radius = 45.0
+height = 100.0
+
+[node name="Kimen" type="CharacterBody2D" unique_id=1791071807]
+script = ExtResource("1_0j53r")
+
+[node name="atack_area" type="Area2D" parent="." unique_id=186999998]
+position = Vector2(-334, -251)
+collision_layer = 8
+collision_mask = 6
+
+[node name="ahitbox" type="CollisionShape2D" parent="atack_area" unique_id=518740220]
+position = Vector2(329, 254)
+shape = SubResource("CircleShape2D_33hlx")
+
+[node name="enter_area" type="Area2D" parent="." unique_id=1374462848]
+position = Vector2(-334, -251)
+collision_layer = 8
+collision_mask = 6
+
+[node name="persecucion" type="CollisionShape2D" parent="enter_area" unique_id=33880685]
+position = Vector2(331, 244)
+shape = SubResource("CircleShape2D_q57q1")
+
+[node name="exit_area" type="Area2D" parent="." unique_id=638506873]
+position = Vector2(-334, -251)
+collision_layer = 8
+collision_mask = 6
+
+[node name="dejar de persegir" type="CollisionShape2D" parent="exit_area" unique_id=1230090487]
+light_mask = 8
+visibility_layer = 7
+position = Vector2(332, 246)
+shape = SubResource("CircleShape2D_a5vkw")
+
+[node name="attacktimer" type="Timer" parent="." unique_id=1780151123]
+wait_time = 4.0
+one_shot = true
+
+[node name="cuerpo" type="Area2D" parent="." unique_id=737962505]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("2_2cjvc")
+
+[node name="cuerpoFisico" type="CollisionShape2D" parent="cuerpo" unique_id=1205951997]
+position = Vector2(-6, 0)
+shape = SubResource("CapsuleShape2D_1nqfl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=372139606]
+light_mask = 8
+texture_filter = 1
+position = Vector2(-1.645452, -4.774933)
+scale = Vector2(0.054352988, 0.04710027)
+texture = ExtResource("3_d7wmh")
+region_rect = Rect2(-2, 63.5, 35, 33)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1724441159]
+
+[connection signal="body_entered" from="atack_area" to="." method="_on_atack_area_body_entered"]
+[connection signal="body_entered" from="enter_area" to="." method="_on_enter_area_body_entered"]
+[connection signal="body_exited" from="exit_area" to="." method="_on_exit_area_body_exited"]
+[connection signal="timeout" from="attacktimer" to="." method="_on_attacktimer_timeout"]
+[connection signal="area_entered" from="cuerpo" to="." method="_on_cuerpo_area_entered"]

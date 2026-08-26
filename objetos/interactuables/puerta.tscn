@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b2wjj7buuqhdw"]
+
+[ext_resource type="Script" uid="uid://ddd4qr3ifjqga" path="res://objetos/interactuables/puerta.gd" id="1_fesny"]
+[ext_resource type="Texture2D" uid="uid://bohraq5n2jutx" path="res://activos/arte/pared.png" id="2_fesny"]
+[ext_resource type="Texture2D" uid="uid://dfof0aftsuxwv" path="res://activos/arte/puerta.png" id="3_uyweu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3g2fe"]
+size = Vector2(107.173904, 24.170506)
+
+[node name="Puerta" type="Node2D" unique_id=708447874]
+script = ExtResource("1_fesny")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1977714824]
+light_mask = 32
+visibility_layer = 6
+collision_layer = 48
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=224649025]
+light_mask = 33
+visibility_layer = 6
+position = Vector2(-7.4999924, 18.099998)
+scale = Vector2(4.6, 8.68)
+shape = SubResource("RectangleShape2D_3g2fe")
+debug_color = Color(0.52655107, 0.57173777, 0.08348694, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1758738005]
+light_mask = 33
+visibility_layer = 6
+position = Vector2(-4.562237, -21.105534)
+scale = Vector2(0.8474765, 0.98339283)
+texture = ExtResource("2_fesny")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Area2D" unique_id=1358788421]
+light_mask = 33
+visibility_layer = 6
+position = Vector2(-1.0000005, -5)
+scale = Vector2(0.5638186, 0.65424234)
+texture = ExtResource("3_uyweu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
