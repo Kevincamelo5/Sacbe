@@ -70,9 +70,15 @@ color = Color(0, 1, 1, 1)
 
 [node name="fondos2" type="HBoxContainer" parent="." unique_id=1612284363]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -84.0
+offset_right = 125.0
+offset_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -80,12 +86,14 @@ alignment = 1
 
 [node name="izquierda" type="VBoxContainer" parent="fondos2" unique_id=1911954293]
 layout_mode = 2
+theme_override_constants/separation = 17
 
 [node name="CenterContainer" type="CenterContainer" parent="fondos2/izquierda" unique_id=1282904052]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="fondos2/izquierda/CenterContainer" unique_id=2104574824]
 layout_mode = 2
+theme_override_constants/separation = 17
 
 [node name="Label" type="Label" parent="fondos2/izquierda/CenterContainer/VBoxContainer" unique_id=1411310394]
 layout_mode = 2
@@ -115,7 +123,7 @@ layout_mode = 2
 [node name="BotonEnviar" type="Button" parent="fondos2/izquierda/MarginContainer/CenterContainer" unique_id=1356814507]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_g6tms")
-text = "enviar"
+text = "Enviar"
 
 [node name="derecha" type="VBoxContainer" parent="fondos2" unique_id=568010766]
 layout_mode = 2

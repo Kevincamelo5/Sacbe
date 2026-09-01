@@ -231,7 +231,7 @@ func _cambiar_siguiente_objeto_desbloqueado():
 			print_debug("Arma cambiada a ", nombre_arma_actual)
 			break 
 	
-#perder vidas
+# perder vidas
 func _lose_lives() -> void:
 	if not _estaProtegido and not _recibiendo_dano:
 		_recibiendo_dano = true
@@ -240,7 +240,8 @@ func _lose_lives() -> void:
 		
 		await animatedSprite.animation_finished
 		
-		GameManager.disminuir_vida()
+		# Le enviamos 'false' porque es daño por ataque, no por caída
+		GameManager.disminuir_vida(false)
 		
 		_recibiendo_dano = false
 	else:

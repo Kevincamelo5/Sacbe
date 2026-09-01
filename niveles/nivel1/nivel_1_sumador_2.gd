@@ -1,196 +1,187 @@
 extends Control
 
-signal comprobar_respuesta(String)
-signal colocar_caracter(String)
-signal eliminar_caracter
+# --- PALETA DE COLORES INSPIRADA EN LA IMAGEN DE FONDO MAYA ---
+const PALETA_PIEDRA_FONDO := Color("#E8D9BD") # Crema envejecido
+const PALETA_GLIFO_TEXTO := Color("#765D46")  # Marrón glifo descolorido
+const PALETA_ACENTO_TURQUESA := Color("#009FA1") # Turquesa brillante
+const PALETA_ACENTO_AZUL := Color("#006494")     # Azul más oscuro
+const PALETA_ACENTO_ROJO := Color("#B53F1A")     # Rojo anaranjado quemado
+const PALETA_BORDE_NEGRO := Color("#000000")    # Contornos de glifos
 
-const COLOR_FONDO := Color(0.392, 0.435, 0.465, 1.0)
-const COLOR_FONDO_BOTONES := Color(0.036, 0.0, 0.339, 0.914)
-const TEX_FONDO_PROBLEMA := preload("res://icon.svg") 
-const OPERADOR := "+"
+const TEX_FONDO_MAYOR := preload("res://activos/arte/cueva.jpg") 
 
-#conexion de las funciones con sus respectivas terminales.
-@onready var _contenedor_botones: GridContainer = $fondos2/VBoxContainer2/CenterContainer/GridContainer
-@onready var _campo_respuesta: LineEdit = $fondos2/VBoxContainer/CenterContainer/VBoxContainer/LineEdit
-@onready var _campo_operandos: Label = $fondos2/VBoxContainer/CenterContainer/VBoxContainer/Label
-@onready var _boton_enviar: Button = $fondos2/VBoxContainer/MarginContainer/CenterContainer/BotonEnviar
+# Referencias a tus nodos (Ajusta las rutas según tu árbol de nodos)
+@onready var label_problema: Label = $VBoxContainer/LabelProblema
+@onready var boton_1: Button = $VBoxContainer/HBoxContainer/Boton1
+@onready var boton_2: Button = $VBoxContainer/HBoxContainer/Boton2
+@onready var boton_3: Button = $VBoxContainer/HBoxContainer/Boton3
 
-var _operador:= '+'
-var _operandos:= []
-var _respuesta_correcta := []
-#contador de correctos
-var correctos:= 0
+# Referencia al TextureRect de fondo (se crea por código si no existe)
+var _texture_fondo_mayor: TextureRect
+
+var respuesta_correcta: String = ""
+var correctos: int = 0
 
 func _ready() -> void:
+	# --- CONFIGURACIÓN DEL FONDO MAYA ---
+	_texture_fondo_mayor = TextureRect.new()
+	_texture_fondo_mayor.name = "TextureRectFondoMayor"
+	add_child(_texture_fondo_mayor)
+	move_child(_texture_fondo_mayor, 0) # Asegurar que esté detrás de todo
+
+	_texture_fondo_mayor.texture = TEX_FONDO_MAYOR
+	_texture_fondo_mayor.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_texture_fondo_mayor.stretch_mode = TextureRect.STRETCH_SCALE
+	_texture_fondo_mayor.set_anchors_preset(Control.PRESET_FULL_RECT)
+
+	# --- ESTILO DEL PANEL DEL PROBLEMA ---
+	var style_panel_problema = StyleBoxFlat.new()
+	style_panel_problema.bg_color = PALETA_PIEDRA_FONDO.darkened(0.05)
+	style_panel_problema.border_color = PALETA_ACENTO_TURQUESA
+	style_panel_problema.border_width_left = 6
+	style_panel_problema.border_width_right = 6
+	style_panel_problema.border_width_top = 6
+	style_panel_problema.border_width_bottom = 6
+	style_panel_problema.corner_radius_top_left = 15
+	style_panel_problema.corner_radius_top_right = 15
+	style_panel_problema.corner_radius_bottom_left = 15
+	style_panel_problema.corner_radius_bottom_right = 15
+	style_panel_problema.content_margin_left = 40
+	style_panel_problema.content_margin_right = 40
+	style_panel_problema.content_margin_top = 30
+	style_panel_problema.content_margin_bottom = 30
+	style_panel_problema.shadow_color = Color(0, 0, 0, 0.4)
+	style_panel_problema.shadow_size = 5
+	style_panel_problema.shadow_offset = Vector2(3, 3)
+
+	label_problema.add_theme_stylebox_override("normal", style_panel_problema)
+	label_problema.add_theme_color_override("font_color", PALETA_GLIFO_TEXTO)
+	label_problema.add_theme_font_size_override("font_size", 64)
+	label_problema.add_theme_constant_override("outline_size", 2)
+	label_problema.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
+	label_problema.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+
+	# --- ESTILO DE LOS BOTONES DE OPCIONES ---
+	var style_btn_normal = _crear_estilo_boton_piedra_maya(PALETA_PIEDRA_FONDO)
+	var style_btn_hover = _crear_estilo_boton_piedra_maya(PALETA_PIEDRA_FONDO, true)
+	var style_btn_pressed = _crear_estilo_boton_piedra_maya(PALETA_ACENTO_TURQUESA)
+
+	# Aplicar el estilo a los 3 botones usando un arreglo
+	var botones = [boton_1, boton_2, boton_3]
+	for btn in botones:
+		btn.add_theme_stylebox_override("normal", style_btn_normal)
+		btn.add_theme_stylebox_override("hover", style_btn_hover)
+		btn.add_theme_stylebox_override("pressed", style_btn_pressed)
+		
+		btn.add_theme_color_override("font_color", PALETA_GLIFO_TEXTO)
+		btn.add_theme_color_override("font_hover_color", PALETA_ACENTO_TURQUESA)
+		btn.add_theme_color_override("font_pressed_color", Color(1, 1, 1))
+		
+		btn.add_theme_font_size_override("font_size", 48)
+		btn.add_theme_constant_override("outline_size", 2)
+		btn.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
+		
+		# Expansión para que llenen el HBoxContainer de manera equitativa
+		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+
+	# Conectamos los botones a una misma función
+	boton_1.pressed.connect(_on_boton_presionado.bind(boton_1))
+	boton_2.pressed.connect(_on_boton_presionado.bind(boton_2))
+	boton_3.pressed.connect(_on_boton_presionado.bind(boton_3))
 	
-	_crear_botones()
+	# Ajustamos separación en el contenedor padre si es posible para centrar todo un poco
+	$VBoxContainer.add_theme_constant_override("separation", 50)
 	
-	self.colocar_caracter.connect(_on_colocar_caracter)
-	self.eliminar_caracter.connect(_on_eliminar_caracter)
-	self.comprobar_respuesta.connect(_on_comprobar_respuesta)
-	
-	_boton_enviar.pressed.connect(func(): comprobar_respuesta.emit(_campo_respuesta.get_text()))
-	
-	_generar_problema()
+	generar_problema()
 	$AnimatedSprite2D.play("static")
 
-func _crear_botones() -> void:
-	if not _contenedor_botones: 
-		push_error("Contenedor de botones no seleccionado")
-		return
+# Función helper para crear un StyleBoxFlat con aspecto tallado
+func _crear_estilo_boton_piedra_maya(accent_color: Color = PALETA_PIEDRA_FONDO, is_hover: bool = false) -> StyleBoxFlat:
+	var style = StyleBoxFlat.new()
+	style.bg_color = accent_color
+	style.border_color = PALETA_BORDE_NEGRO
+	style.border_width_left = 4
+	style.border_width_right = 4
+	style.border_width_top = 4
+	style.border_width_bottom = 4
+	style.corner_radius_top_left = 15
+	style.corner_radius_top_right = 15
+	style.corner_radius_bottom_left = 15
+	style.corner_radius_bottom_right = 15
+	style.draw_center = true
 	
-	# Definimos el tamaño que queremos para todos (Ancho, Alto)
-	var tamano_boton := Vector2(100, 100)
-	# Definimos el tamaño de la letra
-	var tamano_fuente := 32
+	if accent_color == PALETA_PIEDRA_FONDO:
+		style.set_bg_color(PALETA_PIEDRA_FONDO.lightened(0.05))
+		style.bg_color = PALETA_PIEDRA_FONDO
+	else:
+		style.set_bg_color(accent_color.lightened(0.2) if is_hover else accent_color.lightened(0.1))
+		style.bg_color = accent_color
 	
-	for caracter in "1234567890./":
-		if caracter.is_empty(): continue
-		
-		var btn := Button.new()
-		btn.set_text(caracter)
-		
-		# --- CONFIGURACIÓN DE TAMAÑO ---
-		btn.custom_minimum_size = tamano_boton
-		btn.add_theme_font_size_override("font_size", tamano_fuente)
-		
-		# Esto hace que el botón se estire para llenar su celda en el Grid
-		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		btn.size_flags_vertical = Control.SIZE_EXPAND_FILL
-		
-		btn.pressed.connect(func(): colocar_caracter.emit(caracter))
-		
-		_contenedor_botones.add_child(btn)
+	style.shadow_color = Color(0, 0, 0, 0.4)
+	style.shadow_size = 5
+	style.shadow_offset = Vector2(3, 3)
 	
-	#boton del funcion eliminar caracteres
-	var btn_del := Button.new()
-	btn_del.set_text("DEL")
+	# MÁRGENES INTERNOS PARA QUE LOS BOTONES SEAN GRANDES
+	style.content_margin_left = 30
+	style.content_margin_right = 30
+	style.content_margin_top = 20
+	style.content_margin_bottom = 20
 	
-	# Aplicamos el mismo tamaño y estilo
-	btn_del.custom_minimum_size = tamano_boton
-	btn_del.add_theme_font_size_override("font_size", tamano_fuente)
-	btn_del.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	btn_del.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	
-	btn_del.pressed.connect(func(): eliminar_caracter.emit())
-	
-	_contenedor_botones.add_child(btn_del)
+	return style
 
-func _generar_problema() -> bool:
+func generar_problema() -> void:
 	randomize()
-	_operador = OPERADOR
-	_operandos = []
-	
-	$Label.hide()
-	
-	#Seleccionar un tipo de problema al azar (0 a 3)
-	var tipo = correctos
-	
-	match tipo:
-		0: _suma_enteros()
-		1:_suma_decimales()
-		2:_suma_fracciones()
-		3:_suma_fracciones_mixtas()
-	
-	return _actualizar_ui() 
+	var tipo_operacion = randi() % 2 
+	var opciones = []
 
-# --- Funciones de aritmetica basica ---
-func _suma_enteros():
-	var respuesta : int = 0
-	for i in 2:
-		var num := randi_range(0, 99)
-		_operandos.push_back(num)
-		respuesta += num
-	
-	_respuesta_correcta = [str(respuesta)]
+	if tipo_operacion == 0:
+		# --- LÓGICA DE FRACCIONES SIMPLIFICADA (Suma con mismo denominador) ---
+		var denominador = randi_range(2, 6)
+		var num1 = randi_range(1, 5)
+		var num2 = randi_range(1, 5)
 
-func _suma_decimales():
-	#generacion de decimales
-	var n_raw1 = randf_range(1, 99) / 10.0
-	var n1 = snapped(n_raw1, 0.01)
-	var n_raw2 = randf_range(1, 99) / 10.0
-	var n2 = snapped(n_raw2, 0.01)
-	_operandos = [n1, n2]
-	_respuesta_correcta = [str(n1 + n2)]
+		label_problema.text = str(num1) + "/" + str(denominador) + " + " + str(num2) + "/" + str(denominador)
 
-func _suma_fracciones():
-	# Mostramos el label para este tipo de problema 
-	$Label.show()
-	
-	# 1. Denominadores diferentes
-	var den1 = randi_range(2, 9) 
-	var den2 = randi_range(2, 9)
-	var num1 = randi_range(1, 5)
-	var num2 = randi_range(1, 5)
-	
-	_operandos = [str(num1) + "/" + str(den1), str(num2) + "/" + str(den2)]
-	
-	# 2. Calculamos el numerador cruzado: (num1 * den2) + (num2 * den1)
-	var resultado_num = (num1 * den2) + (num2 * den1)
-	
-	# 3. Calculamos el denominador: (den1 * den2)
-	var resultado_den = den1 * den2
-	
-	# 4. Guardamos la respuesta con formato de fracción (ej. "11/12")
-	var opcion_fraccion = str(resultado_num) + "/" + str(resultado_den)
-	var opcion_decimal= str(float(resultado_num)/(resultado_den))
-	
-	# 5. fraccion simplificada
-	var mcd = _obtener_mcd(resultado_num, resultado_den)
-	var num_simplificado = resultado_num / mcd
-	var den_simplificado = resultado_den / mcd
-	
-	var opcion_simplificada = str(num_simplificado) + "/" + str(den_simplificado)
-	
-	_respuesta_correcta = [opcion_fraccion, opcion_decimal, opcion_simplificada]
-	
-	# (Opcional) Si al simplificar el denominador queda en 1 (ej. 4/1), 
-	# agregamos el número entero como respuesta válida.
-	if den_simplificado == 1:
-		_respuesta_correcta.append(str(num_simplificado))
+		var res_num = num1 + num2
+		respuesta_correcta = str(res_num) + "/" + str(denominador)
+		opciones.append(respuesta_correcta)
 
-func _suma_fracciones_mixtas():
-	
-	#Mostramos label para este tipo de problemas
-	$Label.show()
-	
-	var entero = randi_range(1, 3)
-	var den = randi_range(2, 5)
-	var num = 1
-	# Ejemplo: 1 + 1/2 = 3/2
-	_operandos = [entero, str(num) + "/" + str(den)]
-	
-	# Cálculo: (entero * den + num) / den
-	var resultado_num = (entero * den) + num
-	_respuesta_correcta = [str(resultado_num) + "/" + str(den)]
+		# Opciones falsas (sumando al numerador final)
+		opciones.append(str(res_num + randi_range(1, 2)) + "/" + str(denominador))
+		opciones.append(str(res_num + randi_range(3, 4)) + "/" + str(denominador))
 
-func _actualizar_ui() -> bool:
-	_campo_operandos.text = ""
-	
-	for operando in _operandos:
-		_campo_operandos.text += (str(operando) + '\n' + _operador + '\n')
-	
-	_campo_operandos.text = _campo_operandos.text.left(-2)
-	
-	_campo_respuesta.clear()
-	
-	return true
+	else:
+		# --- LÓGICA DE DECIMALES SIMPLIFICADA (Decimal + Decimal) ---
+		var val1 = randi_range(11, 50) / 10.0 # 1.1 a 5.0
+		var val2 = randi_range(11, 50) / 10.0 # 1.1 a 5.0
 
-func _on_colocar_caracter(caracter: String) -> void:
-	$Label.hide()
-	_campo_respuesta.text += caracter
+		label_problema.text = str(val1) + " + " + str(val2)
 
-func _on_eliminar_caracter() -> void:
-	$Label.hide()
-	_campo_respuesta.text = _campo_respuesta.text.left(-1)
+		var res_exacto = snapped(val1 + val2, 0.1)
+		respuesta_correcta = str(res_exacto)
+		opciones.append(respuesta_correcta)
 
-func _on_comprobar_respuesta(respuesta: String) -> void:
-	if respuesta in _respuesta_correcta:
-		print("Respuesta correcta")
+		# Opciones falsas
+		opciones.append(str(snapped(res_exacto + 1.0, 0.1)))
+		opciones.append(str(snapped(res_exacto - 0.4, 0.1)))
+
+	opciones.shuffle()
+
+	boton_1.text = opciones[0]
+	boton_2.text = opciones[1]
+	boton_3.text = opciones[2]
+
+func _on_boton_presionado(boton: Button) -> void:
+	if boton.text == respuesta_correcta:
+		print("¡Respuesta Correcta!")
 		_es_respuesta_correcta()
 	else:
-		print("Respuesta incorrecta")
+		print("Respuesta Incorrecta")
 		_es_respuesta_incorrecta()
+
+# ==========================================================
+# ANIMACIONES Y LÓGICA DE PROGRESIÓN (Estilizadas)
+# ==========================================================
 
 func _es_respuesta_correcta() -> void:
 	# Crear canvas layer para el efecto
@@ -241,13 +232,13 @@ func _es_respuesta_correcta() -> void:
 	# Limpiar y generar nuevo problema
 	_aumentar_aciertos()
 	canvas.queue_free()
-	_generar_problema()
+	generar_problema()
 
 func _aumentar_aciertos() -> int:
 	correctos += 1
-	print(correctos)
-	if correctos >= 4:
-		get_tree().change_scene_to_file("res://niveles/nivel2/nivel2_parte1.tscn")
+	print("Correctos: ", correctos)
+	if correctos >= 5:
+		get_tree().change_scene_to_file("res://niveles/nivel3/nivel3_parte2_cutscene.tscn")
 	return correctos
 
 func _es_respuesta_incorrecta() -> void:
@@ -256,10 +247,9 @@ func _es_respuesta_incorrecta() -> void:
 	canvas.layer = 100  # Alta prioridad para que esté por encima de todo
 	get_tree().root.add_child(canvas)
 	
-	$AnimatedSprite2D.play("static")
-	# Crear fondo semitransparente verde
+	# Crear fondo semitransparente rojo/rosa
 	var color_rect := ColorRect.new()
-	color_rect.color = Color(0.588, 0.11, 0.344, 0.0)  # Verde más suave
+	color_rect.color = Color(0.588, 0.11, 0.344, 0.0) 
 	color_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	canvas.add_child(color_rect)
 	
@@ -268,7 +258,7 @@ func _es_respuesta_incorrecta() -> void:
 	contenedor.set_anchors_preset(PRESET_FULL_RECT)
 	canvas.add_child(contenedor)
 	
-	# Crear mensaje de éxito
+	# Crear mensaje de error
 	var label := Label.new()
 	label.text = "¡INCORRECTO!"
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -298,13 +288,4 @@ func _es_respuesta_incorrecta() -> void:
 	
 	# Limpiar y generar nuevo problema
 	canvas.queue_free()
-	_generar_problema()
-
-# Función para calcular el Máximo Común Divisor (MCD)
-func _obtener_mcd(a: int, b: int) -> int:
-	var temp: int
-	while b != 0:
-		temp = b
-		b = a % b
-		a = temp
-	return abs(a)
+	generar_problema()

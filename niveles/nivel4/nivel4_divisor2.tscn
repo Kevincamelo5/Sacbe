@@ -1,19 +1,19 @@
-[gd_scene format=3 uid="uid://67rmtlg5b5dc"]
+[gd_scene format=3 uid="uid://cofu0cx7svkj6"]
 
-[ext_resource type="Script" uid="uid://dvews8ruxafom" path="res://niveles/nivel3/multiplicador_2_nivel_3.gd" id="1_rdkpt"]
-[ext_resource type="Texture2D" uid="uid://crmuas4pqr5n2" path="res://activos/arte/Gemini_Generated_Image_80ljf80ljf80ljf8.png" id="2_efvgq"]
+[ext_resource type="Script" uid="uid://cy17l15vof86d" path="res://niveles/nivel4/nivel_4_divisor_2.gd" id="1_u7wn1"]
+[ext_resource type="Texture2D" uid="uid://crmuas4pqr5n2" path="res://activos/arte/Gemini_Generated_Image_80ljf80ljf80ljf8.png" id="2_is4a5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efvgq"]
 bg_color = Color(0.6, 0.6, 0.6, 0.49803922)
 
-[node name="Multiplicador2Nivel3" type="Control" unique_id=785533501]
+[node name="Divisor2Nivel4" type="Control" unique_id=785533501]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rdkpt")
+script = ExtResource("1_u7wn1")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1704597466]
 layout_mode = 1
@@ -22,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_efvgq")
+texture = ExtResource("2_is4a5")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=121082409]

@@ -130,47 +130,47 @@ func _crear_estilo_boton_piedra_maya(accent_color: Color = PALETA_PIEDRA_FONDO, 
 
 func generar_problema() -> void:
 	randomize()
-	# Elegimos al azar entre 0 (fracciones) y 1 (decimales)
 	var tipo_operacion = randi() % 2 
 	var opciones = []
-	
+
 	if tipo_operacion == 0:
-		# --- LÓGICA DE FRACCIONES SIMPLIFICADA (Fracción x Entero) ---
+		# --- LÓGICA DE FRACCIONES SIMPLIFICADA (Fracción ÷ Entero) ---
 		var num1 = randi_range(1, 5) # Numerador
 		var den1 = randi_range(2, 5) # Denominador
-		var entero = randi_range(2, 5) # Número entero a multiplicar
-		
-		label_problema.text = str(num1) + "/" + str(den1) + " x " + str(entero)
-		
-		# En fracción x entero, solo se multiplica el numerador por el entero
-		var res_num = num1 * entero
-		var res_den = den1 
+		var entero = randi_range(2, 5) # Número entero a dividir
+
+		# Se puede usar el símbolo "÷" o "/"
+		label_problema.text = str(num1) + "/" + str(den1) + " ÷ " + str(entero)
+
+		# En Fracción ÷ Entero, el numerador se queda igual y el denominador se multiplica por el entero
+		var res_num = num1
+		var res_den = den1 * entero
 		respuesta_correcta = str(res_num) + "/" + str(res_den)
 		opciones.append(respuesta_correcta)
-		
-		# Opciones falsas (sumando un poco al numerador o al denominador para confundir)
-		opciones.append(str(res_num + randi_range(1, 3)) + "/" + str(res_den))
+
+		# Opciones falsas (alterando el denominador)
 		opciones.append(str(res_num) + "/" + str(res_den + randi_range(1, 3)))
-		
+		opciones.append(str(res_num) + "/" + str(res_den - 1))
+
 	else:
-		# --- LÓGICA DE DECIMALES SIMPLIFICADA (Decimal x Entero) ---
-		var val1 = randi_range(11, 50) / 10.0 # Decimal de 1.1 a 5.0
-		var val2 = randi_range(2, 9)          # Entero simple de 2 a 9
+		# --- LÓGICA DE DECIMALES SIMPLIFICADA (Dividendo Decimal exacto ÷ Entero) ---
+		var divisor = randi_range(2, 6) # Entero simple
+		var res_exacto = randi_range(11, 40) / 10.0 # Cociente esperado (1.1 a 4.0)
 		
-		label_problema.text = str(val1) + " x " + str(val2)
-		
-		# Al multiplicar un decimal de 1 posición por un entero, el resultado máximo tiene 1 decimal.
-		# Usamos snapped con 0.1 para mantener la precisión.
-		var res_exacto = snapped(val1 * val2, 0.1)
+		# Multiplicamos para crear un dividendo que nos de una división exacta
+		var dividendo = snapped(res_exacto * divisor, 0.1)
+
+		label_problema.text = str(dividendo) + " ÷ " + str(divisor)
+
 		respuesta_correcta = str(res_exacto)
 		opciones.append(respuesta_correcta)
-		
-		# Opciones falsas (sumando y restando enteros o décimas para que parezcan correctas)
-		opciones.append(str(snapped(res_exacto + 1.2, 0.1)))
-		opciones.append(str(snapped(res_exacto - 0.5, 0.1)))
-		
+
+		# Opciones falsas
+		opciones.append(str(snapped(res_exacto + 1.1, 0.1)))
+		opciones.append(str(snapped(res_exacto - 0.3, 0.1)))
+
 	opciones.shuffle()
-	
+
 	boton_1.text = opciones[0]
 	boton_2.text = opciones[1]
 	boton_3.text = opciones[2]

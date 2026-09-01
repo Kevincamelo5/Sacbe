@@ -130,47 +130,44 @@ func _crear_estilo_boton_piedra_maya(accent_color: Color = PALETA_PIEDRA_FONDO, 
 
 func generar_problema() -> void:
 	randomize()
-	# Elegimos al azar entre 0 (fracciones) y 1 (decimales)
 	var tipo_operacion = randi() % 2 
 	var opciones = []
-	
+
 	if tipo_operacion == 0:
-		# --- LÓGICA DE FRACCIONES SIMPLIFICADA (Fracción x Entero) ---
-		var num1 = randi_range(1, 5) # Numerador
-		var den1 = randi_range(2, 5) # Denominador
-		var entero = randi_range(2, 5) # Número entero a multiplicar
-		
-		label_problema.text = str(num1) + "/" + str(den1) + " x " + str(entero)
-		
-		# En fracción x entero, solo se multiplica el numerador por el entero
-		var res_num = num1 * entero
-		var res_den = den1 
-		respuesta_correcta = str(res_num) + "/" + str(res_den)
+		# --- LÓGICA DE FRACCIONES SIMPLIFICADA (Resta con mismo denominador) ---
+		var denominador = randi_range(2, 6)
+		var num1 = randi_range(4, 9) # Numerador mayor
+		var num2 = randi_range(1, num1 - 1) # Numerador menor para evitar negativos o 0
+
+		label_problema.text = str(num1) + "/" + str(denominador) + " - " + str(num2) + "/" + str(denominador)
+
+		var res_num = num1 - num2
+		respuesta_correcta = str(res_num) + "/" + str(denominador)
 		opciones.append(respuesta_correcta)
-		
-		# Opciones falsas (sumando un poco al numerador o al denominador para confundir)
-		opciones.append(str(res_num + randi_range(1, 3)) + "/" + str(res_den))
-		opciones.append(str(res_num) + "/" + str(res_den + randi_range(1, 3)))
-		
+
+		# Opciones falsas
+		opciones.append(str(res_num + randi_range(1, 2)) + "/" + str(denominador))
+		# Validamos que la resta falsa no de 0 o negativo
+		var resta_falsa = res_num - 1 if res_num > 1 else res_num + 3
+		opciones.append(str(resta_falsa) + "/" + str(denominador))
+
 	else:
-		# --- LÓGICA DE DECIMALES SIMPLIFICADA (Decimal x Entero) ---
-		var val1 = randi_range(11, 50) / 10.0 # Decimal de 1.1 a 5.0
-		var val2 = randi_range(2, 9)          # Entero simple de 2 a 9
-		
-		label_problema.text = str(val1) + " x " + str(val2)
-		
-		# Al multiplicar un decimal de 1 posición por un entero, el resultado máximo tiene 1 decimal.
-		# Usamos snapped con 0.1 para mantener la precisión.
-		var res_exacto = snapped(val1 * val2, 0.1)
+		# --- LÓGICA DE DECIMALES SIMPLIFICADA (Decimal - Decimal) ---
+		var val1 = randi_range(50, 99) / 10.0 # 5.0 a 9.9 (Mayor)
+		var val2 = randi_range(11, (val1 * 10) - 10) / 10.0 # Aseguramos que sea menor
+
+		label_problema.text = str(val1) + " - " + str(val2)
+
+		var res_exacto = snapped(val1 - val2, 0.1)
 		respuesta_correcta = str(res_exacto)
 		opciones.append(respuesta_correcta)
-		
-		# Opciones falsas (sumando y restando enteros o décimas para que parezcan correctas)
-		opciones.append(str(snapped(res_exacto + 1.2, 0.1)))
-		opciones.append(str(snapped(res_exacto - 0.5, 0.1)))
-		
+
+		# Opciones falsas
+		opciones.append(str(snapped(res_exacto + 0.5, 0.1)))
+		opciones.append(str(snapped(res_exacto - 0.2, 0.1)))
+
 	opciones.shuffle()
-	
+
 	boton_1.text = opciones[0]
 	boton_2.text = opciones[1]
 	boton_3.text = opciones[2]

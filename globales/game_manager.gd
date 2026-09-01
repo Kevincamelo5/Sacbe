@@ -19,15 +19,15 @@ func incrementar_monedas():
 	puntuacion_actualizada.emit(moneda)
 	print("Monedas recogidas: ", moneda)
 
-func disminuir_vida():
+func disminuir_vida(caida_al_vacio: bool = false):
 	vida -= 1
 	vida_actualizada.emit(vida)
 	
 	if vida <= 0:
-		# Ir a pantalla de fin de juego o construcción
+		# Ir a pantalla de fin de juego
 		get_tree().change_scene_to_file("res://interfaz/pantallas/muerto.tscn")
-	else:
-		# Buscamos al jugador en la escena actual para moverlo
+	elif caida_al_vacio:
+		# Solo lo regresamos al inicio si la variable caida_al_vacio es true
 		var jugador = get_tree().get_first_node_in_group("jugador") 
 		if jugador and jugador.has_method("volver_al_inicio"):
 			jugador.volver_al_inicio()

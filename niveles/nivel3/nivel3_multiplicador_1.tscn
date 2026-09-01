@@ -86,13 +86,14 @@ alignment = 1
 
 [node name="izquierda" type="VBoxContainer" parent="fondos2" unique_id=1911954293]
 layout_mode = 2
-size_flags_vertical = 4
+theme_override_constants/separation = 17
 
 [node name="CenterContainer" type="CenterContainer" parent="fondos2/izquierda" unique_id=1282904052]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="fondos2/izquierda/CenterContainer" unique_id=2104574824]
 layout_mode = 2
+theme_override_constants/separation = 17
 
 [node name="Label" type="Label" parent="fondos2/izquierda/CenterContainer/VBoxContainer" unique_id=1411310394]
 layout_mode = 2
