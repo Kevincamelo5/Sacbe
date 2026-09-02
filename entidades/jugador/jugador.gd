@@ -71,7 +71,7 @@ func _movimiento_horizontal() -> void:
 	velocity.x = direccion.x * _aceleracion
 
 @export_category("salto")
-@export var fuerzaSalto: float = -400.0
+@export var fuerzaSalto: float = -500.0
 @export var gravedad: float = 980
 ## Aceleración de la caída
 @export var multCaida: float = 1.5 

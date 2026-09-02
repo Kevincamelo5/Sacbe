@@ -31,7 +31,7 @@ func _reiniciar_estalactita() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.get_collision_layer_value(2):
 		# Lógica de daño
-		GameManager.disminuir_vida()
+		GameManager.disminuir_vida(true)
 		
 	elif body.get_collision_layer_value(1):
 		# Si toca el piso, desaparece y vuelve arriba
