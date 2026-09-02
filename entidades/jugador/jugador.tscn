@@ -1,10 +1,13 @@
-[gd_scene format=3 uid="uid://caokkywjfo4gv"]
+[gd_scene load_steps=41 format=3 uid="uid://caokkywjfo4gv"]
 
 [ext_resource type="Script" uid="uid://b6oh18grdhan5" path="res://entidades/jugador/jugador.gd" id="1_bgsqy"]
 [ext_resource type="Texture2D" uid="uid://6fh0hh0fhiex" path="res://activos/arte/Quitzal m peleando.png" id="2_5xbqb"]
+[ext_resource type="Texture2D" uid="uid://cg34jx6y80ol5" path="res://activos/arte/Ataque_Hacha-removebg-preview.png" id="2_s2aq0"]
 [ext_resource type="Texture2D" uid="uid://ixxtnekgox7m" path="res://activos/arte/Quitzal masculino v2 (1).png" id="3_5hhml"]
 [ext_resource type="Texture2D" uid="uid://1ca45r1b2ggk" path="res://activos/arte/Gemini_Generated_Image_2i1ycr2i1ycr2i1y (1).png" id="3_i8lgo"]
+[ext_resource type="Texture2D" uid="uid://c6gshmn8vuekt" path="res://activos/arte/Ataque Lanza.png" id="3_rsx3y"]
 [ext_resource type="Texture2D" uid="uid://b5pn6vnx6uu0w" path="res://activos/arte/Quitzal m cubriendose.png" id="4_2rudo"]
+[ext_resource type="Texture2D" uid="uid://dy7eavxsjlc2c" path="res://activos/arte/Toca flauta.png" id="4_3qoy5"]
 [ext_resource type="Texture2D" uid="uid://fk8jaxb1gv1a" path="res://activos/arte/saltoQM.png" id="6_2rudo"]
 [ext_resource type="Texture2D" uid="uid://dtnh68eb774sb" path="res://activos/arte/Quitzal m recibe daño.png" id="6_r0ul3"]
 
@@ -16,6 +19,42 @@ height = 106.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71ocg"]
 radius = 31.988745
 height = 110.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_503dg"]
+atlas = ExtResource("2_s2aq0")
+region = Rect2(740, 984, 740, 984)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bprmm"]
+atlas = ExtResource("2_s2aq0")
+region = Rect2(740, 0, 740, 984)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fna81"]
+atlas = ExtResource("2_s2aq0")
+region = Rect2(0, 0, 740, 984)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mbvv"]
+atlas = ExtResource("3_rsx3y")
+region = Rect2(1362, 0, 681, 1023)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqia3"]
+atlas = ExtResource("3_rsx3y")
+region = Rect2(0, 1023, 681, 1023)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jcyl"]
+atlas = ExtResource("3_rsx3y")
+region = Rect2(0, 0, 681, 1023)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysk04"]
+atlas = ExtResource("4_3qoy5")
+region = Rect2(0, 0, 686, 1011)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6fhu"]
+atlas = ExtResource("4_3qoy5")
+region = Rect2(711, 0, 686, 1011)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2sll"]
+atlas = ExtResource("4_3qoy5")
+region = Rect2(0, 1011, 686, 1011)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsx3y"]
 atlas = ExtResource("2_5xbqb")
@@ -91,6 +130,48 @@ region = Rect2(1364, 0, 682, 1024)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_78n3h"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_503dg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bprmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fna81")
+}],
+"loop": true,
+"name": &"Ataque Hacha",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mbvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqia3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jcyl")
+}],
+"loop": true,
+"name": &"Ataque Lanza",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysk04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6fhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2sll")
+}],
+"loop": true,
+"name": &"Toca Flauta",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rsx3y")
@@ -176,28 +257,29 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Jugador" type="CharacterBody2D" unique_id=594628309]
+[node name="Jugador" type="CharacterBody2D"]
 collision_layer = 6
 collision_mask = 121
 script = ExtResource("1_bgsqy")
 
-[node name="hurtbox2" type="CollisionShape2D" parent="." unique_id=2082370552]
+[node name="hurtbox2" type="CollisionShape2D" parent="."]
 position = Vector2(2, 9)
 scale = Vector2(0.9599991, 1)
 shape = SubResource("CapsuleShape2D_bgsqy")
 
-[node name="AreaAtaque" type="Area2D" parent="." unique_id=1958222257]
+[node name="AreaAtaque" type="Area2D" parent="."]
 position = Vector2(67, 5)
 scale = Vector2(1.2191788, 1.2399994)
 collision_layer = 4
 collision_mask = 8
 
-[node name="hitbox" type="CollisionShape2D" parent="AreaAtaque" unique_id=362286580]
+[node name="hitbox" type="CollisionShape2D" parent="AreaAtaque"]
 position = Vector2(-28.707848, -12.09678)
 shape = SubResource("CapsuleShape2D_71ocg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1332510698]
-position = Vector2(-4.9999995, 13.999999)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(21, 3.0000076)
 scale = Vector2(0.1143695, 0.11425781)
 sprite_frames = SubResource("SpriteFrames_78n3h")
-animation = &"recibirDaño"
+animation = &"Ataque Lanza"
+frame_progress = 0.65078783

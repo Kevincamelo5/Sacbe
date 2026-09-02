@@ -161,6 +161,12 @@ func _usar_objeto() -> void:
 			OBJETOS.ESCUDO:
 				_temporizadorObjeto = tiempoEscudo
 				escudar()
+			OBJETOS.HACHA:
+				_temporizadorObjeto = enfriamientoHacha
+				atacar_hacha()
+			OBJETOS.FLAUTA:
+				_temporizadorObjeto = 1.0 # O la variable de enfriamiento que le asignes
+				tocar_flauta()
 			_: print_debug("Objeto extraño")
 	
 
@@ -197,12 +203,33 @@ func lanzar():
 	nuevaLanza.daño = dañoLanza
 	get_parent().add_child(nuevaLanza)
 	nuevaLanza.set_global_position(areaCuchillo.get_global_position() + Vector2(0, -20))
+	
+	# Agrega esta línea para que se vea la animación
+	animatedSprite.play("Ataque Lanza")
 
 # ESCUDO
 func escudar():
 	print_debug("Escudando")
 	_estaProtegido = true
 	animatedSprite.play("escudarse")
+
+# HACHA
+func atacar_hacha():
+	print_debug("Atacando con Hacha")
+	
+	# Lógica de daño (puedes reusar el areaCuchillo o crear un AreaHacha específica)
+	var areas = areaCuchillo.get_overlapping_areas()
+	if areas.size() > 0:
+		for area in areas:
+			if area is Hurtbox:
+				area.lastimar(dañoHacha)
+				
+	animatedSprite.play("Ataque Hacha")
+
+# FLAUTA
+func tocar_flauta():
+	print_debug("Tocando la Flauta")
+	animatedSprite.play("Toca Flauta")
 	
 
 #ENTRADAS
@@ -252,4 +279,4 @@ func recibir_empujon(direccion: float, fuerza: float):
 	
 	# Aplica una fuerza vertical para que el jugador "salte" al quemarse
 	# Recuerda que en Godot, el eje Y negativo es hacia arriba
-	velocity.y = -600.0
+	velocity.y = -600.0	

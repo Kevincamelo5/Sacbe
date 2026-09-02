@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://bw8ubk8v43lho"]
 
 [ext_resource type="Script" uid="uid://brcdsuq38nok0" path="res://interfaz/hud/controles.gd" id="1_4hprl"]
-[ext_resource type="Texture2D" uid="uid://b74aptb743qcb" path="res://activos/arte/botones/arrow-27066_1920.png" id="1_bdtd0"]
-[ext_resource type="Texture2D" uid="uid://vgfvdehrf3e4" path="res://activos/arte/botones/arrow-left-27066_1920.png" id="2_4hprl"]
-[ext_resource type="Texture2D" uid="uid://blgctreic330j" path="res://activos/arte/botones/arrow-up-27066_1920.png" id="3_82l32"]
-[ext_resource type="Texture2D" uid="uid://b7exxeip5e0o" path="res://activos/arte/botones/arrow-down-27066_1920.png" id="4_06y37"]
+[ext_resource type="Texture2D" uid="uid://dn0gn66iams0g" path="res://activos/arte/botones/Boton I.png" id="2_8xp63"]
+[ext_resource type="Texture2D" uid="uid://4g7fnv1m6hye" path="res://activos/arte/botones/Boton D.png" id="3_ewpmo"]
+[ext_resource type="Texture2D" uid="uid://dmc187xkddmac" path="res://activos/arte/botones/Boton A.png" id="4_8xp63"]
+[ext_resource type="Texture2D" uid="uid://c255bkqdlx7qk" path="res://activos/arte/botones/Boton Abajo.png" id="5_av1pb"]
 [ext_resource type="Texture2D" uid="uid://ddapt1xkgg73b" path="res://activos/arte/botones/pause-button-2148106_1280.png" id="5_totj0"]
 [ext_resource type="Texture2D" uid="uid://d3lb10g5lqvrv" path="res://activos/arte/botones/arrow-31177_1920.png" id="6_2mbvt"]
 [ext_resource type="Texture2D" uid="uid://qeevfbm1li0g" path="res://activos/arte/botones/bang-148261_1920.png" id="7_7aew7"]
@@ -15,33 +15,33 @@ script = ExtResource("1_4hprl")
 [node name="Izquierda" type="TouchScreenButton" parent="."]
 modulate = Color(1, 1, 1, 0.78431374)
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(14, 449.00003)
-scale = Vector2(0.055, 0.052)
-texture_normal = ExtResource("1_bdtd0")
+position = Vector2(20, 444)
+scale = Vector2(0.218, 0.192)
+texture_normal = ExtResource("2_8xp63")
 action = "izquierda"
 
 [node name="Derecha" type="TouchScreenButton" parent="."]
 modulate = Color(1, 1, 1, 0.78431374)
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(195, 457.00003)
-scale = Vector2(0.055, 0.052)
-texture_normal = ExtResource("2_4hprl")
+position = Vector2(185, 444.00003)
+scale = Vector2(0.218, 0.192)
+texture_normal = ExtResource("3_ewpmo")
 action = "derecha"
 
 [node name="Saltar" type="TouchScreenButton" parent="."]
 modulate = Color(1, 1, 1, 0.78431374)
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(109, 363)
-scale = Vector2(0.055, 0.052)
-texture_normal = ExtResource("3_82l32")
+position = Vector2(104, 374)
+scale = Vector2(0.21799996, 0.19238472)
+texture_normal = ExtResource("4_8xp63")
 action = "saltar"
 
 [node name="Agacharse" type="TouchScreenButton" parent="."]
 modulate = Color(1, 1, 1, 0.78431374)
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(101, 540.99994)
-scale = Vector2(0.055, 0.052)
-texture_normal = ExtResource("4_06y37")
+position = Vector2(100, 514)
+scale = Vector2(0.218, 0.192)
+texture_normal = ExtResource("5_av1pb")
 action = "saltar"
 
 [node name="Pausa" type="TouchScreenButton" parent="."]

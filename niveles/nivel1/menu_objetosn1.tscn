@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cd85dj2htnytf"]
+[gd_scene load_steps=7 format=3 uid="uid://cd85dj2htnytf"]
 
 [ext_resource type="Script" uid="uid://dewnkd2qjhcxk" path="res://niveles/nivel1/menu_objetosn1.gd" id="1_4085x"]
 [ext_resource type="Texture2D" uid="uid://c4730iaatv2jl" path="res://activos/arte/card.png" id="2_0mvkh"]
@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://ctpebtatsckvt" path="res://activos/arte/(512) Quitzal flauta v2 frentre.png" id="4_dmwvj"]
 [ext_resource type="PackedScene" uid="uid://c3k3qjmhw06ff" path="res://interfaz/hud/contador_monedas.tscn" id="5_1w5yc"]
 
-[node name="MenuObjetos" type="CanvasLayer" unique_id=1687533581]
+[node name="MenuObjetos" type="CanvasLayer"]
 script = ExtResource("1_4085x")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1151100670]
+[node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = -1
 anchor_left = 0.017361112
 anchor_top = 0.31790122
@@ -24,7 +24,7 @@ texture = ExtResource("2_0mvkh")
 expand_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=1658513028]
+[node name="TextureRect2" type="TextureRect" parent="."]
 anchors_preset = -1
 anchor_left = 0.3298611
 anchor_top = 0.31790122
@@ -38,7 +38,7 @@ texture = ExtResource("2_0mvkh")
 expand_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect3" type="TextureRect" parent="." unique_id=1300567251]
+[node name="TextureRect3" type="TextureRect" parent="."]
 anchors_preset = -1
 anchor_left = 0.3298611
 anchor_top = 0.31790122
@@ -52,7 +52,7 @@ texture = ExtResource("2_0mvkh")
 expand_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=456765047]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -60,29 +60,29 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 
-[node name="hacha" type="TouchScreenButton" parent="VBoxContainer" unique_id=588121433]
+[node name="hacha" type="TouchScreenButton" parent="VBoxContainer"]
 position = Vector2(47, 202.00002)
 scale = Vector2(0.3423517, 0.21888402)
 texture_normal = ExtResource("2_4085x")
 
-[node name="escudo" type="TouchScreenButton" parent="VBoxContainer" unique_id=1787789025]
+[node name="escudo" type="TouchScreenButton" parent="VBoxContainer"]
 position = Vector2(476, 261)
 scale = Vector2(0.7421873, 0.75390625)
 texture_normal = ExtResource("3_37k0s")
 
-[node name="vida" type="TouchScreenButton" parent="VBoxContainer" unique_id=1295808351]
+[node name="vida" type="TouchScreenButton" parent="VBoxContainer"]
 position = Vector2(842, 250.99998)
 scale = Vector2(0.41812494, 0.35273558)
 texture_normal = ExtResource("4_dmwvj")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1464333704]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 y_sort_enabled = true
 layout_direction = 4
 layout_mode = 2
 alignment = 1
 metadata/_edit_group_ = true
 
-[node name="Control" type="Control" parent="." unique_id=112642622]
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,7 +90,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="costo escudo" type="Label" parent="Control" unique_id=1916861612]
+[node name="costo escudo" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4782986
@@ -103,7 +103,7 @@ theme_override_font_sizes/font_size = 35
 text = "25"
 metadata/_edit_use_anchors_ = true
 
-[node name="costo vidas" type="Label" parent="Control" unique_id=306778502]
+[node name="costo vidas" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.8081597
@@ -116,7 +116,7 @@ text = "30"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="costo hacha" type="Label" parent="Control" unique_id=1340088370]
+[node name="costo hacha" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.15277778
@@ -129,9 +129,9 @@ text = "40"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Contador_moneda" parent="." unique_id=1647204287 instance=ExtResource("5_1w5yc")]
+[node name="Contador_moneda" parent="." instance=ExtResource("5_1w5yc")]
 
-[node name="noteAlcanza" type="Label" parent="." unique_id=1311535399]
+[node name="noteAlcanza" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -148,10 +148,10 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 45
 text = "Monedas insuficientes."
 
-[node name="Timer" type="Timer" parent="." unique_id=223519538]
+[node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=842751625]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="VBoxContainer/hacha" to="." method="_on_hacha_pressed"]
 [connection signal="pressed" from="VBoxContainer/escudo" to="." method="_on_escudo_pressed"]

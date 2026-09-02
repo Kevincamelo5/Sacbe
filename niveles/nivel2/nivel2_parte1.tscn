@@ -30,7 +30,7 @@
 gradient = SubResource("Gradient_vmqr1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cablh"]
-size = Vector2(7269.5, 32.5)
+size = Vector2(7505.5, 32.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mxly"]
 size = Vector2(596.5, 186)
@@ -222,12 +222,12 @@ scale = Vector2(17.425125, -7.8796105)
 texture = SubResource("GradientTexture1D_8mxly")
 
 [node name="Sprite2DF1" type="Sprite2D" parent="Piso"]
-position = Vector2(1268, 322.775)
+position = Vector2(1258.9999, 230.00003)
 scale = Vector2(1.01, 0.8161133)
 texture = ExtResource("2_e7ble")
 
 [node name="Sprite2DF2" type="Sprite2D" parent="Piso"]
-position = Vector2(5317, 322.77502)
+position = Vector2(5317.0005, 231)
 scale = Vector2(1.98, 0.82001954)
 texture = ExtResource("3_8mxly")
 
@@ -239,7 +239,7 @@ texture = ExtResource("4_u4ah2")
 [node name="StaticBody2D-PisoVilla" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
-position = Vector2(3645.25, 665.25)
+position = Vector2(3763.25, 665.25)
 shape = SubResource("RectangleShape2D_cablh")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
@@ -285,7 +285,7 @@ script = ExtResource("6_dasm1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men2"]
 light_mask = 7
 visibility_layer = 7
-position = Vector2(865, 591)
+position = Vector2(1055, 595)
 scale = Vector2(2.429687, 2.6250007)
 sprite_frames = SubResource("SpriteFrames_36fgi")
 animation = &"Ataque"
@@ -293,7 +293,7 @@ animation = &"Ataque"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men2"]
 light_mask = 7
 visibility_layer = 7
-position = Vector2(867, 577)
+position = Vector2(1061, 592)
 shape = SubResource("CapsuleShape2D_dasm1")
 
 [node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("MInijuego")]
@@ -366,7 +366,7 @@ script = ExtResource("15_b4qib")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSalida"]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(7246, 532)
+position = Vector2(7373, 530)
 shape = SubResource("CircleShape2D_784w0")
 
 [node name="Ave" parent="." instance=ExtResource("17_eicml")]
