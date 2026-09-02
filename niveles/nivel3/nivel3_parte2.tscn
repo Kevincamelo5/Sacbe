@@ -92,6 +92,7 @@ position = Vector2(-635, 804)
 
 [node name="Puerta" parent="pisos" unique_id=708447874 instance=ExtResource("6_7hd7m")]
 position = Vector2(437, 1045)
+next_scene_path = "res://niveles/nivel3/multiplicador2_nivel3.tscna"
 
 [node name="controles" parent="." unique_id=1652164061 instance=ExtResource("9_b4h1m")]
 

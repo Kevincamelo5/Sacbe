@@ -40,27 +40,17 @@ script = ExtResource("1_dqs1d")
 
 [node name="Objetos" type="Node2D" parent="." unique_id=290793190]
 
-[node name="fondo" type="Sprite2D" parent="Objetos" unique_id=741493400]
-position = Vector2(243.00005, 162.50003)
-scale = Vector2(0.85937506, 0.8601853)
-texture = ExtResource("1_kjwuy")
-
-[node name="fondo3" type="Sprite2D" parent="Objetos" unique_id=2032737017]
-position = Vector2(1836, 156.75)
-scale = Vector2(0.81041664, 0.8319445)
-texture = ExtResource("1_kjwuy")
-
-[node name="fondo2" type="Sprite2D" parent="Objetos" unique_id=1981231598]
-position = Vector2(3590.5002, 154.99997)
-scale = Vector2(1.0171876, 0.85555553)
-texture = ExtResource("1_kjwuy")
-
 [node name="Jugador" parent="." unique_id=1203516821 instance=ExtResource("2_450ay")]
 position = Vector2(-174, 188)
 
 [node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=929699108]
 position = Vector2(180, -133)
 scale = Vector2(0.3080219, -2.4909453)
+
+[node name="fondo" type="Sprite2D" parent="Jugador/Camera2D" unique_id=741493400]
+position = Vector2(-0.8249512, 1.2043743)
+scale = Vector2(1.9460785, -0.24087241)
+texture = ExtResource("1_kjwuy")
 
 [node name="piso" type="StaticBody2D" parent="." unique_id=1471127512]
 position = Vector2(-76, -2.0000076)

@@ -71,7 +71,7 @@ func _movimiento_horizontal() -> void:
 	velocity.x = direccion.x * _aceleracion
 
 @export_category("salto")
-@export var fuerzaSalto: float = -400.0
+@export var fuerzaSalto: float = -500.0
 @export var gravedad: float = 980
 ## Aceleración de la caída
 @export var multCaida: float = 1.5 
@@ -258,7 +258,7 @@ func _cambiar_siguiente_objeto_desbloqueado():
 			print_debug("Arma cambiada a ", nombre_arma_actual)
 			break 
 	
-#perder vidas
+# perder vidas
 func _lose_lives() -> void:
 	if not _estaProtegido and not _recibiendo_dano:
 		_recibiendo_dano = true
@@ -267,7 +267,8 @@ func _lose_lives() -> void:
 		
 		await animatedSprite.animation_finished
 		
-		GameManager.disminuir_vida()
+		# Le enviamos 'false' porque es daño por ataque, no por caída
+		GameManager.disminuir_vida(false)
 		
 		_recibiendo_dano = false
 	else:

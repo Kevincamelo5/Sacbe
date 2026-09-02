@@ -1,78 +1,181 @@
 extends Control
 
+# --- PALETA DE COLORES INSPIRADA EN LA IMAGEN DE FONDO MAYA ---
+const PALETA_PIEDRA_FONDO := Color("#E8D9BD") # Crema envejecido
+const PALETA_GLIFO_TEXTO := Color("#765D46")  # Marrón glifo descolorido
+const PALETA_ACENTO_TURQUESA := Color("#009FA1") # Turquesa brillante
+const PALETA_ACENTO_AZUL := Color("#006494")     # Azul más oscuro
+const PALETA_ACENTO_ROJO := Color("#B53F1A")     # Rojo anaranjado quemado
+const PALETA_BORDE_NEGRO := Color("#000000")    # Contornos de glifos
+
+const TEX_FONDO_MAYOR := preload("res://activos/arte/Gemini_Generated_Image_80ljf80ljf80ljf8.png") 
+
 # Referencias a tus nodos (Ajusta las rutas según tu árbol de nodos)
 @onready var label_problema: Label = $VBoxContainer/LabelProblema
 @onready var boton_1: Button = $VBoxContainer/HBoxContainer/Boton1
 @onready var boton_2: Button = $VBoxContainer/HBoxContainer/Boton2
 @onready var boton_3: Button = $VBoxContainer/HBoxContainer/Boton3
 
+# Referencia al TextureRect de fondo (se crea por código si no existe)
+var _texture_fondo_mayor: TextureRect
+
 var respuesta_correcta: String = ""
 var correctos: int = 0
 
 func _ready() -> void:
-	# Conectamos los botones a una misma función. 
-	# Usamos bind() para que el botón se "envíe a sí mismo" y sepamos cuál se presionó.
+	# --- CONFIGURACIÓN DEL FONDO MAYA ---
+	_texture_fondo_mayor = TextureRect.new()
+	_texture_fondo_mayor.name = "TextureRectFondoMayor"
+	add_child(_texture_fondo_mayor)
+	move_child(_texture_fondo_mayor, 0) # Asegurar que esté detrás de todo
+
+	_texture_fondo_mayor.texture = TEX_FONDO_MAYOR
+	_texture_fondo_mayor.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_texture_fondo_mayor.stretch_mode = TextureRect.STRETCH_SCALE
+	_texture_fondo_mayor.set_anchors_preset(Control.PRESET_FULL_RECT)
+
+	# --- ESTILO DEL PANEL DEL PROBLEMA ---
+	var style_panel_problema = StyleBoxFlat.new()
+	style_panel_problema.bg_color = PALETA_PIEDRA_FONDO.darkened(0.05)
+	style_panel_problema.border_color = PALETA_ACENTO_TURQUESA
+	style_panel_problema.border_width_left = 6
+	style_panel_problema.border_width_right = 6
+	style_panel_problema.border_width_top = 6
+	style_panel_problema.border_width_bottom = 6
+	style_panel_problema.corner_radius_top_left = 15
+	style_panel_problema.corner_radius_top_right = 15
+	style_panel_problema.corner_radius_bottom_left = 15
+	style_panel_problema.corner_radius_bottom_right = 15
+	style_panel_problema.content_margin_left = 40
+	style_panel_problema.content_margin_right = 40
+	style_panel_problema.content_margin_top = 30
+	style_panel_problema.content_margin_bottom = 30
+	style_panel_problema.shadow_color = Color(0, 0, 0, 0.4)
+	style_panel_problema.shadow_size = 5
+	style_panel_problema.shadow_offset = Vector2(3, 3)
+
+	label_problema.add_theme_stylebox_override("normal", style_panel_problema)
+	label_problema.add_theme_color_override("font_color", PALETA_GLIFO_TEXTO)
+	label_problema.add_theme_font_size_override("font_size", 64)
+	label_problema.add_theme_constant_override("outline_size", 2)
+	label_problema.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
+	label_problema.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+
+	# --- ESTILO DE LOS BOTONES DE OPCIONES ---
+	var style_btn_normal = _crear_estilo_boton_piedra_maya(PALETA_PIEDRA_FONDO)
+	var style_btn_hover = _crear_estilo_boton_piedra_maya(PALETA_PIEDRA_FONDO, true)
+	var style_btn_pressed = _crear_estilo_boton_piedra_maya(PALETA_ACENTO_TURQUESA)
+
+	# Aplicar el estilo a los 3 botones usando un arreglo
+	var botones = [boton_1, boton_2, boton_3]
+	for btn in botones:
+		btn.add_theme_stylebox_override("normal", style_btn_normal)
+		btn.add_theme_stylebox_override("hover", style_btn_hover)
+		btn.add_theme_stylebox_override("pressed", style_btn_pressed)
+		
+		btn.add_theme_color_override("font_color", PALETA_GLIFO_TEXTO)
+		btn.add_theme_color_override("font_hover_color", PALETA_ACENTO_TURQUESA)
+		btn.add_theme_color_override("font_pressed_color", Color(1, 1, 1))
+		
+		btn.add_theme_font_size_override("font_size", 48)
+		btn.add_theme_constant_override("outline_size", 2)
+		btn.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
+		
+		# Expansión para que llenen el HBoxContainer de manera equitativa
+		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+
+	# Conectamos los botones a una misma función
 	boton_1.pressed.connect(_on_boton_presionado.bind(boton_1))
 	boton_2.pressed.connect(_on_boton_presionado.bind(boton_2))
 	boton_3.pressed.connect(_on_boton_presionado.bind(boton_3))
 	
+	# Ajustamos separación en el contenedor padre si es posible para centrar todo un poco
+	$VBoxContainer.add_theme_constant_override("separation", 50)
+	
 	generar_problema()
+
+# Función helper para crear un StyleBoxFlat con aspecto tallado
+func _crear_estilo_boton_piedra_maya(accent_color: Color = PALETA_PIEDRA_FONDO, is_hover: bool = false) -> StyleBoxFlat:
+	var style = StyleBoxFlat.new()
+	style.bg_color = accent_color
+	style.border_color = PALETA_BORDE_NEGRO
+	style.border_width_left = 4
+	style.border_width_right = 4
+	style.border_width_top = 4
+	style.border_width_bottom = 4
+	style.corner_radius_top_left = 15
+	style.corner_radius_top_right = 15
+	style.corner_radius_bottom_left = 15
+	style.corner_radius_bottom_right = 15
+	style.draw_center = true
+	
+	if accent_color == PALETA_PIEDRA_FONDO:
+		style.set_bg_color(PALETA_PIEDRA_FONDO.lightened(0.05))
+		style.bg_color = PALETA_PIEDRA_FONDO
+	else:
+		style.set_bg_color(accent_color.lightened(0.2) if is_hover else accent_color.lightened(0.1))
+		style.bg_color = accent_color
+	
+	style.shadow_color = Color(0, 0, 0, 0.4)
+	style.shadow_size = 5
+	style.shadow_offset = Vector2(3, 3)
+	
+	# MÁRGENES INTERNOS PARA QUE LOS BOTONES SEAN GRANDES
+	style.content_margin_left = 30
+	style.content_margin_right = 30
+	style.content_margin_top = 20
+	style.content_margin_bottom = 20
+	
+	return style
 
 func generar_problema() -> void:
 	randomize()
-	# Tiramos una moneda: 0 para fracciones, 1 para decimales
-	var tipo_operacion = 1
+	# Elegimos al azar entre 0 (fracciones) y 1 (decimales)
+	var tipo_operacion = randi() % 2 
 	var opciones = []
 	
 	if tipo_operacion == 0:
-		# --- LÓGICA DE FRACCIONES ---
-		# Generamos numeradores y denominadores aleatorios
-		var num1 = randi_range(1, 5)
-		var den1 = randi_range(2, 5)
-		var num2 = randi_range(1, 5)
-		var den2 = randi_range(2, 5)
+		# --- LÓGICA DE FRACCIONES SIMPLIFICADA (Fracción x Entero) ---
+		var num1 = randi_range(1, 5) # Numerador
+		var den1 = randi_range(2, 5) # Denominador
+		var entero = randi_range(2, 5) # Número entero a multiplicar
 		
-		# Mostramos en pantalla: Ej. "1/2 x 3/4"
-		label_problema.text = str(num1) + "/" + str(den1) + " x " + str(num2) + "/" + str(den2)
+		label_problema.text = str(num1) + "/" + str(den1) + " x " + str(entero)
 		
-		# Calculamos la respuesta real (numerador por numerador, denominador por denominador)
-		var res_num = num1 * num2
-		var res_den = den1 * den2
+		# En fracción x entero, solo se multiplica el numerador por el entero
+		var res_num = num1 * entero
+		var res_den = den1 
 		respuesta_correcta = str(res_num) + "/" + str(res_den)
 		opciones.append(respuesta_correcta)
 		
-		# Inventamos 2 opciones falsas sumando números aleatorios para confundir
+		# Opciones falsas (sumando un poco al numerador o al denominador para confundir)
 		opciones.append(str(res_num + randi_range(1, 3)) + "/" + str(res_den))
 		opciones.append(str(res_num) + "/" + str(res_den + randi_range(1, 3)))
 		
 	else:
-		# --- LÓGICA DE DECIMALES ---
-		# Dividimos entre 10.0 para crear decimales. Ej: 23 / 10.0 = 2.3
-		var val1 = randi_range(11, 50) / 10.0
-		var val2 = randi_range(2, 9) / 10.0
+		# --- LÓGICA DE DECIMALES SIMPLIFICADA (Decimal x Entero) ---
+		var val1 = randi_range(11, 50) / 10.0 # Decimal de 1.1 a 5.0
+		var val2 = randi_range(2, 9)          # Entero simple de 2 a 9
 		
 		label_problema.text = str(val1) + " x " + str(val2)
 		
-		# snapped() redondea a 2 decimales para evitar el clásico error de programación 
-		var res_exacto = snapped(val1 * val2, 0.01)
+		# Al multiplicar un decimal de 1 posición por un entero, el resultado máximo tiene 1 decimal.
+		# Usamos snapped con 0.1 para mantener la precisión.
+		var res_exacto = snapped(val1 * val2, 0.1)
 		respuesta_correcta = str(res_exacto)
 		opciones.append(respuesta_correcta)
 		
-		# Inventamos 2 opciones falsas modificando los decimales
-		opciones.append(str(snapped(res_exacto + 0.12, 0.01)))
-		opciones.append(str(snapped(res_exacto - 0.4, 0.01)))
+		# Opciones falsas (sumando y restando enteros o décimas para que parezcan correctas)
+		opciones.append(str(snapped(res_exacto + 1.2, 0.1)))
+		opciones.append(str(snapped(res_exacto - 0.5, 0.1)))
 		
-	# --- LA MAGIA DEL MÚLTIPLE CHOICE ---
-	# Mezclamos el arreglo para que la respuesta correcta no siempre caiga en el Boton 1
 	opciones.shuffle()
 	
-	# Asignamos el texto mezclado a los botones
 	boton_1.text = opciones[0]
 	boton_2.text = opciones[1]
 	boton_3.text = opciones[2]
 
 func _on_boton_presionado(boton: Button) -> void:
-	# Verificamos si el texto del botón presionado es igual a la respuesta guardada
 	if boton.text == respuesta_correcta:
 		print("¡Respuesta Correcta!")
 		_es_respuesta_correcta()
@@ -81,7 +184,7 @@ func _on_boton_presionado(boton: Button) -> void:
 		_es_respuesta_incorrecta()
 
 # ==========================================================
-# ANIMACIONES Y LÓGICA DE PROGRESIÓN (Tus funciones exactas)
+# ANIMACIONES Y LÓGICA DE PROGRESIÓN (Estilizadas)
 # ==========================================================
 
 func _es_respuesta_correcta() -> void:
@@ -138,7 +241,7 @@ func _aumentar_aciertos() -> int:
 	correctos += 1
 	print("Correctos: ", correctos)
 	if correctos >= 5:
-		get_tree().change_scene_to_file("res://niveles/nivel3/nivel3_parte2_cutscene.tscn")
+		get_tree().change_scene_to_file("res://niveles/nivel4/nivel4_parte_1.tscn")
 	return correctos
 
 func _es_respuesta_incorrecta() -> void:

@@ -334,7 +334,7 @@ func _aumentar_aciertos() -> int:
 	correctos += 1
 	print(correctos)
 	if correctos >= 5:
-		get_tree().change_scene_to_file("res://niveles/nivel1/nivel1_parte2.tscn")
+		get_tree().change_scene_to_file("res://niveles/nivel2/batalla_jabali.tscn")
 	return correctos
 
 func _es_respuesta_incorrecta() -> void:
