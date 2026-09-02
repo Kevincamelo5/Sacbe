@@ -30,7 +30,7 @@
 gradient = SubResource("Gradient_vmqr1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cablh"]
-size = Vector2(7505.5, 32.5)
+size = Vector2(7269.5, 32.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mxly"]
 size = Vector2(596.5, 186)
@@ -279,7 +279,7 @@ script = ExtResource("6_dasm1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men2" unique_id=626870191]
 light_mask = 7
 visibility_layer = 7
-position = Vector2(1055, 595)
+position = Vector2(865, 591)
 scale = Vector2(2.429687, 2.6250007)
 sprite_frames = SubResource("SpriteFrames_36fgi")
 animation = &"Ataque"
@@ -287,7 +287,7 @@ animation = &"Ataque"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men2" unique_id=474885782]
 light_mask = 7
 visibility_layer = 7
-position = Vector2(1061, 592)
+position = Vector2(867, 577)
 shape = SubResource("CapsuleShape2D_dasm1")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=342320841 node_paths=PackedStringArray("MInijuego")]
@@ -350,17 +350,7 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("15_b4qib")
 
-<<<<<<< HEAD
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSalida"]
-light_mask = 3
-visibility_layer = 3
-position = Vector2(7373, 530)
-shape = SubResource("CircleShape2D_784w0")
-
-[node name="Ave" parent="." instance=ExtResource("17_eicml")]
-=======
 [node name="Ave" parent="." unique_id=1197127618 instance=ExtResource("17_eicml")]
->>>>>>> 7233406704a9d80a13093a0b061debfcb1b7aef9
 position = Vector2(5604, 323)
 rango_patrulla = 250.0
 piedra_scene = ExtResource("18_7r5rn")
