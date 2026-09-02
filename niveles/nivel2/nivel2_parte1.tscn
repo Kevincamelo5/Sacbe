@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b2dt0fv7bfom7"]
+[gd_scene load_steps=40 format=3 uid="uid://b2dt0fv7bfom7"]
 
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="1_1xc8m"]
 [ext_resource type="Script" uid="uid://be4q0kv8lkb1s" path="res://niveles/nivel2/m_inijuego.gd" id="1_5xsud"]
@@ -116,12 +116,12 @@ height = 66.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_y1rvv"]
 radius = 25.019993
 
-[node name="Nivel2Parte1" type="Node2D" unique_id=782232959]
+[node name="Nivel2Parte1" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=218327296]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 2
 
-[node name="MInijuego" type="Control" parent="CanvasLayer" unique_id=320972145]
+[node name="MInijuego" type="Control" parent="CanvasLayer"]
 process_mode = 3
 process_priority = 1
 layout_mode = 3
@@ -131,7 +131,7 @@ anchor_right = 1.0
 grow_horizontal = 0
 script = ExtResource("1_5xsud")
 
-[node name="Label" type="Label" parent="CanvasLayer/MInijuego" unique_id=266821312]
+[node name="Label" type="Label" parent="CanvasLayer/MInijuego"]
 process_mode = 3
 layout_mode = 1
 anchors_preset = -1
@@ -145,7 +145,7 @@ offset_right = -373.0
 offset_bottom = 142.0
 text = "label"
 
-[node name="Button" type="Button" parent="CanvasLayer/MInijuego" unique_id=1983681481]
+[node name="Button" type="Button" parent="CanvasLayer/MInijuego"]
 process_mode = 3
 layout_mode = 1
 anchors_preset = -1
@@ -159,7 +159,7 @@ text = "a
 "
 icon = SubResource("ImageTexture_y1rvv")
 
-[node name="Button2" type="Button" parent="CanvasLayer/MInijuego" unique_id=138971005]
+[node name="Button2" type="Button" parent="CanvasLayer/MInijuego"]
 process_mode = 3
 layout_mode = 1
 anchors_preset = -1
@@ -171,7 +171,7 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "b"
 
-[node name="Button3" type="Button" parent="CanvasLayer/MInijuego" unique_id=1666427156]
+[node name="Button3" type="Button" parent="CanvasLayer/MInijuego"]
 process_mode = 3
 layout_mode = 1
 anchors_preset = -1
@@ -181,7 +181,7 @@ offset_right = -471.0
 offset_bottom = 234.0
 text = "a"
 
-[node name="ContenedorObjetos" type="HBoxContainer" parent="CanvasLayer/MInijuego" unique_id=1636374097]
+[node name="ContenedorObjetos" type="HBoxContainer" parent="CanvasLayer/MInijuego"]
 visible = false
 layout_mode = 0
 offset_left = -1142.0
@@ -190,76 +190,76 @@ offset_right = 138.0
 offset_bottom = 366.0
 alignment = 1
 
-[node name="BotonFlauta" type="TextureButton" parent="CanvasLayer/MInijuego/ContenedorObjetos" unique_id=2145434788]
+[node name="BotonFlauta" type="TextureButton" parent="CanvasLayer/MInijuego/ContenedorObjetos"]
 layout_mode = 2
 texture_normal = ExtResource("2_b4qib")
 
-[node name="BotonHacha" type="TextureButton" parent="CanvasLayer/MInijuego/ContenedorObjetos" unique_id=1197690697]
+[node name="BotonHacha" type="TextureButton" parent="CanvasLayer/MInijuego/ContenedorObjetos"]
 layout_mode = 2
 texture_normal = ExtResource("3_el20e")
 
-[node name="BotonLanza" type="TextureButton" parent="CanvasLayer/MInijuego/ContenedorObjetos" unique_id=34901194]
+[node name="BotonLanza" type="TextureButton" parent="CanvasLayer/MInijuego/ContenedorObjetos"]
 layout_mode = 2
 texture_normal = ExtResource("4_y541q")
 
-[node name="controles" parent="." unique_id=2122740942 instance=ExtResource("2_cablh")]
+[node name="controles" parent="." instance=ExtResource("2_cablh")]
 
-[node name="Contador_moneda" parent="." unique_id=411749156 instance=ExtResource("6_tb35q")]
+[node name="Contador_moneda" parent="." instance=ExtResource("6_tb35q")]
 
-[node name="CanvasLayer2" parent="." unique_id=1732407342 instance=ExtResource("7_4mwl0")]
+[node name="CanvasLayer2" parent="." instance=ExtResource("7_4mwl0")]
 
-[node name="Piso" type="Node2D" parent="." unique_id=923334180]
+[node name="Piso" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Piso" unique_id=2111323952]
+[node name="Sprite2D" type="Sprite2D" parent="Piso"]
 position = Vector2(2226.5845, 655)
 scale = Vector2(17.425125, -7.8796105)
 texture = SubResource("GradientTexture1D_8mxly")
 
-[node name="Sprite2DF1" type="Sprite2D" parent="Piso" unique_id=949020409]
-position = Vector2(1268, 322.775)
+[node name="Sprite2DF1" type="Sprite2D" parent="Piso"]
+position = Vector2(1273, 273)
 scale = Vector2(1.01, 0.8161133)
 texture = ExtResource("2_e7ble")
 
-[node name="Sprite2DF2" type="Sprite2D" parent="Piso" unique_id=1657907564]
-position = Vector2(5317, 322.77502)
+[node name="Sprite2DF2" type="Sprite2D" parent="Piso"]
+position = Vector2(5322.0005, 271)
 scale = Vector2(1.98, 0.82001954)
 texture = ExtResource("3_8mxly")
 
-[node name="Casal2" type="Sprite2D" parent="Piso" unique_id=1782316737]
+[node name="Casal2" type="Sprite2D" parent="Piso"]
 position = Vector2(2729, 434.3906)
 scale = Vector2(1.5602579, 1.412282)
 texture = ExtResource("4_u4ah2")
 
-[node name="StaticBody2D-PisoVilla" type="StaticBody2D" parent="." unique_id=313339503]
+[node name="StaticBody2D-PisoVilla" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D-PisoVilla" unique_id=1598950360]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
 position = Vector2(3645.25, 665.25)
 shape = SubResource("RectangleShape2D_cablh")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D-PisoVilla" unique_id=1538638560]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
 position = Vector2(205.5, 587)
 shape = SubResource("RectangleShape2D_8mxly")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D-PisoVilla" unique_id=371281253]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
 position = Vector2(2737.75, 556)
 shape = SubResource("RectangleShape2D_8mxly")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D-PisoVilla" unique_id=2131703940]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
 position = Vector2(2347, 600.8594)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_u4ah2")
 
-[node name="Jugador" parent="." unique_id=1412084573 groups=["player"] instance=ExtResource("1_1xc8m")]
+[node name="Jugador" parent="." groups=["player"] instance=ExtResource("1_1xc8m")]
 position = Vector2(56, 274)
 
-[node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=1388162383]
+[node name="Camera2D" type="Camera2D" parent="Jugador"]
 position = Vector2(526, 62)
 
-[node name="CharacterBody2DKi-Men" type="CharacterBody2D" parent="." unique_id=1963648853]
+[node name="CharacterBody2DKi-Men" type="CharacterBody2D" parent="."]
 script = ExtResource("6_dasm1")
 is_vertical = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men" unique_id=1436399830]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men"]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(1468.0001, 467)
@@ -267,16 +267,16 @@ scale = Vector2(2.429687, 2.6250007)
 sprite_frames = SubResource("SpriteFrames_36fgi")
 animation = &"Ataque"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men" unique_id=379826494]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men"]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(1481, 451)
 shape = SubResource("CapsuleShape2D_dasm1")
 
-[node name="CharacterBody2DKi-Men2" type="CharacterBody2D" parent="." unique_id=896426815]
+[node name="CharacterBody2DKi-Men2" type="CharacterBody2D" parent="."]
 script = ExtResource("6_dasm1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men2" unique_id=626870191]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men2"]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(865, 591)
@@ -284,24 +284,24 @@ scale = Vector2(2.429687, 2.6250007)
 sprite_frames = SubResource("SpriteFrames_36fgi")
 animation = &"Ataque"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men2" unique_id=474885782]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men2"]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(867, 577)
 shape = SubResource("CapsuleShape2D_dasm1")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=342320841 node_paths=PackedStringArray("MInijuego")]
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("MInijuego")]
 process_mode = 3
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("8_jeh34")
 MInijuego = NodePath("../CanvasLayer/MInijuego")
 
-[node name="Altar" parent="Area2D" unique_id=708447874 instance=ExtResource("15_4mwl0")]
-position = Vector2(7323, 552)
+[node name="Altar" parent="Area2D" instance=ExtResource("15_4mwl0")]
+position = Vector2(7187, 450)
 next_scene_path = "res://niveles/nivel2/nivel_2_restador_1.tscn"
 
-[node name="AreaFuego1" type="Area2D" parent="." unique_id=1774466931]
+[node name="AreaFuego1" type="Area2D" parent="."]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(2555, 433)
@@ -309,20 +309,20 @@ collision_layer = 15
 collision_mask = 15
 script = ExtResource("14_el20e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFuego1" unique_id=1611415161]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFuego1"]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(4, 4)
 shape = SubResource("CircleShape2D_y1rvv")
 
-[node name="Sprite2D" type="Sprite2D" parent="AreaFuego1" unique_id=463174225]
+[node name="Sprite2D" type="Sprite2D" parent="AreaFuego1"]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(4.0000305, -12)
 scale = Vector2(0.18000002, 0.16099997)
 texture = ExtResource("11_44th5")
 
-[node name="AreaFuego2" type="Area2D" parent="." unique_id=80428608]
+[node name="AreaFuego2" type="Area2D" parent="."]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(2900, 434)
@@ -330,64 +330,64 @@ collision_layer = 7
 collision_mask = 7
 script = ExtResource("14_el20e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFuego2" unique_id=743362342]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFuego2"]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(-3, 2)
 shape = SubResource("CircleShape2D_y1rvv")
 
-[node name="Sprite2D" type="Sprite2D" parent="AreaFuego2" unique_id=652323389]
+[node name="Sprite2D" type="Sprite2D" parent="AreaFuego2"]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(-1.9999695, -12)
 scale = Vector2(0.18000002, 0.16099997)
 texture = ExtResource("11_44th5")
 
-[node name="AreaSalida" type="Area2D" parent="." unique_id=2005984349]
+[node name="AreaSalida" type="Area2D" parent="."]
 light_mask = 3
 visibility_layer = 3
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("15_b4qib")
 
-[node name="Ave" parent="." unique_id=1197127618 instance=ExtResource("17_eicml")]
-position = Vector2(5604, 323)
+[node name="Ave" parent="." instance=ExtResource("17_eicml")]
+position = Vector2(5599, 363)
 rango_patrulla = 250.0
 piedra_scene = ExtResource("18_7r5rn")
 
-[node name="Moneda" parent="." unique_id=784975568 instance=ExtResource("21_4mwl0")]
+[node name="Moneda" parent="." instance=ExtResource("21_4mwl0")]
 position = Vector2(1478, 599)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda2" parent="." unique_id=157933252 instance=ExtResource("21_4mwl0")]
+[node name="Moneda2" parent="." instance=ExtResource("21_4mwl0")]
 position = Vector2(1402, 601)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda3" parent="." unique_id=666645948 instance=ExtResource("21_4mwl0")]
+[node name="Moneda3" parent="." instance=ExtResource("21_4mwl0")]
 position = Vector2(1316, 605)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda4" parent="." unique_id=1839601516 instance=ExtResource("21_4mwl0")]
+[node name="Moneda4" parent="." instance=ExtResource("21_4mwl0")]
 position = Vector2(1221, 609)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda5" parent="." unique_id=1294587977 instance=ExtResource("21_4mwl0")]
+[node name="Moneda5" parent="." instance=ExtResource("21_4mwl0")]
 position = Vector2(3156, 322)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda6" parent="." unique_id=1783902104 instance=ExtResource("21_4mwl0")]
+[node name="Moneda6" parent="." instance=ExtResource("21_4mwl0")]
 position = Vector2(3158, 391)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda7" parent="." unique_id=849662037 instance=ExtResource("21_4mwl0")]
+[node name="Moneda7" parent="." instance=ExtResource("21_4mwl0")]
 position = Vector2(3158, 464)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda8" parent="." unique_id=739600725 instance=ExtResource("21_4mwl0")]
+[node name="Moneda8" parent="." instance=ExtResource("21_4mwl0")]
 position = Vector2(3160, 530)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda9" parent="." unique_id=1805809566 instance=ExtResource("21_4mwl0")]
+[node name="Moneda9" parent="." instance=ExtResource("21_4mwl0")]
 position = Vector2(3160, 603)
 scale = Vector2(0.5, 0.5)
 

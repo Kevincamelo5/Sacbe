@@ -20,6 +20,10 @@ const OPERADOR := "-" # CAMBIO: Operador de resta
 @onready var _campo_respuesta: LineEdit = $fondos2/izquierda/CenterContainer/VBoxContainer/LineEdit
 @onready var _campo_operandos: Label = $fondos2/izquierda/CenterContainer/VBoxContainer/Label
 @onready var _boton_enviar: Button = $fondos2/izquierda/MarginContainer/CenterContainer/BotonEnviar
+@onready var contenedor_objetos = $ContenedorObjetos
+@onready var boton_flauta = $ContenedorObjetos/BotonFlauta
+@onready var boton_hacha = $ContenedorObjetos/BotonHacha
+@onready var boton_lanza = $ContenedorObjetos/BotonLanza
 
 @onready var _texture_fondo_mayor: TextureRect = $TextureRect
 
@@ -31,6 +35,11 @@ var _respuesta_correcta := "0"
 var correctos:= 0
 
 func _ready() -> void:
+	if contenedor_objetos:
+		contenedor_objetos.hide()
+		boton_flauta.pressed.connect(_seleccionar_objeto.bind("flauta"))
+		boton_hacha.pressed.connect(_seleccionar_objeto.bind("hacha"))
+		boton_lanza.pressed.connect(_seleccionar_objeto.bind("lanza"))
 	
 	if not _texture_fondo_mayor:
 		_texture_fondo_mayor = TextureRect.new()
@@ -227,6 +236,8 @@ func _crear_botones() -> void:
 	btn_del.pressed.connect(func(): eliminar_caracter.emit())
 	
 	_contenedor_botones.add_child(btn_del)
+	
+
 
 func _generar_problema() -> bool:
 	randomize()
@@ -332,9 +343,9 @@ func _es_respuesta_correcta() -> void:
 
 func _aumentar_aciertos() -> int:
 	correctos += 1
-	print(correctos)
+	print("Aciertos: ", correctos)
 	if correctos >= 5:
-		get_tree().change_scene_to_file("res://niveles/nivel2/batalla_jabali.tscn")
+		_mostrar_recompensas()
 	return correctos
 
 func _es_respuesta_incorrecta() -> void:
@@ -385,3 +396,34 @@ func _es_respuesta_incorrecta() -> void:
 	# Limpiar y generar nuevo problema
 	canvas.queue_free()
 	_generar_problema()
+	
+func _mostrar_recompensas():
+	# Ocultamos toda la interfaz de la calculadora
+	$fondos2.hide()
+	_texture_fondo_mayor.modulate = Color(0.5, 0.5, 0.5) 
+	
+	# Mostramos las armas
+	if contenedor_objetos:
+		contenedor_objetos.show()
+
+func _seleccionar_objeto(objeto_elegido: String):
+	print("Quitzal ha obtenido: ", objeto_elegido)
+	
+	# 1. Desbloqueamos el arma en el GameManager
+	if GameManager:
+		GameManager.armasDesbloqueadas[objeto_elegido] = true
+		print("Arma registrada en GameManager")
+	
+	# 2. Buscamos al jugador y equipamos el arma
+	var jugador = get_tree().get_first_node_in_group("jugador")
+	if jugador:
+		match objeto_elegido:
+			"flauta":
+				jugador.objetoActual = jugador.OBJETOS.FLAUTA
+			"hacha":
+				jugador.objetoActual = jugador.OBJETOS.HACHA
+			"lanza":
+				jugador.objetoActual = jugador.OBJETOS.LANZA
+	
+	# 3. Finalmente, pasamos a la escena del jefe
+	get_tree().change_scene_to_file("res://niveles/nivel2/batalla_jabali.tscn")

@@ -1,21 +1,21 @@
-[gd_scene format=3 uid="uid://cno7e1ivf3yc5"]
+[gd_scene load_steps=4 format=3 uid="uid://cno7e1ivf3yc5"]
 
 [ext_resource type="Script" uid="uid://r25oiaso1nqv" path="res://objetos/interactuables/altar.gd" id="1_tn4cc"]
-[ext_resource type="Texture2D" uid="uid://ymgtonpmwm3k" path="res://activos/arte/altar.png" id="2_tn4cc"]
+[ext_resource type="Texture2D" uid="uid://cluqlg8dhyxmc" path="res://componentes/escenarios/Altarproto.png" id="2_tn4cc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3g2fe"]
 size = Vector2(20.434782, 24.170506)
 
-[node name="Altar" type="Node2D" unique_id=708447874]
+[node name="Altar" type="Node2D"]
 script = ExtResource("1_tn4cc")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1977714824]
+[node name="Area2D" type="Area2D" parent="."]
 light_mask = 32
 visibility_layer = 6
 collision_layer = 48
 collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=224649025]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 light_mask = 33
 visibility_layer = 6
 position = Vector2(0.9999986, 18.099998)
@@ -23,11 +23,11 @@ scale = Vector2(4.6, 8.68)
 shape = SubResource("RectangleShape2D_3g2fe")
 debug_color = Color(0.52655107, 0.57173777, 0.08348694, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1758738005]
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 light_mask = 33
 visibility_layer = 6
-position = Vector2(-7.6293945e-06, 4.0000076)
-scale = Vector2(0.5833333, 0.6768868)
+position = Vector2(20, -31.000002)
+scale = Vector2(1.3016678, 1.5308552)
 texture = ExtResource("2_tn4cc")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
