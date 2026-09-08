@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bytx8vdh8smdq"]
+[gd_scene load_steps=35 format=3 uid="uid://bytx8vdh8smdq"]
 
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="1_hd7b5"]
 [ext_resource type="Texture2D" uid="uid://dxqf8dqh4f3rg" path="res://activos/arte/maleza.png" id="1_q88y8"]
@@ -77,683 +77,683 @@ size = Vector2(116, 126)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7usi"]
 size = Vector2(378, 84)
 
-[node name="Nivel3Parte1" type="Node2D" unique_id=2099695452]
+[node name="Nivel3Parte1" type="Node2D"]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=41390516]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_q88y8")
 
-[node name="Jugador" parent="." unique_id=594628309 instance=ExtResource("1_hd7b5")]
+[node name="Jugador" parent="." instance=ExtResource("1_hd7b5")]
 position = Vector2(-698, 392)
 
-[node name="Sprite2D" type="Sprite2D" parent="Jugador" unique_id=639646121]
+[node name="Sprite2D" type="Sprite2D" parent="Jugador"]
 z_index = -3
 position = Vector2(71.64612, 123.94116)
 rotation = -1.5707964
 scale = Vector2(0.41134337, 0.3283379)
 texture = ExtResource("1_q88y8")
 
-[node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=649189323]
+[node name="Camera2D" type="Camera2D" parent="Jugador"]
 position = Vector2(72, -58)
 
-[node name="pisos" type="StaticBody2D" parent="." unique_id=1304087032]
+[node name="pisos" type="StaticBody2D" parent="."]
 position = Vector2(-54, -608)
 
-[node name="piso" type="CollisionShape2D" parent="pisos" unique_id=279719332]
+[node name="piso" type="CollisionShape2D" parent="pisos"]
 position = Vector2(181.875, 1289)
 shape = SubResource("RectangleShape2D_k4owc")
 metadata/_edit_group_ = true
 
-[node name="piso2" type="CollisionShape2D" parent="pisos" unique_id=76418487]
+[node name="piso2" type="CollisionShape2D" parent="pisos"]
 position = Vector2(-860.0001, 995.00006)
 rotation = 1.5728099
 shape = SubResource("RectangleShape2D_k4owc")
 metadata/_edit_group_ = true
 
-[node name="vpiso" type="Sprite2D" parent="pisos" unique_id=1321660195]
+[node name="vpiso" type="Sprite2D" parent="pisos"]
 position = Vector2(132.49995, 1300.1552)
 scale = Vector2(11.246094, 3.8701508)
 texture = SubResource("AtlasTexture_7wbx0")
 
-[node name="vpiso4" type="Sprite2D" parent="pisos" unique_id=780022748]
+[node name="vpiso4" type="Sprite2D" parent="pisos"]
 position = Vector2(5911, 1304)
 scale = Vector2(3.9531236, 3.8701508)
 texture = SubResource("AtlasTexture_7wbx0")
 
-[node name="vpiso8" type="Sprite2D" parent="pisos" unique_id=1032204942]
+[node name="vpiso8" type="Sprite2D" parent="pisos"]
 position = Vector2(7757.004, 1385)
 scale = Vector2(8.32028, 3.8701508)
 texture = SubResource("AtlasTexture_7wbx0")
 
-[node name="vpiso10" type="Sprite2D" parent="pisos" unique_id=1823297041]
+[node name="vpiso10" type="Sprite2D" parent="pisos"]
 position = Vector2(9486.003, 1290)
 scale = Vector2(4.054665, 3.8701508)
 texture = SubResource("AtlasTexture_7wbx0")
 
-[node name="vpiso11" type="Sprite2D" parent="pisos" unique_id=569639935]
+[node name="vpiso11" type="Sprite2D" parent="pisos"]
 position = Vector2(10177.502, 1267.5776)
 scale = Vector2(6.582021, 5.8257003)
 texture = SubResource("AtlasTexture_7wbx0")
 
-[node name="vpiso12" type="Sprite2D" parent="pisos" unique_id=877524672]
+[node name="vpiso12" type="Sprite2D" parent="pisos"]
 position = Vector2(11805, 1327)
 scale = Vector2(6.164067, 5.8257003)
 texture = SubResource("AtlasTexture_7wbx0")
 
-[node name="vpiso13" type="Sprite2D" parent="pisos" unique_id=2105162140]
+[node name="vpiso13" type="Sprite2D" parent="pisos"]
 position = Vector2(13324.875, 1339.7888)
 scale = Vector2(3.71191, 3.4753492)
 texture = SubResource("AtlasTexture_7wbx0")
 
-[node name="vpiso3" type="Sprite2D" parent="pisos" unique_id=412012927]
+[node name="vpiso3" type="Sprite2D" parent="pisos"]
 position = Vector2(5002.5, 1293.4224)
 scale = Vector2(1.9726565, 4.6694508)
 texture = SubResource("AtlasTexture_7wbx0")
 
-[node name="vpiso2" type="Sprite2D" parent="pisos" unique_id=92245008]
+[node name="vpiso2" type="Sprite2D" parent="pisos"]
 position = Vector2(3212.5, 1330)
 scale = Vector2(9.871095, 3.8701508)
 texture = SubResource("AtlasTexture_7wbx0")
 
-[node name="vpiso5" type="Sprite2D" parent="pisos" unique_id=1594387496]
+[node name="vpiso5" type="Sprite2D" parent="pisos"]
 position = Vector2(2371, 1149.9999)
 rotation = 0.35731262
 scale = Vector2(0.35975403, 0.26133722)
 texture = ExtResource("5_hbf0j")
 
-[node name="vpiso19" type="Sprite2D" parent="pisos" unique_id=1239012733]
+[node name="vpiso19" type="Sprite2D" parent="pisos"]
 position = Vector2(5712, 1132)
 rotation = 0.35731262
 scale = Vector2(0.35975403, 0.26133722)
 texture = ExtResource("5_hbf0j")
 
-[node name="vpiso20" type="Sprite2D" parent="pisos" unique_id=1820709356]
+[node name="vpiso20" type="Sprite2D" parent="pisos"]
 position = Vector2(5800.0005, 1101.0002)
 rotation = 0.35731262
 scale = Vector2(0.36518797, 0.41375157)
 texture = ExtResource("5_hbf0j")
 
-[node name="vpiso26" type="Sprite2D" parent="pisos" unique_id=489586390]
+[node name="vpiso26" type="Sprite2D" parent="pisos"]
 position = Vector2(9281, 1123)
 rotation = 0.35731262
 scale = Vector2(0.36518797, 0.41375157)
 texture = ExtResource("5_hbf0j")
 
-[node name="vpiso35" type="Sprite2D" parent="pisos" unique_id=1374801932]
+[node name="vpiso35" type="Sprite2D" parent="pisos"]
 position = Vector2(11788.488, 1053.89)
 rotation = 0.35731262
 scale = Vector2(0.442197, 0.6484018)
 texture = ExtResource("5_hbf0j")
 
-[node name="vpiso31" type="Sprite2D" parent="pisos" unique_id=94854659]
+[node name="vpiso31" type="Sprite2D" parent="pisos"]
 position = Vector2(9739.568, 1012.1934)
 rotation = 0.35731262
 scale = Vector2(0.42118692, 0.48263186)
 texture = ExtResource("5_hbf0j")
 
-[node name="vpiso6" type="Sprite2D" parent="pisos" unique_id=345427718]
+[node name="vpiso6" type="Sprite2D" parent="pisos"]
 position = Vector2(-243, 1119)
 scale = Vector2(0.1547703, 0.14541723)
 texture = ExtResource("6_q88y8")
 
-[node name="vpiso15" type="Sprite2D" parent="pisos" unique_id=1781197978]
+[node name="vpiso15" type="Sprite2D" parent="pisos"]
 position = Vector2(2215, 1141)
 scale = Vector2(0.1547703, 0.14541723)
 texture = ExtResource("6_q88y8")
 
-[node name="vpiso16" type="Sprite2D" parent="pisos" unique_id=1865736593]
+[node name="vpiso16" type="Sprite2D" parent="pisos"]
 position = Vector2(2515, 1156)
 scale = Vector2(0.12113519, 0.1145303)
 texture = ExtResource("6_q88y8")
 flip_h = true
 
-[node name="vpiso22" type="Sprite2D" parent="pisos" unique_id=1840361026]
+[node name="vpiso22" type="Sprite2D" parent="pisos"]
 position = Vector2(6315, 1134)
 scale = Vector2(0.12113519, 0.1145303)
 texture = ExtResource("6_q88y8")
 flip_h = true
 
-[node name="vpiso25" type="Sprite2D" parent="pisos" unique_id=768052898]
+[node name="vpiso25" type="Sprite2D" parent="pisos"]
 position = Vector2(8134.4995, 1176)
 scale = Vector2(0.1859378, 0.197026)
 texture = ExtResource("6_q88y8")
 
-[node name="vpiso37" type="Sprite2D" parent="pisos" unique_id=426559078]
+[node name="vpiso37" type="Sprite2D" parent="pisos"]
 position = Vector2(13054.816, 1187.75)
 scale = Vector2(0.12180627, 0.12964685)
 texture = ExtResource("6_q88y8")
 
-[node name="vpiso33" type="Sprite2D" parent="pisos" unique_id=1286371998]
+[node name="vpiso33" type="Sprite2D" parent="pisos"]
 position = Vector2(11181, 1052)
 scale = Vector2(0.18789074, 0.23373607)
 texture = ExtResource("6_q88y8")
 
-[node name="vpiso17" type="Sprite2D" parent="pisos" unique_id=481127836]
+[node name="vpiso17" type="Sprite2D" parent="pisos"]
 position = Vector2(3339.1448, 1150.3086)
 scale = Vector2(0.13973428, 0.1492726)
 texture = ExtResource("6_q88y8")
 flip_h = true
 
-[node name="vpiso7" type="Sprite2D" parent="pisos" unique_id=28636989]
+[node name="vpiso7" type="Sprite2D" parent="pisos"]
 position = Vector2(626, 1141)
 rotation = -0.22623633
 scale = Vector2(0.90084374, 0.71308035)
 texture = ExtResource("7_0dq1f")
 
-[node name="vpiso14" type="Sprite2D" parent="pisos" unique_id=1603231787]
+[node name="vpiso14" type="Sprite2D" parent="pisos"]
 position = Vector2(692.00006, 1096)
 rotation = 0.46657214
 scale = Vector2(0.91087013, 0.8320758)
 texture = ExtResource("7_0dq1f")
 flip_h = true
 
-[node name="vpiso18" type="Sprite2D" parent="pisos" unique_id=1763854755]
+[node name="vpiso18" type="Sprite2D" parent="pisos"]
 position = Vector2(4605.9995, 1179.9999)
 rotation = -0.22030306
 scale = Vector2(0.7743017, 0.66252846)
 texture = ExtResource("7_0dq1f")
 flip_h = true
 
-[node name="vpiso23" type="Sprite2D" parent="pisos" unique_id=997226041]
+[node name="vpiso23" type="Sprite2D" parent="pisos"]
 position = Vector2(7910.0005, 1187.9998)
 rotation = -0.22030306
 scale = Vector2(0.7743017, 0.66252846)
 texture = ExtResource("7_0dq1f")
 flip_h = true
 
-[node name="vpiso29" type="Sprite2D" parent="pisos" unique_id=600395092]
+[node name="vpiso29" type="Sprite2D" parent="pisos"]
 position = Vector2(11089, 977.99994)
 rotation = -0.756881
 scale = Vector2(0.9207105, 0.8361457)
 texture = ExtResource("7_0dq1f")
 
-[node name="vpiso36" type="Sprite2D" parent="pisos" unique_id=1841095387]
+[node name="vpiso36" type="Sprite2D" parent="pisos"]
 position = Vector2(11761, 1107.9999)
 rotation = -0.089438975
 scale = Vector2(0.9207105, 0.8361457)
 texture = ExtResource("7_0dq1f")
 
-[node name="vpiso24" type="Sprite2D" parent="pisos" unique_id=42350280]
+[node name="vpiso24" type="Sprite2D" parent="pisos"]
 position = Vector2(8391, 1171)
 rotation = 0.5781266
 scale = Vector2(0.7743017, 0.66252846)
 texture = ExtResource("7_0dq1f")
 flip_h = true
 
-[node name="vpiso32" type="Sprite2D" parent="pisos" unique_id=1821641666]
+[node name="vpiso32" type="Sprite2D" parent="pisos"]
 position = Vector2(9734, 1052)
 rotation = 0.025270931
 scale = Vector2(0.7743017, 0.66252846)
 texture = ExtResource("7_0dq1f")
 flip_h = true
 
-[node name="vpiso9" type="Sprite2D" parent="pisos" unique_id=1947362923]
+[node name="vpiso9" type="Sprite2D" parent="pisos"]
 position = Vector2(3793, 988.99994)
 scale = Vector2(0.28762293, 0.2824891)
 texture = ExtResource("8_fgo3u")
 
-[node name="vpiso21" type="Sprite2D" parent="pisos" unique_id=1016049645]
+[node name="vpiso21" type="Sprite2D" parent="pisos"]
 position = Vector2(7054.9995, 1041)
 scale = Vector2(0.28762293, 0.2824891)
 texture = ExtResource("8_fgo3u")
 
-[node name="vpiso28" type="Sprite2D" parent="pisos" unique_id=594741417]
+[node name="vpiso28" type="Sprite2D" parent="pisos"]
 position = Vector2(11420, 922)
 scale = Vector2(0.28762293, 0.2824891)
 texture = ExtResource("8_fgo3u")
 
-[node name="vpiso34" type="Sprite2D" parent="pisos" unique_id=1191866354]
+[node name="vpiso34" type="Sprite2D" parent="pisos"]
 position = Vector2(12093, 924)
 scale = Vector2(0.28762293, 0.2824891)
 texture = ExtResource("8_fgo3u")
 
-[node name="piso4" type="CollisionShape2D" parent="pisos" unique_id=44934777]
+[node name="piso4" type="CollisionShape2D" parent="pisos"]
 position = Vector2(2158, 1162)
 rotation = -0.43735352
 shape = SubResource("RectangleShape2D_4rkwl")
 
-[node name="piso6" type="CollisionShape2D" parent="pisos" unique_id=425462837]
+[node name="piso6" type="CollisionShape2D" parent="pisos"]
 position = Vector2(2474, 1156)
 shape = SubResource("RectangleShape2D_4rkwl")
 
-[node name="piso26" type="CollisionShape2D" parent="pisos" unique_id=395461214]
+[node name="piso26" type="CollisionShape2D" parent="pisos"]
 position = Vector2(2542, 1179)
 rotation = -1.1825365
 shape = SubResource("RectangleShape2D_4rkwl")
 
-[node name="piso18" type="CollisionShape2D" parent="pisos" unique_id=2021405587]
+[node name="piso18" type="CollisionShape2D" parent="pisos"]
 position = Vector2(-314, 1141.0001)
 shape = SubResource("RectangleShape2D_4rkwl")
 
-[node name="piso19" type="CollisionShape2D" parent="pisos" unique_id=1695878682]
+[node name="piso19" type="CollisionShape2D" parent="pisos"]
 position = Vector2(3766, 1208)
 shape = SubResource("RectangleShape2D_4rkwl")
 
-[node name="piso29" type="CollisionShape2D" parent="pisos" unique_id=1545598093]
+[node name="piso29" type="CollisionShape2D" parent="pisos"]
 position = Vector2(3688, 1212)
 shape = SubResource("RectangleShape2D_4rkwl")
 
-[node name="piso30" type="CollisionShape2D" parent="pisos" unique_id=2090153427]
+[node name="piso30" type="CollisionShape2D" parent="pisos"]
 position = Vector2(3844, 1211)
 shape = SubResource("RectangleShape2D_4rkwl")
 
-[node name="piso31" type="CollisionShape2D" parent="pisos" unique_id=763512204]
+[node name="piso31" type="CollisionShape2D" parent="pisos"]
 position = Vector2(5692, 1136)
 shape = SubResource("RectangleShape2D_4rkwl")
 
-[node name="piso32" type="CollisionShape2D" parent="pisos" unique_id=949533859]
+[node name="piso32" type="CollisionShape2D" parent="pisos"]
 position = Vector2(9284, 1138.9999)
 rotation = -0.56991774
 shape = SubResource("RectangleShape2D_4rkwl")
 
-[node name="piso35" type="CollisionShape2D" parent="pisos" unique_id=1803896088]
+[node name="piso35" type="CollisionShape2D" parent="pisos"]
 position = Vector2(8235, 1144)
 shape = SubResource("RectangleShape2D_4rkwl")
 
-[node name="piso20" type="CollisionShape2D" parent="pisos" unique_id=719937490]
+[node name="piso20" type="CollisionShape2D" parent="pisos"]
 position = Vector2(3391, 1173)
 rotation = 0.5652013
 shape = SubResource("RectangleShape2D_4rkwl")
 
-[node name="piso5" type="CollisionShape2D" parent="pisos" unique_id=510966745]
+[node name="piso5" type="CollisionShape2D" parent="pisos"]
 position = Vector2(2729.5, 1302.875)
 shape = SubResource("RectangleShape2D_x7xvo")
 
-[node name="piso7" type="CollisionShape2D" parent="pisos" unique_id=1293823433]
+[node name="piso7" type="CollisionShape2D" parent="pisos"]
 position = Vector2(7047, 1296)
 shape = SubResource("RectangleShape2D_66miv")
 
-[node name="piso36" type="CollisionShape2D" parent="pisos" unique_id=1579637172]
+[node name="piso36" type="CollisionShape2D" parent="pisos"]
 position = Vector2(9759, 1082)
 shape = SubResource("RectangleShape2D_66miv")
 
-[node name="piso38" type="CollisionShape2D" parent="pisos" unique_id=1378388901]
+[node name="piso38" type="CollisionShape2D" parent="pisos"]
 position = Vector2(11102, 1007)
 rotation = -0.68077195
 shape = SubResource("RectangleShape2D_66miv")
 
-[node name="piso39" type="CollisionShape2D" parent="pisos" unique_id=626117887]
+[node name="piso39" type="CollisionShape2D" parent="pisos"]
 position = Vector2(11757.999, 1070.0001)
 rotation = -0.0023381114
 shape = SubResource("RectangleShape2D_66miv")
 
-[node name="piso33" type="CollisionShape2D" parent="pisos" unique_id=788216657]
+[node name="piso33" type="CollisionShape2D" parent="pisos"]
 position = Vector2(7951, 1217.9998)
 rotation = -0.275337
 shape = SubResource("RectangleShape2D_66miv")
 
-[node name="piso34" type="CollisionShape2D" parent="pisos" unique_id=1992602935]
+[node name="piso34" type="CollisionShape2D" parent="pisos"]
 position = Vector2(8383, 1213)
 rotation = 0.44248104
 shape = SubResource("RectangleShape2D_66miv")
 
-[node name="piso28" type="CollisionShape2D" parent="pisos" unique_id=397010655]
+[node name="piso28" type="CollisionShape2D" parent="pisos"]
 position = Vector2(4623, 1210.0001)
 rotation = -0.32050973
 shape = SubResource("RectangleShape2D_66miv")
 
-[node name="piso25" type="CollisionShape2D" parent="pisos" unique_id=2061525506]
+[node name="piso25" type="CollisionShape2D" parent="pisos"]
 position = Vector2(689, 1128)
 rotation = 0.3471229
 shape = SubResource("RectangleShape2D_66miv")
 
-[node name="piso27" type="CollisionShape2D" parent="pisos" unique_id=1949443110]
+[node name="piso27" type="CollisionShape2D" parent="pisos"]
 position = Vector2(575, 1171)
 rotation = -0.2983213
 shape = SubResource("RectangleShape2D_66miv")
 
-[node name="pared" type="CollisionShape2D" parent="pisos" unique_id=1829567710]
+[node name="pared" type="CollisionShape2D" parent="pisos"]
 position = Vector2(10909, -990)
 shape = SubResource("SegmentShape2D_mldr4")
 
-[node name="piso8" type="CollisionShape2D" parent="pisos" unique_id=1041930947]
+[node name="piso8" type="CollisionShape2D" parent="pisos"]
 position = Vector2(4995, 1268)
 shape = SubResource("RectangleShape2D_ujmvr")
 
-[node name="piso9" type="CollisionShape2D" parent="pisos" unique_id=27551429]
+[node name="piso9" type="CollisionShape2D" parent="pisos"]
 position = Vector2(5912, 1289)
 shape = SubResource("RectangleShape2D_3pn81")
 
-[node name="piso10" type="CollisionShape2D" parent="pisos" unique_id=1389235569]
+[node name="piso10" type="CollisionShape2D" parent="pisos"]
 position = Vector2(4001, 1303.75)
 shape = SubResource("RectangleShape2D_11m8h")
 
-[node name="piso11" type="CollisionShape2D" parent="pisos" unique_id=1317629570]
+[node name="piso11" type="CollisionShape2D" parent="pisos"]
 position = Vector2(9491, 1269)
 shape = SubResource("RectangleShape2D_2j8l4")
 
-[node name="piso12" type="CollisionShape2D" parent="pisos" unique_id=951121210]
+[node name="piso12" type="CollisionShape2D" parent="pisos"]
 position = Vector2(11804.5, 1251)
 shape = SubResource("RectangleShape2D_kwcb3")
 
-[node name="piso13" type="CollisionShape2D" parent="pisos" unique_id=1222959821]
+[node name="piso13" type="CollisionShape2D" parent="pisos"]
 position = Vector2(7755, 1348)
 shape = SubResource("RectangleShape2D_8fad5")
 
-[node name="piso14" type="CollisionShape2D" parent="pisos" unique_id=18507569]
+[node name="piso14" type="CollisionShape2D" parent="pisos"]
 position = Vector2(10171.5, 1219.5)
 shape = SubResource("RectangleShape2D_tahfs")
 
-[node name="piso15" type="CollisionShape2D" parent="pisos" unique_id=611816166]
+[node name="piso15" type="CollisionShape2D" parent="pisos"]
 position = Vector2(15323, 1311)
 shape = SubResource("RectangleShape2D_6pj3w")
 
-[node name="piso16" type="CollisionShape2D" parent="pisos" unique_id=2098981000]
+[node name="piso16" type="CollisionShape2D" parent="pisos"]
 position = Vector2(13324, 1327)
 shape = SubResource("RectangleShape2D_655ej")
 
-[node name="piso17" type="CollisionShape2D" parent="pisos" unique_id=861481099]
+[node name="piso17" type="CollisionShape2D" parent="pisos"]
 position = Vector2(14119, 1249.9063)
 shape = SubResource("RectangleShape2D_bqbif")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pisos" unique_id=125308247]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pisos"]
 position = Vector2(-206.0625, 1125.0001)
 shape = SubResource("RectangleShape2D_ln5rr")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="pisos" unique_id=667705085]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="pisos"]
 position = Vector2(2253, 1152)
 shape = SubResource("RectangleShape2D_ln5rr")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="pisos" unique_id=911060044]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="pisos"]
 position = Vector2(3319, 1157)
 shape = SubResource("RectangleShape2D_ln5rr")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="pisos" unique_id=337393304]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="pisos"]
 position = Vector2(5803, 1107)
 shape = SubResource("RectangleShape2D_ln5rr")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="pisos" unique_id=376495201]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="pisos"]
 position = Vector2(8160, 1172.0004)
 rotation = -0.33718404
 shape = SubResource("RectangleShape2D_ln5rr")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="pisos" unique_id=184585252]
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="pisos"]
 position = Vector2(11403.999, 779.9999)
 rotation = 0.010488348
 shape = SubResource("RectangleShape2D_ln5rr")
 
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="pisos" unique_id=462826829]
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="pisos"]
 position = Vector2(11798.195, 993.39874)
 rotation = 0.010488349
 shape = SubResource("RectangleShape2D_ln5rr")
 
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="pisos" unique_id=1509245949]
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="pisos"]
 position = Vector2(13062, 1204)
 rotation = 0.010488348
 shape = SubResource("RectangleShape2D_ln5rr")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="pisos" unique_id=1421957846]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="pisos"]
 position = Vector2(6314, 1155.0001)
 rotation = 0.19443981
 shape = SubResource("RectangleShape2D_ln5rr")
 
-[node name="techo" type="CollisionShape2D" parent="pisos" unique_id=2083137186]
+[node name="techo" type="CollisionShape2D" parent="pisos"]
 position = Vector2(7824, 148)
 shape = SubResource("RectangleShape2D_otg5m")
 
-[node name="piso21" type="CollisionShape2D" parent="pisos" unique_id=110567983]
+[node name="piso21" type="CollisionShape2D" parent="pisos"]
 position = Vector2(13880, 1153)
 shape = SubResource("RectangleShape2D_gwa17")
 
-[node name="piso22" type="CollisionShape2D" parent="pisos" unique_id=2062481884]
+[node name="piso22" type="CollisionShape2D" parent="pisos"]
 position = Vector2(13712, 1095)
 shape = SubResource("RectangleShape2D_gwa17")
 
-[node name="piso23" type="CollisionShape2D" parent="pisos" unique_id=234189896]
+[node name="piso23" type="CollisionShape2D" parent="pisos"]
 position = Vector2(14092, 881)
 shape = SubResource("RectangleShape2D_gwa17")
 
-[node name="piso24" type="CollisionShape2D" parent="pisos" unique_id=1418565327]
+[node name="piso24" type="CollisionShape2D" parent="pisos"]
 position = Vector2(13911, 739)
 shape = SubResource("RectangleShape2D_gwa17")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="pisos" unique_id=408091108]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="pisos"]
 position = Vector2(11410, 847)
 shape = SubResource("RectangleShape2D_h7usi")
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="pisos" unique_id=79876889]
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="pisos"]
 position = Vector2(12085, 780)
 rotation = 0.010488348
 shape = SubResource("RectangleShape2D_ln5rr")
 
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="pisos" unique_id=1245371464]
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="pisos"]
 position = Vector2(12091.001, 847.0001)
 shape = SubResource("RectangleShape2D_h7usi")
 
-[node name="controles" parent="." unique_id=1652164061 instance=ExtResource("5_7wbx0")]
+[node name="controles" parent="." instance=ExtResource("5_7wbx0")]
 
-[node name="Vacio" parent="." unique_id=278364109 instance=ExtResource("6_hbf0j")]
+[node name="Vacio" parent="." instance=ExtResource("6_hbf0j")]
 position = Vector2(6462, 826)
 scale = Vector2(1090, 2)
 
-[node name="Altar" parent="." unique_id=708447874 instance=ExtResource("7_82xeu")]
+[node name="Altar" parent="." instance=ExtResource("7_82xeu")]
 position = Vector2(13398, 561)
 scale = Vector2(0.75, 0.75)
 next_scene_path = "res://niveles/nivel3/nivel3_multiplicador_1.tscn"
 
-[node name="Contador_moneda" parent="." unique_id=1647204287 instance=ExtResource("8_0dq1f")]
+[node name="Contador_moneda" parent="." instance=ExtResource("8_0dq1f")]
 
-[node name="CanvasLayer" parent="." unique_id=330364085 instance=ExtResource("9_fgo3u")]
+[node name="CanvasLayer" parent="." instance=ExtResource("9_fgo3u")]
 
-[node name="Moneda" parent="." unique_id=2125446172 instance=ExtResource("10_kxfyd")]
+[node name="Moneda" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(-81, 288)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda2" parent="." unique_id=1151001008 instance=ExtResource("10_kxfyd")]
+[node name="Moneda2" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(-299, 377)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda3" parent="." unique_id=547306495 instance=ExtResource("10_kxfyd")]
+[node name="Moneda3" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(-6, 393)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda4" parent="." unique_id=854991587 instance=ExtResource("10_kxfyd")]
+[node name="Moneda4" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(941, 334)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda5" parent="." unique_id=1674463619 instance=ExtResource("10_kxfyd")]
+[node name="Moneda5" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(844, 337)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda6" parent="." unique_id=44922486 instance=ExtResource("10_kxfyd")]
+[node name="Moneda6" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(731, 336)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda7" parent="." unique_id=1232373277 instance=ExtResource("10_kxfyd")]
+[node name="Moneda7" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(1315, 514)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda8" parent="." unique_id=1819621437 instance=ExtResource("10_kxfyd")]
+[node name="Moneda8" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(1390, 514)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda9" parent="." unique_id=679508616 instance=ExtResource("10_kxfyd")]
+[node name="Moneda9" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(2057, 471)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda10" parent="." unique_id=694139592 instance=ExtResource("10_kxfyd")]
+[node name="Moneda10" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(2141, 434)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda11" parent="." unique_id=657018320 instance=ExtResource("10_kxfyd")]
+[node name="Moneda11" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(2327, 342)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda12" parent="." unique_id=934810168 instance=ExtResource("10_kxfyd")]
+[node name="Moneda12" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(2326, 540)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda13" parent="." unique_id=610958597 instance=ExtResource("10_kxfyd")]
+[node name="Moneda13" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(2324, 437)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda14" parent="." unique_id=364201997 instance=ExtResource("10_kxfyd")]
+[node name="Moneda14" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(2775, 541)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda15" parent="." unique_id=1656497657 instance=ExtResource("10_kxfyd")]
+[node name="Moneda15" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(2862, 539)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda16" parent="." unique_id=1407113901 instance=ExtResource("10_kxfyd")]
+[node name="Moneda16" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(2680, 540)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda17" parent="." unique_id=1605994042 instance=ExtResource("10_kxfyd")]
+[node name="Moneda17" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(3304, 417)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda18" parent="." unique_id=1092559429 instance=ExtResource("10_kxfyd")]
+[node name="Moneda18" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(3219, 327)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda19" parent="." unique_id=815177026 instance=ExtResource("10_kxfyd")]
+[node name="Moneda19" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(3304, 326)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda20" parent="." unique_id=628296545 instance=ExtResource("10_kxfyd")]
+[node name="Moneda20" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(3221, 417)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda21" parent="." unique_id=1261624638 instance=ExtResource("10_kxfyd")]
+[node name="Moneda21" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(4059, 328)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda22" parent="." unique_id=1571855229 instance=ExtResource("10_kxfyd")]
+[node name="Moneda22" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(4101, 405)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda23" parent="." unique_id=1432474683 instance=ExtResource("10_kxfyd")]
+[node name="Moneda23" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(4014, 404)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda25" parent="." unique_id=1914113737 instance=ExtResource("10_kxfyd")]
+[node name="Moneda25" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(4454, 498)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda24" parent="." unique_id=739275260 instance=ExtResource("10_kxfyd")]
+[node name="Moneda24" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(4550, 469)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda26" parent="." unique_id=2110253052 instance=ExtResource("10_kxfyd")]
+[node name="Moneda26" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(5021, 481)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda27" parent="." unique_id=918621010 instance=ExtResource("10_kxfyd")]
+[node name="Moneda27" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(5540, 521)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda30" parent="." unique_id=1341585237 instance=ExtResource("10_kxfyd")]
+[node name="Moneda30" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(5502, 448)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda31" parent="." unique_id=1523758832 instance=ExtResource("10_kxfyd")]
+[node name="Moneda31" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(6228, 242)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda32" parent="." unique_id=1232941683 instance=ExtResource("10_kxfyd")]
+[node name="Moneda32" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(6228, 423)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda33" parent="." unique_id=1623938749 instance=ExtResource("10_kxfyd")]
+[node name="Moneda33" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(6227, 338)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda34" parent="." unique_id=935800210 instance=ExtResource("10_kxfyd")]
+[node name="Moneda34" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(7103, 455)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda35" parent="." unique_id=713518131 instance=ExtResource("10_kxfyd")]
+[node name="Moneda35" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(6869, 446)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda38" parent="." unique_id=1616432344 instance=ExtResource("10_kxfyd")]
+[node name="Moneda38" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(7496, 456)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda39" parent="." unique_id=490888927 instance=ExtResource("10_kxfyd")]
+[node name="Moneda39" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(8985, 502)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda40" parent="." unique_id=1286423229 instance=ExtResource("10_kxfyd")]
+[node name="Moneda40" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(9064, 504)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda41" parent="." unique_id=1068403397 instance=ExtResource("10_kxfyd")]
+[node name="Moneda41" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(8145, 344)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda42" parent="." unique_id=1066925520 instance=ExtResource("10_kxfyd")]
+[node name="Moneda42" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(8830, 473)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda45" parent="." unique_id=347893669 instance=ExtResource("10_kxfyd")]
+[node name="Moneda45" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(7942, 424)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda46" parent="." unique_id=1978352726 instance=ExtResource("10_kxfyd")]
+[node name="Moneda46" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(8048, 427)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda47" parent="." unique_id=1977339289 instance=ExtResource("10_kxfyd")]
+[node name="Moneda47" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(9330, 425)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda48" parent="." unique_id=1842014390 instance=ExtResource("10_kxfyd")]
+[node name="Moneda48" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(8241, 429)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda49" parent="." unique_id=1402033675 instance=ExtResource("10_kxfyd")]
+[node name="Moneda49" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(9416, 424)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda53" parent="." unique_id=1992629303 instance=ExtResource("10_kxfyd")]
+[node name="Moneda53" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(12168, 138)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda54" parent="." unique_id=458105331 instance=ExtResource("10_kxfyd")]
+[node name="Moneda54" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(11351, 54)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda58" parent="." unique_id=2062719598 instance=ExtResource("10_kxfyd")]
+[node name="Moneda58" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(11481, 141)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda55" parent="." unique_id=1816546327 instance=ExtResource("10_kxfyd")]
+[node name="Moneda55" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(11219, 122)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda56" parent="." unique_id=1705820920 instance=ExtResource("10_kxfyd")]
+[node name="Moneda56" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(11914, 134)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda57" parent="." unique_id=454204034 instance=ExtResource("10_kxfyd")]
+[node name="Moneda57" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(12028, 61)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda59" parent="." unique_id=1770105476 instance=ExtResource("10_kxfyd")]
+[node name="Moneda59" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(13026, 455)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda43" parent="." unique_id=1814682322 instance=ExtResource("10_kxfyd")]
+[node name="Moneda43" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(8050, 342)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda44" parent="." unique_id=1860940476 instance=ExtResource("10_kxfyd")]
+[node name="Moneda44" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(8139, 426)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda36" parent="." unique_id=1129634949 instance=ExtResource("10_kxfyd")]
+[node name="Moneda36" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(7003, 453)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda37" parent="." unique_id=627961736 instance=ExtResource("10_kxfyd")]
+[node name="Moneda37" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(7420, 455)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda28" parent="." unique_id=1442192591 instance=ExtResource("10_kxfyd")]
+[node name="Moneda28" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(5470, 517)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda29" parent="." unique_id=166422657 instance=ExtResource("10_kxfyd")]
+[node name="Moneda29" parent="." instance=ExtResource("10_kxfyd")]
 position = Vector2(4931, 478)
 scale = Vector2(0.5, 0.5)

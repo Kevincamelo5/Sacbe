@@ -1,16 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://bw8ubk8v43lho"]
+[gd_scene load_steps=14 format=3 uid="uid://bw8ubk8v43lho"]
 
 [ext_resource type="Script" uid="uid://brcdsuq38nok0" path="res://interfaz/hud/controles.gd" id="1_4hprl"]
 [ext_resource type="Texture2D" uid="uid://dn0gn66iams0g" path="res://activos/arte/botones/Boton I.png" id="2_8xp63"]
+[ext_resource type="Texture2D" uid="uid://n8d5bfjitcjc" path="res://activos/arte/llave.png" id="2_mevix"]
 [ext_resource type="Texture2D" uid="uid://4g7fnv1m6hye" path="res://activos/arte/botones/Boton D.png" id="3_ewpmo"]
+[ext_resource type="Texture2D" uid="uid://d258tbaxx2846" path="res://componentes/escenarios/lanza-test.png" id="3_mevix"]
 [ext_resource type="Texture2D" uid="uid://dmc187xkddmac" path="res://activos/arte/botones/Boton A.png" id="4_8xp63"]
+[ext_resource type="Texture2D" uid="uid://dpyicnkndmbk6" path="res://activos/arte/(256) Escudo.png" id="4_fpkyn"]
 [ext_resource type="Texture2D" uid="uid://c255bkqdlx7qk" path="res://activos/arte/botones/Boton Abajo.png" id="5_av1pb"]
 [ext_resource type="Texture2D" uid="uid://ddapt1xkgg73b" path="res://activos/arte/botones/pause-button-2148106_1280.png" id="5_totj0"]
+[ext_resource type="Texture2D" uid="uid://7uu1nywbh17h" path="res://componentes/escenarios/hacha-test.png" id="5_wfijh"]
 [ext_resource type="Texture2D" uid="uid://d3lb10g5lqvrv" path="res://activos/arte/botones/arrow-31177_1920.png" id="6_2mbvt"]
+[ext_resource type="Texture2D" uid="uid://c3c02ysfxog4d" path="res://componentes/escenarios/flauta-test.png" id="6_fpkyn"]
 [ext_resource type="Texture2D" uid="uid://qeevfbm1li0g" path="res://activos/arte/botones/bang-148261_1920.png" id="7_7aew7"]
 
 [node name="controles" type="CanvasLayer"]
 script = ExtResource("1_4hprl")
+icono_cuchillo = ExtResource("2_mevix")
+icono_lanza = ExtResource("3_mevix")
+icono_escudo = ExtResource("4_fpkyn")
+icono_hacha = ExtResource("5_wfijh")
+icono_flauta = ExtResource("6_fpkyn")
 
 [node name="Izquierda" type="TouchScreenButton" parent="."]
 modulate = Color(1, 1, 1, 0.78431374)

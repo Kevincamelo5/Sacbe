@@ -1,6 +1,7 @@
 extends Node
 var moneda = 0
 var vida = 5
+var arma_equipada_actual: String = "cuchillo"
 
 var armasDesbloqueadas = {
 	"cuchillo": true,

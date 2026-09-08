@@ -412,6 +412,7 @@ func _seleccionar_objeto(objeto_elegido: String):
 	# 1. Desbloqueamos el arma en el GameManager
 	if GameManager:
 		GameManager.armasDesbloqueadas[objeto_elegido] = true
+		GameManager.arma_equipada_actual = objeto_elegido
 		print("Arma registrada en GameManager")
 	
 	# 2. Buscamos al jugador y equipamos el arma

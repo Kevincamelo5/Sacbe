@@ -14,6 +14,23 @@ func _ready() -> void:
 	if hayGravedad:
 		velocity.y = 0
 	call_deferred("emit_signal","vida_cambiada")
+	
+	if GameManager:
+		match GameManager.arma_equipada_actual:
+			"cuchillo":
+				objetoActual = OBJETOS.CUCHILLO
+			"lanza":
+				objetoActual = OBJETOS.LANZA
+			"escudo":
+				objetoActual = OBJETOS.ESCUDO
+			"hacha":
+				objetoActual = OBJETOS.HACHA
+			"flauta":
+				objetoActual = OBJETOS.FLAUTA
+			"macuahuitle":
+				objetoActual = OBJETOS.MACUAHUITLE
+
+	
 
 func volver_al_inicio() -> void:
 	global_position = spawn_position

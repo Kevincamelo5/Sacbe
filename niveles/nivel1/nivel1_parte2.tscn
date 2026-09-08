@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://daiqw1cnst2nc"]
+[gd_scene load_steps=19 format=3 uid="uid://daiqw1cnst2nc"]
 
 [ext_resource type="Script" uid="uid://gdyvg4opyw75" path="res://niveles/nivel1/nivel_1_parte_2.gd" id="1_dqs1d"]
 [ext_resource type="Texture2D" uid="uid://dm0q8p7fcffb" path="res://activos/arte/cueva.jpg" id="1_kjwuy"]
@@ -35,242 +35,243 @@ size = Vector2(1797, 136)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m23g8"]
 size = Vector2(19, 20)
 
-[node name="nivel1_parte2" type="Node2D" unique_id=632905074]
+[node name="nivel1_parte2" type="Node2D"]
 script = ExtResource("1_dqs1d")
 
-[node name="Objetos" type="Node2D" parent="." unique_id=290793190]
+[node name="Objetos" type="Node2D" parent="."]
 
-[node name="Jugador" parent="." unique_id=1203516821 instance=ExtResource("2_450ay")]
+[node name="Jugador" parent="." instance=ExtResource("2_450ay")]
 position = Vector2(-174, 188)
 
-[node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=929699108]
+[node name="Camera2D" type="Camera2D" parent="Jugador"]
 position = Vector2(180, -133)
 scale = Vector2(0.3080219, -2.4909453)
 
-[node name="fondo" type="Sprite2D" parent="Jugador/Camera2D" unique_id=741493400]
+[node name="fondo" type="Sprite2D" parent="Jugador/Camera2D"]
+z_index = -2
 position = Vector2(-0.8249512, 1.2043743)
 scale = Vector2(1.9460785, -0.24087241)
 texture = ExtResource("1_kjwuy")
 
-[node name="piso" type="StaticBody2D" parent="." unique_id=1471127512]
+[node name="piso" type="StaticBody2D" parent="."]
 position = Vector2(-76, -2.0000076)
 scale = Vector2(0.6997688, 1)
 collision_mask = 74
 
-[node name="piso2" type="CollisionShape2D" parent="piso" unique_id=1087188881]
+[node name="piso2" type="CollisionShape2D" parent="piso"]
 position = Vector2(843, 376.54407)
 scale = Vector2(0.9999999, 1.5293986)
 shape = SubResource("RectangleShape2D_450ay")
 
-[node name="piso 1" type="CollisionShape2D" parent="piso" unique_id=1527279627]
+[node name="piso 1" type="CollisionShape2D" parent="piso"]
 position = Vector2(-282.99997, 383.49994)
 scale = Vector2(0.99999994, 0.7500006)
 shape = SubResource("RectangleShape2D_2odhi")
 
-[node name="piso 3" type="Sprite2D" parent="piso" unique_id=799006849]
+[node name="piso 3" type="Sprite2D" parent="piso"]
 position = Vector2(845.63635, 385.99997)
 scale = Vector2(17.115028, 2.1406248)
 texture = SubResource("GradientTexture2D_1wdpe")
 
-[node name="muro" type="CollisionShape2D" parent="piso" unique_id=579371884]
+[node name="muro" type="CollisionShape2D" parent="piso"]
 shape = SubResource("SegmentShape2D_2odhi")
 
-[node name="piso3" type="CollisionShape2D" parent="piso" unique_id=1742891380]
+[node name="piso3" type="CollisionShape2D" parent="piso"]
 position = Vector2(2735, 387.24994)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_8vegg")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
-[node name="piso 4" type="Sprite2D" parent="piso" unique_id=1711705159]
+[node name="piso 4" type="Sprite2D" parent="piso"]
 position = Vector2(2732.8667, 387.99997)
 scale = Vector2(30.707687, 2.1406248)
 texture = SubResource("GradientTexture2D_1wdpe")
 
-[node name="piso4" type="CollisionShape2D" parent="piso" unique_id=943171440]
+[node name="piso4" type="CollisionShape2D" parent="piso"]
 position = Vector2(4973.5, 383.99994)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_cbddg")
 debug_color = Color(0, 0.6, 0.69803923, 0.9019608)
 
-[node name="piso 2" type="Sprite2D" parent="piso" unique_id=1075145513]
+[node name="piso 2" type="Sprite2D" parent="piso"]
 position = Vector2(-282.23608, 383.49997)
 scale = Vector2(9.132481, 2.1406248)
 texture = SubResource("GradientTexture2D_1wdpe")
 
-[node name="piso 5" type="Sprite2D" parent="piso" unique_id=1701524448]
+[node name="piso 5" type="Sprite2D" parent="piso"]
 position = Vector2(5051.6685, 385.99994)
 scale = Vector2(30.707687, 2.1406245)
 texture = SubResource("GradientTexture2D_1wdpe")
 
-[node name="controles" parent="." unique_id=1246349502 instance=ExtResource("3_450ay")]
+[node name="controles" parent="." instance=ExtResource("3_450ay")]
 
-[node name="Estalactitas" type="Node2D" parent="." unique_id=499655939]
+[node name="Estalactitas" type="Node2D" parent="."]
 position = Vector2(-15, 284)
 
-[node name="Area2D" parent="Estalactitas" unique_id=809678345 instance=ExtResource("5_37m0b")]
+[node name="Area2D" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(-308.00003, -574)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D2" parent="Estalactitas" unique_id=2097891731 instance=ExtResource("5_37m0b")]
+[node name="Area2D2" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(-223.00003, -574)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D3" parent="Estalactitas" unique_id=1345574881 instance=ExtResource("5_37m0b")]
+[node name="Area2D3" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(-104.000046, -574)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D4" parent="Estalactitas" unique_id=815781023 instance=ExtResource("5_37m0b")]
+[node name="Area2D4" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(147.99998, -571)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D5" parent="Estalactitas" unique_id=1932026291 instance=ExtResource("5_37m0b")]
+[node name="Area2D5" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(241, -571)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D6" parent="Estalactitas" unique_id=1891798091 instance=ExtResource("5_37m0b")]
+[node name="Area2D6" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(344.9999, -580)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D7" parent="Estalactitas" unique_id=168825145 instance=ExtResource("5_37m0b")]
+[node name="Area2D7" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(444.9999, -580)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D8" parent="Estalactitas" unique_id=1013202076 instance=ExtResource("5_37m0b")]
+[node name="Area2D8" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(831.99994, -571)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D9" parent="Estalactitas" unique_id=1730841986 instance=ExtResource("5_37m0b")]
+[node name="Area2D9" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(924.99994, -571)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D10" parent="Estalactitas" unique_id=1324403247 instance=ExtResource("5_37m0b")]
+[node name="Area2D10" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(1028.9999, -580)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D11" parent="Estalactitas" unique_id=1797518935 instance=ExtResource("5_37m0b")]
+[node name="Area2D11" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(1128.9999, -580)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D12" parent="Estalactitas" unique_id=144028260 instance=ExtResource("5_37m0b")]
+[node name="Area2D12" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(1233, -574)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D13" parent="Estalactitas" unique_id=440331508 instance=ExtResource("5_37m0b")]
+[node name="Area2D13" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(1326, -574)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D14" parent="Estalactitas" unique_id=1417037225 instance=ExtResource("5_37m0b")]
+[node name="Area2D14" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(1429.9999, -583)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D15" parent="Estalactitas" unique_id=1060000751 instance=ExtResource("5_37m0b")]
+[node name="Area2D15" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(1529.9999, -583)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D16" parent="Estalactitas" unique_id=1764859764 instance=ExtResource("5_37m0b")]
+[node name="Area2D16" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(2018, -570)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D17" parent="Estalactitas" unique_id=2055246730 instance=ExtResource("5_37m0b")]
+[node name="Area2D17" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(2111, -570)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D18" parent="Estalactitas" unique_id=1212956220 instance=ExtResource("5_37m0b")]
+[node name="Area2D18" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(2214.9998, -579)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D19" parent="Estalactitas" unique_id=201951504 instance=ExtResource("5_37m0b")]
+[node name="Area2D19" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(2314.9998, -579)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D20" parent="Estalactitas" unique_id=660072313 instance=ExtResource("5_37m0b")]
+[node name="Area2D20" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(2402, -574)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D21" parent="Estalactitas" unique_id=1796392856 instance=ExtResource("5_37m0b")]
+[node name="Area2D21" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(2495, -574)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D22" parent="Estalactitas" unique_id=1276481017 instance=ExtResource("5_37m0b")]
+[node name="Area2D22" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(2598.9998, -583)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D23" parent="Estalactitas" unique_id=1572737752 instance=ExtResource("5_37m0b")]
+[node name="Area2D23" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(2698.9998, -583)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D24" parent="Estalactitas" unique_id=95038853 instance=ExtResource("5_37m0b")]
+[node name="Area2D24" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(2802, -570)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D25" parent="Estalactitas" unique_id=701196132 instance=ExtResource("5_37m0b")]
+[node name="Area2D25" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(2895, -570)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D26" parent="Estalactitas" unique_id=420813160 instance=ExtResource("5_37m0b")]
+[node name="Area2D26" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(2998.9998, -579)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D27" parent="Estalactitas" unique_id=861577838 instance=ExtResource("5_37m0b")]
+[node name="Area2D27" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(3098.9998, -579)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D28" parent="Estalactitas" unique_id=835541239 instance=ExtResource("5_37m0b")]
+[node name="Area2D28" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(3186, -570)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D29" parent="Estalactitas" unique_id=2006027413 instance=ExtResource("5_37m0b")]
+[node name="Area2D29" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(3279, -570)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D30" parent="Estalactitas" unique_id=411677796 instance=ExtResource("5_37m0b")]
+[node name="Area2D30" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(3382.9998, -579)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D31" parent="Estalactitas" unique_id=1394742880 instance=ExtResource("5_37m0b")]
+[node name="Area2D31" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(3482.9998, -579)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D32" parent="Estalactitas" unique_id=2106396640 instance=ExtResource("5_37m0b")]
+[node name="Area2D32" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(3586, -570)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D33" parent="Estalactitas" unique_id=1473402312 instance=ExtResource("5_37m0b")]
+[node name="Area2D33" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(3679, -570)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D34" parent="Estalactitas" unique_id=932806920 instance=ExtResource("5_37m0b")]
+[node name="Area2D34" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(3782.9998, -579)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="Area2D35" parent="Estalactitas" unique_id=1594968867 instance=ExtResource("5_37m0b")]
+[node name="Area2D35" parent="Estalactitas" instance=ExtResource("5_37m0b")]
 position = Vector2(3882.9998, -579)
 scale = Vector2(0.35117388, 0.4494392)
 
-[node name="cuerda" type="Area2D" parent="." unique_id=1086389765]
+[node name="cuerda" type="Area2D" parent="."]
 position = Vector2(4210, 130)
 collision_mask = 7
 script = ExtResource("6_kjwuy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cuerda" unique_id=1358089240]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cuerda"]
 position = Vector2(44, -198)
 scale = Vector2(1, 53.119995)
 shape = SubResource("RectangleShape2D_m23g8")
 
-[node name="Sprite2D" type="Sprite2D" parent="cuerda" unique_id=1257296330]
+[node name="Sprite2D" type="Sprite2D" parent="cuerda"]
 position = Vector2(1.1610644, -362.06195)
 scale = Vector2(0.5805322, 774.062)
 
-[node name="CanvasLayer" parent="." unique_id=330364085 instance=ExtResource("8_8gt42")]
+[node name="CanvasLayer" parent="." instance=ExtResource("8_8gt42")]
 
-[node name="Vacio" parent="." unique_id=278364109 instance=ExtResource("7_kjwuy")]
+[node name="Vacio" parent="." instance=ExtResource("7_kjwuy")]
 position = Vector2(1921, 476)
 scale = Vector2(545.3086, 1.8183305)
 
-[node name="musicadefondo" type="AudioStreamPlayer" parent="." unique_id=578440838]
+[node name="musicadefondo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_dqs1d")
 parameters/looping = true
 
-[node name="MenuObjetos" parent="." unique_id=1687533581 instance=ExtResource("11_leelx")]
+[node name="MenuObjetos" parent="." instance=ExtResource("11_leelx")]
 
 [connection signal="body_entered" from="cuerda" to="cuerda" method="_on_body_entered"]

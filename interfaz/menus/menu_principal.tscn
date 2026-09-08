@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://tjghr8hq2r40"]
+[gd_scene load_steps=7 format=3 uid="uid://tjghr8hq2r40"]
 
 [ext_resource type="Script" uid="uid://bdo5m76qf8k7i" path="res://interfaz/menus/menu_principal.gd" id="1_4ylty"]
 [ext_resource type="Texture2D" uid="uid://ggdjp1byjvlx" path="res://activos/arte/menú_principal.png" id="2_pexi0"]
@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://yd8k2q5r7rhp" path="res://activos/audio/click menú (mp3cut.net).wav" id="5_tv2aa"]
 [ext_resource type="Texture2D" uid="uid://uy1ovh6uyxhv" path="res://activos/arte/(512) Quitzal masculino v2 frentre.png" id="5_xayrg"]
 
-[node name="menu_principal" type="Control" unique_id=1762141391]
+[node name="menu_principal" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4ylty")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=386309393]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=1737873510]
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,7 +34,7 @@ grow_vertical = 2
 texture = ExtResource("2_pexi0")
 expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=54281129]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 light_mask = 0
 layout_mode = 0
 offset_left = 595.0
@@ -42,41 +42,42 @@ offset_top = 133.0
 offset_right = 793.0
 offset_bottom = 304.0
 scale = Vector2(1.24, 2.0400004)
+theme_override_constants/separation = 10
 
-[node name="play" type="Button" parent="ColorRect/VBoxContainer" unique_id=270726870]
+[node name="play" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_cdm0c")
 text = "Iniciar partida"
 
-[node name="cargar_partida" type="Button" parent="ColorRect/VBoxContainer" unique_id=267858476]
+[node name="cargar_partida" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_cdm0c")
 text = "Cargar partida guardada"
 
-[node name="ayuda" type="Button" parent="ColorRect/VBoxContainer" unique_id=1817120364]
+[node name="ayuda" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_cdm0c")
 text = "Ayuda
 "
 
-[node name="creditos" type="Button" parent="ColorRect/VBoxContainer" unique_id=1978066514]
+[node name="creditos" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_cdm0c")
 text = "Créditos"
 
-[node name="salir" type="Button" parent="ColorRect/VBoxContainer" unique_id=811336421]
+[node name="salir" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_cdm0c")
 text = "Salir"
 
-[node name="Musica de fondo" type="AudioStreamPlayer" parent="." unique_id=1110486191]
+[node name="Musica de fondo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_xayrg")
 autoplay = true
 
-[node name="Click" type="AudioStreamPlayer" parent="." unique_id=1274285583]
+[node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_tv2aa")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=759931021]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.20987654
