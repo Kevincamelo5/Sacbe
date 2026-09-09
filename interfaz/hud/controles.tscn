@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bw8ubk8v43lho"]
+[gd_scene format=3 uid="uid://bw8ubk8v43lho"]
 
 [ext_resource type="Script" uid="uid://brcdsuq38nok0" path="res://interfaz/hud/controles.gd" id="1_4hprl"]
 [ext_resource type="Texture2D" uid="uid://dn0gn66iams0g" path="res://activos/arte/botones/Boton I.png" id="2_8xp63"]
-[ext_resource type="Texture2D" uid="uid://n8d5bfjitcjc" path="res://activos/arte/llave.png" id="2_mevix"]
+[ext_resource type="Texture2D" uid="uid://7wwrh5yilhm0" path="res://activos/arte/cuchillo.png" id="2_wfijh"]
 [ext_resource type="Texture2D" uid="uid://4g7fnv1m6hye" path="res://activos/arte/botones/Boton D.png" id="3_ewpmo"]
 [ext_resource type="Texture2D" uid="uid://d258tbaxx2846" path="res://componentes/escenarios/lanza-test.png" id="3_mevix"]
 [ext_resource type="Texture2D" uid="uid://dmc187xkddmac" path="res://activos/arte/botones/Boton A.png" id="4_8xp63"]
@@ -13,16 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://d3lb10g5lqvrv" path="res://activos/arte/botones/arrow-31177_1920.png" id="6_2mbvt"]
 [ext_resource type="Texture2D" uid="uid://c3c02ysfxog4d" path="res://componentes/escenarios/flauta-test.png" id="6_fpkyn"]
 [ext_resource type="Texture2D" uid="uid://qeevfbm1li0g" path="res://activos/arte/botones/bang-148261_1920.png" id="7_7aew7"]
+[ext_resource type="Texture2D" uid="uid://c4730iaatv2jl" path="res://activos/arte/card.png" id="14_wfijh"]
 
-[node name="controles" type="CanvasLayer"]
+[node name="controles" type="CanvasLayer" unique_id=1681580207]
 script = ExtResource("1_4hprl")
-icono_cuchillo = ExtResource("2_mevix")
+icono_cuchillo = ExtResource("2_wfijh")
 icono_lanza = ExtResource("3_mevix")
 icono_escudo = ExtResource("4_fpkyn")
 icono_hacha = ExtResource("5_wfijh")
 icono_flauta = ExtResource("6_fpkyn")
 
-[node name="Izquierda" type="TouchScreenButton" parent="."]
+[node name="Izquierda" type="TouchScreenButton" parent="." unique_id=1811504451]
 modulate = Color(1, 1, 1, 0.78431374)
 self_modulate = Color(1, 1, 1, 0.78431374)
 position = Vector2(20, 444)
@@ -30,7 +31,7 @@ scale = Vector2(0.218, 0.192)
 texture_normal = ExtResource("2_8xp63")
 action = "izquierda"
 
-[node name="Derecha" type="TouchScreenButton" parent="."]
+[node name="Derecha" type="TouchScreenButton" parent="." unique_id=688359783]
 modulate = Color(1, 1, 1, 0.78431374)
 self_modulate = Color(1, 1, 1, 0.78431374)
 position = Vector2(185, 444.00003)
@@ -38,7 +39,7 @@ scale = Vector2(0.218, 0.192)
 texture_normal = ExtResource("3_ewpmo")
 action = "derecha"
 
-[node name="Saltar" type="TouchScreenButton" parent="."]
+[node name="Saltar" type="TouchScreenButton" parent="." unique_id=467308388]
 modulate = Color(1, 1, 1, 0.78431374)
 self_modulate = Color(1, 1, 1, 0.78431374)
 position = Vector2(104, 374)
@@ -46,7 +47,7 @@ scale = Vector2(0.21799996, 0.19238472)
 texture_normal = ExtResource("4_8xp63")
 action = "saltar"
 
-[node name="Agacharse" type="TouchScreenButton" parent="."]
+[node name="Agacharse" type="TouchScreenButton" parent="." unique_id=840248526]
 modulate = Color(1, 1, 1, 0.78431374)
 self_modulate = Color(1, 1, 1, 0.78431374)
 position = Vector2(100, 514)
@@ -54,23 +55,32 @@ scale = Vector2(0.218, 0.192)
 texture_normal = ExtResource("5_av1pb")
 action = "saltar"
 
-[node name="Pausa" type="TouchScreenButton" parent="."]
+[node name="Pausa" type="TouchScreenButton" parent="." unique_id=1205231196]
 position = Vector2(1062, 27)
 scale = Vector2(0.113207445, 0.11320753)
 texture_normal = ExtResource("5_totj0")
 action = "pausa"
 
-[node name="CambiarObjeto" type="TouchScreenButton" parent="."]
+[node name="CambiarObjeto" type="TouchScreenButton" parent="." unique_id=983955024]
 position = Vector2(1007, 285)
 scale = Vector2(0.065, 0.059895832)
 texture_normal = ExtResource("6_2mbvt")
 action = "cambiar_objeto"
 
-[node name="UsarObjeto" type="TouchScreenButton" parent="."]
-position = Vector2(809, 412)
+[node name="UsarObjeto" type="TouchScreenButton" parent="." unique_id=1515896586]
+position = Vector2(977, 484.99997)
 scale = Vector2(0.16097902, 0.16957764)
 texture_normal = ExtResource("7_7aew7")
 action = "usar_objeto"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=236016679]
+z_index = -1
+offset_left = 964.0
+offset_top = 474.0
+offset_right = 1094.0
+offset_bottom = 604.0
+texture = ExtResource("14_wfijh")
+expand_mode = 1
 
 [connection signal="pressed" from="Izquierda" to="." method="_on_izquierda_pressed"]
 [connection signal="released" from="Izquierda" to="." method="_on_izquierda_released"]

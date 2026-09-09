@@ -1,44 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3k3qjmhw06ff"]
+[gd_scene format=3 uid="uid://c3k3qjmhw06ff"]
 
 [ext_resource type="Script" uid="uid://cptskx4rv4ti4" path="res://interfaz/hud/contador_monedas.gd" id="1_kgg8p"]
 [ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="1_uj757"]
 [ext_resource type="Texture2D" uid="uid://cka5f12ae8hfj" path="res://interfaz/hud/Recuadro.png" id="2_ak5sh"]
 
-[node name="Contador_moneda" type="CanvasLayer"]
+[node name="Contador_moneda" type="CanvasLayer" unique_id=531681925]
 script = ExtResource("1_kgg8p")
 
-[node name="Recuadro" type="Sprite2D" parent="."]
-position = Vector2(158, 69)
-scale = Vector2(0.46822032, 0.41477272)
+[node name="Recuadro" type="Sprite2D" parent="." unique_id=517126918]
+position = Vector2(111.125, 69)
+scale = Vector2(0.33580506, 0.41477272)
 texture = ExtResource("2_ak5sh")
 
-[node name="x" type="Label" parent="."]
+[node name="x" type="Label" parent="." unique_id=398102498]
 anchors_preset = -1
 anchor_left = 0.052083332
 anchor_top = 0.023148147
 anchor_right = 0.20833333
 anchor_bottom = 0.058641974
-offset_left = -3.0
+offset_left = -10.0
 offset_top = 28.0
-offset_right = -3.0
+offset_right = -10.0
 offset_bottom = 28.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_uj757")
 theme_override_font_sizes/font_size = 20
-text = "Monedas obtenidas:"
+text = "Monedas:"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="contador_monedas" type="Label" parent="."]
+[node name="contador_monedas" type="Label" parent="." unique_id=1504613231]
 anchors_preset = -1
-anchor_left = 0.20572917
+anchor_left = 0.20700002
 anchor_top = 0.021604938
 anchor_right = 0.2439236
-anchor_bottom = 0.057098765
-offset_left = -3.0
-offset_top = 27.0
-offset_right = -3.0
-offset_bottom = 30.0
+anchor_bottom = 0.062000003
+offset_left = -92.46402
+offset_top = 26.0
+offset_right = -91.0
+offset_bottom = 25.823997
 theme_override_colors/font_color = Color(0.19966345, 0, 0.26479155, 1)
 theme_override_fonts/font = ExtResource("1_uj757")
 theme_override_font_sizes/font_size = 25
@@ -47,13 +47,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1999355962]
 anchors_preset = -1
 anchor_left = 0.049000002
 anchor_top = 0.082
 anchor_right = 0.083000004
 anchor_bottom = 0.117000006
-offset_left = -0.44800186
+offset_left = -1.4480019
 offset_top = -23.136002
-offset_right = 0.38399506
+offset_right = -0.61600494
 offset_bottom = 0.18399811

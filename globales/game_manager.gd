@@ -2,6 +2,7 @@ extends Node
 var moneda = 0
 var vida = 5
 var arma_equipada_actual: String = "cuchillo"
+signal arma_cambiada
 
 var armasDesbloqueadas = {
 	"cuchillo": true,
@@ -18,7 +19,7 @@ signal vida_actualizada(vida_actual:int)
 func incrementar_monedas():
 	moneda += 1
 	puntuacion_actualizada.emit(moneda)
-	print("Monedas recogidas: ", moneda)
+	print("Monedas: ", moneda)
 
 func disminuir_vida(caida_al_vacio: bool = false):
 	vida -= 1
@@ -36,7 +37,7 @@ func disminuir_vida(caida_al_vacio: bool = false):
 func aumentar_vida():
 	vida += 1
 	vida_actualizada.emit(vida)
-	print("Vida aumentada: ", vida)
+	print("Vida: ", vida)
 
 func comprar_vida(costo: int = 30) -> bool:
 	if moneda >= costo: # Si monedas es 30 o más (mayor a 29)

@@ -88,6 +88,9 @@ func _ready():
 		
 	# --- NUEVO: Actualizar el icono de ataque ---
 	actualizar_icono_arma()
+	# Conectamos la señal para que actualice la imagen cuando el GameManager avise:
+	if GameManager:
+		GameManager.arma_cambiada.connect(actualizar_icono_arma)
 
 
 func actualizar_icono_arma() -> void:
@@ -105,3 +108,4 @@ func actualizar_icono_arma() -> void:
 				boton_usar.texture_normal = icono_flauta
 			"macuahuitle":
 				boton_usar.texture_normal = icono_macuahuitle
+		boton_usar.scale = Vector2(0.4, 0.4)

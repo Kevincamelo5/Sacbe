@@ -413,17 +413,15 @@ func _on_eliminar_caracter() -> void:
 
 
 func _on_comprobar_respuesta(respuesta: String) -> void:
+	if respuesta.is_empty():
+		return 
 
-	if respuesta == _respuesta_correcta:
-
+	# 2. Convertimos ambos a número entero (int) para compararlos matemáticamente
+	if int(respuesta) == int(_respuesta_correcta):
 		print("Respuesta correcta")
-
 		_es_respuesta_correcta()
-
 	else:
-
 		print("Respuesta incorrecta")
-
 		_es_respuesta_incorrecta()
 
 

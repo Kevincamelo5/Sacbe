@@ -284,7 +284,9 @@ func _on_eliminar_caracter() -> void:
 	_campo_respuesta.text = _campo_respuesta.text.left(-1)
 
 func _on_comprobar_respuesta(respuesta: String) -> void:
-	if respuesta == _respuesta_correcta:
+	if respuesta.is_empty():
+		return 
+	if int(respuesta) == int(_respuesta_correcta):
 		print("Respuesta correcta")
 		_es_respuesta_correcta()
 	else:
@@ -411,8 +413,14 @@ func _seleccionar_objeto(objeto_elegido: String):
 	
 	# 1. Desbloqueamos el arma en el GameManager
 	if GameManager:
+		# Nota: También puedes usar tu función GameManager.desbloquear_arma(objeto_elegido)
 		GameManager.armasDesbloqueadas[objeto_elegido] = true
 		GameManager.arma_equipada_actual = objeto_elegido
+		
+		# ¡IMPORTANTE! Emitimos la señal para que el control en pantalla actualice la imagen
+		if GameManager.has_signal("arma_cambiada"):
+			GameManager.arma_cambiada.emit()
+			
 		print("Arma registrada en GameManager")
 	
 	# 2. Buscamos al jugador y equipamos el arma

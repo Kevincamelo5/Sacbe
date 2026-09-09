@@ -270,7 +270,10 @@ func _on_eliminar_caracter() -> void:
 	_campo_respuesta.text = _campo_respuesta.text.left(-1)
 
 func _on_comprobar_respuesta(respuesta: String) -> void:
-	if respuesta == _respuesta_correcta:
+	if respuesta.is_empty():
+		return 
+
+	if int(respuesta) == int(_respuesta_correcta):
 		print("Respuesta correcta")
 		_es_respuesta_correcta()
 	else:

@@ -226,6 +226,11 @@ position = Vector2(13712, 1095.5)
 scale = Vector2(0.14091463, 0.117241494)
 texture = ExtResource("5_37vol")
 
+[node name="vpiso29" type="Sprite2D" parent="pisos" unique_id=458929650]
+position = Vector2(8514, 996.00006)
+scale = Vector2(0.14091463, 0.117241494)
+texture = ExtResource("5_37vol")
+
 [node name="vpiso26" type="Sprite2D" parent="pisos" unique_id=1500380901]
 position = Vector2(13576, 1027)
 scale = Vector2(0.14338617, 0.11034491)
@@ -339,7 +344,7 @@ position = Vector2(13880, 1153)
 shape = SubResource("RectangleShape2D_lv4h8")
 
 [node name="piso22" type="CollisionShape2D" parent="pisos" unique_id=1638163415]
-position = Vector2(13712, 1095)
+position = Vector2(13712, 1096)
 shape = SubResource("RectangleShape2D_lv4h8")
 
 [node name="piso23" type="CollisionShape2D" parent="pisos" unique_id=2059349767]
@@ -348,6 +353,10 @@ shape = SubResource("RectangleShape2D_lv4h8")
 
 [node name="piso24" type="CollisionShape2D" parent="pisos" unique_id=969357719]
 position = Vector2(13453, 954)
+shape = SubResource("RectangleShape2D_lv4h8")
+
+[node name="piso25" type="CollisionShape2D" parent="pisos" unique_id=662880458]
+position = Vector2(8518, 996)
 shape = SubResource("RectangleShape2D_lv4h8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="pisos" unique_id=2132308554]

@@ -17,10 +17,12 @@ func mostrar():
 	else:
 		print("Error: El SceneTree no está disponible todavía.")
 
-func equipar_arma_al_jugador(id_arma: int):
+func equipar_arma_al_jugador(id_arma: int, nombre_arma: String):
 	var jugador = get_tree().get_first_node_in_group("jugador")
 	if jugador:
 		jugador.objetoActual = id_arma
+	GameManager.arma_equipada_actual = nombre_arma
+	GameManager.arma_cambiada.emit()
 
 func mostrar_error_dinero():
 	$noteAlcanza.show()
@@ -37,13 +39,13 @@ func cerrar_menu():
 func _on_hacha_pressed() -> void:
 	# 1. Verificamos si YA la tiene desbloqueada
 	if GameManager.armasDesbloqueadas.get("hacha", false) == true:
-		equipar_arma_al_jugador(3)
+		equipar_arma_al_jugador(3, "hacha")
 		cerrar_menu()
 	else:
 		# 2. Si no la tiene, intentamos comprarla
 		if GameManager.gastar_monedas(35):
 			GameManager.desbloquear_arma("hacha")
-			equipar_arma_al_jugador(3)
+			equipar_arma_al_jugador(3, "hacha")
 			cerrar_menu()
 		else:
 			# 3. Si no le alcanza, pausamos la función para que lea el error
@@ -54,13 +56,13 @@ func _on_hacha_pressed() -> void:
 func _on_escudo_pressed() -> void:
 	# 1. Verificamos si YA lo tiene desbloqueado
 	if GameManager.armasDesbloqueadas.get("escudo", false) == true:
-		equipar_arma_al_jugador(2)
+		equipar_arma_al_jugador(2, "escudo")
 		cerrar_menu()
 	else:
 		# 2. Si no lo tiene, intentamos comprarlo
 		if GameManager.gastar_monedas(25):
 			GameManager.desbloquear_arma("escudo")
-			equipar_arma_al_jugador(2)
+			equipar_arma_al_jugador(2, "escudo")
 			cerrar_menu()
 		else:
 			# 3. Mostramos error sin cerrar el menú todavía
