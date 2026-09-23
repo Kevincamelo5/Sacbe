@@ -11,6 +11,13 @@ var direccion = -1 # -1 es izquierda, 1 es derecha
 
 @onready var timer = $Timer
 @onready var sprite = $AnimatedSprite2D
+@onready var iconos_corazones = [
+	$Corazones/Sprite2D,
+	$Corazones/Sprite2D2,
+	$Corazones/Sprite2D3,
+	$Corazones/Sprite2D4,
+	$Corazones/Sprite2D5
+]
 
 func _ready() -> void:
 	# Conectamos el Timer por código para el tiempo de recarga
@@ -75,19 +82,32 @@ func chocar_contra_muro() -> void:
 	timer.start()
 
 # Esta función la llamarás desde el arma de tu jugador o si saltas sobre él
-func recibir_dano() -> void:
-	vida -= 1
-	print("¡El jabalí recibió daño! Vida restante: ", vida)
+func recibir_dano(cantidad: int) -> void:
+	# Restamos el daño
+	vida -= cantidad
 	
-	# Efecto visual rápido de recibir daño (parpadea en rojo)
-	sprite.modulate = Color(1, 0, 0) # Rojo
+	# Prevenimos que la vida baje de 0 para evitar errores visuales
+	if vida < 0:
+		vida = 0
+		
+	actualizar_interfaz_corazones()
+	
+	sprite.modulate = Color(1, 0, 0)
 	await get_tree().create_timer(0.2).timeout
-	sprite.modulate = Color(1, 1, 1) # Normal
+	sprite.modulate = Color(1, 1, 1)
 	
 	if vida <= 0:
 		morir()
 		
-		
+func actualizar_interfaz_corazones() -> void:
+	# Recorre los 5 corazones. Si el índice es menor a la vida, se muestra. Si es mayor o igual, se oculta.
+	for i in range(iconos_corazones.size()):
+		if i < vida:
+			iconos_corazones[i].show()
+		else:
+			iconos_corazones[i].hide()
+
+
 
 func actualizar_direccion_sprite() -> void:
 	# Como tu dibujo original mira a la DERECHA:

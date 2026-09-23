@@ -17,8 +17,8 @@ radius = 21.0
 height = 106.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71ocg"]
-radius = 31.988745
-height = 110.0
+radius = 57.415695
+height = 126.31453
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_503dg"]
 atlas = ExtResource("2_s2aq0")
@@ -258,8 +258,8 @@ animations = [{
 }]
 
 [node name="Jugador" type="CharacterBody2D"]
-collision_layer = 6
-collision_mask = 121
+collision_layer = 7
+collision_mask = 127
 script = ExtResource("1_bgsqy")
 
 [node name="hurtbox2" type="CollisionShape2D" parent="."]
@@ -270,8 +270,8 @@ shape = SubResource("CapsuleShape2D_bgsqy")
 [node name="AreaAtaque" type="Area2D" parent="."]
 position = Vector2(67, 5)
 scale = Vector2(1.2191788, 1.2399994)
-collision_layer = 4
-collision_mask = 8
+collision_layer = 7
+collision_mask = 15
 
 [node name="hitbox" type="CollisionShape2D" parent="AreaAtaque"]
 position = Vector2(-28.707848, -12.09678)

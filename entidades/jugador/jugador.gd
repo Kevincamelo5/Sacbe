@@ -154,7 +154,7 @@ var _temporizadorObjeto := 0.0
 @export var enfriamientoCuchillo = 0.6
 @export var dañoLanza:= 2.0
 @export var enfriamientoLanza:= 0.35
-@export var dañoHacha = 9
+@export var dañoHacha = 1
 @export var enfriamientoHacha = 1.5
 @export var dañoMacuahuitle = 7
 @export var enfriamientoMacuahuitle = 0.85
@@ -232,16 +232,23 @@ func escudar():
 
 # HACHA
 func atacar_hacha():
-	print_debug("Atacando con Hacha")
+	print("--- INTENTO DE ATAQUE CON HACHA ---")
 	
-	# Lógica de daño (puedes reusar el areaCuchillo o crear un AreaHacha específica)
+	# 1. Reproducimos la animación
+	animatedSprite.play("Ataque Hacha")
+	
+	# 2. Le damos tiempo a Godot de mover el área invisible a los 77 píxeles
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	
+	# 3. Revisamos qué tocamos
 	var areas = areaCuchillo.get_overlapping_areas()
+	print("Número de cosas que tocó mi arma: ", areas.size())
+	
 	if areas.size() > 0:
 		for area in areas:
 			if area is Hurtbox:
 				area.lastimar(dañoHacha)
-				
-	animatedSprite.play("Ataque Hacha")
 
 # FLAUTA
 func tocar_flauta():

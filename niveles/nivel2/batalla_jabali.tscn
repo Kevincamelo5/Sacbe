@@ -1,28 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqyiyxfwautbj"]
+[gd_scene load_steps=10 format=3 uid="uid://cqyiyxfwautbj"]
 
-[ext_resource type="Texture2D" uid="uid://w7hdm6baj0j" path="res://componentes/escenarios/Fondo-jabali.jpg" id="1_ewmrq"]
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="2_44hai"]
+[ext_resource type="Texture2D" uid="uid://ctb57agxy30bi" path="res://componentes/escenarios/Fondo-JefeJabali.jpg" id="2_axefc"]
 [ext_resource type="PackedScene" uid="uid://cf1cdu71ifkog" path="res://entidades/enemigos/Jabali/jabali_jefe.tscn" id="3_lkqam"]
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="4_4gcfx"]
+[ext_resource type="Texture2D" uid="uid://bjauf0av7odqs" path="res://componentes/escenarios/Columna batalla jabali.png" id="4_axefc"]
+[ext_resource type="Texture2D" uid="uid://dyv4g4pnfofng" path="res://componentes/escenarios/Pasto-Jabali.png" id="4_ualh1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44hai"]
 size = Vector2(2250.5, 76)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lkqam"]
-size = Vector2(73, 455)
+size = Vector2(102, 455)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0t5y7"]
 size = Vector2(64.125, 370.5)
 
 [node name="Arena_Batalla" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1187, 227)
-scale = Vector2(1.4855556, 1.07125)
-texture = ExtResource("1_ewmrq")
+[node name="Jugador" parent="." instance=ExtResource("2_44hai")]
+position = Vector2(523, 378)
+
+[node name="Camera2D" type="Camera2D" parent="Jugador"]
+position = Vector2(72, -58)
+
+[node name="Sprite2D" type="Sprite2D" parent="Jugador/Camera2D"]
+z_index = -2
+position = Vector2(-11.000015, -49)
+scale = Vector2(1.2382813, 1.272328)
+texture = ExtResource("2_axefc")
 
 [node name="JabaliJefe" parent="." instance=ExtResource("3_lkqam")]
-position = Vector2(1797, 421)
+position = Vector2(1467, 134)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(25, -14)
@@ -31,22 +40,37 @@ position = Vector2(25, -14)
 position = Vector2(1163.75, 623)
 shape = SubResource("RectangleShape2D_44hai")
 
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShapePiso"]
+position = Vector2(-766.75, 63.000015)
+scale = Vector2(1.5956136, 0.60049015)
+texture = ExtResource("4_ualh1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D/CollisionShapePiso"]
+position = Vector2(181.25, 63)
+scale = Vector2(1.5212929, 0.60049015)
+texture = ExtResource("4_ualh1")
+
+[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D/CollisionShapePiso"]
+position = Vector2(1058.25, 63)
+scale = Vector2(1.5212929, 0.60049015)
+texture = ExtResource("4_ualh1")
+
 [node name="CollisionShape2LI" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2.5, 433.5)
+position = Vector2(17, 433.5)
 shape = SubResource("RectangleShape2D_lkqam")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2LI"]
+position = Vector2(-11.25, -41.25)
+scale = Vector2(1.0367647, 1.2022059)
+texture = ExtResource("4_axefc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(2037, 417)
 shape = SubResource("RectangleShape2D_0t5y7")
 
-[node name="Jugador" parent="." instance=ExtResource("2_44hai")]
-position = Vector2(57, 255)
-
-[node name="Camera2D" type="Camera2D" parent="Jugador"]
-position = Vector2(526, 76)
-zoom = Vector2(0.8, 0.8)
-limit_left = -100
-limit_right = 2000
-limit_bottom = 610
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(16.500038, -34)
+scale = Vector2(1.1094769, 1.2205883)
+texture = ExtResource("4_axefc")
 
 [node name="controles" parent="." instance=ExtResource("4_4gcfx")]

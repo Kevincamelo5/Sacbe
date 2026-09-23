@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cf1cdu71ifkog"]
+[gd_scene load_steps=15 format=3 uid="uid://cf1cdu71ifkog"]
 
-[ext_resource type="Script" uid="uid://c2mglvswo4qpt" path="res://global/elementos/personaje/Jabali/jabali_jefe.gd" id="1_g6vvp"]
-[ext_resource type="Texture2D" uid="uid://cjetwsh7kik8r" path="res://global/elementos/personaje/Jabali/Jabali sprites.png" id="2_e3xkd"]
-[ext_resource type="Shader" uid="uid://bpyv0jyl861lv" path="res://global/elementos/personaje/Jabali/jabali_jefe.gdshader" id="2_w3t30"]
+[ext_resource type="Script" uid="uid://c2mglvswo4qpt" path="res://entidades/enemigos/Jabali/jabali_jefe.gd" id="1_g6vvp"]
+[ext_resource type="Texture2D" uid="uid://cjetwsh7kik8r" path="res://entidades/enemigos/Jabali/Jabali sprites.png" id="2_e3xkd"]
+[ext_resource type="Shader" uid="uid://bpyv0jyl861lv" path="res://entidades/enemigos/Jabali/jabali_jefe.gdshader" id="2_w3t30"]
+[ext_resource type="Script" uid="uid://df3b8wsk01led" path="res://entidades/enemigos/Jabali/area_2d.gd" id="4_r2ifx"]
+[ext_resource type="Texture2D" uid="uid://pxgvm2kklrfj" path="res://componentes/escenarios/Corazon.png" id="5_x15y5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ynue"]
 shader = ExtResource("2_w3t30")
@@ -73,12 +75,44 @@ position = Vector2(2, -12)
 shape = SubResource("CircleShape2D_5tkwg")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("4_r2ifx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(9, 23)
 shape = SubResource("CircleShape2D_aten3")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 45)
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Corazones" type="Node2D" parent="."]
+position = Vector2(102, -80)
+
+[node name="Sprite2D" type="Sprite2D" parent="Corazones"]
+position = Vector2(-227.5, -50.25)
+scale = Vector2(0.116, 0.101)
+texture = ExtResource("5_x15y5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Corazones"]
+position = Vector2(-160.5, -50.25)
+scale = Vector2(0.116, 0.101)
+texture = ExtResource("5_x15y5")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Corazones"]
+position = Vector2(-84, -50.25)
+scale = Vector2(0.116, 0.101)
+texture = ExtResource("5_x15y5")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Corazones"]
+position = Vector2(-12, -50.25)
+scale = Vector2(0.116, 0.101)
+texture = ExtResource("5_x15y5")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Corazones"]
+position = Vector2(59, -50.25)
+scale = Vector2(0.116, 0.101)
+texture = ExtResource("5_x15y5")

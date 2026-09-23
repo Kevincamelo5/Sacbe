@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://crq1d3r1wakbo" path="res://componentes/moneda.tscn" id="21_4mwl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cablh"]
-size = Vector2(5063.75, 86.5)
+size = Vector2(2509.75, 86.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mxly"]
 size = Vector2(596.5, 186)
@@ -119,7 +119,7 @@ process_mode = 2
 [node name="Piso" type="Node2D" parent="."]
 
 [node name="Casal2" type="Sprite2D" parent="Piso"]
-position = Vector2(2729, 434.3906)
+position = Vector2(2727, 479.00003)
 scale = Vector2(1.5602579, 1.412282)
 texture = ExtResource("4_u4ah2")
 
@@ -135,12 +135,21 @@ scale = Vector2(3.294427, 0.8244275)
 texture = ExtResource("5_lfnq5")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
-position = Vector2(5152.125, 699)
+position = Vector2(3784, 704)
 shape = SubResource("RectangleShape2D_cablh")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D-PisoVilla/CollisionShape2D5"]
-position = Vector2(-1561.125, 60)
-scale = Vector2(2.436909, 0.8244275)
+position = Vector2(-7.375145, 62.499992)
+scale = Vector2(2.6548371, 0.8816795)
+texture = ExtResource("5_lfnq5")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
+position = Vector2(6309, 709)
+shape = SubResource("RectangleShape2D_cablh")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D-PisoVilla/CollisionShape2D6"]
+position = Vector2(-23.99987, 93)
+scale = Vector2(2.654968, 1.1145037)
 texture = ExtResource("5_lfnq5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
