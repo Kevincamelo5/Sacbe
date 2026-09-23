@@ -20,8 +20,12 @@ const OPERADOR := "x"
 #conexion de las funciones con sus respectivas terminales.
 @onready var _contenedor_botones: GridContainer = $fondos2/derecha/CenterContainer/GridContainer
 @onready var _campo_respuesta: LineEdit = $fondos2/izquierda/CenterContainer/VBoxContainer/LineEdit
+@onready var contenedor_objetos = $ContenedorObjetos
 @onready var _campo_operandos: Label = $fondos2/izquierda/CenterContainer/VBoxContainer/Label
 @onready var _boton_enviar: Button = $fondos2/izquierda/MarginContainer/CenterContainer/BotonEnviar
+@onready var boton_flauta = $ContenedorObjetos/BotonFlauta
+@onready var boton_hacha = $ContenedorObjetos/BotonHacha
+@onready var boton_lanza = $ContenedorObjetos/BotonLanza
 
 @onready var _texture_fondo_mayor: TextureRect = $TextureRect
 
@@ -34,6 +38,11 @@ var _respuesta_correcta := "0"
 var correctos:= 0
 
 func _ready() -> void:
+	if contenedor_objetos:
+		contenedor_objetos.hide()
+		boton_flauta.pressed.connect(_seleccionar_objeto.bind("flauta"))
+		boton_hacha.pressed.connect(_seleccionar_objeto.bind("hacha"))
+		boton_lanza.pressed.connect(_seleccionar_objeto.bind("lanza"))
 	
 	if not _texture_fondo_mayor:
 		_texture_fondo_mayor = TextureRect.new()
@@ -337,7 +346,7 @@ func _aumentar_aciertos() -> int:
 	correctos += 1
 	print(correctos)
 	if correctos >= 5:
-		get_tree().change_scene_to_file("res://niveles/nivel3/nivel3_parte2_cutscene.tscn")
+		_mostrar_recompensas()
 	return correctos
 
 func _es_respuesta_incorrecta() -> void:
@@ -388,3 +397,41 @@ func _es_respuesta_incorrecta() -> void:
 	# Limpiar y generar nuevo problema
 	canvas.queue_free()
 	_generar_problema()
+	
+func _mostrar_recompensas():
+	# Ocultamos toda la interfaz de la calculadora
+	$fondos2.hide()
+	_texture_fondo_mayor.modulate = Color(0.5, 0.5, 0.5) 
+	
+	# Mostramos las armas
+	if contenedor_objetos:
+		contenedor_objetos.show()
+
+func _seleccionar_objeto(objeto_elegido: String):
+	print("Quitzal ha obtenido: ", objeto_elegido)
+	
+	# 1. Desbloqueamos el arma en el GameManager
+	if GameManager:
+		# Nota: También puedes usar tu función GameManager.desbloquear_arma(objeto_elegido)
+		GameManager.armasDesbloqueadas[objeto_elegido] = true
+		GameManager.arma_equipada_actual = objeto_elegido
+		
+		# ¡IMPORTANTE! Emitimos la señal para que el control en pantalla actualice la imagen
+		if GameManager.has_signal("arma_cambiada"):
+			GameManager.arma_cambiada.emit()
+			
+		print("Arma registrada en GameManager")
+	
+	# 2. Buscamos al jugador y equipamos el arma
+	var jugador = get_tree().get_first_node_in_group("jugador")
+	if jugador:
+		match objeto_elegido:
+			"flauta":
+				jugador.objetoActual = jugador.OBJETOS.FLAUTA
+			"hacha":
+				jugador.objetoActual = jugador.OBJETOS.HACHA
+			"lanza":
+				jugador.objetoActual = jugador.OBJETOS.LANZA
+	
+	# 3. Finalmente, pasamos a la escena del jefe
+	get_tree().change_scene_to_file("res://niveles/nivel3/nivel3_parte2_cutscene.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://br8f7lxf36utj"]
+[gd_scene format=3 uid="uid://br8f7lxf36utj"]
 
 [ext_resource type="Script" uid="uid://dr3cokpymbwyw" path="res://objetos/Lanza/lanza.gd" id="1_ymjk1"]
 
@@ -9,20 +9,20 @@ height = 10
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klyi8"]
 size = Vector2(62, 12)
 
-[node name="Lanza" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
+[node name="Lanza" type="CharacterBody2D" unique_id=1810770235]
+collision_layer = 3
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_ymjk1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1565647456]
 texture = SubResource("NoiseTexture2D_cmoyt")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=286845214]
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." unique_id=919030319]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1457740861]
 shape = SubResource("RectangleShape2D_klyi8")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://caokkywjfo4gv"]
+[gd_scene format=3 uid="uid://caokkywjfo4gv"]
 
 [ext_resource type="Script" uid="uid://b6oh18grdhan5" path="res://entidades/jugador/jugador.gd" id="1_bgsqy"]
 [ext_resource type="Texture2D" uid="uid://6fh0hh0fhiex" path="res://activos/arte/Quitzal m peleando.png" id="2_5xbqb"]
@@ -238,7 +238,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nmh0w")
 }],
-"loop": true,
+"loop": false,
 "name": &"recibirDaño",
 "speed": 5.0
 }, {
@@ -257,29 +257,30 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Jugador" type="CharacterBody2D"]
+[node name="Jugador" type="CharacterBody2D" unique_id=1737085643]
 collision_layer = 7
 collision_mask = 127
 script = ExtResource("1_bgsqy")
 
-[node name="hurtbox2" type="CollisionShape2D" parent="."]
+[node name="hurtbox2" type="CollisionShape2D" parent="." unique_id=259568603]
 position = Vector2(2, 9)
 scale = Vector2(0.9599991, 1)
 shape = SubResource("CapsuleShape2D_bgsqy")
 
-[node name="AreaAtaque" type="Area2D" parent="."]
+[node name="AreaAtaque" type="Area2D" parent="." unique_id=2062127094]
 position = Vector2(67, 5)
 scale = Vector2(1.2191788, 1.2399994)
 collision_layer = 7
 collision_mask = 15
 
-[node name="hitbox" type="CollisionShape2D" parent="AreaAtaque"]
+[node name="hitbox" type="CollisionShape2D" parent="AreaAtaque" unique_id=842174934]
 position = Vector2(-28.707848, -12.09678)
 shape = SubResource("CapsuleShape2D_71ocg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=641816140]
 position = Vector2(21, 3.0000076)
 scale = Vector2(0.1143695, 0.11425781)
 sprite_frames = SubResource("SpriteFrames_78n3h")
-animation = &"Ataque Lanza"
-frame_progress = 0.65078783
+animation = &"recibirDaño"
+frame = 2
+frame_progress = 1.0

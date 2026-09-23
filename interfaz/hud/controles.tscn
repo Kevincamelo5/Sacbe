@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d3lb10g5lqvrv" path="res://activos/arte/botones/arrow-31177_1920.png" id="6_2mbvt"]
 [ext_resource type="Texture2D" uid="uid://c3c02ysfxog4d" path="res://componentes/escenarios/flauta-test.png" id="6_fpkyn"]
 [ext_resource type="Texture2D" uid="uid://qeevfbm1li0g" path="res://activos/arte/botones/bang-148261_1920.png" id="7_7aew7"]
-[ext_resource type="Texture2D" uid="uid://c4730iaatv2jl" path="res://activos/arte/card.png" id="14_wfijh"]
+[ext_resource type="Texture2D" uid="uid://c15juj0im74bp" path="res://activos/arte/boton-ataque.png" id="14_wfijh"]
 
 [node name="controles" type="CanvasLayer" unique_id=1681580207]
 script = ExtResource("1_4hprl")
@@ -75,10 +75,10 @@ action = "usar_objeto"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=236016679]
 z_index = -1
-offset_left = 964.0
-offset_top = 474.0
-offset_right = 1094.0
-offset_bottom = 604.0
+offset_left = 776.2179
+offset_top = 443.0
+offset_right = 1115.0
+offset_bottom = 618.0
 texture = ExtResource("14_wfijh")
 expand_mode = 1
 

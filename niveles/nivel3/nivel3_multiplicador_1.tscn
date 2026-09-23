@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://crmuas4pqr5n2" path="res://activos/arte/Gemini_Generated_Image_80ljf80ljf80ljf8.png" id="2_fe6nq"]
 [ext_resource type="Texture2D" uid="uid://beboyb012tlc5" path="res://icon.svg" id="3_sa0er"]
 [ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="4_7um32"]
+[ext_resource type="Texture2D" uid="uid://cpssa5krlitf5" path="res://objetos/flauta peque.png" id="5_bkq7i"]
+[ext_resource type="Texture2D" uid="uid://c4730iaatv2jl" path="res://activos/arte/card.png" id="6_55g0b"]
+[ext_resource type="Texture2D" uid="uid://iq4t35c4xr2q" path="res://objetos/lanza peque.png" id="8_puwoa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtkfd"]
 content_margin_left = 10.0
@@ -12,6 +15,9 @@ content_margin_right = 10.0
 content_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6tms"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7um32"]
+load_path = "res://.godot/imported/hacha peque.png-6d5423273a08cac5a15ffa99f9a2360b.ctex"
 
 [node name="Nivel1_sumador1" type="Control" unique_id=243521744]
 layout_mode = 3
@@ -23,6 +29,7 @@ grow_vertical = 2
 script = ExtResource("1_6sd6f")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1865623197]
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -137,3 +144,73 @@ layout_mode = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
+
+[node name="ContenedorObjetos" type="HBoxContainer" parent="." unique_id=106273760]
+layout_mode = 0
+offset_left = -60.0
+offset_top = 258.0
+offset_right = 1220.0
+offset_bottom = 405.0
+theme_override_constants/separation = 90
+alignment = 1
+
+[node name="BotonFlauta" type="TextureButton" parent="ContenedorObjetos" unique_id=287078710]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("5_bkq7i")
+
+[node name="TextureRect" type="TextureRect" parent="ContenedorObjetos/BotonFlauta" unique_id=268521651]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -4.2627735
+anchor_top = -0.06802721
+anchor_right = -4.2627735
+anchor_bottom = -0.06802721
+offset_left = 556.0
+offset_top = -9.0
+offset_right = 738.99365
+offset_bottom = 161.0
+texture = ExtResource("6_55g0b")
+expand_mode = 2
+
+[node name="BotonHacha" type="TextureButton" parent="ContenedorObjetos" unique_id=2070623045]
+layout_mode = 2
+focus_mode = 0
+texture_normal = SubResource("CompressedTexture2D_7um32")
+
+[node name="TextureRect2" type="TextureRect" parent="ContenedorObjetos/BotonHacha" unique_id=58744490]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.2627735
+anchor_top = -0.034013607
+anchor_right = -1.2627735
+anchor_bottom = -0.034013607
+offset_left = 134.63501
+offset_top = -12.0
+offset_right = 310.96832
+offset_bottom = 149.0
+texture = ExtResource("6_55g0b")
+expand_mode = 2
+
+[node name="BotonLanza" type="TextureButton" parent="ContenedorObjetos" unique_id=249622543]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("8_puwoa")
+
+[node name="TextureRect3" type="TextureRect" parent="ContenedorObjetos/BotonLanza" unique_id=1241341171]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49774992
+anchor_top = 0.5
+anchor_right = 0.49774992
+anchor_bottom = 0.5
+offset_left = -88.71199
+offset_top = -90.5
+offset_right = 88.7166
+offset_bottom = 70.5
+texture = ExtResource("6_55g0b")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true

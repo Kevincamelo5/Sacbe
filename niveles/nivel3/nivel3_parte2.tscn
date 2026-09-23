@@ -52,6 +52,8 @@ shape = SubResource("RectangleShape2D_kh73c")
 metadata/_edit_group_ = true
 
 [node name="piso2" type="CollisionShape2D" parent="pisos" unique_id=2089340375]
+light_mask = 3
+visibility_layer = 3
 position = Vector2(-819, 976.00006)
 rotation = 1.5728099
 shape = SubResource("RectangleShape2D_kh73c")
@@ -64,6 +66,8 @@ shape = SubResource("RectangleShape2D_kh73c")
 metadata/_edit_group_ = true
 
 [node name="piso3" type="CollisionShape2D" parent="pisos" unique_id=1800375102]
+light_mask = 3
+visibility_layer = 3
 position = Vector2(315, 998)
 rotation = 1.5728099
 shape = SubResource("RectangleShape2D_kh73c")
@@ -88,7 +92,10 @@ position = Vector2(7824, 148)
 shape = SubResource("RectangleShape2D_8uit8")
 
 [node name="Pajaro" parent="pisos" unique_id=1371614823 instance=ExtResource("5_4lc1n")]
-position = Vector2(-635, 804)
+position = Vector2(-635, 749)
+vida = 3
+amplitud_onda = 220.0
+frecuencia_onda = 2.0
 
 [node name="Puerta" parent="pisos" unique_id=708447874 instance=ExtResource("6_7hd7m")]
 position = Vector2(437, 1045)

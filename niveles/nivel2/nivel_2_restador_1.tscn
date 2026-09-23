@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://rqyklm2lpun1"]
+[gd_scene format=3 uid="uid://rqyklm2lpun1"]
 
 [ext_resource type="Script" uid="uid://c5fwh6dvgn7j7" path="res://niveles/nivel2/nivel_2_restador_1.gd" id="1_0okx5"]
 [ext_resource type="Texture2D" uid="uid://crmuas4pqr5n2" path="res://activos/arte/Gemini_Generated_Image_80ljf80ljf80ljf8.png" id="2_oiuym"]
@@ -17,7 +17,7 @@ content_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6tms"]
 
-[node name="Nivel1_sumador1" type="Control"]
+[node name="Nivel1_sumador1" type="Control" unique_id=1817944063]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0okx5")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1379389682]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -38,7 +38,7 @@ texture = ExtResource("2_oiuym")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=2031250604]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,7 +46,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="fondos" type="HBoxContainer" parent="."]
+[node name="fondos" type="HBoxContainer" parent="." unique_id=1619556046]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,25 +55,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="izquierda" type="VBoxContainer" parent="fondos"]
+[node name="izquierda" type="VBoxContainer" parent="fondos" unique_id=660342918]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="fondos/izquierda"]
+[node name="TextureRect" type="TextureRect" parent="fondos/izquierda" unique_id=32344327]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("3_4a4md")
 
-[node name="derecha" type="VBoxContainer" parent="fondos"]
+[node name="derecha" type="VBoxContainer" parent="fondos" unique_id=2131922296]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="fondos/derecha"]
+[node name="ColorRect" type="ColorRect" parent="fondos/derecha" unique_id=1976187717]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 color = Color(0, 1, 1, 1)
 
-[node name="fondos2" type="HBoxContainer" parent="."]
+[node name="fondos2" type="HBoxContainer" parent="." unique_id=435904389]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,18 +89,18 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="izquierda" type="VBoxContainer" parent="fondos2"]
+[node name="izquierda" type="VBoxContainer" parent="fondos2" unique_id=5222585]
 layout_mode = 2
 theme_override_constants/separation = 17
 
-[node name="CenterContainer" type="CenterContainer" parent="fondos2/izquierda"]
+[node name="CenterContainer" type="CenterContainer" parent="fondos2/izquierda" unique_id=1492519396]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="fondos2/izquierda/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="fondos2/izquierda/CenterContainer" unique_id=755911522]
 layout_mode = 2
 theme_override_constants/separation = 17
 
-[node name="Label" type="Label" parent="fondos2/izquierda/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="fondos2/izquierda/CenterContainer/VBoxContainer" unique_id=255350563]
 layout_mode = 2
 theme_override_font_sizes/font_size = 29
 theme_override_styles/normal = SubResource("StyleBoxFlat_rtkfd")
@@ -108,7 +108,7 @@ text = "0 + 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="fondos2/izquierda/CenterContainer/VBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="fondos2/izquierda/CenterContainer/VBoxContainer" unique_id=962796603]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/outline_size = 20
@@ -119,31 +119,31 @@ alignment = 1
 emoji_menu_enabled = false
 virtual_keyboard_type = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="fondos2/izquierda"]
+[node name="MarginContainer" type="MarginContainer" parent="fondos2/izquierda" unique_id=1375718515]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="fondos2/izquierda/MarginContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="fondos2/izquierda/MarginContainer" unique_id=1976779255]
 layout_mode = 2
 
-[node name="BotonEnviar" type="Button" parent="fondos2/izquierda/MarginContainer/CenterContainer"]
+[node name="BotonEnviar" type="Button" parent="fondos2/izquierda/MarginContainer/CenterContainer" unique_id=1607988942]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_bm1w2")
 theme_override_font_sizes/font_size = 45
 text = "Enviar"
 
-[node name="derecha" type="VBoxContainer" parent="fondos2"]
+[node name="derecha" type="VBoxContainer" parent="fondos2" unique_id=1543092042]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="fondos2/derecha"]
+[node name="CenterContainer" type="CenterContainer" parent="fondos2/derecha" unique_id=1219148049]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="fondos2/derecha/CenterContainer"]
+[node name="GridContainer" type="GridContainer" parent="fondos2/derecha/CenterContainer" unique_id=671281645]
 layout_mode = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
 
-[node name="ContenedorObjetos" type="HBoxContainer" parent="."]
+[node name="ContenedorObjetos" type="HBoxContainer" parent="." unique_id=1672701167]
 layout_mode = 0
 offset_left = -60.0
 offset_top = 258.0
@@ -152,12 +152,12 @@ offset_bottom = 405.0
 theme_override_constants/separation = 90
 alignment = 1
 
-[node name="BotonFlauta" type="TextureButton" parent="ContenedorObjetos"]
+[node name="BotonFlauta" type="TextureButton" parent="ContenedorObjetos" unique_id=1499958486]
 layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("5_bm1w2")
 
-[node name="TextureRect" type="TextureRect" parent="ContenedorObjetos/BotonFlauta"]
+[node name="TextureRect" type="TextureRect" parent="ContenedorObjetos/BotonFlauta" unique_id=1987535476]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
@@ -172,12 +172,12 @@ offset_bottom = 161.0
 texture = ExtResource("6_dspxu")
 expand_mode = 2
 
-[node name="BotonHacha" type="TextureButton" parent="ContenedorObjetos"]
+[node name="BotonHacha" type="TextureButton" parent="ContenedorObjetos" unique_id=1627065976]
 layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("6_s4kd1")
 
-[node name="TextureRect2" type="TextureRect" parent="ContenedorObjetos/BotonHacha"]
+[node name="TextureRect2" type="TextureRect" parent="ContenedorObjetos/BotonHacha" unique_id=1502878142]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
@@ -192,12 +192,12 @@ offset_bottom = 149.0
 texture = ExtResource("6_dspxu")
 expand_mode = 2
 
-[node name="BotonLanza" type="TextureButton" parent="ContenedorObjetos"]
+[node name="BotonLanza" type="TextureButton" parent="ContenedorObjetos" unique_id=1685260635]
 layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("7_dspxu")
 
-[node name="TextureRect3" type="TextureRect" parent="ContenedorObjetos/BotonLanza"]
+[node name="TextureRect3" type="TextureRect" parent="ContenedorObjetos/BotonLanza" unique_id=265094371]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
