@@ -1,16 +1,14 @@
 [gd_scene format=3 uid="uid://cik3s04iuc6yn"]
 
+[ext_resource type="Script" uid="uid://h8koyi7x1u6x" path="res://niveles/nivel4/nivel_4_parte_2.gd" id="1_3ke0g"]
 [ext_resource type="AudioStream" uid="uid://br612tbtkb2ri" path="res://activos/audio/musicaprueba1.mp3" id="1_baa8t"]
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="2_av3uu"]
-[ext_resource type="Texture2D" uid="uid://c7yn76f5wgocb" path="res://activos/arte/fondo_temp.jpg" id="3_iobh1"]
 [ext_resource type="Texture2D" uid="uid://c7gg742kpsnej" path="res://activos/arte/pruebassuelo2d.png" id="4_4roum"]
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="5_ld5uq"]
 [ext_resource type="PackedScene" uid="uid://dgaku384lbo3k" path="res://objetos/peligrosos/vacio.tscn" id="6_eqnpy"]
 [ext_resource type="PackedScene" uid="uid://c3k3qjmhw06ff" path="res://interfaz/hud/contador_monedas.tscn" id="8_iruoa"]
+[ext_resource type="Script" uid="uid://rp60rmpp7e0i" path="res://niveles/nivel4/puerta_destructible.gd" id="9_seoou"]
 [ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/hud/contador_vidas.tscn" id="9_vx2tj"]
-[ext_resource type="PackedScene" uid="uid://crq1d3r1wakbo" path="res://componentes/moneda.tscn" id="10_j47rl"]
-[ext_resource type="PackedScene" uid="uid://byjivyj4012bj" path="res://entidades/enemigos/anima.tscn" id="11_ljgal"]
-[ext_resource type="PackedScene" uid="uid://dfyfpf6s8tsct" path="res://componentes/moneda_especial.tscn" id="12_av3uu"]
 [ext_resource type="Texture2D" uid="uid://bohraq5n2jutx" path="res://activos/arte/pared.png" id="13_4roum"]
 [ext_resource type="Texture2D" uid="uid://dfof0aftsuxwv" path="res://activos/arte/puerta.png" id="14_ld5uq"]
 
@@ -18,24 +16,28 @@
 size = Vector2(2788.25, 230)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5s1s"]
-size = Vector2(18110, 215)
+size = Vector2(2525, 215)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ke0g"]
+size = Vector2(258.03842, 406.33807)
 
 [node name="Nivel4Parte1" type="Node2D" unique_id=2004271836]
+script = ExtResource("1_3ke0g")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1942290709]
 stream = ExtResource("1_baa8t")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=80835784]
+position = Vector2(-626, 334)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D" unique_id=550122933]
+z_index = -5
+position = Vector2(9.999973, -41.016792)
+scale = Vector2(2.0149925, 2.1336)
+texture = ExtResource("13_4roum")
+
 [node name="Jugador" parent="." unique_id=594628309 instance=ExtResource("2_av3uu")]
 position = Vector2(-698, 392)
-
-[node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=80835784]
-position = Vector2(72, -58)
-
-[node name="Sprite2D" type="Sprite2D" parent="Jugador/Camera2D" unique_id=550122933]
-z_index = -5
-position = Vector2(-4.000023, 93)
-scale = Vector2(1.8370608, 1.416933)
-texture = ExtResource("3_iobh1")
 
 [node name="pisos" type="StaticBody2D" parent="." unique_id=602497868]
 position = Vector2(-54, -608)
@@ -56,7 +58,17 @@ scale = Vector2(0.6131026, 2.262069)
 texture = ExtResource("4_4roum")
 
 [node name="techo" type="CollisionShape2D" parent="pisos" unique_id=2045520876]
-position = Vector2(7824, 148)
+position = Vector2(31.5, 148)
+shape = SubResource("RectangleShape2D_d5s1s")
+
+[node name="techo2" type="CollisionShape2D" parent="pisos" unique_id=576498838]
+position = Vector2(-1258, 502)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_d5s1s")
+
+[node name="techo3" type="CollisionShape2D" parent="pisos" unique_id=1923412677]
+position = Vector2(111, 548)
+rotation = 1.5707964
 shape = SubResource("RectangleShape2D_d5s1s")
 
 [node name="controles" parent="." unique_id=1652164061 instance=ExtResource("5_ld5uq")]
@@ -69,68 +81,76 @@ scale = Vector2(1090, 2)
 
 [node name="CanvasLayer" parent="." unique_id=330364085 instance=ExtResource("9_vx2tj")]
 
-[node name="Moneda26" parent="." unique_id=509030498 instance=ExtResource("10_j47rl")]
-position = Vector2(5212, 470)
-scale = Vector2(0.5, 0.5)
+[node name="Puertas" type="HBoxContainer" parent="." unique_id=97960708]
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Moneda27" parent="." unique_id=150336383 instance=ExtResource("10_j47rl")]
-position = Vector2(5715, 410)
-scale = Vector2(0.5, 0.5)
+[node name="Puerta1" type="Area2D" parent="Puertas" unique_id=832551005]
+script = ExtResource("9_seoou")
 
-[node name="Moneda30" parent="." unique_id=1012382690 instance=ExtResource("10_j47rl")]
-position = Vector2(5990, 409)
-scale = Vector2(0.5, 0.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/Puerta1" unique_id=817620888]
+position = Vector2(-982, 415.4093)
+scale = Vector2(0.7700422, 0.73628694)
+shape = SubResource("RectangleShape2D_3ke0g")
 
-[node name="Moneda31" parent="." unique_id=412952334 instance=ExtResource("10_j47rl")]
-position = Vector2(6079, 410)
-scale = Vector2(0.5, 0.5)
-
-[node name="Moneda32" parent="." unique_id=875244103 instance=ExtResource("10_j47rl")]
-position = Vector2(6430, 455)
-scale = Vector2(0.5, 0.5)
-
-[node name="Moneda33" parent="." unique_id=207462353 instance=ExtResource("10_j47rl")]
-position = Vector2(6650, 510)
-scale = Vector2(0.5, 0.5)
-
-[node name="Moneda34" parent="." unique_id=1605631134 instance=ExtResource("10_j47rl")]
-position = Vector2(6733, 510)
-scale = Vector2(0.5, 0.5)
-
-[node name="Moneda28" parent="." unique_id=1576025881 instance=ExtResource("10_j47rl")]
-position = Vector2(5815, 407)
-scale = Vector2(0.5, 0.5)
-
-[node name="Moneda29" parent="." unique_id=1545010509 instance=ExtResource("10_j47rl")]
-position = Vector2(5901, 408)
-scale = Vector2(0.5, 0.5)
-
-[node name="anima3" parent="." unique_id=61254012 instance=ExtResource("11_ljgal")]
-position = Vector2(9322, -80)
-
-[node name="Moneda11" parent="." unique_id=173956856 instance=ExtResource("12_av3uu")]
-position = Vector2(5051, 142)
-
-[node name="Pared" type="Sprite2D" parent="." unique_id=78636394]
-z_index = -2
-position = Vector2(-91.000084, 245.25003)
-scale = Vector2(2.275862, 2.2580214)
-texture = ExtResource("13_4roum")
-
-[node name="Puerta" type="Sprite2D" parent="." unique_id=1096015896]
+[node name="Puerta" type="Sprite2D" parent="Puertas/Puerta1" unique_id=1096015896]
 z_index = -1
-position = Vector2(-519.5, 434.5)
+position = Vector2(-984.5, 413.5)
 scale = Vector2(0.7700422, 0.73628694)
 texture = ExtResource("14_ld5uq")
 
-[node name="Puerta2" type="Sprite2D" parent="." unique_id=1301940746]
+[node name="Label" type="Label" parent="Puertas/Puerta1" unique_id=1085688067]
+offset_left = -1004.0
+offset_top = 202.0
+offset_right = -964.0
+offset_bottom = 225.0
+
+[node name="Puerta2" type="Area2D" parent="Puertas" unique_id=1119572249]
+script = ExtResource("9_seoou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/Puerta2" unique_id=700963062]
+position = Vector2(-629, 415.4093)
+scale = Vector2(0.7700422, 0.73628694)
+shape = SubResource("RectangleShape2D_3ke0g")
+
+[node name="Puerta" type="Sprite2D" parent="Puertas/Puerta2" unique_id=131251747]
 z_index = -1
-position = Vector2(-115.000015, 425)
+position = Vector2(-631.5, 413.5)
 scale = Vector2(0.7700422, 0.73628694)
 texture = ExtResource("14_ld5uq")
 
-[node name="Puerta3" type="Sprite2D" parent="." unique_id=431378025]
+[node name="Label" type="Label" parent="Puertas/Puerta2" unique_id=1400319139]
+offset_left = -650.0
+offset_top = 199.0
+offset_right = -610.0
+offset_bottom = 222.0
+
+[node name="Puerta3" type="Area2D" parent="Puertas" unique_id=901306453]
+script = ExtResource("9_seoou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/Puerta3" unique_id=1484060256]
+position = Vector2(-262.00006, 418.4093)
+scale = Vector2(0.7700422, 0.73628694)
+shape = SubResource("RectangleShape2D_3ke0g")
+
+[node name="Puerta" type="Sprite2D" parent="Puertas/Puerta3" unique_id=2031925690]
 z_index = -1
-position = Vector2(276.00003, 419)
+position = Vector2(-264.50006, 416.5)
 scale = Vector2(0.7700422, 0.73628694)
 texture = ExtResource("14_ld5uq")
+
+[node name="Label" type="Label" parent="Puertas/Puerta3" unique_id=35942543]
+offset_left = -285.0
+offset_top = 208.0
+offset_right = -245.0
+offset_bottom = 231.0
+
+[node name="LabelProblema" type="Label" parent="." unique_id=81731875]
+offset_left = -734.0
+offset_top = 36.0
+offset_right = -579.0
+offset_bottom = 85.0
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -200,14 +200,18 @@ func _actualizar_temporizador_objeto(delta: float):
 var lanza: PackedScene = preload("res://objetos/Lanza/lanza.tscn")
 
 # CUCHILLO
+# En Jugador.gd (por ejemplo, en acuchillar() o atacar_hacha()):
+
 func acuchillar():
 	print_debug("Acuchillando")
 	var areas = areaCuchillo.get_overlapping_areas()
 	
-	if areas.size() > 0:
-		for area in areas:
-			if area is Hurtbox:
-				area.lastimar(dañoCuchillo)
+	for area in areas:
+		if area.has_method("lastimar"):
+			area.lastimar(dañoCuchillo)
+		elif area.has_method("recibir_dano"):
+			area.recibir_dano(dañoCuchillo)
+			
 	animatedSprite.play("acuchillar")
 
 # LANZA
