@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cf1cdu71ifkog"]
+[gd_scene format=3 uid="uid://cf1cdu71ifkog"]
 
 [ext_resource type="Script" uid="uid://c2mglvswo4qpt" path="res://entidades/enemigos/Jabali/jabali_jefe.gd" id="1_g6vvp"]
 [ext_resource type="Texture2D" uid="uid://cjetwsh7kik8r" path="res://entidades/enemigos/Jabali/Jabali sprites.png" id="2_e3xkd"]
@@ -60,59 +60,59 @@ radius = 44.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_aten3"]
 radius = 90.04999
 
-[node name="JabaliJefe" type="CharacterBody2D"]
+[node name="JabaliJefe" type="CharacterBody2D" unique_id=1707733162]
 script = ExtResource("1_g6vvp")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=58820852]
 material = SubResource("ShaderMaterial_4ynue")
 position = Vector2(2.250002, 0)
 scale = Vector2(1.012676, 1)
 sprite_frames = SubResource("SpriteFrames_7my0f")
 animation = &"Embestida"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=137545055]
 position = Vector2(2, -12)
 shape = SubResource("CircleShape2D_5tkwg")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1208352083]
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("4_r2ifx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=444353589]
 position = Vector2(9, 23)
 shape = SubResource("CircleShape2D_aten3")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1614727837]
 target_position = Vector2(0, 45)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1940094775]
 one_shot = true
 
-[node name="Corazones" type="Node2D" parent="."]
+[node name="Corazones" type="Node2D" parent="." unique_id=1374023435]
 position = Vector2(102, -80)
 
-[node name="Sprite2D" type="Sprite2D" parent="Corazones"]
+[node name="Sprite2D" type="Sprite2D" parent="Corazones" unique_id=1650358091]
 position = Vector2(-227.5, -50.25)
 scale = Vector2(0.116, 0.101)
 texture = ExtResource("5_x15y5")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Corazones"]
+[node name="Sprite2D2" type="Sprite2D" parent="Corazones" unique_id=1410642198]
 position = Vector2(-160.5, -50.25)
 scale = Vector2(0.116, 0.101)
 texture = ExtResource("5_x15y5")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Corazones"]
+[node name="Sprite2D3" type="Sprite2D" parent="Corazones" unique_id=1654313868]
 position = Vector2(-84, -50.25)
 scale = Vector2(0.116, 0.101)
 texture = ExtResource("5_x15y5")
 
-[node name="Sprite2D4" type="Sprite2D" parent="Corazones"]
+[node name="Sprite2D4" type="Sprite2D" parent="Corazones" unique_id=86652222]
 position = Vector2(-12, -50.25)
 scale = Vector2(0.116, 0.101)
 texture = ExtResource("5_x15y5")
 
-[node name="Sprite2D5" type="Sprite2D" parent="Corazones"]
+[node name="Sprite2D5" type="Sprite2D" parent="Corazones" unique_id=1570832663]
 position = Vector2(59, -50.25)
 scale = Vector2(0.116, 0.101)
 texture = ExtResource("5_x15y5")

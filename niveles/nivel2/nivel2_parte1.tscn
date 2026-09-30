@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b2dt0fv7bfom7"]
+[gd_scene format=3 uid="uid://b2dt0fv7bfom7"]
 
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="1_1xc8m"]
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="2_cablh"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cno7e1ivf3yc5" path="res://objetos/interactuables/altar.tscn" id="15_4mwl0"]
 [ext_resource type="Script" uid="uid://c45fdxt7xfmld" path="res://niveles/nivel2/area_salida.gd" id="15_b4qib"]
 [ext_resource type="PackedScene" uid="uid://cjw2u5sdc8y3e" path="res://niveles/nivel2/ave.tscn" id="17_eicml"]
-[ext_resource type="PackedScene" uid="uid://bu6yaukh0g4g6" path="res://niveles/nivel2/piedra.tscn" id="18_7r5rn"]
+[ext_resource type="PackedScene" uid="uid://nuff45mpura6" path="res://entidades/enemigos/piedra.tscn" id="18_eicml"]
 [ext_resource type="PackedScene" uid="uid://crq1d3r1wakbo" path="res://componentes/moneda.tscn" id="21_4mwl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cablh"]
@@ -105,88 +105,88 @@ height = 66.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_y1rvv"]
 radius = 25.019993
 
-[node name="Nivel2Parte1" type="Node2D"]
+[node name="Nivel2Parte1" type="Node2D" unique_id=1245958155]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=34003727]
 process_mode = 2
 
-[node name="controles" parent="." instance=ExtResource("2_cablh")]
+[node name="controles" parent="." unique_id=1897476588 instance=ExtResource("2_cablh")]
 
-[node name="Contador_moneda" parent="." instance=ExtResource("6_tb35q")]
+[node name="Contador_moneda" parent="." unique_id=1601144818 instance=ExtResource("6_tb35q")]
 
-[node name="CanvasLayer2" parent="." instance=ExtResource("7_4mwl0")]
+[node name="CanvasLayer2" parent="." unique_id=1735762225 instance=ExtResource("7_4mwl0")]
 
-[node name="Piso" type="Node2D" parent="."]
+[node name="Piso" type="Node2D" parent="." unique_id=614955002]
 
-[node name="Casal2" type="Sprite2D" parent="Piso"]
+[node name="Casal2" type="Sprite2D" parent="Piso" unique_id=1487448711]
 position = Vector2(2727, 479.00003)
 scale = Vector2(1.5602579, 1.412282)
 texture = ExtResource("4_u4ah2")
 
-[node name="StaticBody2D-PisoVilla" type="StaticBody2D" parent="."]
+[node name="StaticBody2D-PisoVilla" type="StaticBody2D" parent="." unique_id=1963764583]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D-PisoVilla" unique_id=296980692]
 position = Vector2(1273, 703)
 shape = SubResource("RectangleShape2D_cablh")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D-PisoVilla/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D-PisoVilla/CollisionShape2D" unique_id=1442333211]
 position = Vector2(-301.00003, 61)
 scale = Vector2(3.294427, 0.8244275)
 texture = ExtResource("5_lfnq5")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D-PisoVilla" unique_id=569177344]
 position = Vector2(3784, 704)
 shape = SubResource("RectangleShape2D_cablh")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D-PisoVilla/CollisionShape2D5"]
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D-PisoVilla/CollisionShape2D5" unique_id=2127866443]
 position = Vector2(-7.375145, 62.499992)
 scale = Vector2(2.6548371, 0.8816795)
 texture = ExtResource("5_lfnq5")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D-PisoVilla" unique_id=1744333309]
 position = Vector2(6309, 709)
 shape = SubResource("RectangleShape2D_cablh")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D-PisoVilla/CollisionShape2D6"]
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D-PisoVilla/CollisionShape2D6" unique_id=2038345756]
 position = Vector2(-23.99987, 93)
 scale = Vector2(2.654968, 1.1145037)
 texture = ExtResource("5_lfnq5")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D-PisoVilla" unique_id=406954160]
 position = Vector2(205.5, 587)
 shape = SubResource("RectangleShape2D_8mxly")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D-PisoVilla/CollisionShape2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D-PisoVilla/CollisionShape2D2" unique_id=97158182]
 position = Vector2(2.2500267, 2.7499905)
 scale = Vector2(0.62092537, 0.711832)
 texture = ExtResource("5_lfnq5")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D-PisoVilla" unique_id=509982271]
 position = Vector2(2737.75, 556)
 shape = SubResource("RectangleShape2D_8mxly")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D-PisoVilla"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D-PisoVilla" unique_id=319135609]
 position = Vector2(2347, 600.8594)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_u4ah2")
 
-[node name="Jugador" parent="." groups=["player"] instance=ExtResource("1_1xc8m")]
+[node name="Jugador" parent="." unique_id=1101638843 groups=["player"] instance=ExtResource("1_1xc8m")]
 position = Vector2(56, 274)
 
-[node name="Camera2D" type="Camera2D" parent="Jugador"]
+[node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=2138321419]
 position = Vector2(72, -58)
 
-[node name="Sprite2D" type="Sprite2D" parent="Jugador/Camera2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Jugador/Camera2D" unique_id=32086331]
 z_index = -2
 position = Vector2(-8, -69)
 scale = Vector2(0.4569157, 0.48319793)
 texture = ExtResource("8_eicml")
 
-[node name="CharacterBody2DKi-Men" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2DKi-Men" type="CharacterBody2D" parent="." unique_id=999681001]
 script = ExtResource("6_dasm1")
 is_vertical = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men" unique_id=499899050]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(1468.0001, 467)
@@ -194,16 +194,16 @@ scale = Vector2(2.429687, 2.6250007)
 sprite_frames = SubResource("SpriteFrames_36fgi")
 animation = &"Ataque"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men" unique_id=771925808]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(1481, 451)
 shape = SubResource("CapsuleShape2D_dasm1")
 
-[node name="CharacterBody2DKi-Men2" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2DKi-Men2" type="CharacterBody2D" parent="." unique_id=622541343]
 script = ExtResource("6_dasm1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men2"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men2" unique_id=672670941]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(865, 591)
@@ -211,23 +211,23 @@ scale = Vector2(2.429687, 2.6250007)
 sprite_frames = SubResource("SpriteFrames_36fgi")
 animation = &"Ataque"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men2" unique_id=264219934]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(867, 577)
 shape = SubResource("CapsuleShape2D_dasm1")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=113465478]
 process_mode = 3
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("8_jeh34")
 
-[node name="Altar" parent="Area2D" instance=ExtResource("15_4mwl0")]
-position = Vector2(7187, 450)
+[node name="Altar" parent="Area2D" unique_id=12227272 instance=ExtResource("15_4mwl0")]
+position = Vector2(7245, 567)
 next_scene_path = "res://niveles/nivel2/nivel_2_restador_1.tscn"
 
-[node name="AreaFuego1" type="Area2D" parent="."]
+[node name="AreaFuego1" type="Area2D" parent="." unique_id=1389635663]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(2555, 433)
@@ -235,20 +235,20 @@ collision_layer = 15
 collision_mask = 15
 script = ExtResource("14_el20e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFuego1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFuego1" unique_id=1836212465]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(4, 4)
 shape = SubResource("CircleShape2D_y1rvv")
 
-[node name="Sprite2D" type="Sprite2D" parent="AreaFuego1"]
+[node name="Sprite2D" type="Sprite2D" parent="AreaFuego1" unique_id=55317785]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(4.0000305, -12)
 scale = Vector2(0.18000002, 0.16099997)
 texture = ExtResource("11_44th5")
 
-[node name="AreaFuego2" type="Area2D" parent="."]
+[node name="AreaFuego2" type="Area2D" parent="." unique_id=798438174]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(2900, 434)
@@ -256,66 +256,74 @@ collision_layer = 7
 collision_mask = 7
 script = ExtResource("14_el20e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFuego2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFuego2" unique_id=2078916338]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(-3, 2)
 shape = SubResource("CircleShape2D_y1rvv")
 
-[node name="Sprite2D" type="Sprite2D" parent="AreaFuego2"]
+[node name="Sprite2D" type="Sprite2D" parent="AreaFuego2" unique_id=1798890839]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(-1.9999695, -12)
 scale = Vector2(0.18000002, 0.16099997)
 texture = ExtResource("11_44th5")
 
-[node name="AreaSalida" type="Area2D" parent="."]
+[node name="AreaSalida" type="Area2D" parent="." unique_id=519605301]
 light_mask = 3
 visibility_layer = 3
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("15_b4qib")
 
-[node name="Ave" parent="." instance=ExtResource("17_eicml")]
+[node name="Ave" parent="." unique_id=1596140535 instance=ExtResource("17_eicml")]
 position = Vector2(5599, 363)
 rango_patrulla = 250.0
-piedra_scene = ExtResource("18_7r5rn")
+piedra_scene = ExtResource("18_eicml")
 
-[node name="Moneda" parent="." instance=ExtResource("21_4mwl0")]
+[node name="Moneda" parent="." unique_id=2083791426 instance=ExtResource("21_4mwl0")]
 position = Vector2(1478, 599)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda2" parent="." instance=ExtResource("21_4mwl0")]
+[node name="Moneda2" parent="." unique_id=1139674116 instance=ExtResource("21_4mwl0")]
 position = Vector2(1402, 601)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda3" parent="." instance=ExtResource("21_4mwl0")]
+[node name="Moneda3" parent="." unique_id=1819898462 instance=ExtResource("21_4mwl0")]
 position = Vector2(1316, 605)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda4" parent="." instance=ExtResource("21_4mwl0")]
+[node name="Moneda4" parent="." unique_id=1881980236 instance=ExtResource("21_4mwl0")]
 position = Vector2(1221, 609)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda5" parent="." instance=ExtResource("21_4mwl0")]
+[node name="Moneda5" parent="." unique_id=1723082114 instance=ExtResource("21_4mwl0")]
 position = Vector2(3156, 322)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda6" parent="." instance=ExtResource("21_4mwl0")]
+[node name="Moneda6" parent="." unique_id=1303038927 instance=ExtResource("21_4mwl0")]
 position = Vector2(3158, 391)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda7" parent="." instance=ExtResource("21_4mwl0")]
+[node name="Moneda7" parent="." unique_id=1974630219 instance=ExtResource("21_4mwl0")]
 position = Vector2(3158, 464)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda8" parent="." instance=ExtResource("21_4mwl0")]
+[node name="Moneda8" parent="." unique_id=783734260 instance=ExtResource("21_4mwl0")]
 position = Vector2(3160, 530)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda9" parent="." instance=ExtResource("21_4mwl0")]
+[node name="Moneda9" parent="." unique_id=965902591 instance=ExtResource("21_4mwl0")]
 position = Vector2(3160, 603)
 scale = Vector2(0.5, 0.5)
+
+[node name="Ave2" parent="." unique_id=526795265 instance=ExtResource("17_eicml")]
+position = Vector2(4969, 362)
+piedra_scene = ExtResource("18_eicml")
+
+[node name="Ave3" parent="." unique_id=1320892055 instance=ExtResource("17_eicml")]
+position = Vector2(4303, 371)
+piedra_scene = ExtResource("18_eicml")
 
 [connection signal="body_entered" from="AreaFuego1" to="AreaFuego1" method="_on_body_entered"]
 [connection signal="body_entered" from="AreaFuego2" to="AreaFuego2" method="_on_body_entered"]

@@ -118,5 +118,5 @@ func actualizar_direccion_sprite() -> void:
 
 func morir() -> void:
 	print("¡Jefe derrotado!")
-	queue_free() # Destruye al jabalí de la escena
-	get_tree().change_scene_to_file("res://niveles/nivel2/nivel2_restador2.tscn")
+	get_tree().change_scene_to_file("res://niveles/nivel2/escena_historia.tscn")
+	queue_free()

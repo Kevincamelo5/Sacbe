@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c2emky5j8bqh8"]
+
+[ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="1_5sfls"]
+[ext_resource type="Script" uid="uid://cqhmruo6aov6y" path="res://niveles/nivel2/escena_historia.gd" id="1_eqvqv"]
+[ext_resource type="Texture2D" uid="uid://citrunvrk0oa5" path="res://niveles/nivel2/DerrotaJabali.jpg" id="3_h3bjf"]
+
+[node name="EscenaHistoria" type="Control" unique_id=309226652]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eqvqv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1226010283]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 647.0
+color = Color(0.46822286, 0.27521095, 0.13203701, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1537931320]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 119.0
+offset_right = 763.0
+offset_bottom = 344.0
+theme_override_fonts/font = ExtResource("1_5sfls")
+theme_override_font_sizes/font_size = 32
+text = "Tras un duro combate, Quitzal logró 
+derribar al jabalí gigante.
+ Ahora, el camino hacia lo profundo
+ de la selva está despejado, 
+pero nuevos retos le esperan...\". 
+"
+
+[node name="BotonContinuar" type="Button" parent="." unique_id=1691457012]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.82600003
+anchor_top = 0.80200005
+anchor_right = 0.82600003
+anchor_bottom = 0.80200005
+offset_left = -722.55206
+offset_top = -156.69604
+offset_right = -515.55206
+offset_bottom = -100.696045
+theme_override_font_sizes/font_size = 32
+text = "Continuar"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1509468076]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 236.0
+offset_right = 1079.0
+offset_bottom = 528.0
+texture = ExtResource("3_h3bjf")
+expand_mode = 1
