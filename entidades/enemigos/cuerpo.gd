@@ -1,9 +1,10 @@
-extends Area2D
-class_name Hurtbox
+extends Hurtbox # Heredamos la identidad para no tener que crear la clase de nuevo
 
+# Eliminamos la línea "class_name Hurtbox"
 
-# Esta es la función que ejecuta acuchillar()
-func lastimar(cantidad_daño: int) -> void:
-	# Transfiere el daño al script principal del enemigo (anima.gd)
+# Usamos float por si tu clase original de Hurtbox lo requiere (como vimos antes)
+func lastimar(cantidad_daño: float) -> void:
+	
 	if get_parent().has_method("recibir_daño"):
-		get_parent().recibir_daño()
+		# ¡Le pasamos la cantidad de daño dentro de los paréntesis!
+		get_parent().recibir_daño(int(cantidad_daño))

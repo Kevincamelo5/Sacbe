@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqyiyxfwautbj"]
+[gd_scene format=3 uid="uid://cqyiyxfwautbj"]
 
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="2_44hai"]
 [ext_resource type="Texture2D" uid="uid://ctb57agxy30bi" path="res://componentes/escenarios/Fondo-JefeJabali.jpg" id="2_axefc"]
@@ -16,61 +16,61 @@ size = Vector2(102, 455)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0t5y7"]
 size = Vector2(64.125, 370.5)
 
-[node name="Arena_Batalla" type="Node2D"]
+[node name="Arena_Batalla" type="Node2D" unique_id=1437027823]
 
-[node name="Jugador" parent="." instance=ExtResource("2_44hai")]
+[node name="Jugador" parent="." unique_id=1232762003 instance=ExtResource("2_44hai")]
 position = Vector2(523, 378)
 
-[node name="Camera2D" type="Camera2D" parent="Jugador"]
+[node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=960377950]
 position = Vector2(72, -58)
 
-[node name="Sprite2D" type="Sprite2D" parent="Jugador/Camera2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Jugador/Camera2D" unique_id=2132040726]
 z_index = -2
 position = Vector2(-11.000015, -49)
 scale = Vector2(1.2382813, 1.272328)
 texture = ExtResource("2_axefc")
 
-[node name="JabaliJefe" parent="." instance=ExtResource("3_lkqam")]
+[node name="JabaliJefe" parent="." unique_id=954619591 instance=ExtResource("3_lkqam")]
 position = Vector2(1467, 134)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=591639523]
 position = Vector2(25, -14)
 
-[node name="CollisionShapePiso" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShapePiso" type="CollisionShape2D" parent="StaticBody2D" unique_id=86178007]
 position = Vector2(1163.75, 623)
 shape = SubResource("RectangleShape2D_44hai")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShapePiso"]
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShapePiso" unique_id=1049546607]
 position = Vector2(-766.75, 63.000015)
 scale = Vector2(1.5956136, 0.60049015)
 texture = ExtResource("4_ualh1")
 
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D/CollisionShapePiso"]
+[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D/CollisionShapePiso" unique_id=688097013]
 position = Vector2(181.25, 63)
 scale = Vector2(1.5212929, 0.60049015)
 texture = ExtResource("4_ualh1")
 
-[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D/CollisionShapePiso"]
+[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D/CollisionShapePiso" unique_id=1239402316]
 position = Vector2(1058.25, 63)
 scale = Vector2(1.5212929, 0.60049015)
 texture = ExtResource("4_ualh1")
 
-[node name="CollisionShape2LI" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2LI" type="CollisionShape2D" parent="StaticBody2D" unique_id=1130831298]
 position = Vector2(17, 433.5)
 shape = SubResource("RectangleShape2D_lkqam")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2LI"]
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2LI" unique_id=738349383]
 position = Vector2(-11.25, -41.25)
 scale = Vector2(1.0367647, 1.2022059)
 texture = ExtResource("4_axefc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1405110277]
 position = Vector2(2037, 417)
 shape = SubResource("RectangleShape2D_0t5y7")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D" unique_id=1052390671]
 position = Vector2(16.500038, -34)
 scale = Vector2(1.1094769, 1.2205883)
 texture = ExtResource("4_axefc")
 
-[node name="controles" parent="." instance=ExtResource("4_4gcfx")]
+[node name="controles" parent="." unique_id=1499453252 instance=ExtResource("4_4gcfx")]

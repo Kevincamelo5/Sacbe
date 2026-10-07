@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="2_cablh"]
 [ext_resource type="Texture2D" uid="uid://b8q4xrn4sfvjg" path="res://componentes/escenarios/Casal2.png" id="4_u4ah2"]
 [ext_resource type="Texture2D" uid="uid://5t2fuhmjetof" path="res://componentes/escenarios/Piso-Nivel2parte1.png" id="5_lfnq5"]
-[ext_resource type="Script" uid="uid://bb5r0vtk3m588" path="res://niveles/nivel2/character_body_2d_ki_men.gd" id="6_dasm1"]
 [ext_resource type="PackedScene" uid="uid://c3k3qjmhw06ff" path="res://interfaz/hud/contador_monedas.tscn" id="6_tb35q"]
 [ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/hud/contador_vidas.tscn" id="7_4mwl0"]
 [ext_resource type="Texture2D" uid="uid://114afhfp6tkc" path="res://componentes/escenarios/Fondo-nivel2parte1.jpg" id="8_eicml"]
 [ext_resource type="Script" uid="uid://c7d17tfql84jg" path="res://niveles/nivel2/area_2d.gd" id="8_jeh34"]
+[ext_resource type="PackedScene" uid="uid://ctq8bk2c5oetd" path="res://niveles/nivel2/ki_men.tscn" id="8_lfnq5"]
+[ext_resource type="PackedScene" uid="uid://cl18b3bge6ku8" path="res://niveles/nivel2/ki_men_2.tscn" id="9_eicml"]
 [ext_resource type="Texture2D" uid="uid://ctjiqjdax0eli" path="res://componentes/escenarios/fuego-removebg-preview.png" id="11_44th5"]
-[ext_resource type="Texture2D" uid="uid://va1mx53fy3e6" path="res://entidades/enemigos/kimen2.png" id="11_b4qib"]
 [ext_resource type="Script" uid="uid://bbn8ko7ch0ull" path="res://niveles/nivel2/area_fuego_1.gd" id="14_el20e"]
 [ext_resource type="PackedScene" uid="uid://cno7e1ivf3yc5" path="res://objetos/interactuables/altar.tscn" id="15_4mwl0"]
 [ext_resource type="Script" uid="uid://c45fdxt7xfmld" path="res://niveles/nivel2/area_salida.gd" id="15_b4qib"]
@@ -26,81 +26,6 @@ size = Vector2(596.5, 186)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4ah2"]
 size = Vector2(1.5162497, 0.8771876)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_el20e"]
-atlas = ExtResource("11_b4qib")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y541q"]
-atlas = ExtResource("11_b4qib")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_svrav"]
-atlas = ExtResource("11_b4qib")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qejmo"]
-atlas = ExtResource("11_b4qib")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_buush"]
-atlas = ExtResource("11_b4qib")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0pqfy"]
-atlas = ExtResource("11_b4qib")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vu0ok"]
-atlas = ExtResource("11_b4qib")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s3h66"]
-atlas = ExtResource("11_b4qib")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7xkoe"]
-atlas = ExtResource("11_b4qib")
-region = Rect2(512, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_36fgi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_el20e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y541q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_svrav")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qejmo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_buush")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0pqfy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vu0ok")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s3h66")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xkoe")
-}],
-"loop": true,
-"name": &"Ataque",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dasm1"]
-radius = 33.0
-height = 66.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y1rvv"]
 radius = 25.019993
@@ -182,40 +107,10 @@ position = Vector2(-8, -69)
 scale = Vector2(0.4569157, 0.48319793)
 texture = ExtResource("8_eicml")
 
-[node name="CharacterBody2DKi-Men" type="CharacterBody2D" parent="." unique_id=999681001]
-script = ExtResource("6_dasm1")
-is_vertical = true
+[node name="CharacterBody2DKi-Men" parent="." unique_id=1668188003 instance=ExtResource("8_lfnq5")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men" unique_id=499899050]
-light_mask = 7
-visibility_layer = 7
-position = Vector2(1468.0001, 467)
-scale = Vector2(2.429687, 2.6250007)
-sprite_frames = SubResource("SpriteFrames_36fgi")
-animation = &"Ataque"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men" unique_id=771925808]
-light_mask = 7
-visibility_layer = 7
-position = Vector2(1481, 451)
-shape = SubResource("CapsuleShape2D_dasm1")
-
-[node name="CharacterBody2DKi-Men2" type="CharacterBody2D" parent="." unique_id=622541343]
-script = ExtResource("6_dasm1")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2DKi-Men2" unique_id=672670941]
-light_mask = 7
-visibility_layer = 7
-position = Vector2(865, 591)
-scale = Vector2(2.429687, 2.6250007)
-sprite_frames = SubResource("SpriteFrames_36fgi")
-animation = &"Ataque"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2DKi-Men2" unique_id=264219934]
-light_mask = 7
-visibility_layer = 7
-position = Vector2(867, 577)
-shape = SubResource("CapsuleShape2D_dasm1")
+[node name="CharacterBody2DKi-Men2" parent="." unique_id=1640274421 instance=ExtResource("9_eicml")]
+position = Vector2(-198, 1)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=113465478]
 process_mode = 3

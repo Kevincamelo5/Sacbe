@@ -6,41 +6,33 @@
 script/source = "extends CanvasLayer
 
 func _ready():
-	visible = false #cuadro oculto al principio
-	# Es mejor configurar esto en el Inspector, pero por código sería:
+	# Eliminamos \"visible = false\" para que aparezca inmediatamente al crearlo
 	process_mode = Node.PROCESS_MODE_ALWAYS 
 	
-func mostrar():
-	var tree = get_tree()
-	if tree:
-		visible = true
-		tree.paused = true
-	else:
-		print(\"Error: El SceneTree no está disponible todavía.\")
-	
-#ocultar el cuadro y continuar
+# Ocultar el cuadro y continuar
 func _on_continuar_pressed():
-	visible = false
 	get_tree().paused = false
-	pass # Replace with function body.
+	queue_free() # Usamos queue_free() para destruir este menú, ya que los controles crearán uno nuevo la próxima vez
 
+func _on_reinciar_pressed() -> void:
+	print(\"reiniciando...\")
+	get_tree().paused = false
+	get_tree().reload_current_scene()
 
 func _on_guardar_y_salir_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file(\"res://interfaz/menus/menu_principal.tscn\")
-	pass # Replace with function body.
 
+# (Opcional) Si quieres que la tecla de pausa del teclado cierre el menú
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(\"pausa\"):
-			mostrar()
-
-
-func _on_reinciar_pressed() -> void:
-	print(\"reiniciando...\")
+		# Si presionan la tecla de pausa de nuevo, hace lo mismo que el botón continuar
+		_on_continuar_pressed()
 "
 
-[node name="MenuPausa" type="CanvasLayer" unique_id=1774867333]
+[node name="MenuPausa" type="CanvasLayer" unique_id=417954910]
 process_mode = 3
+layer = 6
 script = SubResource("GDScript_db4q2")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=289865368]
@@ -81,6 +73,6 @@ theme_override_fonts/font = ExtResource("1_jd2x8")
 text = "Regresar Menú Principal"
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/continuar" to="." method="_on_continuar_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/reinciar" to="." method="_on_reinciar_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/reinciar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/reinciar" to="." method="_on_reinciar_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/guardar y salir" to="." method="_on_guardar_y_salir_pressed"]

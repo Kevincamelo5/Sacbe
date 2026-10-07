@@ -2,6 +2,7 @@ extends CanvasLayer
 
 
 
+
 func _on_izquierda_pressed() -> void:
 	$Izquierda.modulate=Color(1,1,1,0.5)
 
@@ -27,11 +28,21 @@ func _on_agacharse_released() -> void:
 	$Agacharse.modulate=Color(1,1,1,1) # Replace with function body.
 
 func _on_pausa_pressed() -> void:
-	$Pausa.modulate=Color(1,1,1,0.5) # Replace with function body.
+	$Pausa.modulate = Color(1, 1, 1, 0.5) 
+	
+	# Si el juego ya está pausado, no hacemos nada para no abrir dos menús
+	if get_tree().paused:
+		return
+		
+	# Instanciamos el menú de pausa y lo pegamos a la pantalla
+	var menu = menu_pausa_escena.instantiate()
+	add_child(menu)
+	
+	# Finalmente, congelamos el juego
+	get_tree().paused = true
 
 func _on_pausa_released() -> void:
-	$Pausa.modulate=Color(1,1,1,1) # Replace with function body.
-
+	$Pausa.modulate = Color(1, 1, 1, 1)
 func _on_cambiar_objeto_pressed() -> void:
 	$CambiarObjeto.modulate=Color(1,1,1,0.5) # Replace with function body.
 
@@ -55,6 +66,7 @@ func _on_usar_objeto_released() -> void:
 @export var icono_hacha: Texture2D
 @export var icono_flauta: Texture2D
 @export var icono_macuahuitle: Texture2D
+var menu_pausa_escena = preload("res://interfaz/menus/menu_pausa.tscn")
 
 @onready var boton_usar = $UsarObjeto
 

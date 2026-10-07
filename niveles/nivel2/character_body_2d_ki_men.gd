@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var vision_range: float = 400.0
 @export var flip_h_original: bool = true
 @export var is_vertical: bool = false # NUEVO: Activar en Inspector para patrullaje Y
-
+@export var vida: int = 3
 # --- REFERENCIAS ---
 @onready var sprite = $AnimatedSprite2D
 @onready var start_pos_x: float = global_position.x
@@ -98,3 +98,37 @@ func update_sprite_direction(dir: float):
 		sprite.flip_h = not flip_h_original
 	elif dir < 0:
 		sprite.flip_h = flip_h_original
+		
+func recibir_daño(cantidad: int) -> void:
+	vida -= cantidad
+	print("Ki-men recibió daño. Vida restante: ", vida)
+	
+	# Efecto visual de parpadeo rojo
+	sprite.modulate = Color(1, 0, 0) # Cambia a rojo
+	await get_tree().create_timer(0.2).timeout
+	sprite.modulate = Color(1, 1, 1) # Vuelve a la normalidad
+	
+	if vida <= 0:
+		morir()
+
+func morir() -> void:
+	print("Ki-men derrotado")
+	# El storyboard dice: "El ki-men se disuelve en el suelo"
+	# Si tienes animación de muerte, puedes ponerla aquí antes de destruirlo.
+	queue_free()
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	print("--- ALGO TOCÓ EL HITBOX DEL KI-MEN ---")
+	print("Nombre de lo que me tocó: ", body.name)
+	
+	if body.is_in_group("jugador"):
+		print("¡Detecté al jugador correctamente!")
+		
+		if body.has_method("_lose_lives"):
+			print("El jugador tiene la función _lose_lives. Ejecutando...")
+			body._lose_lives()
+		else:
+			print("Error: El jugador NO tiene la función _lose_lives")
+	else:
+		print("Lo que me tocó NO está en el grupo 'jugador'")

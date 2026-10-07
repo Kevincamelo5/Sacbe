@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://cptskx4rv4ti4" path="res://interfaz/hud/contador_monedas.gd" id="1_kgg8p"]
 [ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="1_uj757"]
 [ext_resource type="Texture2D" uid="uid://d3u4m5hreqwt2" path="res://activos/arte/marco.png" id="2_ak5sh"]
+[ext_resource type="Texture2D" uid="uid://2l1lmi5bpi4j" path="res://activos/arte/divexfre-pixel-art-9788141_1920.png" id="4_4onc6"]
 
 [node name="Contador_moneda" type="CanvasLayer" unique_id=531681925]
 script = ExtResource("1_kgg8p")
 
 [node name="Recuadro" type="Sprite2D" parent="." unique_id=517126918]
-position = Vector2(-10, 66)
-scale = Vector2(0.6846867, 0.38951567)
+position = Vector2(-23.000004, 56.999996)
+scale = Vector2(1.5202549, 0.38951567)
 texture = ExtResource("2_ak5sh")
 
 [node name="x" type="Label" parent="." unique_id=398102498]
@@ -18,10 +19,10 @@ anchor_left = 0.052083332
 anchor_top = 0.023148147
 anchor_right = 0.20833333
 anchor_bottom = 0.058641974
-offset_left = -10.0
-offset_top = 28.0
-offset_right = -10.0
-offset_bottom = 28.0
+offset_left = 49.0
+offset_top = 20.0
+offset_right = 49.0
+offset_bottom = 20.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_uj757")
 theme_override_font_sizes/font_size = 20
@@ -35,10 +36,10 @@ anchor_left = 0.20700002
 anchor_top = 0.021604938
 anchor_right = 0.2439236
 anchor_bottom = 0.062000003
-offset_left = -92.46402
-offset_top = 26.0
-offset_right = -91.0
-offset_bottom = 25.823997
+offset_left = -42.46402
+offset_top = 18.0
+offset_right = -41.0
+offset_bottom = 17.823997
 theme_override_colors/font_color = Color(0.19966345, 0, 0.26479155, 1)
 theme_override_fonts/font = ExtResource("1_uj757")
 theme_override_font_sizes/font_size = 25
@@ -53,7 +54,10 @@ anchor_left = 0.049000002
 anchor_top = 0.082
 anchor_right = 0.083000004
 anchor_bottom = 0.117000006
-offset_left = -1.4480019
-offset_top = -23.136002
-offset_right = -0.61600494
-offset_bottom = 0.18399811
+offset_left = 167.552
+offset_top = -22.136002
+offset_right = 170.384
+offset_bottom = -16.816002
+texture = ExtResource("4_4onc6")
+expand_mode = 1
+stretch_mode = 4
