@@ -34,8 +34,11 @@ var _operador:= 'x'
 var _operandos:= []
 var _respuesta_correcta := "0"
 
-#contador de correctos
-var correctos:= 0
+var label_aciertos: Label
+
+var respuesta_correcta: String = ""
+var correctos: int = 0
+const ACIERTOS_OBJETIVO: int = 5
 
 func _ready() -> void:
 	if contenedor_objetos:
@@ -54,6 +57,8 @@ func _ready() -> void:
 	_texture_fondo_mayor.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	_texture_fondo_mayor.stretch_mode = TextureRect.STRETCH_SCALE
 	_texture_fondo_mayor.set_anchors_preset(Control.PRESET_FULL_RECT)
+
+	_crear_contador_aciertos()
 
 	var margins_centrales := 100 # Margen para el octágono
 	$fondos2.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -142,6 +147,46 @@ func _ready() -> void:
 	_campo_operandos.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER # Centrar texto
 
 	_generar_problema()
+
+func _crear_contador_aciertos() -> void:
+	label_aciertos = Label.new()
+	label_aciertos.name = "LabelAciertos"
+	add_child(label_aciertos)
+
+	# Estilo placa de piedra maya para el contador
+	var style_aciertos = StyleBoxFlat.new()
+	style_aciertos.bg_color = PALETA_PIEDRA_FONDO
+	style_aciertos.border_color = PALETA_ACENTO_TURQUESA
+	style_aciertos.border_width_left = 4
+	style_aciertos.border_width_right = 4
+	style_aciertos.border_width_top = 4
+	style_aciertos.border_width_bottom = 4
+	style_aciertos.corner_radius_top_left = 10
+	style_aciertos.corner_radius_top_right = 10
+	style_aciertos.corner_radius_bottom_left = 10
+	style_aciertos.corner_radius_bottom_right = 10
+	style_aciertos.content_margin_left = 20
+	style_aciertos.content_margin_right = 20
+	style_aciertos.content_margin_top = 10
+	style_aciertos.content_margin_bottom = 10
+	style_aciertos.shadow_color = Color(0, 0, 0, 0.4)
+	style_aciertos.shadow_size = 4
+	style_aciertos.shadow_offset = Vector2(2, 2)
+
+	label_aciertos.add_theme_stylebox_override("normal", style_aciertos)
+	label_aciertos.add_theme_color_override("font_color", PALETA_GLIFO_TEXTO)
+	label_aciertos.add_theme_font_size_override("font_size", 28)
+	label_aciertos.add_theme_constant_override("outline_size", 2)
+	label_aciertos.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
+
+	# Posicionamiento en la esquina superior izquierda con margen de 25px
+	label_aciertos.position = Vector2(25, 25)
+
+	_actualizar_texto_aciertos()
+
+func _actualizar_texto_aciertos() -> void:
+	if label_aciertos:
+		label_aciertos.text = "Aciertos: " + str(correctos) + " / " + str(ACIERTOS_OBJETIVO)
 
 func _crear_estilo_boton_piedra_maya(accent_color: Color = PALETA_PIEDRA_FONDO, is_hover: bool = false) -> StyleBoxFlat:
 	var style = StyleBoxFlat.new()
@@ -248,7 +293,7 @@ func _generar_problema() -> bool:
 	
 	# Cambiamos el rango de los números (ej. del 1 al 10 para multiplicaciones simples)
 	# Puedes cambiar el 10 por un 12 si prefieres incluir esas tablas
-	var num1 := randi_range(1, 10)
+	var num1 := randi_range(1, 50)
 	var num2 := randi_range(1, 10)
 	
 	# Guardamos los dos números en nuestro arreglo de operaciones
@@ -344,8 +389,9 @@ func _es_respuesta_correcta() -> void:
 
 func _aumentar_aciertos() -> int:
 	correctos += 1
-	print(correctos)
-	if correctos >= 5:
+	_actualizar_texto_aciertos()
+	print("Correctos: ", correctos)
+	if correctos >= ACIERTOS_OBJETIVO:
 		_mostrar_recompensas()
 	return correctos
 

@@ -1,48 +1,26 @@
-extends Area2D
-class_name Hurtbox
+extends Hurtbox
+class_name PlayerHurtbox
 
-@export var fnLastimar: Callable
-@export var fnMorir: Callable
+@export var salud_maxima: int = 30
+@export var inmunidad: float = 0.5
 
-@export_category("Estadísticas")
-@export var saludMaxima: int = 30
-@export var inmunidad:= 0.5
-
-var saludActual: int
-var _esInmune := false
-var _inmunidadTemporizador:= 0.0
-
+var salud_actual: int
+var _es_inmune: bool = false
 
 func _ready() -> void:
-	saludActual = saludMaxima
-	if not fnLastimar: push_warning("Sin efecto de Lastimar")
-	if not fnMorir: push_warning("Usando Morir por defecto")
+	salud_actual = salud_maxima
 
-func _physics_process(delta: float) -> void:
-	if _esInmune:
-		_inmunidadTemporizador -= delta
-		if _inmunidadTemporizador <= 0:
-			_esInmune = false
-			# Resetear efecto
-
-func lastimar(cantidad: int) -> void:
-	if _esInmune:
+func lastimar(cantidad: float = 1.0) -> void:
+	if _es_inmune:
 		return
 	
-	saludActual -= cantidad
-	print_debug(name, " recibió ", cantidad, " de daño. Vida: ", saludActual)
-	
-	# Efectos de daño
+	salud_actual -= int(cantidad)
 	_activar_inmunidad()
 	
-	if saludActual <= 0:
-		if fnMorir: fnMorir.call()
-		else: get_parent().queue_free()
-		
-		print_debug("Muerto")
+	if salud_actual <= 0:
+		get_parent().queue_free()
 
 func _activar_inmunidad() -> void:
-	_esInmune = true
-	_inmunidadTemporizador = inmunidad
-	
-	if fnLastimar: fnLastimar.call()
+	_es_inmune = true
+	await get_tree().create_timer(inmunidad).timeout
+	_es_inmune = false

@@ -19,8 +19,11 @@ const TEX_FONDO_MAYOR := preload("res://activos/arte/cueva.jpg")
 # Referencia al TextureRect de fondo (se crea por código si no existe)
 var _texture_fondo_mayor: TextureRect
 
+var label_aciertos: Label
+
 var respuesta_correcta: String = ""
 var correctos: int = 0
+const ACIERTOS_OBJETIVO: int = 5
 
 func _ready() -> void:
 	# --- CONFIGURACIÓN DEL FONDO MAYA ---
@@ -34,6 +37,8 @@ func _ready() -> void:
 	_texture_fondo_mayor.stretch_mode = TextureRect.STRETCH_SCALE
 	_texture_fondo_mayor.set_anchors_preset(Control.PRESET_FULL_RECT)
 
+	_crear_contador_aciertos()
+	
 	# --- ESTILO DEL PANEL DEL PROBLEMA ---
 	var style_panel_problema = StyleBoxFlat.new()
 	style_panel_problema.bg_color = PALETA_PIEDRA_FONDO.darkened(0.05)
@@ -94,6 +99,46 @@ func _ready() -> void:
 	
 	generar_problema()
 	$AnimatedSprite2D.play("static")
+
+func _crear_contador_aciertos() -> void:
+	label_aciertos = Label.new()
+	label_aciertos.name = "LabelAciertos"
+	add_child(label_aciertos)
+
+	# Estilo placa de piedra maya para el contador
+	var style_aciertos = StyleBoxFlat.new()
+	style_aciertos.bg_color = PALETA_PIEDRA_FONDO
+	style_aciertos.border_color = PALETA_ACENTO_TURQUESA
+	style_aciertos.border_width_left = 4
+	style_aciertos.border_width_right = 4
+	style_aciertos.border_width_top = 4
+	style_aciertos.border_width_bottom = 4
+	style_aciertos.corner_radius_top_left = 10
+	style_aciertos.corner_radius_top_right = 10
+	style_aciertos.corner_radius_bottom_left = 10
+	style_aciertos.corner_radius_bottom_right = 10
+	style_aciertos.content_margin_left = 20
+	style_aciertos.content_margin_right = 20
+	style_aciertos.content_margin_top = 10
+	style_aciertos.content_margin_bottom = 10
+	style_aciertos.shadow_color = Color(0, 0, 0, 0.4)
+	style_aciertos.shadow_size = 4
+	style_aciertos.shadow_offset = Vector2(2, 2)
+
+	label_aciertos.add_theme_stylebox_override("normal", style_aciertos)
+	label_aciertos.add_theme_color_override("font_color", PALETA_GLIFO_TEXTO)
+	label_aciertos.add_theme_font_size_override("font_size", 28)
+	label_aciertos.add_theme_constant_override("outline_size", 2)
+	label_aciertos.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
+
+	# Posicionamiento en la esquina superior izquierda con margen de 25px
+	label_aciertos.position = Vector2(25, 25)
+
+	_actualizar_texto_aciertos()
+
+func _actualizar_texto_aciertos() -> void:
+	if label_aciertos:
+		label_aciertos.text = "Aciertos: " + str(correctos) + " / " + str(ACIERTOS_OBJETIVO)
 
 # Función helper para crear un StyleBoxFlat con aspecto tallado
 func _crear_estilo_boton_piedra_maya(accent_color: Color = PALETA_PIEDRA_FONDO, is_hover: bool = false) -> StyleBoxFlat:
@@ -236,8 +281,9 @@ func _es_respuesta_correcta() -> void:
 
 func _aumentar_aciertos() -> int:
 	correctos += 1
+	_actualizar_texto_aciertos()
 	print("Correctos: ", correctos)
-	if correctos >= 5:
+	if correctos >= ACIERTOS_OBJETIVO:
 		get_tree().change_scene_to_file("res://niveles/nivel2/nivel2_parte1.tscn")
 	return correctos
 
