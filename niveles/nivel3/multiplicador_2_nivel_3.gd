@@ -287,7 +287,7 @@ func _aumentar_aciertos() -> int:
 	_actualizar_texto_aciertos()
 	print("Correctos: ", correctos)
 	if correctos >= ACIERTOS_OBJETIVO:
-		get_tree().change_scene_to_file("res://niveles/nivel4/nivel4_parte_1.tscn")
+		get_tree().change_scene_to_file("res://niveles/nivel4/cinematica_ciudad.tscn")
 	return correctos
 
 func _es_respuesta_incorrecta() -> void:

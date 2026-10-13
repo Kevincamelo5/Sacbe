@@ -274,18 +274,25 @@ func _es_respuesta_correcta() -> void:
 	
 	await tween.finished
 	
-	# Limpiar y generar nuevo problema
-	_aumentar_aciertos()
+# Limpiar el canvas
 	canvas.queue_free()
-	generar_problema()
+	
+	# Verificamos si ganamos ANTES de generar otro problema
+	var nivel_completado = _aumentar_aciertos()
+	
+	if not nivel_completado:
+		generar_problema()
 
 func _aumentar_aciertos() -> int:
 	correctos += 1
 	_actualizar_texto_aciertos()
 	print("Correctos: ", correctos)
+	
 	if correctos >= ACIERTOS_OBJETIVO:
-		get_tree().change_scene_to_file("res://niveles/nivel2/nivel2_parte1.tscn")
-	return correctos
+		get_tree().change_scene_to_file("res://niveles/nivel1/Cinematica cambio nivel.tscn")
+		return true 
+		
+	return false # Aún no llegamos al objetivo
 
 func _es_respuesta_incorrecta() -> void:
 	# Crear canvas layer para el efecto

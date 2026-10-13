@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://gw4fi04s1pys"]
+
+[ext_resource type="Script" uid="uid://68amuaib6u7o" path="res://cinematica_ciudad.gd" id="1_ev4wd"]
+[ext_resource type="Texture2D" uid="uid://cot1nurojbnq2" path="res://niveles/nivel3/Cinematica entrar a la ciudad.jpg" id="2_2g6xu"]
+
+[node name="Cinematica Ciudad" type="Control" unique_id=1984337276]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ev4wd")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=793440975]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+texture = ExtResource("2_2g6xu")
+expand_mode = 1
+
+[node name="Continuar" type="Button" parent="." unique_id=1781019902]
+layout_mode = 0
+offset_left = 838.0
+offset_top = 198.0
+offset_right = 1025.0
+offset_bottom = 257.0
+theme_override_font_sizes/font_size = 37
+text = "Continuar"

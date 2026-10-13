@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c4v30i4yiqrq4"]
+
+[ext_resource type="Script" uid="uid://ct4nbpkgaoecw" path="res://control.gd" id="1_s0qoy"]
+[ext_resource type="Texture2D" uid="uid://bdkl2un8epjic" path="res://niveles/nivel1/Cinematica-mision superada.jpg" id="2_h4ypb"]
+
+[node name="Control" type="Control" unique_id=1052067382]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s0qoy")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2033433720]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 1159.0
+offset_bottom = 648.0
+texture = ExtResource("2_h4ypb")
+expand_mode = 1
+
+[node name="Continuar" type="Button" parent="." unique_id=1675807184]
+layout_mode = 0
+offset_left = 705.0
+offset_top = 484.0
+offset_right = 977.0
+offset_bottom = 565.0
+theme_override_font_sizes/font_size = 37
+text = "Continuar
+"

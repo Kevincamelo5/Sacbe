@@ -287,10 +287,11 @@ func _cambiar_siguiente_objeto_desbloqueado():
 			break 
 	
 # perder vidas
+@onready var Audio_dano = $AudioDano
 func _lose_lives() -> void:
 	if not _estaProtegido and not _recibiendo_dano:
 		_recibiendo_dano = true
-		
+		Audio_dano.play()
 		animatedSprite.play("recibirDaño")
 		
 		await animatedSprite.animation_finished

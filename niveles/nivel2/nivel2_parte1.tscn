@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b2dt0fv7bfom7"]
 
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="1_1xc8m"]
+[ext_resource type="Script" uid="uid://b55yfquvd11i8" path="res://niveles/nivel2/nivel_2_parte_1.gd" id="1_7r5rn"]
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="2_cablh"]
 [ext_resource type="Texture2D" uid="uid://b8q4xrn4sfvjg" path="res://componentes/escenarios/Casal2.png" id="4_u4ah2"]
 [ext_resource type="Texture2D" uid="uid://5t2fuhmjetof" path="res://componentes/escenarios/Piso-Nivel2parte1.png" id="5_lfnq5"]
@@ -15,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cno7e1ivf3yc5" path="res://objetos/interactuables/altar.tscn" id="15_4mwl0"]
 [ext_resource type="Script" uid="uid://c45fdxt7xfmld" path="res://niveles/nivel2/area_salida.gd" id="15_b4qib"]
 [ext_resource type="PackedScene" uid="uid://cjw2u5sdc8y3e" path="res://niveles/nivel2/ave.tscn" id="17_eicml"]
+[ext_resource type="AudioStream" uid="uid://xcgvpdxq7u3f" path="res://activos/audio/381384__vabsounds__jungle.wav" id="18_7r5rn"]
 [ext_resource type="PackedScene" uid="uid://nuff45mpura6" path="res://entidades/enemigos/piedra.tscn" id="18_eicml"]
 [ext_resource type="PackedScene" uid="uid://crq1d3r1wakbo" path="res://componentes/moneda.tscn" id="21_4mwl0"]
 
@@ -31,6 +33,11 @@ size = Vector2(1.5162497, 0.8771876)
 radius = 25.019993
 
 [node name="Nivel2Parte1" type="Node2D" unique_id=1245958155]
+script = ExtResource("1_7r5rn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=637615803]
+stream = ExtResource("18_7r5rn")
+volume_db = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=34003727]
 process_mode = 2
