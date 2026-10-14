@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0vwle0vy1g0p" path="res://componentes/escenarios/Altar2.png" id="2_tn4cc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3g2fe"]
-size = Vector2(20.434782, 24.170506)
+size = Vector2(72.17391, 24.170506)
 
 [node name="Altar" type="Node2D" unique_id=849188957]
 script = ExtResource("1_tn4cc")
@@ -18,7 +18,7 @@ collision_mask = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1443272180]
 light_mask = 33
 visibility_layer = 6
-position = Vector2(0.9999986, 18.099998)
+position = Vector2(11.000005, 18.099998)
 scale = Vector2(4.6, 8.68)
 shape = SubResource("RectangleShape2D_3g2fe")
 debug_color = Color(0.52655107, 0.57173777, 0.08348694, 0.41960785)
@@ -26,8 +26,8 @@ debug_color = Color(0.52655107, 0.57173777, 0.08348694, 0.41960785)
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=112211039]
 light_mask = 33
 visibility_layer = 6
-position = Vector2(-3, -13.000011)
-scale = Vector2(0.8823696, 0.98569477)
+position = Vector2(-3.8146973e-06, 1.0000019)
+scale = Vector2(0.7298727, 0.8153405)
 texture = ExtResource("2_tn4cc")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

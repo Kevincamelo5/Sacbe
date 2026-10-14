@@ -5,14 +5,71 @@
 [sub_resource type="GDScript" id="GDScript_db4q2"]
 script/source = "extends CanvasLayer
 
-func _ready():
-	# Eliminamos \"visible = false\" para que aparezca inmediatamente al crearlo
-	process_mode = Node.PROCESS_MODE_ALWAYS 
-	
-# Ocultar el cuadro y continuar
-func _on_continuar_pressed():
+# Ajusta las rutas según los nombres exactos de tus nodos en la escena
+@onready var fondo_oscuro: ColorRect = $ColorRect if has_node(\"ColorRect\") else null
+@onready var panel_contenedor: PanelContainer = $ColorRect/PanelContainer if has_node(\"ColorRect/PanelContainer\") else null
+@onready var boton_continuar: Button = $ColorRect/PanelContainer/VBoxContainer/continuar if has_node(\"ColorRect/PanelContainer/VBoxContainer/continuar\") else $Continuar
+@onready var boton_reiniciar: Button = $ColorRect/PanelContainer/VBoxContainer/reinciar if has_node(\"ColorRect/PanelContainer/VBoxContainer/reinciar\") else $Reiniciar
+@onready var boton_salir: Button = $\"ColorRect/PanelContainer/VBoxContainer/guardar y salir\" if has_node(\"ColorRect/PanelContainer/VBoxContainer/guardar y salir\") else $RegresarMenuPrincipal
+
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	_aplicar_estilo_pausa()
+
+func _aplicar_estilo_pausa() -> void:
+	# 1. Ajustar el fondo opaco/selva
+	if fondo_oscuro:
+		fondo_oscuro.color = Color(0.04, 0.08, 0.05, 0.75) # Verde selva muy oscuro y transparente
+
+	# 2. Estilo para el panel central (Estela de piedra)
+	var estilo_panel := StyleBoxFlat.new()
+	estilo_panel.bg_color = Color(0.12, 0.10, 0.08, 0.9) # Piedra oscura
+	estilo_panel.border_color = Color(0.75, 0.60, 0.32, 0.9) # Borde dorado
+	estilo_panel.set_border_width_all(3)
+	estilo_panel.set_corner_radius_all(6)
+	estilo_panel.content_margin_left = 20
+	estilo_panel.content_margin_right = 20
+	estilo_panel.content_margin_top = 20
+	estilo_panel.content_margin_bottom = 20
+
+	if panel_contenedor:
+		panel_contenedor.add_theme_stylebox_override(\"panel\", estilo_panel)
+
+	# 3. Estilos de los Botones (Normal, Hover/Enfoque y Presionado)
+	var estilo_btn_normal := StyleBoxFlat.new()
+	estilo_btn_normal.bg_color = Color(0.18, 0.15, 0.12, 0.8)
+	estilo_btn_normal.border_color = Color(0.60, 0.48, 0.25, 0.7)
+	estilo_btn_normal.set_border_width_all(2)
+	estilo_btn_normal.set_corner_radius_all(4)
+	estilo_btn_normal.content_margin_top = 8
+	estilo_btn_normal.content_margin_bottom = 8
+
+	var estilo_btn_hover := estilo_btn_normal.duplicate() as StyleBoxFlat
+	estilo_btn_hover.bg_color = Color(0.35, 0.28, 0.15, 0.9) # Iluminación dorada
+	estilo_btn_hover.border_color = Color(1.0, 0.88, 0.45, 1.0) # Borde brillante
+
+	var estilo_btn_pressed := estilo_btn_hover.duplicate() as StyleBoxFlat
+	estilo_btn_pressed.bg_color = Color(0.50, 0.40, 0.18, 1.0)
+
+	var lista_botones = [boton_continuar, boton_reiniciar, boton_salir]
+
+	for btn in lista_botones:
+		if btn:
+			btn.add_theme_stylebox_override(\"normal\", estilo_btn_normal)
+			btn.add_theme_stylebox_override(\"hover\", estilo_btn_hover)
+			btn.add_theme_stylebox_override(\"pressed\", estilo_btn_pressed)
+			btn.add_theme_stylebox_override(\"focus\", estilo_btn_hover)
+
+			# Colores de texto estilo piedra / arena
+			btn.add_theme_color_override(\"font_color\", Color(0.92, 0.86, 0.73))
+			btn.add_theme_color_override(\"font_hover_color\", Color(1.0, 0.96, 0.70))
+			btn.add_theme_color_override(\"font_pressed_color\", Color(1.0, 1.0, 1.0))
+
+# --- Funciones de interacción ---
+
+func _on_continuar_pressed() -> void:
 	get_tree().paused = false
-	queue_free() # Usamos queue_free() para destruir este menú, ya que los controles crearán uno nuevo la próxima vez
+	queue_free()
 
 func _on_reinciar_pressed() -> void:
 	print(\"reiniciando...\")
@@ -23,10 +80,8 @@ func _on_guardar_y_salir_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file(\"res://interfaz/menus/menu_principal.tscn\")
 
-# (Opcional) Si quieres que la tecla de pausa del teclado cierre el menú
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(\"pausa\"):
-		# Si presionan la tecla de pausa de nuevo, hace lo mismo que el botón continuar
 		_on_continuar_pressed()
 "
 
@@ -41,38 +96,45 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.184314, 0.184314, 0.184314, 0.709804)
+color = Color(1, 1, 1, 0)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=103466585]
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect" unique_id=2097127791]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -174.0
-offset_top = -176.0
-offset_right = 172.0
-offset_bottom = 172.0
+offset_left = -93.0
+offset_top = -50.0
+offset_right = 93.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="continuar" type="Button" parent="ColorRect/VBoxContainer" unique_id=536357235]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer" unique_id=103466585]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="continuar" type="Button" parent="ColorRect/PanelContainer/VBoxContainer" unique_id=536357235]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_jd2x8")
+theme_override_font_sizes/font_size = 40
 text = "Continuar"
 
-[node name="reinciar" type="Button" parent="ColorRect/VBoxContainer" unique_id=1896810298]
+[node name="reinciar" type="Button" parent="ColorRect/PanelContainer/VBoxContainer" unique_id=1896810298]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_jd2x8")
+theme_override_font_sizes/font_size = 40
 text = "Reiniciar"
 
-[node name="guardar y salir" type="Button" parent="ColorRect/VBoxContainer" unique_id=667589493]
+[node name="guardar y salir" type="Button" parent="ColorRect/PanelContainer/VBoxContainer" unique_id=667589493]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_jd2x8")
-text = "Regresar Menú Principal"
+theme_override_font_sizes/font_size = 40
+text = "Regresar al Menú Principal"
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/continuar" to="." method="_on_continuar_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/reinciar" to="." method="_on_continuar_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/reinciar" to="." method="_on_reinciar_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/guardar y salir" to="." method="_on_guardar_y_salir_pressed"]
+[connection signal="pressed" from="ColorRect/PanelContainer/VBoxContainer/continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="ColorRect/PanelContainer/VBoxContainer/reinciar" to="." method="_on_reinciar_pressed"]
+[connection signal="pressed" from="ColorRect/PanelContainer/VBoxContainer/reinciar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="ColorRect/PanelContainer/VBoxContainer/guardar y salir" to="." method="_on_guardar_y_salir_pressed"]

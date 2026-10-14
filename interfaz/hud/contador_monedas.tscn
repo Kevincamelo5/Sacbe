@@ -9,44 +9,9 @@
 script = ExtResource("1_kgg8p")
 
 [node name="Recuadro" type="Sprite2D" parent="." unique_id=517126918]
-position = Vector2(-23.000004, 56.999996)
-scale = Vector2(1.5202549, 0.38951567)
+position = Vector2(-20.465189, 74.72262)
+scale = Vector2(1.1550498, 0.45043966)
 texture = ExtResource("2_ak5sh")
-
-[node name="x" type="Label" parent="." unique_id=398102498]
-anchors_preset = -1
-anchor_left = 0.052083332
-anchor_top = 0.023148147
-anchor_right = 0.20833333
-anchor_bottom = 0.058641974
-offset_left = 49.0
-offset_top = 20.0
-offset_right = 49.0
-offset_bottom = 20.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_uj757")
-theme_override_font_sizes/font_size = 20
-text = "Monedas:"
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="contador_monedas" type="Label" parent="." unique_id=1504613231]
-anchors_preset = -1
-anchor_left = 0.20700002
-anchor_top = 0.021604938
-anchor_right = 0.2439236
-anchor_bottom = 0.062000003
-offset_left = -42.46402
-offset_top = 18.0
-offset_right = -41.0
-offset_bottom = 17.823997
-theme_override_colors/font_color = Color(0.19966345, 0, 0.26479155, 1)
-theme_override_fonts/font = ExtResource("1_uj757")
-theme_override_font_sizes/font_size = 25
-text = "0 "
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1999355962]
 anchors_preset = -1
@@ -54,10 +19,28 @@ anchor_left = 0.049000002
 anchor_top = 0.082
 anchor_right = 0.083000004
 anchor_bottom = 0.117000006
-offset_left = 167.552
-offset_top = -22.136002
-offset_right = 170.384
-offset_bottom = -16.816002
+offset_left = 93.552
+offset_top = 20.863998
+offset_right = 96.383995
+offset_bottom = 26.183998
+scale = Vector2(1.3367548, 1.3367548)
 texture = ExtResource("4_4onc6")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="contador_monedas" type="Label" parent="." unique_id=1504613231]
+anchors_preset = -1
+anchor_left = 0.20700002
+anchor_top = 0.021604938
+anchor_right = 0.2439236
+anchor_bottom = 0.062000003
+offset_left = -60.46402
+offset_top = 64.0
+offset_right = -59.0
+offset_bottom = 68.824
+theme_override_colors/font_color = Color(0.19966345, 0, 0.26479155, 1)
+theme_override_fonts/font = ExtResource("1_uj757")
+theme_override_font_sizes/font_size = 30
+text = "0 "
+horizontal_alignment = 1
+vertical_alignment = 1
