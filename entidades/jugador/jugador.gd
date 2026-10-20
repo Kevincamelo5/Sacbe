@@ -30,6 +30,13 @@ func _ready() -> void:
 			"macuahuitle":
 				objetoActual = OBJETOS.MACUAHUITLE
 
+	# Animación del macuahuitl (arma final del Nivel 5)
+	var tex_macuahuitl := preload("res://activos/arte/(512) Quitzal macuahuitle v2 frentre.png")
+	if not animatedSprite.sprite_frames.has_animation("macuahuitle"):
+		animatedSprite.sprite_frames.add_animation("macuahuitle")
+		animatedSprite.sprite_frames.add_frame("macuahuitle", tex_macuahuitl, 1.0)
+		animatedSprite.sprite_frames.set_animation_loop("macuahuitle", false)
+
 	
 
 func volver_al_inicio() -> void:
@@ -181,6 +188,9 @@ func _usar_objeto() -> void:
 			OBJETOS.HACHA:
 				_temporizadorObjeto = enfriamientoHacha
 				atacar_hacha()
+			OBJETOS.MACUAHUITLE:
+				_temporizadorObjeto = enfriamientoMacuahuitle
+				atacar_macuahuitl()
 			OBJETOS.FLAUTA:
 				_temporizadorObjeto = 1.0 # O la variable de enfriamiento que le asignes
 				tocar_flauta()
@@ -253,6 +263,17 @@ func atacar_hacha():
 		for area in areas:
 			if area is Hurtbox:
 				area.lastimar(dañoHacha)
+
+# MACUAHUITLE
+func atacar_macuahuitl():
+	print_debug("Atacando con Macuahuitl")
+	var areas = areaCuchillo.get_overlapping_areas()
+	for area in areas:
+		if area.has_method("lastimar"):
+			area.lastimar(dañoMacuahuitle)
+		elif area.has_method("recibir_dano"):
+			area.recibir_dano(dañoMacuahuitle)
+	animatedSprite.play("macuahuitle")
 
 # FLAUTA
 func tocar_flauta():

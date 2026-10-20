@@ -1,0 +1,70 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://cinematica.gd" id="1_cinematica"]
+[ext_resource type="Texture2D" path="res://niveles/nivel5/Fondo-Lv5.png" id="2_fondo"]
+
+[node name="Nivel5CinematicaFinal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cinematica")
+next_scene = "res://niveles/nivel5/nivel5_mision_superada.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fondo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.02, 0.0, 0.7)
+
+[node name="Titulo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 150.0
+offset_right = 926.0
+offset_bottom = 240.0
+theme_override_font_sizes/font_size = 52
+theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 1)
+theme_override_constants/outline_size = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Kakasbal ha sido sellado"
+horizontal_alignment = 1
+
+[node name="Descripcion" type="Label" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 270.0
+offset_right = 976.0
+offset_bottom = 420.0
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.95, 0.9, 0.8, 1)
+theme_override_constants/outline_size = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Con sus últimas fuerzas, Quitzal sella a Kakasbal\ndentro del cuchillo de pedernal, para que no vuelva\na atormentar a la humanidad."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continuar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 470.0
+offset_right = 676.0
+offset_bottom = 530.0
+theme_override_font_sizes/font_size = 34
+text = "Continuar"

@@ -1,3 +1,58 @@
-[gd_scene format=3 uid="uid://d3sxshkhhsjcp"]
+[gd_scene format=3 uid="uid://dp70cmnwtwref"]
 
-[node name="Nivel5Parte2" type="Node2D"]
+[ext_resource type="Script" uid="uid://swk1o5ktvfnl" path="res://niveles/nivel5/nivel5_parte2.gd" id="1_arena"]
+[ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="2_jugador"]
+[ext_resource type="PackedScene" uid="uid://dkl2xjuoo6utn" path="res://niveles/nivel5/kakasbal.tscn" id="3_kakasbal"]
+[ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="4_controles"]
+[ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/hud/contador_vidas.tscn" id="8_vidas"]
+[ext_resource type="Texture2D" uid="uid://dsnc10cwas1i5" path="res://niveles/nivel5/Fondo-Lv5.png" id="5_fondo"]
+[ext_resource type="Texture2D" uid="uid://d24naqlfcxj1o" path="res://niveles/nivel5/Sprite piso LV5.png" id="6_piso"]
+[ext_resource type="AudioStream" uid="uid://1svqy760hdf2" path="res://niveles/nivel5/Battalla final.wav" id="7_musica"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_piso"]
+size = Vector2(1160, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pared"]
+size = Vector2(40, 600)
+
+[node name="Nivel5Parte2" type="Node2D" unique_id=1450279857]
+script = ExtResource("1_arena")
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=604669817]
+z_index = -10
+position = Vector2(576, 324)
+scale = Vector2(1.56, 1.56)
+texture = ExtResource("5_fondo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=542286010]
+
+[node name="Piso" type="CollisionShape2D" parent="StaticBody2D" unique_id=1678532690]
+position = Vector2(576, 604)
+shape = SubResource("RectangleShape2D_piso")
+
+[node name="SpritePiso" type="Sprite2D" parent="StaticBody2D/Piso" unique_id=1790771669]
+position = Vector2(0, -15.900001)
+scale = Vector2(1.02, 0.5438914)
+texture = ExtResource("6_piso")
+
+[node name="ParedIzquierda" type="CollisionShape2D" parent="StaticBody2D" unique_id=2043816270]
+position = Vector2(20, 300)
+shape = SubResource("RectangleShape2D_pared")
+
+[node name="ParedDerecha" type="CollisionShape2D" parent="StaticBody2D" unique_id=1572669058]
+position = Vector2(1132, 300)
+shape = SubResource("RectangleShape2D_pared")
+
+[node name="Jugador" parent="." unique_id=1160070677 instance=ExtResource("2_jugador")]
+position = Vector2(180, 470)
+
+[node name="Kakasbal" parent="." unique_id=1681575857 instance=ExtResource("3_kakasbal")]
+position = Vector2(576, 250)
+
+[node name="controles" parent="." unique_id=968187212 instance=ExtResource("4_controles")]
+es_ultimo_nivel = true
+
+[node name="ContadorVidas" parent="." unique_id=2718281828 instance=ExtResource("8_vidas")]
+
+[node name="Musica" type="AudioStreamPlayer" parent="." unique_id=1501079014]
+stream = ExtResource("7_musica")

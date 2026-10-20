@@ -1,0 +1,103 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://niveles/nivel5/nivel5_reto.gd" id="1_reto"]
+[ext_resource type="Texture2D" path="res://activos/arte/Gemini_Generated_Image_80ljf80ljf80ljf8.png" id="2_fondo"]
+[ext_resource type="FontFile" path="res://activos/fuentes/Mayan.ttf" id="3_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_label"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_empty"]
+
+[node name="Nivel5RetoMultiplicacion" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_reto")
+operacion = 2
+next_scene = "res://niveles/nivel5/nivel5_reto_division.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fondo")
+expand_mode = 1
+
+[node name="fondos2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -99.0
+offset_right = 125.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="izquierda" type="VBoxContainer" parent="fondos2"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="CenterContainer" type="CenterContainer" parent="fondos2/izquierda"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="fondos2/izquierda/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="Label" type="Label" parent="fondos2/izquierda/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_label")
+text = "0 x 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="fondos2/izquierda/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 61
+theme_override_styles/read_only = SubResource("StyleBoxFlat_empty")
+placeholder_text = "0"
+alignment = 1
+virtual_keyboard_type = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="fondos2/izquierda"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="fondos2/izquierda/MarginContainer"]
+layout_mode = 2
+
+[node name="BotonEnviar" type="Button" parent="fondos2/izquierda/MarginContainer/CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 45
+text = "Enviar"
+
+[node name="derecha" type="VBoxContainer" parent="fondos2"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="fondos2/derecha"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="fondos2/derecha/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3

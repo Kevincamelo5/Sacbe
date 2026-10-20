@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c3c02ysfxog4d" path="res://componentes/escenarios/flauta-test.png" id="6_fpkyn"]
 [ext_resource type="Texture2D" uid="uid://qeevfbm1li0g" path="res://activos/arte/botones/bang-148261_1920.png" id="7_7aew7"]
 [ext_resource type="Texture2D" uid="uid://c15juj0im74bp" path="res://activos/arte/boton-ataque.png" id="14_wfijh"]
+[ext_resource type="Texture2D" path="res://activos/arte/(512) Quitzal macuahuitle v2 frentre.png" id="15_macuahuitle"]
 
 [node name="controles" type="CanvasLayer" unique_id=1681580207]
 script = ExtResource("1_4hprl")
@@ -22,6 +23,7 @@ icono_lanza = ExtResource("3_mevix")
 icono_escudo = ExtResource("4_fpkyn")
 icono_hacha = ExtResource("5_wfijh")
 icono_flauta = ExtResource("6_fpkyn")
+icono_macuahuitle = ExtResource("15_macuahuitle")
 
 [node name="Izquierda" type="TouchScreenButton" parent="." unique_id=1811504451]
 modulate = Color(1, 1, 1, 0.78431374)

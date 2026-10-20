@@ -65,8 +65,8 @@ func _on_sí_pressed() -> void:
 
 # Botón para reiniciar nivel
 func _on_no_pressed() -> void:
-	# Si la pantalla de muerte se carga dentro de la misma escena del nivel:
-	# get_tree().reload_current_scene()
-	
-	# Si rediriges directamente a la ruta del nivel 1:
-	get_tree().change_scene_to_file("res://niveles/nivel1/nivel1_parte1.tscn")
+	# Reiniciamos el nivel en el que se encontraba el jugador (no siempre el nivel 1)
+	if GameManager:
+		GameManager.reiniciar_nivel()
+	else:
+		get_tree().change_scene_to_file("res://niveles/nivel1/nivel1_parte1.tscn")

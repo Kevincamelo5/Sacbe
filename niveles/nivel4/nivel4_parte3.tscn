@@ -1,3 +1,70 @@
-[gd_scene format=3 uid="uid://bpld3k4uy4x7p"]
+[gd_scene format=3]
 
-[node name="Nivel4Parte3" type="Node2D"]
+[ext_resource type="Script" path="res://cinematica.gd" id="1_cinematica"]
+[ext_resource type="Texture2D" path="res://niveles/nivel5/Fondo-Lv5.png" id="2_fondo"]
+
+[node name="Nivel4Parte3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cinematica")
+next_scene = "res://niveles/nivel5/nivel5_reto_suma.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fondo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.55)
+
+[node name="Titulo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 140.0
+offset_right = 876.0
+offset_bottom = 230.0
+theme_override_font_sizes/font_size = 56
+theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 1)
+theme_override_constants/outline_size = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Templo Mayor"
+horizontal_alignment = 1
+
+[node name="Descripcion" type="Label" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 260.0
+offset_right = 976.0
+offset_bottom = 400.0
+theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0.95, 0.9, 0.8, 1)
+theme_override_constants/outline_size = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Quitzal llega al corazón de la ciudad.\nAntes de enfrentar a Kakasbal, deberá\nrecordar lo aprendido en su viaje."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continuar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 470.0
+offset_right = 676.0
+offset_bottom = 530.0
+theme_override_font_sizes/font_size = 34
+text = "Continuar"

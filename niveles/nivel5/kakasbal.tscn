@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dkl2xjuoo6utn"]
+
+[ext_resource type="Script" uid="uid://cpppxfme75b65" path="res://niveles/nivel5/kakasbal.gd" id="1_kakasbal"]
+[ext_resource type="Script" uid="uid://18q5o1cf68y3" path="res://entidades/enemigos/hurtbox.gd" id="2_hurtbox"]
+[ext_resource type="Texture2D" uid="uid://dhuqejlrl7ou" path="res://niveles/nivel5/pajaro.png" id="3_ave"]
+[ext_resource type="Texture2D" uid="uid://bp64ej4mbhdp8" path="res://niveles/nivel5/SPRITE jaguar.png" id="4_jaguar"]
+[ext_resource type="Texture2D" uid="uid://clhmtxuuhod5x" path="res://niveles/nivel5/1024_Kakasbal_v3_frente-removebg-preview.png" id="5_humano"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hurtbox"]
+radius = 85.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_body"]
+radius = 54.129475
+
+[node name="Kakasbal" type="CharacterBody2D" unique_id=1031627278]
+script = ExtResource("1_kakasbal")
+
+[node name="Sprites" type="Node2D" parent="." unique_id=849284796]
+
+[node name="Ave" type="Sprite2D" parent="Sprites" unique_id=119893616]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_ave")
+
+[node name="Jaguar" type="Sprite2D" parent="Sprites" unique_id=87339003]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_jaguar")
+
+[node name="Humano" type="Sprite2D" parent="Sprites" unique_id=1121266361]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_humano")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=623607530]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("2_hurtbox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=743104984]
+shape = SubResource("CircleShape2D_hurtbox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1291759786]
+shape = SubResource("CircleShape2D_body")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1118389766]
+one_shot = true
