@@ -1,27 +1,64 @@
 extends Node
+
 var moneda = 0
 var vida = 5
 var arma_equipada_actual: String = "cuchillo"
 ## Ruta de la escena/nivel en la que se encuentra el jugador (para poder reiniciarlo).
 var nivel_actual: String = "res://niveles/nivel1/nivel1_parte1.tscn"
+
 signal arma_cambiada
+signal puntuacion_actualizada(moneda_actual: int)
+signal vida_actualizada(vida_actual: int)
 
 var armasDesbloqueadas = {
 	"cuchillo": true,
 	"hacha": false,
 	"lanza": false,
 	"escudo": false,
-	"flauta":false,
+	"flauta": false,
 	"macuahuitle": false 
 }
 
-signal puntuacion_actualizada(moneda_actual:int)
-signal vida_actualizada(vida_actual:int)
+## Escena inicial de cada nivel, usada para reiniciar desde el principio del nivel.
+const INICIO_NIVELES := {
+	"nivel1/": "res://niveles/nivel1/nivel1_parte1.tscn",
+	"nivel2/": "res://niveles/nivel2/nivel2_parte1.tscn",
+	"nivel3/": "res://niveles/nivel3/nivel3_parte1.tscn",
+	"nivel4/": "res://niveles/nivel4/nivel4_parte_1.tscn",
+	"nivel5/": "res://niveles/nivel5/nivel5_reto_suma.tscn",
+}
+
+# --- FUNCIÓN MODIFICADA ---
+func reiniciar_nivel():
+	# 1. Restablecer vidas y emitir señal para la interfaz
+	vida = 5
+	vida_actualizada.emit(vida)
+	
+	# 2. Restablecer monedas y emitir señal para la interfaz
+	moneda = 0
+	puntuacion_actualizada.emit(moneda)
+	
+	# 3. Cambiar de escena al inicio del nivel correspondiente
+	get_tree().change_scene_to_file(_inicio_del_nivel(nivel_actual))
+
+func _inicio_del_nivel(ruta: String) -> String:
+	for clave in INICIO_NIVELES:
+		if ruta.contains(clave):
+			return INICIO_NIVELES[clave]
+	return "res://niveles/nivel1/nivel1_parte1.tscn"
 
 func incrementar_monedas():
 	moneda += 1
 	puntuacion_actualizada.emit(moneda)
 	print("Monedas: ", moneda)
+
+func gastar_monedas(costo: int) -> bool:
+	if moneda >= costo:
+		moneda -= costo
+		puntuacion_actualizada.emit(moneda) # Actualiza el HUD
+		return true
+	else:
+		return false
 
 func disminuir_vida(caida_al_vacio: bool = false):
 	vida -= 1
@@ -35,69 +72,11 @@ func disminuir_vida(caida_al_vacio: bool = false):
 		# Ir a pantalla de fin de juego
 		get_tree().change_scene_to_file("res://interfaz/pantallas/muerto.tscn")
 	elif caida_al_vacio:
-		# Solo lo regresamos al inicio si la variable caida_al_vacio es true
 		var jugador = get_tree().get_first_node_in_group("jugador") 
 		if jugador and jugador.has_method("volver_al_inicio"):
 			jugador.volver_al_inicio()
 
-## Escena inicial de cada nivel, usada para reiniciar desde el principio del nivel.
-const INICIO_NIVELES := {
-	"nivel1/": "res://niveles/nivel1/nivel1_parte1.tscn",
-	"nivel2/": "res://niveles/nivel2/nivel2_parte1.tscn",
-	"nivel3/": "res://niveles/nivel3/nivel3_parte1.tscn",
-	"nivel4/": "res://niveles/nivel4/nivel4_parte_1.tscn",
-	"nivel5/": "res://niveles/nivel5/nivel5_reto_suma.tscn",
-}
-
-func reiniciar_nivel():
-	# Restauramos las vidas y volvemos al INICIO del nivel en el que estaba el jugador
-	vida = 5
-	vida_actualizada.emit(vida)
-	get_tree().change_scene_to_file(_inicio_del_nivel(nivel_actual))
-
-func _inicio_del_nivel(ruta: String) -> String:
-	for clave in INICIO_NIVELES:
-		if ruta.contains(clave):
-			return INICIO_NIVELES[clave]
-	return "res://niveles/nivel1/nivel1_parte1.tscn"
-
 func aumentar_vida():
 	vida += 1
 	vida_actualizada.emit(vida)
-	print("Vida: ", vida)
-
-func comprar_vida(costo: int = 30) -> bool:
-	if moneda >= costo: # Si monedas es 30 o más (mayor a 29)
-		# 1. Ajustamos las variables
-		moneda -= costo
-		vida += 1
-		
-		# 2. Emitimos las señales para que el HUD en pantalla cambie de número
-		vida_actualizada.emit(vida)
-		
-		# ADVERTENCIA: Usa el nombre exacto de la señal que ya usas en 
-		# incrementar_monedas() para actualizar el HUD de monedas.
-		# Asumiré que se llama "monedas_actualizadas" o "monedas_cambiadas".
-		if has_signal("monedas_actualizadas"):
-			emit_signal("monedas_actualizadas", moneda)
-			
-		print("¡Compra exitosa! Vidas: ", vida, " | Monedas restantes: ", moneda)
-		return true
-	else:
-		print("Monedas insuficientes. Tienes ", moneda, " y necesitas ", costo)
-		return false
-
-func desbloquear_arma(nombreArma: String):
-	if armasDesbloqueadas.has(nombreArma):
-		armasDesbloqueadas[nombreArma] = true
-		print(nombreArma, "desbloqueada")
-	else: print_debug("Error: El arma '", nombreArma, "' no existe en el diccionario.")
-
-# Añadir al final de game_manager.gd
-func gastar_monedas(costo: int) -> bool:
-	if moneda >= costo: # Usamos tu variable 'moneda' en singular
-		moneda -= costo
-		puntuacion_actualizada.emit(moneda) # Actualiza el HUD
-		return true
-	else:
-		return false
+	print

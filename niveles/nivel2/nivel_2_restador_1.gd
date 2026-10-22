@@ -13,9 +13,15 @@ const PALETA_BORDE_NEGRO := Color("#000000")    # Contornos de glifos
 const COLOR_FONDO := Color(0.392, 0.435, 0.465, 1.0)
 const COLOR_FONDO_BOTONES := Color(0.036, 0.0, 0.339, 0.914)
 const TEX_FONDO_PROBLEMA := preload("res://activos/arte/Gemini_Generated_Image_80ljf80ljf80ljf8.png") 
-const OPERADOR := "-" # CAMBIO: Operador de resta
+const OPERADOR := "-"
 
-#conexion de las funciones con sus respectivas terminales.
+# --- PRECIOS DE LAS ARMAS ---
+const PRECIOS := {
+	"flauta": 15,
+	"hacha": 35,
+	"lanza": 40
+}
+
 @onready var _contenedor_botones: GridContainer = $fondos2/derecha/CenterContainer/GridContainer
 @onready var _campo_respuesta: LineEdit = $fondos2/izquierda/CenterContainer/VBoxContainer/LineEdit
 @onready var _campo_operandos: Label = $fondos2/izquierda/CenterContainer/VBoxContainer/Label
@@ -27,11 +33,12 @@ const OPERADOR := "-" # CAMBIO: Operador de resta
 
 @onready var _texture_fondo_mayor: TextureRect = $TextureRect
 
-var _operador:= '-' # CAMBIO: Iniciamos con resta
+var _operador:= '-'
 var _operandos:= []
 var _respuesta_correcta := "0"
 
 var label_aciertos: Label
+var label_error_dinero: Label
 
 var respuesta_correcta: String = ""
 var correctos: int = 0
@@ -43,12 +50,12 @@ func _ready() -> void:
 		boton_flauta.pressed.connect(_seleccionar_objeto.bind("flauta"))
 		boton_hacha.pressed.connect(_seleccionar_objeto.bind("hacha"))
 		boton_lanza.pressed.connect(_seleccionar_objeto.bind("lanza"))
-	
+	 
 	if not _texture_fondo_mayor:
 		_texture_fondo_mayor = TextureRect.new()
 		_texture_fondo_mayor.name = "TextureRectFondoMayor"
 		add_child(_texture_fondo_mayor)
-		move_child(_texture_fondo_mayor, 0) # Asegurar que esté detrás de todo
+		move_child(_texture_fondo_mayor, 0)
 
 	_texture_fondo_mayor.texture = TEX_FONDO_PROBLEMA
 	_texture_fondo_mayor.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -56,30 +63,29 @@ func _ready() -> void:
 	_texture_fondo_mayor.set_anchors_preset(Control.PRESET_FULL_RECT)
 
 	_crear_contador_aciertos()
+	_crear_label_error()
 	
-	var margins_centrales := 100 # Margen para el octágono
+	var margins_centrales := 100
 	$fondos2.set_anchors_preset(Control.PRESET_FULL_RECT)
 	$fondos2.add_theme_constant_override("margin_left", margins_centrales)
 	$fondos2.add_theme_constant_override("margin_right", margins_centrales)
-	$fondos2.add_theme_constant_override("margin_top", margins_centrales + 50) # Más espacio arriba por jaguares
+	$fondos2.add_theme_constant_override("margin_top", margins_centrales + 50)
 	$fondos2.add_theme_constant_override("margin_bottom", margins_centrales)
 
-	# --- CREACIÓN DE ESTILOS DE BOTONES ---
 	_crear_botones()
 	
 	self.colocar_caracter.connect(_on_colocar_caracter)
 	self.eliminar_caracter.connect(_on_eliminar_caracter)
 	self.comprobar_respuesta.connect(_on_comprobar_respuesta)
 	
-	# Estilo para el botón Enviar (personalizado)
 	var style_enviar_normal = _crear_estilo_boton_piedra_maya(PALETA_ACENTO_TURQUESA)
 	var style_enviar_hover = _crear_estilo_boton_piedra_maya(PALETA_ACENTO_TURQUESA, true)
 	var style_enviar_pressed = _crear_estilo_boton_piedra_maya(PALETA_ACENTO_AZUL)
 	for estilo in [style_enviar_normal, style_enviar_hover, style_enviar_pressed]:
-		estilo.content_margin_left = 20   # Margen izquierdo interno
-		estilo.content_margin_right = 20  # Margen derecho interno
-		estilo.content_margin_top = 15    # Margen superior interno
-		estilo.content_margin_bottom = 15 # Margen inferior interno
+		estilo.content_margin_left = 20
+		estilo.content_margin_right = 20
+		estilo.content_margin_top = 15
+		estilo.content_margin_bottom = 15
 	_boton_enviar.add_theme_stylebox_override("normal", style_enviar_normal)
 	_boton_enviar.add_theme_stylebox_override("hover", style_enviar_hover)
 	_boton_enviar.add_theme_stylebox_override("pressed", style_enviar_pressed)
@@ -87,12 +93,10 @@ func _ready() -> void:
 	_boton_enviar.add_theme_color_override("font_hover_color", Color(1, 1, 1))
 	_boton_enviar.add_theme_color_override("font_pressed_color", Color(1, 1, 1))
 	_boton_enviar.add_theme_font_size_override("font_size", 45)
-	# Contorno tallado
 	_boton_enviar.add_theme_constant_override("outline_size", 2)
 	_boton_enviar.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
 	_boton_enviar.pressed.connect(func(): comprobar_respuesta.emit(_campo_respuesta.get_text()))
 	
-	# --- ESTILOS DE LOS CAMPOS DE TEXTO ---
 	var style_campo = StyleBoxFlat.new()
 	style_campo.bg_color = PALETA_PIEDRA_FONDO.darkened(0.1)
 	style_campo.border_color = PALETA_GLIFO_TEXTO
@@ -110,12 +114,11 @@ func _ready() -> void:
 	_campo_respuesta.add_theme_color_override("font_color", PALETA_GLIFO_TEXTO)
 	_campo_respuesta.add_theme_color_override("caret_color", PALETA_ACENTO_TURQUESA)
 	_campo_respuesta.add_theme_font_size_override("font_size", 45)
-	# Contorno tallado
 	_campo_respuesta.add_theme_constant_override("outline_size", 2)
 	_campo_respuesta.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
 
 	var style_panel_problema = StyleBoxFlat.new()
-	style_panel_problema.bg_color = PALETA_PIEDRA_FONDO.darkened(0.05) # Piedra oscura
+	style_panel_problema.bg_color = PALETA_PIEDRA_FONDO.darkened(0.05)
 	style_panel_problema.border_color = PALETA_BORDE_NEGRO 
 	style_panel_problema.border_width_left = 4
 	style_panel_problema.border_width_right = 4
@@ -125,23 +128,21 @@ func _ready() -> void:
 	style_panel_problema.corner_radius_top_right = 15
 	style_panel_problema.corner_radius_bottom_left = 15
 	style_panel_problema.corner_radius_bottom_right = 15
-	# Márgenes internos para que los números respiren y no peguen al borde
 	style_panel_problema.content_margin_left = 30
 	style_panel_problema.content_margin_right = 30
 	style_panel_problema.content_margin_top = 20
 	style_panel_problema.content_margin_bottom = 20
-	# Sombra
 	style_panel_problema.shadow_color = Color(0, 0, 0, 0.4)
 	style_panel_problema.shadow_size = 5
 	style_panel_problema.shadow_offset = Vector2(3, 3)
 
 	_campo_operandos.add_theme_stylebox_override("normal", style_panel_problema)
 	_campo_operandos.add_theme_color_override("font_color", PALETA_GLIFO_TEXTO)
-	_campo_operandos.add_theme_font_size_override("font_size", 50) # Un poco más grande
+	_campo_operandos.add_theme_font_size_override("font_size", 50)
 	_campo_operandos.add_theme_constant_override("line_spacing", -5)
 	_campo_operandos.add_theme_constant_override("outline_size", 2)
 	_campo_operandos.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
-	_campo_operandos.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER # Centrar texto
+	_campo_operandos.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 
 	_generar_problema()
 
@@ -150,7 +151,6 @@ func _crear_contador_aciertos() -> void:
 	label_aciertos.name = "LabelAciertos"
 	add_child(label_aciertos)
 
-	# Estilo placa de piedra maya para el contador
 	var style_aciertos = StyleBoxFlat.new()
 	style_aciertos.bg_color = PALETA_PIEDRA_FONDO
 	style_aciertos.border_color = PALETA_ACENTO_TURQUESA
@@ -175,11 +175,24 @@ func _crear_contador_aciertos() -> void:
 	label_aciertos.add_theme_font_size_override("font_size", 28)
 	label_aciertos.add_theme_constant_override("outline_size", 2)
 	label_aciertos.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
-
-	# Posicionamiento en la esquina superior izquierda con margen de 25px
 	label_aciertos.position = Vector2(25, 25)
 
 	_actualizar_texto_aciertos()
+
+func _crear_label_error() -> void:
+	label_error_dinero = Label.new()
+	label_error_dinero.name = "LabelErrorDinero"
+	label_error_dinero.text = "¡No tienes suficientes monedas!"
+	label_error_dinero.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label_error_dinero.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label_error_dinero.add_theme_font_size_override("font_size", 32)
+	label_error_dinero.add_theme_color_override("font_color", PALETA_ACENTO_ROJO)
+	label_error_dinero.add_theme_constant_override("outline_size", 3)
+	label_error_dinero.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
+	label_error_dinero.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	label_error_dinero.position.y -= 80
+	label_error_dinero.hide()
+	add_child(label_error_dinero)
 
 func _actualizar_texto_aciertos() -> void:
 	if label_aciertos:
@@ -193,19 +206,15 @@ func _crear_estilo_boton_piedra_maya(accent_color: Color = PALETA_PIEDRA_FONDO, 
 	style.border_width_right = 4
 	style.border_width_top = 4
 	style.border_width_bottom = 4
-	# Esquinas ligeramente angulares para combinar con el marco octogonal
 	style.corner_radius_top_left = 15
 	style.corner_radius_top_right = 15
 	style.corner_radius_bottom_left = 15
 	style.corner_radius_bottom_right = 15
-	# Bisel para efecto tallado
 	style.draw_center = true
 	if accent_color == PALETA_PIEDRA_FONDO:
-		# Botones numéricos con degradado de piedra
 		style.set_bg_color(PALETA_PIEDRA_FONDO.lightened(0.05))
 		style.bg_color = PALETA_PIEDRA_FONDO
 	else:
-		# Botones de acento con degradado de color
 		style.set_bg_color(accent_color.lightened(0.2) if is_hover else accent_color.lightened(0.1))
 		style.bg_color = accent_color
 	
@@ -220,12 +229,9 @@ func _crear_botones() -> void:
 		push_error("Contenedor de botones no seleccionado")
 		return
 		
-	# Definimos el tamaño que queremos para todos (Ancho, Alto)
 	var tamano_boton := Vector2(100, 100)
-	# Definimos el tamaño de la letra
 	var tamano_fuente := 32
 	
-	# Estilos para los botones numéricos y DEL (piedra con borde negro)
 	var style_normal = _crear_estilo_boton_piedra_maya(PALETA_PIEDRA_FONDO)
 	var style_hover = _crear_estilo_boton_piedra_maya(PALETA_PIEDRA_FONDO, true)
 	var style_pressed = _crear_estilo_boton_piedra_maya(PALETA_PIEDRA_FONDO.darkened(0.1))
@@ -235,34 +241,26 @@ func _crear_botones() -> void:
 		
 		var btn := Button.new()
 		btn.set_text(caracter)
-		
-		# --- CONFIGURACIÓN DE TAMAÑO Y ESTILO ---
 		btn.custom_minimum_size = tamano_boton
 		btn.add_theme_font_size_override("font_size", tamano_fuente)
 		
-		# Aplicar estilos
 		btn.add_theme_stylebox_override("normal", style_normal)
 		btn.add_theme_stylebox_override("hover", style_hover)
 		btn.add_theme_stylebox_override("pressed", style_pressed)
-		# Texto marrón con contorno tallado
 		btn.add_theme_color_override("font_color", PALETA_GLIFO_TEXTO)
 		btn.add_theme_color_override("font_hover_color", PALETA_ACENTO_TURQUESA)
 		btn.add_theme_color_override("font_pressed_color", Color(1, 1, 1))
 		btn.add_theme_constant_override("outline_size", 2)
 		btn.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
 
-		# Esto hace que el botón se estire para llenar su celda en el Grid
 		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		btn.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		
 		btn.pressed.connect(func(): colocar_caracter.emit(caracter))
-		
 		_contenedor_botones.add_child(btn)
 	
 	var btn_del := Button.new()
 	btn_del.set_text("DEL")
-	
-	# Aplicamos el mismo tamaño y estilo
 	btn_del.custom_minimum_size = tamano_boton
 	btn_del.add_theme_font_size_override("font_size", tamano_fuente)
 	btn_del.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -271,7 +269,6 @@ func _crear_botones() -> void:
 	btn_del.add_theme_stylebox_override("normal", style_normal)
 	btn_del.add_theme_stylebox_override("hover", style_hover)
 	btn_del.add_theme_stylebox_override("pressed", style_pressed)
-	# Texto marrón con contorno tallado
 	btn_del.add_theme_color_override("font_color", PALETA_GLIFO_TEXTO)
 	btn_del.add_theme_color_override("font_hover_color", PALETA_ACENTO_TURQUESA)
 	btn_del.add_theme_color_override("font_pressed_color", Color(1, 1, 1))
@@ -279,23 +276,16 @@ func _crear_botones() -> void:
 	btn_del.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
 
 	btn_del.pressed.connect(func(): eliminar_caracter.emit())
-	
 	_contenedor_botones.add_child(btn_del)
-	
-
 
 func _generar_problema() -> bool:
 	randomize()
 	_operador = OPERADOR
 	_operandos = []
 	
-	# --- CAMBIO: LÓGICA DE RESTA SEGURA ---
-	# Generamos dos números del 0 al 99
 	var num1 := randi_range(0, 99)
 	var num2 := randi_range(0, 99)
 	
-	# Nos aseguramos de que el primero sea siempre el mayor (o igual)
-	# para evitar resultados negativos en la resta.
 	if num2 > num1:
 		var temp = num1
 		num1 = num2
@@ -309,17 +299,13 @@ func _generar_problema() -> bool:
 	
 	return _actualizar_ui() 
 
-
 func _actualizar_ui() -> bool:
 	_campo_operandos.text = ""
-	
 	for operando in _operandos:
 		_campo_operandos.text += (str(operando)  + '\n' + _operador + '\n')
 	
 	_campo_operandos.text = _campo_operandos.text.left(-3)
-	
 	_campo_respuesta.clear()
-	
 	return true
 
 func _on_colocar_caracter(caracter: String) -> void:
@@ -332,30 +318,24 @@ func _on_comprobar_respuesta(respuesta: String) -> void:
 	if respuesta.is_empty():
 		return 
 	if int(respuesta) == int(_respuesta_correcta):
-		print("Respuesta correcta")
 		_es_respuesta_correcta()
 	else:
-		print("Respuesta incorrecta")
 		_es_respuesta_incorrecta()
 
 func _es_respuesta_correcta() -> void:
-	# Crear canvas layer para el efecto
 	var canvas := CanvasLayer.new()
-	canvas.layer = 100  # Alta prioridad para que esté por encima de todo
+	canvas.layer = 100
 	get_tree().root.add_child(canvas)
 	
-	# Crear fondo semitransparente verde
 	var color_rect := ColorRect.new()
-	color_rect.color = Color(0.2, 0.8, 0.3, 0.0)  # Verde más suave
+	color_rect.color = Color(0.2, 0.8, 0.3, 0.0)
 	color_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	canvas.add_child(color_rect)
 	
-	# Crear centrador del texto
 	var contenedor := CenterContainer.new()
 	contenedor.set_anchors_preset(PRESET_FULL_RECT)
 	canvas.add_child(contenedor)
 	
-	# Crear mensaje de éxito
 	var label := Label.new()
 	label.text = "¡CORRECTO!"
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -364,18 +344,15 @@ func _es_respuesta_correcta() -> void:
 	label.add_theme_color_override("font_color", Color(1, 1, 1))
 	label.add_theme_constant_override("outline_size", 4)
 	label.add_theme_color_override("font_outline_color", Color(0, 0.3, 0))
-	label.modulate = Color(1, 1, 1, 0)  # Inicialmente transparente
+	label.modulate = Color(1, 1, 1, 0)
 	contenedor.add_child(label)
 	
-	# Crear tween para animaciones
 	var tween := get_tree().create_tween()
-	tween.set_parallel(true)  # Animaciones en paralelo
+	tween.set_parallel(true)
 	
-	# Animación del fondo
 	tween.tween_property(color_rect, "color:a", 0.3, 0.3)
 	tween.tween_property(color_rect, "color:a", 0.0, 0.82).set_delay(0.5)
 	
-	# Animación del texto
 	tween.tween_property(label, "modulate:a", 1.0, 0.3)
 	tween.tween_property(label, "scale", Vector2(1.2, 1.2), 0.2)
 	tween.tween_property(label, "scale", Vector2(1.0, 1.0), 0.3).set_delay(0.2)
@@ -383,7 +360,6 @@ func _es_respuesta_correcta() -> void:
 	
 	await tween.finished
 	
-	# Limpiar y generar nuevo problema
 	_aumentar_aciertos()
 	canvas.queue_free()
 	_generar_problema()
@@ -391,29 +367,24 @@ func _es_respuesta_correcta() -> void:
 func _aumentar_aciertos() -> int:
 	correctos += 1
 	_actualizar_texto_aciertos()
-	print("Correctos: ", correctos)
 	if correctos >= ACIERTOS_OBJETIVO:
 		_mostrar_recompensas()
 	return correctos
 
 func _es_respuesta_incorrecta() -> void:
-	# Crear canvas layer para el efecto
 	var canvas := CanvasLayer.new()
-	canvas.layer = 100  # Alta prioridad para que esté por encima de todo
+	canvas.layer = 100
 	get_tree().root.add_child(canvas)
 	
-	# Crear fondo semitransparente rojo
 	var color_rect := ColorRect.new()
 	color_rect.color = Color(0.588, 0.11, 0.344, 0.0)
 	color_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	canvas.add_child(color_rect)
 	
-	# Crear centrador del texto
 	var contenedor := CenterContainer.new()
 	contenedor.set_anchors_preset(PRESET_FULL_RECT)
 	canvas.add_child(contenedor)
 	
-	# Crear mensaje de éxito
 	var label := Label.new()
 	label.text = "¡INCORRECTO!"
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -422,18 +393,15 @@ func _es_respuesta_incorrecta() -> void:
 	label.add_theme_color_override("font_color", Color(1, 1, 1))
 	label.add_theme_constant_override("outline_size", 4)
 	label.add_theme_color_override("font_outline_color", Color(0.433, 0.109, 0.105, 1.0))
-	label.modulate = Color(1, 1, 1, 0)  # Inicialmente transparente
+	label.modulate = Color(1, 1, 1, 0)
 	contenedor.add_child(label)
 	
-	# Crear tween para animaciones
 	var tween := get_tree().create_tween()
-	tween.set_parallel(true)  # Animaciones en paralelo
+	tween.set_parallel(true)
 	
-	# Animación del fondo
 	tween.tween_property(color_rect, "color:a", 0.3, 0.3)
 	tween.tween_property(color_rect, "color:a", 0.0, 0.82).set_delay(0.5)
 	
-	# Animación del texto
 	tween.tween_property(label, "modulate:a", 1.0, 0.3)
 	tween.tween_property(label, "scale", Vector2(1.2, 1.2), 0.2)
 	tween.tween_property(label, "scale", Vector2(1.0, 1.0), 0.3).set_delay(0.2)
@@ -441,35 +409,47 @@ func _es_respuesta_incorrecta() -> void:
 	
 	await tween.finished
 	
-	# Limpiar y generar nuevo problema
 	canvas.queue_free()
 	_generar_problema()
 	
 func _mostrar_recompensas():
-	# Ocultamos toda la interfaz de la calculadora
 	$fondos2.hide()
 	_texture_fondo_mayor.modulate = Color(0.5, 0.5, 0.5) 
-	
-	# Mostramos las armas
 	if contenedor_objetos:
 		contenedor_objetos.show()
 
-func _seleccionar_objeto(objeto_elegido: String):
-	print("Quitzal ha obtenido: ", objeto_elegido)
+# --- LÓGICA DE COMPRA Y SELECCIÓN MODIFICADA ---
+func _seleccionar_objeto(objeto_elegido: String) -> void:
+	# Check si ya está desbloqueada
+	var ya_desbloqueada: bool = GameManager.armasDesbloqueadas.get(objeto_elegido, false)
+	var costo: int = PRECIOS.get(objeto_elegido, 0)
+
+	if ya_desbloqueada:
+		_equipar_y_avanzar(objeto_elegido)
+	else:
+		# Intenta realizar el gasto de monedas
+		if GameManager.gastar_monedas(costo):
+			GameManager.desbloquear_arma(objeto_elegido)
+			_equipar_y_avanzar(objeto_elegido)
+		else:
+			_mostrar_error_dinero()
+
+func _mostrar_error_dinero() -> void:
+	if label_error_dinero:
+		label_error_dinero.show()
+		var timer := get_tree().create_timer(2.0)
+		await timer.timeout
+		label_error_dinero.hide()
+
+func _equipar_y_avanzar(objeto_elegido: String) -> void:
+	print("Quitzal ha obtenido/equipado: ", objeto_elegido)
 	
-	# 1. Desbloqueamos el arma en el GameManager
-	if GameManager:
-		# Nota: También puedes usar tu función GameManager.desbloquear_arma(objeto_elegido)
-		GameManager.armasDesbloqueadas[objeto_elegido] = true
-		GameManager.arma_equipada_actual = objeto_elegido
-		
-		# ¡IMPORTANTE! Emitimos la señal para que el control en pantalla actualice la imagen
-		if GameManager.has_signal("arma_cambiada"):
-			GameManager.arma_cambiada.emit()
-			
-		print("Arma registrada en GameManager")
-	
-	# 2. Buscamos al jugador y equipamos el arma
+	# 1. Registrar arma en el GameManager
+	GameManager.arma_equipada_actual = objeto_elegido
+	if GameManager.has_signal("arma_cambiada"):
+		GameManager.arma_cambiada.emit()
+
+	# 2. Asignar el enum correspondiente al jugador si está en escena
 	var jugador = get_tree().get_first_node_in_group("jugador")
 	if jugador:
 		match objeto_elegido:
@@ -479,6 +459,6 @@ func _seleccionar_objeto(objeto_elegido: String):
 				jugador.objetoActual = jugador.OBJETOS.HACHA
 			"lanza":
 				jugador.objetoActual = jugador.OBJETOS.LANZA
-	
-	# 3. Finalmente, pasamos a la escena del jefe
+
+	# 3. Transición al jefe
 	get_tree().change_scene_to_file("res://niveles/nivel2/batalla_jabali.tscn")
