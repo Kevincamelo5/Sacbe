@@ -1,10 +1,46 @@
 [gd_scene format=3 uid="uid://wiwo8yryyxte"]
 
 [ext_resource type="Script" uid="uid://dka1xc5std673" path="res://entidades/enemigos/pajaro.gd" id="1_wulyk"]
-[ext_resource type="Texture2D" uid="uid://d1a8jic80f0cs" path="res://activos/arte/pajaro.png" id="2_aylog"]
 [ext_resource type="PackedScene" uid="uid://nuff45mpura6" path="res://entidades/enemigos/piedra.tscn" id="2_ps2we"]
 [ext_resource type="PackedScene" uid="uid://c8pykmps6padi" path="res://entidades/enemigos/llave.tscn" id="3_xhir8"]
+[ext_resource type="Texture2D" uid="uid://nik8f1k4lf7t" path="res://activos/arte/Pajaro sprite.png" id="4_xhir8"]
 [ext_resource type="Script" uid="uid://18q5o1cf68y3" path="res://entidades/enemigos/hurtbox.gd" id="5_xhir8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3jag"]
+atlas = ExtResource("4_xhir8")
+region = Rect2(0, 0, 125, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqxqw"]
+atlas = ExtResource("4_xhir8")
+region = Rect2(125, 0, 125, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plxbs"]
+atlas = ExtResource("4_xhir8")
+region = Rect2(250, 0, 125, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py2qd"]
+atlas = ExtResource("4_xhir8")
+region = Rect2(375, 0, 125, 125)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mvjrk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3jag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqxqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plxbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py2qd")
+}],
+"loop": true,
+"name": &"volar",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8b16g"]
 radius = 14.142136
@@ -17,10 +53,10 @@ vida = 1
 escena_piedra = ExtResource("2_ps2we")
 escena_llave = ExtResource("3_xhir8")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1592660059]
-position = Vector2(4.7683716e-07, 4.7683716e-07)
-scale = Vector2(0.1989813, 0.1989813)
-texture = ExtResource("2_aylog")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1091444865]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_mvjrk")
+animation = &"volar"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1741170822]
 collision_layer = 3

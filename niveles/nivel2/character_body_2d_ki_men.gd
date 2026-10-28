@@ -7,9 +7,9 @@ extends CharacterBody2D
 @export var vision_range: float = 400.0
 @export var flip_h_original: bool = true
 @export var is_vertical: bool = false # NUEVO: Activar en Inspector para patrullaje Y
-@export var vida: int = 3
+@export var vida: int = 2
 # --- REFERENCIAS ---
-@onready var sprite = $AnimatedSprite2D
+@onready var sprite = $Sprite2D
 @onready var start_pos_x: float = global_position.x
 @onready var start_pos_y: float = global_position.y # NUEVO: Posición Y original
 
@@ -99,8 +99,9 @@ func update_sprite_direction(dir: float):
 	elif dir < 0:
 		sprite.flip_h = flip_h_original
 		
-func recibir_daño(cantidad: int) -> void:
-	vida -= cantidad
+func recibir_daño(_cantidad: int) -> void:
+	# Cada golpe (sin importar el arma) quita exactamente 1 de vida.
+	vida -= 1
 	print("Ki-men recibió daño. Vida restante: ", vida)
 	
 	# Efecto visual de parpadeo rojo

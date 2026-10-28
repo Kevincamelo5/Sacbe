@@ -8,7 +8,7 @@ signal jefe_derrotado
 enum Fase { AVE, JAGUAR, HUMANO }
 enum Estado { IDLE, ATAQUE, RECUPERAR }
 
-@export var vida_por_fase: int = 3
+@export var vida_por_fase: int = 5
 @export var velocidad_ave: float = 200.0
 @export var velocidad_jaguar: float = 360.0
 @export var velocidad_humano: float = 300.0
@@ -30,8 +30,8 @@ var jugador: Node2D = null
 
 const CORAZON := preload("res://componentes/escenarios/Corazon.png")
 
-@onready var sprite_ave: Sprite2D = $Sprites/Ave
-@onready var sprite_jaguar: Sprite2D = $Sprites/Jaguar
+@onready var sprite_ave: AnimatedSprite2D = $Sprites/AVE
+@onready var sprite_jaguar: AnimatedSprite2D = $Sprites/JAGUAR
 @onready var sprite_humano: Sprite2D = $Sprites/Humano
 @onready var attack_timer: Timer = $AttackTimer
 
@@ -39,6 +39,7 @@ var corazones: Array = []
 
 func _ready() -> void:
 	add_to_group("enemigos")
+	_configurar_fase_inicial()
 	vida = vida_por_fase
 	_crear_corazones()
 	_actualizar_sprites()
@@ -47,6 +48,19 @@ func _ready() -> void:
 	attack_timer.one_shot = true
 	attack_timer.timeout.connect(_iniciar_ataque)
 	attack_timer.start()
+
+## Determina en qué forma aparece Kakasbal según el flujo del Nivel 5.
+## El GameManager guarda la fase ("ave", "jaguar" o "humano") antes de
+## cargar la arena de combate.
+func _configurar_fase_inicial() -> void:
+	if GameManager:
+		match str(GameManager.get("fase_kakasbal")):
+			"jaguar":
+				fase_actual = Fase.JAGUAR
+			"humano":
+				fase_actual = Fase.HUMANO
+			_:
+				fase_actual = Fase.AVE
 
 func _physics_process(delta: float) -> void:
 	_tiempo += delta
@@ -161,7 +175,7 @@ func _mirar_jugador() -> void:
 func _comprobar_contacto() -> void:
 	if jugador == null or _ataque_cd > 0:
 		return
-	if global_position.distance_to(jugador.global_position) < 65.0:
+	if global_position.distance_to(jugador.global_position) < 90.0:
 		_ataque_cd = 1.2
 		if jugador.has_method("_lose_lives"):
 			jugador._lose_lives()
@@ -190,23 +204,23 @@ func recibir_dano(cantidad = 1) -> void:
 	puede_recibir_dano = true
 
 func _cambiar_fase() -> void:
+	# En el Nivel 5 cada arena muestra una sola forma de Kakasbal
+	# (ave, jaguar o humano). Al agotar su vida, el jefe es derrotado
+	# y la arena decide a qué escena avanzar (la siguiente operación).
+	_dar_recompensa()
+	_morir()
+
+## Entrega monedas al jugador al vencer cada forma de Kakasbal.
+func _dar_recompensa() -> void:
+	if not GameManager:
+		return
 	match fase_actual:
 		Fase.AVE:
-			fase_actual = Fase.JAGUAR
+			GameManager.sumar_monedas(25)
 		Fase.JAGUAR:
-			fase_actual = Fase.HUMANO
+			GameManager.sumar_monedas(30)
 		Fase.HUMANO:
-			_morir()
-			return
-	vida = vida_por_fase
-	puede_recibir_dano = true
-	estado_actual = Estado.IDLE
-	_tiempo = 0.0
-	_tiempo_ataque = 0.0
-	velocity = Vector2.ZERO
-	_actualizar_sprites()
-	_actualizar_corazones()
-	attack_timer.start()
+			GameManager.sumar_monedas(35)
 
 func _morir() -> void:
 	set_physics_process(false)
@@ -214,7 +228,7 @@ func _morir() -> void:
 	queue_free()
 
 # ---------------------------------------------------------------- VISUAL
-func _sprite_activo() -> Sprite2D:
+func _sprite_activo():
 	match fase_actual:
 		Fase.AVE:
 			return sprite_ave
@@ -228,6 +242,10 @@ func _actualizar_sprites() -> void:
 	sprite_ave.visible = (fase_actual == Fase.AVE)
 	sprite_jaguar.visible = (fase_actual == Fase.JAGUAR)
 	sprite_humano.visible = (fase_actual == Fase.HUMANO)
+	if fase_actual == Fase.AVE:
+		sprite_ave.play("default")
+	elif fase_actual == Fase.JAGUAR:
+		sprite_jaguar.play("Jaguar correr")
 
 func _voltear() -> void:
 	var s = _sprite_activo()

@@ -1,8 +1,9 @@
 extends Control
 ## Reto de repaso del Nivel 5 (Templo Mayor).
-## Muestra UNA operación (suma, resta, multiplicación o división) que el jugador
-## resuelve con el teclado numérico. Al acertar, avanza a la siguiente operación
-## y, al terminar la división, entrega el arma final (macuahuitl).
+## Muestra DOS operaciones del mismo tipo (suma, resta, multiplicación o
+## división) que el jugador resuelve con el teclado numérico. Las sumas,
+## restas y multiplicaciones usan números decimales. Al completar las dos
+## operaciones se avanza a la siguiente etapa de la batalla contra Kakasbal.
 
 signal comprobar_respuesta(String)
 signal colocar_caracter(String)
@@ -31,7 +32,7 @@ var _operandos: Array = []
 var _respuesta_correcta := "0"
 var label_aciertos: Label
 var correctos := 0
-const ACIERTOS_OBJETIVO := 1
+const ACIERTOS_OBJETIVO := 2
 
 func _ready() -> void:
 	match operacion:
@@ -262,48 +263,85 @@ func _crear_botones() -> void:
 	btn_del.pressed.connect(func(): eliminar_caracter.emit())
 	_contenedor_botones.add_child(btn_del)
 
+	var btn_punto := Button.new()
+	btn_punto.set_text(".")
+	btn_punto.custom_minimum_size = tamano_boton
+	btn_punto.add_theme_font_size_override("font_size", tamano_fuente)
+	btn_punto.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	btn_punto.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	btn_punto.add_theme_stylebox_override("normal", style_normal)
+	btn_punto.add_theme_stylebox_override("hover", style_hover)
+	btn_punto.add_theme_stylebox_override("pressed", style_pressed)
+	btn_punto.add_theme_color_override("font_color", PALETA_GLIFO_TEXTO)
+	btn_punto.add_theme_color_override("font_hover_color", PALETA_ACENTO_TURQUESA)
+	btn_punto.add_theme_color_override("font_pressed_color", Color(1, 1, 1))
+	btn_punto.add_theme_constant_override("outline_size", 2)
+	btn_punto.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
+	btn_punto.pressed.connect(func(): colocar_caracter.emit("."))
+	_contenedor_botones.add_child(btn_punto)
+
 func _generar_problema() -> bool:
 	randomize()
 	_operandos = []
-	var a: int = 0
-	var b: int = 0
+	var a: float = 0.0
+	var b: float = 0.0
 	match operacion:
 		Operacion.SUMA:
-			a = randi_range(1, 99)
-			b = randi_range(1, 99)
+			a = _decimal_aleatorio(1.0, 99.0)
+			b = _decimal_aleatorio(1.0, 99.0)
 			_operandos = [a, b]
-			_respuesta_correcta = str(a + b)
+			_respuesta_correcta = _formatear_numero(a + b)
 		Operacion.RESTA:
-			a = randi_range(0, 99)
-			b = randi_range(0, 99)
-			if b > a:
-				var temp = a
-				a = b
-				b = temp
+			a = _decimal_aleatorio(2.0, 99.0)
+			b = _decimal_aleatorio(1.0, a - 0.1)
 			_operandos = [a, b]
-			_respuesta_correcta = str(a - b)
+			_respuesta_correcta = _formatear_numero(a - b)
 		Operacion.MULTIPLICACION:
-			a = randi_range(1, 50)
-			b = randi_range(1, 10)
+			a = _decimal_aleatorio(1.0, 20.0)
+			b = randi_range(2, 9)
 			_operandos = [a, b]
-			_respuesta_correcta = str(a * b)
+			_respuesta_correcta = _formatear_numero(a * b)
 		Operacion.DIVISION:
 			var divisor := randi_range(1, 12)
 			var resultado := randi_range(1, 12)
 			var dividendo := divisor * resultado
-			_operandos = [dividendo, divisor]
+			_operandos = [float(dividendo), float(divisor)]
 			_respuesta_correcta = str(resultado)
 	return _actualizar_ui()
+
+## Devuelve un número con una cifra decimal dentro de [min_val, max_val].
+## Siempre intenta que la cifra decimal sea distinta de cero.
+func _decimal_aleatorio(min_val: float, max_val: float) -> float:
+	var min_decimos := int(ceil(min_val * 10.0))
+	var max_decimos := int(floor(max_val * 10.0))
+	if max_decimos < min_decimos:
+		return min_decimos / 10.0
+	var candidatos: Array[int] = []
+	for d in range(min_decimos, max_decimos + 1):
+		if d % 10 != 0:
+			candidatos.append(d)
+	if candidatos.is_empty():
+		return randi_range(min_decimos, max_decimos) / 10.0
+	return candidatos[randi_range(0, candidatos.size() - 1)] / 10.0
+
+## Formatea un número quitando el ".0" final cuando es entero.
+func _formatear_numero(x: float) -> String:
+	var s := "%.1f" % x
+	if s.ends_with(".0"):
+		return s.left(-2)
+	return s
 
 func _actualizar_ui() -> bool:
 	_campo_operandos.text = ""
 	for operando in _operandos:
-		_campo_operandos.text += (str(operando) + '\n' + _operador + '\n')
+		_campo_operandos.text += (_formatear_numero(operando) + '\n' + _operador + '\n')
 	_campo_operandos.text = _campo_operandos.text.left(-3)
 	_campo_respuesta.clear()
 	return true
 
 func _on_colocar_caracter(caracter: String) -> void:
+	if caracter == "." and _campo_respuesta.text.contains("."):
+		return
 	_campo_respuesta.text += caracter
 
 func _on_eliminar_caracter() -> void:
@@ -312,7 +350,9 @@ func _on_eliminar_caracter() -> void:
 func _on_comprobar_respuesta(respuesta: String) -> void:
 	if respuesta.is_empty():
 		return
-	if int(respuesta) == int(_respuesta_correcta):
+	var valor := respuesta.replace(",", ".").to_float()
+	var correcto := _respuesta_correcta.replace(",", ".").to_float()
+	if absf(valor - correcto) < 0.001:
 		_es_respuesta_correcta()
 	else:
 		_es_respuesta_incorrecta()
@@ -400,68 +440,32 @@ func _aumentar_aciertos() -> bool:
 	correctos += 1
 	_actualizar_texto_aciertos()
 	if correctos >= ACIERTOS_OBJETIVO:
-		if operacion == Operacion.DIVISION:
-			_mostrar_entrega_arma()
-		else:
-			_avanzar()
+		_preparar_siguiente_fase()
+		_avanzar()
 		return true
 	return false
+
+## Configura en el GameManager la siguiente forma de Kakasbal y la escena
+## a la que se irá tras vencerla. Así el flujo queda:
+## suma -> ave -> resta -> jaguar -> multiplicación -> humano -> división.
+func _preparar_siguiente_fase() -> void:
+	if not GameManager:
+		return
+	match operacion:
+		Operacion.SUMA:
+			GameManager.fase_kakasbal = "ave"
+			GameManager.siguiente_tras_fase = "res://niveles/nivel5/nivel5_reto_resta.tscn"
+		Operacion.RESTA:
+			GameManager.fase_kakasbal = "jaguar"
+			GameManager.siguiente_tras_fase = "res://niveles/nivel5/nivel5_reto_multiplicacion.tscn"
+		Operacion.MULTIPLICACION:
+			GameManager.fase_kakasbal = "humano"
+			GameManager.siguiente_tras_fase = "res://niveles/nivel5/nivel5_reto_division.tscn"
+		Operacion.DIVISION:
+			pass  # Tras la división la misión termina
 
 func _avanzar() -> void:
 	if next_scene != "":
 		get_tree().change_scene_to_file(next_scene)
 	else:
 		push_error("nivel5_reto.gd: next_scene no definido")
-
-func _mostrar_entrega_arma() -> void:
-	var canvas := CanvasLayer.new()
-	canvas.layer = 100
-	get_tree().root.add_child(canvas)
-
-	var control_raiz := Control.new()
-	control_raiz.set_anchors_preset(Control.PRESET_FULL_RECT)
-	canvas.add_child(control_raiz)
-
-	var panel := PanelContainer.new()
-	var estilo := StyleBoxFlat.new()
-	estilo.bg_color = Color(0.12, 0.10, 0.08, 0.95)
-	estilo.border_color = Color(0.85, 0.70, 0.35, 1.0)
-	estilo.set_border_width_all(3)
-	estilo.set_corner_radius_all(8)
-	estilo.content_margin_left = 30
-	estilo.content_margin_right = 30
-	estilo.content_margin_top = 25
-	estilo.content_margin_bottom = 25
-	panel.add_theme_stylebox_override("panel", estilo)
-	panel.set_anchors_preset(Control.PRESET_CENTER)
-	panel.grow_horizontal = Control.GROW_DIRECTION_BOTH
-	panel.grow_vertical = Control.GROW_DIRECTION_BOTH
-	control_raiz.add_child(panel)
-
-	var vbox := VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 18)
-	panel.add_child(vbox)
-
-	var label := Label.new()
-	label.text = "¡Has obtenido el Macuahuitl!\nEl arma final para enfrentar a Kakasbal."
-	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	label.add_theme_color_override("font_color", Color(0.95, 0.88, 0.75))
-	label.add_theme_font_size_override("font_size", 28)
-	vbox.add_child(label)
-
-	var btn := Button.new()
-	btn.text = "Continuar"
-	btn.pressed.connect(func():
-		_entregar_macuahuitl()
-		canvas.queue_free()
-		_avanzar()
-	)
-	vbox.add_child(btn)
-
-func _entregar_macuahuitl() -> void:
-	if GameManager:
-		GameManager.desbloquear_arma("macuahuitle")
-		GameManager.arma_equipada_actual = "macuahuitle"
-		if GameManager.has_signal("arma_cambiada"):
-			GameManager.arma_cambiada.emit()
-		print("Macuahuitl desbloqueado y equipado")

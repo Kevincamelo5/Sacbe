@@ -32,9 +32,9 @@ func _physics_process(delta: float) -> void:
 		
 		# Voltear el dibujo según a dónde vuela
 		if direccion > 0:
-			$Sprite2D.flip_h = false
+			$AnimatedSprite2D.flip_h = false
 		else:
-			$Sprite2D.flip_h = true
+			$AnimatedSprite2D.flip_h = true
 
 # Conecta la señal 'timeout' de tu nodo Timer a esta función
 func _on_drop_timer_timeout() -> void:
@@ -53,9 +53,9 @@ func recibir_daño(cantidad: int = 1) -> void:
 		morir()
 	else:
 		puede_recibir_daño = false
-		$Sprite2D.modulate = Color(1, 0, 0)
+		$AnimatedSprite2D.modulate = Color(1, 0, 0)
 		await get_tree().create_timer(0.5).timeout
-		$Sprite2D.modulate = Color(1, 1, 1)
+		$AnimatedSprite2D.modulate = Color(1, 1, 1)
 		puede_recibir_daño = true
 
 func morir() -> void:

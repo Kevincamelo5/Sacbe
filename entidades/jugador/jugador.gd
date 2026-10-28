@@ -5,6 +5,7 @@ signal vida_cambiada(vidas_actuales)
 var spawn_position : Vector2
 var _estaProtegido := false
 var _recibiendo_dano := false
+var _tiempo_invulnerable := 0.0
 
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 func _ready() -> void:
@@ -51,6 +52,7 @@ func _physics_process(delta: float) -> void:
 	
 	_actualizar_temporizador_objeto(delta)
 	_actualizar_estado_suelo()
+	_actualizar_invulnerabilidad(delta)
 	
 	if Input.is_action_pressed("usar_objeto") and hayGravedad:
 		_usar_objeto()
@@ -312,17 +314,21 @@ func _cambiar_siguiente_objeto_desbloqueado():
 func _lose_lives() -> void:
 	if not _estaProtegido and not _recibiendo_dano:
 		_recibiendo_dano = true
+		_tiempo_invulnerable = 0.6
 		Audio_dano.play()
 		animatedSprite.play("recibirDaño")
 		
-		await animatedSprite.animation_finished
-		
-		# Le enviamos 'false' porque es daño por ataque, no por caída
+		# Reducimos la vida de inmediato, sin depender de la animación
 		GameManager.disminuir_vida(false)
-		
-		_recibiendo_dano = false
 	else:
 		print("Ataque bloqueado")
+
+## Desactiva la invulnerabilidad cuando termina la pequeña ventana de protección.
+func _actualizar_invulnerabilidad(delta: float) -> void:
+	if _recibiendo_dano:
+		_tiempo_invulnerable -= delta
+		if _tiempo_invulnerable <= 0.0:
+			_recibiendo_dano = false
 		
 func recibir_empujon(direccion: float, fuerza: float):
 	# Aplica la fuerza horizontal (hacia la izquierda o derecha)

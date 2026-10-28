@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_reto")
 operacion = 0
-next_scene = "res://niveles/nivel5/nivel5_reto_resta.tscn"
+next_scene = "res://niveles/nivel5/nivel5_armas.tscn"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

@@ -6,6 +6,12 @@ var arma_equipada_actual: String = "cuchillo"
 var nivel_actual: String = "res://niveles/nivel1/nivel1_parte1.tscn"
 signal arma_cambiada
 
+## Fase de Kakasbal a la que se enfrentará el jugador en el Nivel 5.
+## Valores válidos: "ave", "jaguar", "humano".
+var fase_kakasbal: String = "ave"
+## Escena a la que se avanza tras derrotar la fase actual de Kakasbal.
+var siguiente_tras_fase: String = ""
+
 var armasDesbloqueadas = {
 	"cuchillo": true,
 	"hacha": false,
@@ -20,6 +26,12 @@ signal vida_actualizada(vida_actual:int)
 
 func incrementar_monedas():
 	moneda += 1
+	puntuacion_actualizada.emit(moneda)
+	print("Monedas: ", moneda)
+
+## Suma una cantidad de monedas (usada como recompensa al vencer a Kakasbal).
+func sumar_monedas(cantidad: int):
+	moneda += cantidad
 	puntuacion_actualizada.emit(moneda)
 	print("Monedas: ", moneda)
 

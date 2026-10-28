@@ -1,6 +1,8 @@
 extends Node2D
-## Arena del combate final contra Kakasbal (Nivel 5, parte 2).
-## Quitzal entra por la izquierda y Kakasbal aparece convertido en ave.
+## Arena del combate final contra Kakasbal (Nivel 5).
+## Cada vez que se carga esta escena se enfrenta UNA forma del jefe
+## (ave -> jaguar -> humano). Al vencerla, se avanza a la siguiente
+## operación matemática (indicada por GameManager.siguiente_tras_fase).
 
 @onready var kakasbal: CharacterBody2D = $Kakasbal
 @onready var musica: AudioStreamPlayer = $Musica
@@ -21,4 +23,7 @@ func _intro() -> void:
 
 func _on_jefe_derrotado() -> void:
 	await get_tree().create_timer(1.2).timeout
-	get_tree().change_scene_to_file("res://niveles/nivel5/nivel5_cinematica_final.tscn")
+	var destino := "res://niveles/nivel5/nivel5_cinematica_final.tscn"
+	if GameManager and str(GameManager.get("siguiente_tras_fase")) != "":
+		destino = GameManager.siguiente_tras_fase
+	get_tree().change_scene_to_file(destino)

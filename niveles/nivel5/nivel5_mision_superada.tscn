@@ -1,61 +1,35 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://ci3xmljg77pok"]
 
-[ext_resource type="Script" path="res://cinematica.gd" id="1_cinematica"]
-[ext_resource type="Texture2D" path="res://niveles/nivel1/Cinematica-mision superada.jpg" id="2_fondo"]
+[ext_resource type="Script" uid="uid://cqtj5chjrb15r" path="res://niveles/nivel5/nivel5_video_final.gd" id="1_video"]
+[ext_resource type="VideoStream" uid="uid://clh6lr8ugri8m" path="res://niveles/nivel5/Video batalla final.ogv" id="2_video"]
+[ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="3_font"]
 
-[node name="Nivel5MisionSuperada" type="Control"]
+[node name="Nivel5MisionSuperada" type="Control" unique_id=1280072201]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cinematica")
-next_scene = "res://interfaz/menus/menu_principal.tscn"
+script = ExtResource("1_video")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1321438277]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_fondo")
-expand_mode = 1
-stretch_mode = 6
+stream = ExtResource("2_video")
+autoplay = true
+expand = true
 
-[node name="Titulo" type="Label" parent="."]
-layout_mode = 0
-offset_left = 226.0
-offset_top = 150.0
-offset_right = 926.0
-offset_bottom = 240.0
-theme_override_font_sizes/font_size = 56
-theme_override_colors/font_color = Color(1, 0.96, 0.7, 1)
-theme_override_constants/outline_size = 4
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "¡Misión cumplida!"
-horizontal_alignment = 1
-
-[node name="Descripcion" type="Label" parent="."]
-layout_mode = 0
-offset_left = 176.0
-offset_top = 270.0
-offset_right = 976.0
-offset_bottom = 400.0
-theme_override_font_sizes/font_size = 30
-theme_override_colors/font_color = Color(0.95, 0.9, 0.8, 1)
-theme_override_constants/outline_size = 3
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "Has salvado al mundo maya.\nQuitzal será recordado por el viento\ny las ruinas de aquella ciudad."
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Continuar" type="Button" parent="."]
+[node name="Finalizar" type="Button" parent="." unique_id=1845356506]
 layout_mode = 0
 offset_left = 476.0
 offset_top = 470.0
 offset_right = 676.0
 offset_bottom = 530.0
+theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 34
-text = "Continuar"
+text = "Finalizar"

@@ -132,5 +132,5 @@ func _on_area_salida_body_entered(body):
 	print("Alguien entro al area")
 	if body.name == "Jugador":
 		get_tree().change_scene_to_file(
-			"res://mapa/nivel2/batalla_jabali.tscn"
+			"res://niveles/nivel2/batalla_jabali.tscn"
 		)
