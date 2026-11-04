@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://s7ihwpehgpah"]
 
 [ext_resource type="Script" uid="uid://0rj7pbuldnuw" path="res://interfaz/pantallas/control.gd" id="1_udsv3"]
-[ext_resource type="VideoStream" uid="uid://b642dkb5tju2r" path="res://activos/video/video-recoded.ogv" id="2_yff8i"]
+[ext_resource type="VideoStream" uid="uid://dqihdwdlk4ols" path="res://interfaz/pantallas/Cinematica de inicio.ogv" id="2_eyiok"]
 [ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="3_cgfuv"]
 
 [node name="Control" type="Control" unique_id=1200003880]
@@ -28,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("2_yff8i")
+stream = ExtResource("2_eyiok")
 metadata/_edit_group_ = true
 
 [node name="Button" type="Button" parent="." unique_id=1034087435]

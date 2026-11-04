@@ -1,8 +1,8 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://b6rylwcuioho5"]
 
-[ext_resource type="Script" path="res://niveles/nivel5/nivel5_reto.gd" id="1_reto"]
-[ext_resource type="Texture2D" path="res://activos/arte/Gemini_Generated_Image_80ljf80ljf80ljf8.png" id="2_fondo"]
-[ext_resource type="FontFile" path="res://activos/fuentes/Mayan.ttf" id="3_font"]
+[ext_resource type="Script" uid="uid://bl1eg4ddaxjw3" path="res://niveles/nivel5/nivel5_reto.gd" id="1_reto"]
+[ext_resource type="Texture2D" uid="uid://crmuas4pqr5n2" path="res://activos/arte/Gemini_Generated_Image_80ljf80ljf80ljf8.png" id="2_fondo"]
+[ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="3_font"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_label"]
 content_margin_left = 10.0
@@ -12,7 +12,7 @@ content_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_empty"]
 
-[node name="Nivel5RetoSuma" type="Control"]
+[node name="Nivel5RetoSuma" type="Control" unique_id=179237915]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,10 +20,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_reto")
-operacion = 0
 next_scene = "res://niveles/nivel5/nivel5_armas.tscn"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1208194254]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,7 +32,7 @@ grow_vertical = 2
 texture = ExtResource("2_fondo")
 expand_mode = 1
 
-[node name="fondos2" type="HBoxContainer" parent="."]
+[node name="fondos2" type="HBoxContainer" parent="." unique_id=1578217419]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,18 +48,18 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="izquierda" type="VBoxContainer" parent="fondos2"]
+[node name="izquierda" type="VBoxContainer" parent="fondos2" unique_id=1573309107]
 layout_mode = 2
 theme_override_constants/separation = 17
 
-[node name="CenterContainer" type="CenterContainer" parent="fondos2/izquierda"]
+[node name="CenterContainer" type="CenterContainer" parent="fondos2/izquierda" unique_id=1610867147]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="fondos2/izquierda/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="fondos2/izquierda/CenterContainer" unique_id=1918653670]
 layout_mode = 2
 theme_override_constants/separation = 17
 
-[node name="Label" type="Label" parent="fondos2/izquierda/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="fondos2/izquierda/CenterContainer/VBoxContainer" unique_id=1651341119]
 layout_mode = 2
 theme_override_font_sizes/font_size = 29
 theme_override_styles/normal = SubResource("StyleBoxFlat_label")
@@ -68,7 +67,7 @@ text = "0 + 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="fondos2/izquierda/CenterContainer/VBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="fondos2/izquierda/CenterContainer/VBoxContainer" unique_id=2119123572]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/outline_size = 20
@@ -78,25 +77,25 @@ placeholder_text = "0"
 alignment = 1
 virtual_keyboard_type = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="fondos2/izquierda"]
+[node name="MarginContainer" type="MarginContainer" parent="fondos2/izquierda" unique_id=143551740]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="fondos2/izquierda/MarginContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="fondos2/izquierda/MarginContainer" unique_id=1442092125]
 layout_mode = 2
 
-[node name="BotonEnviar" type="Button" parent="fondos2/izquierda/MarginContainer/CenterContainer"]
+[node name="BotonEnviar" type="Button" parent="fondos2/izquierda/MarginContainer/CenterContainer" unique_id=1208092226]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 45
 text = "Enviar"
 
-[node name="derecha" type="VBoxContainer" parent="fondos2"]
+[node name="derecha" type="VBoxContainer" parent="fondos2" unique_id=1975278605]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="fondos2/derecha"]
+[node name="CenterContainer" type="CenterContainer" parent="fondos2/derecha" unique_id=96872793]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="fondos2/derecha/CenterContainer"]
+[node name="GridContainer" type="GridContainer" parent="fondos2/derecha/CenterContainer" unique_id=1877525779]
 layout_mode = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8

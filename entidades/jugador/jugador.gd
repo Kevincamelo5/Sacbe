@@ -307,6 +307,10 @@ func _cambiar_siguiente_objeto_desbloqueado():
 		var nombre_arma_actual = nombreArmas[objetoActual]
 		if GameManager.armasDesbloqueadas.get(nombre_arma_actual, false):
 			print_debug("Arma cambiada a ", nombre_arma_actual)
+			# Sincronizar el arma en el GameManager y avisar a la interfaz
+			GameManager.arma_equipada_actual = nombre_arma_actual
+			if GameManager.has_signal("arma_cambiada"):
+				GameManager.arma_cambiada.emit()
 			break 
 	
 # perder vidas
