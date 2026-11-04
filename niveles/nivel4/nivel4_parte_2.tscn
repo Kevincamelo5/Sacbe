@@ -137,7 +137,6 @@ shape = SubResource("RectangleShape2D_3ke0g")
 z_index = -1
 position = Vector2(-264.50006, 416.5)
 scale = Vector2(0.7700422, 0.73628694)
-texture = ExtResource("14_ld5uq")
 
 [node name="Label" type="Label" parent="Puertas/Puerta3" unique_id=35942543]
 offset_left = -285.0

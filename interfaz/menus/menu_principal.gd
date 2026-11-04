@@ -9,6 +9,9 @@ extends Control
 
 func _ready() -> void:
 	_estilizar_menu()
+	# Solo se puede cargar si hay una partida empezada valida
+	if boton_cargar:
+		boton_cargar.disabled = not GameManager.partida_guardada or GameManager.escena_guardada == ""
 
 func _estilizar_menu() -> void:
 	# 1. Crear estilo base (Piedra oscura con borde dorado tenue)
@@ -31,7 +34,12 @@ func _estilizar_menu() -> void:
 	var estilo_pressed := estilo_hover.duplicate() as StyleBoxFlat
 	estilo_pressed.bg_color = Color(0.5, 0.4, 0.18, 0.9)
 
-	# 4. Agrupar botones para aplicarles los estilos y colores de fuente
+	# 4. Crear estilo deshabilitado (cuando no hay partida guardada)
+	var estilo_disabled := estilo_normal.duplicate() as StyleBoxFlat
+	estilo_disabled.bg_color = Color(0.12, 0.10, 0.08, 0.25)
+	estilo_disabled.border_color = Color(0.50, 0.45, 0.35, 0.3)
+
+	# 5. Agrupar botones para aplicarles los estilos y colores de fuente
 	var lista_botones = [boton_play, boton_cargar, boton_opciones, boton_creditos, boton_salir]
 
 	for boton in lista_botones:
@@ -41,23 +49,32 @@ func _estilizar_menu() -> void:
 			boton.add_theme_stylebox_override("hover", estilo_hover)
 			boton.add_theme_stylebox_override("pressed", estilo_pressed)
 			boton.add_theme_stylebox_override("focus", estilo_hover)
+			boton.add_theme_stylebox_override("disabled", estilo_disabled)
 			
 			# Aplicar colores del texto
 			boton.add_theme_color_override("font_color", Color(0.92, 0.86, 0.73)) # Beige/Arena
 			boton.add_theme_color_override("font_hover_color", Color(1.0, 0.96, 0.70)) # Texto brillante
 			boton.add_theme_color_override("font_pressed_color", Color(1.0, 1.0, 1.0))
+			boton.add_theme_color_override("font_disabled_color", Color(0.60, 0.56, 0.48)) # Texto apagado
 
 # --- Funciones de interacción ---
 
 func _on_play_pressed() -> void:
+	GameManager.nueva_partida()
 	$"Musica de fondo".stop()
 	$"Click".play()
 	await $"Click".finished
 	get_tree().change_scene_to_file("res://interfaz/pantallas/Cinematica inicial.tscn")
 
 func _on_cargar_partida_pressed() -> void:
+	# Si no hay partida empezada, no hacemos nada
+	if not GameManager.partida_guardada or GameManager.escena_guardada == "":
+		return
+	
 	$"Musica de fondo".stop()
-	get_tree().change_scene_to_file("res://niveles/nivel1/nivel1_parte1.tscn")
+	$"Click".play()
+	await $"Click".finished
+	GameManager.cargar_partida()
 
 func _on_opciones_pressed() -> void:
 	$"Musica de fondo".stop()

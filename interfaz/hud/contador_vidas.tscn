@@ -38,9 +38,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Corazones" type="HBoxContainer" parent="." unique_id=1303258846]
 offset_left = 82.0
-offset_top = 49.0
+offset_top = 48.0
 offset_right = 298.0
-offset_bottom = 89.0
+offset_bottom = 88.0
+scale = Vector2(0.83953357, 0.83953357)
 
 [node name="Corazon1" type="TextureRect" parent="Corazones" unique_id=1642339909]
 custom_minimum_size = Vector2(40, 40)

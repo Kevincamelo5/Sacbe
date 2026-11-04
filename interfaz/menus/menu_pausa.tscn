@@ -77,6 +77,10 @@ func _on_reinciar_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_guardar_y_salir_pressed() -> void:
+	# Guardamos la escena actual para poder continuar desde aqui
+	var escena_actual = get_tree().current_scene
+	if escena_actual and escena_actual.scene_file_path != \"\":
+		GameManager.guardar_partida(escena_actual.scene_file_path)
 	get_tree().paused = false
 	get_tree().change_scene_to_file(\"res://interfaz/menus/menu_principal.tscn\")
 

@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cemd7cuim48g2" path="res://activos/arte/arbol.png" id="8_fgo3u"]
 [ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/hud/contador_vidas.tscn" id="9_fgo3u"]
 [ext_resource type="PackedScene" uid="uid://crq1d3r1wakbo" path="res://componentes/moneda.tscn" id="10_kxfyd"]
+[ext_resource type="PackedScene" uid="uid://ctq8bk2c5oetd" path="res://niveles/nivel2/ki_men.tscn" id="16_0dq1f"]
+[ext_resource type="PackedScene" uid="uid://cl18b3bge6ku8" path="res://niveles/nivel2/ki_men_2.tscn" id="17_fgo3u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4owc"]
 size = Vector2(2788.25, 230)
@@ -521,6 +523,9 @@ shape = SubResource("RectangleShape2D_ln5rr")
 position = Vector2(12091.001, 847.0001)
 shape = SubResource("RectangleShape2D_h7usi")
 
+[node name="CharacterBody2DKi-Men2" parent="pisos" unique_id=1640274421 instance=ExtResource("17_fgo3u")]
+position = Vector2(9828, 413)
+
 [node name="controles" parent="." unique_id=2004996283 instance=ExtResource("5_7wbx0")]
 
 [node name="Vacio" parent="." unique_id=1553200827 instance=ExtResource("6_hbf0j")]
@@ -759,3 +764,9 @@ scale = Vector2(0.5, 0.5)
 [node name="Moneda29" parent="." unique_id=304029419 instance=ExtResource("10_kxfyd")]
 position = Vector2(4931, 478)
 scale = Vector2(0.5, 0.5)
+
+[node name="CharacterBody2DKi-Men2" parent="." unique_id=1112794525 instance=ExtResource("17_fgo3u")]
+position = Vector2(9305, -198)
+
+[node name="CharacterBody2DKi-Men3" parent="." unique_id=1649009413 instance=ExtResource("16_0dq1f")]
+position = Vector2(6560, 285)

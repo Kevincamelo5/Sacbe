@@ -6,6 +6,14 @@ var arma_equipada_actual: String = "cuchillo"
 ## Ruta de la escena/nivel en la que se encuentra el jugador (para poder reiniciarlo).
 var nivel_actual: String = "res://niveles/nivel1/nivel1_parte1.tscn"
 
+## Indica si hay una partida empezada que se pueda continuar.
+var partida_guardada: bool = false
+## Escena que cargara el boton "Cargar partida".
+var escena_guardada: String = ""
+## Vida y monedas que se restauran al cargar la partida.
+var vida_guardada: int = 5
+var moneda_guardada: int = 0
+
 signal arma_cambiada
 signal puntuacion_actualizada(moneda_actual: int)
 signal vida_actualizada(vida_actual: int)
@@ -53,6 +61,58 @@ func _inicio_del_nivel(ruta: String) -> String:
 			return INICIO_NIVELES[clave]
 	return "res://niveles/nivel1/nivel1_parte1.tscn"
 
+## Guarda la partida para continuar exactamente donde esta el jugador (por ejemplo, al pausar).
+func guardar_partida(ruta_escena: String = "") -> void:
+	if ruta_escena == "":
+		var escena_actual = get_tree().current_scene
+		if escena_actual and escena_actual.scene_file_path != "":
+			ruta_escena = escena_actual.scene_file_path
+	if ruta_escena == "":
+		return
+	
+	nivel_actual = ruta_escena
+	escena_guardada = ruta_escena
+	vida_guardada = vida
+	moneda_guardada = moneda
+	partida_guardada = true
+
+## Guarda la partida para empezar de nuevo el nivel en el que murio el jugador.
+func guardar_partida_en_inicio_nivel(ruta_escena: String = "") -> void:
+	if ruta_escena == "":
+		ruta_escena = nivel_actual
+	if ruta_escena == "":
+		return
+	
+	nivel_actual = ruta_escena
+	escena_guardada = _inicio_del_nivel(ruta_escena)
+	# Al reiniciar el nivel se recuperan las vidas y se pierden las monedas.
+	vida_guardada = 5
+	moneda_guardada = 0
+	partida_guardada = true
+
+## Carga la partida guardada. Devuelve false si no hay ninguna.
+func cargar_partida() -> bool:
+	if not partida_guardada or escena_guardada == "":
+		return false
+	
+	vida = vida_guardada
+	moneda = moneda_guardada
+	vida_actualizada.emit(vida)
+	puntuacion_actualizada.emit(moneda)
+	
+	get_tree().change_scene_to_file(escena_guardada)
+	return true
+
+## Prepara el estado para empezar una partida desde cero.
+func nueva_partida() -> void:
+	vida = 5
+	moneda = 0
+	nivel_actual = "res://niveles/nivel1/nivel1_parte1.tscn"
+	partida_guardada = false
+	escena_guardada = ""
+	vida_actualizada.emit(vida)
+	puntuacion_actualizada.emit(moneda)
+
 func incrementar_monedas():
 	moneda += 1
 	puntuacion_actualizada.emit(moneda)
@@ -81,6 +141,8 @@ func disminuir_vida(caida_al_vacio: bool = false):
 		var escena_actual = get_tree().current_scene
 		if escena_actual and escena_actual.scene_file_path != "":
 			nivel_actual = escena_actual.scene_file_path
+		# La partida guardada debe empezar desde el inicio del nivel donde murio
+		guardar_partida_en_inicio_nivel(nivel_actual)
 		# Ir a pantalla de fin de juego
 		get_tree().change_scene_to_file("res://interfaz/pantallas/muerto.tscn")
 	elif caida_al_vacio:

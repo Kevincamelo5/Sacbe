@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://qt8vbjryc7my" path="res://entidades/enemigos/cuerpo.gd" id="2_bq7ep"]
 [ext_resource type="Texture2D" uid="uid://ckji50narfg28" path="res://activos/arte/Anima armada.png" id="2_xpqcx"]
 [ext_resource type="Texture2D" uid="uid://cpop2t2ybldmk" path="res://activos/arte/anima estocada.png" id="4_4rn7o"]
-[ext_resource type="Texture2D" uid="uid://w8cvmqqtlwll" path="res://activos/arte/Animas armadas niebla.png" id="4_gy81s"]
 [ext_resource type="AudioStream" uid="uid://bmdmrjjdmws7" path="res://activos/audio/freesound_community-knife-draw-48223.mp3" id="4_qiv3v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bq7ep"]
@@ -36,10 +35,6 @@ region = Rect2(1664, 0, 832, 832)
 atlas = ExtResource("4_4rn7o")
 region = Rect2(832, 832, 832, 832)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4rn7o"]
-atlas = ExtResource("4_gy81s")
-region = Rect2(0, 0, 512, 512)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_qiv3v"]
 animations = [{
 "frames": [{
@@ -57,18 +52,11 @@ animations = [{
 }],
 "loop": false,
 "name": &"anima estocada",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4rn7o")
-}],
-"loop": true,
-"name": &"estatico y muerte",
-"speed": 5.0
+"speed": 16.0
 }]
 
 [node name="anima" type="CharacterBody2D" unique_id=199130893]
+modulate = Color(1, 1, 1, 0.5)
 collision_layer = 6
 collision_mask = 8
 motion_mode = 1
@@ -117,6 +105,7 @@ position = Vector2(-6, 0)
 shape = SubResource("CapsuleShape2D_xpqcx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1129812371]
+visible = false
 light_mask = 8
 texture_filter = 1
 position = Vector2(-1.645452, -4.774933)
@@ -128,7 +117,7 @@ region_rect = Rect2(-2, 63.5, 35, 33)
 position = Vector2(6.0000014, -2.9999962)
 scale = Vector2(0.1610577, 0.140625)
 sprite_frames = SubResource("SpriteFrames_qiv3v")
-animation = &"estatico y muerte"
+animation = &"anima estocada"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1128057794]
 stream = ExtResource("4_qiv3v")
