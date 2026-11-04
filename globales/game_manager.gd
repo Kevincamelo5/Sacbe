@@ -55,6 +55,12 @@ func reiniciar_nivel():
 	# 3. Cambiar de escena al inicio del nivel correspondiente
 	get_tree().change_scene_to_file(_inicio_del_nivel(nivel_actual))
 
+## Reinicia las vidas del jugador al empezar un nuevo nivel.
+## (Las monedas se conservan por ahora.)
+func reiniciar_estado():
+	vida = 5
+	vida_actualizada.emit(vida)
+
 func _inicio_del_nivel(ruta: String) -> String:
 	for clave in INICIO_NIVELES:
 		if ruta.contains(clave):

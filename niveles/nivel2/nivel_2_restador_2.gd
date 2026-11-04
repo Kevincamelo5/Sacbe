@@ -286,6 +286,7 @@ func _aumentar_aciertos() -> int:
 	_actualizar_texto_aciertos()
 	print("Correctos: ", correctos)
 	if correctos >= ACIERTOS_OBJETIVO:
+		GameManager.reiniciar_estado()
 		get_tree().change_scene_to_file("res://niveles/nivel3/nivel3_parte1.tscn")
 	return correctos
 

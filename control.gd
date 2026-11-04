@@ -7,5 +7,6 @@ func _ready() -> void:
 	boton_continuar.pressed.connect(_avanzar_siguiente_nivel)
 
 func _avanzar_siguiente_nivel() -> void:
-	# Aquí ponemos la ruta del nivel al que ibas a ir originalmente
+	# Reiniciamos las vidas al empezar el nuevo nivel
+	GameManager.reiniciar_estado()
 	get_tree().change_scene_to_file("res://niveles/nivel2/nivel2_parte1.tscn")

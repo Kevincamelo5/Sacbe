@@ -2,45 +2,50 @@
 
 [ext_resource type="Script" uid="uid://cilqm0lv8b65" path="res://componentes/moneda.gd" id="1_ulqir"]
 [ext_resource type="AudioStream" uid="uid://l2r1amnlirit" path="res://activos/audio/ribhavagrawal-coin-recieved-230517.mp3" id="3_mukx6"]
-[ext_resource type="Texture2D" uid="uid://b2hk6bfw58q6g" path="res://activos/arte/Coin.png" id="4_v4gt8"]
+[ext_resource type="Texture2D" uid="uid://dqubdgg6oa3k4" path="res://activos/arte/Monedas.png" id="3_v4gt8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cuav"]
 radius = 49.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v4gt8"]
-atlas = ExtResource("4_v4gt8")
-region = Rect2(0, 0, 800, 800)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_yanjw"]
-atlas = ExtResource("4_v4gt8")
-region = Rect2(800, 0, 800, 800)
+atlas = ExtResource("3_v4gt8")
+region = Rect2(0, 0, 166, 166)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xo2et"]
-atlas = ExtResource("4_v4gt8")
-region = Rect2(1600, 0, 800, 800)
+atlas = ExtResource("3_v4gt8")
+region = Rect2(166, 0, 166, 166)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ebtn8"]
-atlas = ExtResource("4_v4gt8")
-region = Rect2(0, 800, 800, 800)
+atlas = ExtResource("3_v4gt8")
+region = Rect2(332, 0, 166, 166)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ga7p"]
-atlas = ExtResource("4_v4gt8")
-region = Rect2(800, 800, 800, 800)
+atlas = ExtResource("3_v4gt8")
+region = Rect2(0, 166, 166, 166)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxols"]
-atlas = ExtResource("4_v4gt8")
-region = Rect2(1600, 800, 800, 800)
+atlas = ExtResource("3_v4gt8")
+region = Rect2(166, 166, 166, 166)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2u28"]
-atlas = ExtResource("4_v4gt8")
-region = Rect2(0, 1600, 800, 800)
+atlas = ExtResource("3_v4gt8")
+region = Rect2(332, 166, 166, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj435"]
+atlas = ExtResource("3_v4gt8")
+region = Rect2(0, 332, 166, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usxjn"]
+atlas = ExtResource("3_v4gt8")
+region = Rect2(166, 332, 166, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vblu1"]
+atlas = ExtResource("3_v4gt8")
+region = Rect2(332, 332, 166, 166)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mukx6"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v4gt8")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yanjw")
 }, {
@@ -58,6 +63,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p2u28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj435")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usxjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vblu1")
 }],
 "loop": true,
 "name": &"gira",
@@ -81,8 +95,8 @@ mix_target = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1320295395]
 texture_filter = 1
-position = Vector2(-2, 3.8146973e-06)
-scale = Vector2(0.2, 0.2)
+position = Vector2(0.5, 1.0000038)
+scale = Vector2(0.9096385, 0.87951815)
 sprite_frames = SubResource("SpriteFrames_mukx6")
 animation = &"gira"
 frame_progress = 0.3835842
