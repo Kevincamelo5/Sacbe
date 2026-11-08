@@ -183,40 +183,144 @@ position = Vector2(5599, 363)
 rango_patrulla = 250.0
 piedra_scene = ExtResource("18_eicml")
 
-[node name="Moneda" parent="." unique_id=2083791426 instance=ExtResource("21_4mwl0")]
-position = Vector2(1478, 599)
+[node name="Moneda" parent="." unique_id=2000000000 instance=ExtResource("21_4mwl0")]
+position = Vector2(150, 434)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda2" parent="." unique_id=1139674116 instance=ExtResource("21_4mwl0")]
-position = Vector2(1402, 601)
+[node name="Moneda2" parent="." unique_id=2000000001 instance=ExtResource("21_4mwl0")]
+position = Vector2(353, 434)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda3" parent="." unique_id=1819898462 instance=ExtResource("21_4mwl0")]
-position = Vector2(1316, 605)
+[node name="Moneda3" parent="." unique_id=2000000002 instance=ExtResource("21_4mwl0")]
+position = Vector2(556, 600)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda4" parent="." unique_id=1881980236 instance=ExtResource("21_4mwl0")]
-position = Vector2(1221, 609)
+[node name="Moneda4" parent="." unique_id=2000000003 instance=ExtResource("21_4mwl0")]
+position = Vector2(759, 600)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda5" parent="." unique_id=1723082114 instance=ExtResource("21_4mwl0")]
-position = Vector2(3156, 322)
+[node name="Moneda5" parent="." unique_id=2000000004 instance=ExtResource("21_4mwl0")]
+position = Vector2(962, 600)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda6" parent="." unique_id=1303038927 instance=ExtResource("21_4mwl0")]
-position = Vector2(3158, 391)
+[node name="Moneda6" parent="." unique_id=2000000005 instance=ExtResource("21_4mwl0")]
+position = Vector2(1165, 600)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda7" parent="." unique_id=1974630219 instance=ExtResource("21_4mwl0")]
-position = Vector2(3158, 464)
+[node name="Moneda7" parent="." unique_id=2000000006 instance=ExtResource("21_4mwl0")]
+position = Vector2(1368, 600)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda8" parent="." unique_id=783734260 instance=ExtResource("21_4mwl0")]
-position = Vector2(3160, 530)
+[node name="Moneda8" parent="." unique_id=2000000007 instance=ExtResource("21_4mwl0")]
+position = Vector2(1571, 600)
 scale = Vector2(0.5, 0.5)
 
-[node name="Moneda9" parent="." unique_id=965902591 instance=ExtResource("21_4mwl0")]
-position = Vector2(3160, 603)
+[node name="Moneda9" parent="." unique_id=2000000008 instance=ExtResource("21_4mwl0")]
+position = Vector2(1774, 600)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda10" parent="." unique_id=2000000009 instance=ExtResource("21_4mwl0")]
+position = Vector2(1976, 600)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda11" parent="." unique_id=2000000010 instance=ExtResource("21_4mwl0")]
+position = Vector2(2179, 600)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda12" parent="." unique_id=2000000011 instance=ExtResource("21_4mwl0")]
+position = Vector2(2382, 497)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda13" parent="." unique_id=2000000012 instance=ExtResource("21_4mwl0")]
+position = Vector2(2693, 397)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda14" parent="." unique_id=2000000013 instance=ExtResource("21_4mwl0")]
+position = Vector2(2788, 400)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda15" parent="." unique_id=2000000014 instance=ExtResource("21_4mwl0")]
+position = Vector2(3196, 525)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda16" parent="." unique_id=2000000015 instance=ExtResource("21_4mwl0")]
+position = Vector2(3194, 600)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda17" parent="." unique_id=2000000016 instance=ExtResource("21_4mwl0")]
+position = Vector2(3517, 523)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda18" parent="." unique_id=2000000017 instance=ExtResource("21_4mwl0")]
+position = Vector2(3516, 597)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda19" parent="." unique_id=2000000018 instance=ExtResource("21_4mwl0")]
+position = Vector2(3862, 599)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda20" parent="." unique_id=2000000019 instance=ExtResource("21_4mwl0")]
+position = Vector2(3863, 528)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda21" parent="." unique_id=2000000020 instance=ExtResource("21_4mwl0")]
+position = Vector2(4209, 600)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda22" parent="." unique_id=2000000021 instance=ExtResource("21_4mwl0")]
+position = Vector2(4210, 522)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda23" parent="." unique_id=2000000022 instance=ExtResource("21_4mwl0")]
+position = Vector2(4834, 528)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda24" parent="." unique_id=2000000023 instance=ExtResource("21_4mwl0")]
+position = Vector2(4785, 597)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda25" parent="." unique_id=2000000024 instance=ExtResource("21_4mwl0")]
+position = Vector2(4877, 597)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda26" parent="." unique_id=2000000025 instance=ExtResource("21_4mwl0")]
+position = Vector2(5224, 600)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda27" parent="." unique_id=2000000026 instance=ExtResource("21_4mwl0")]
+position = Vector2(5481, 603)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda28" parent="." unique_id=2000000027 instance=ExtResource("21_4mwl0")]
+position = Vector2(5561, 603)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda29" parent="." unique_id=2000000028 instance=ExtResource("21_4mwl0")]
+position = Vector2(5832, 600)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda30" parent="." unique_id=2000000029 instance=ExtResource("21_4mwl0")]
+position = Vector2(6154, 594)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda31" parent="." unique_id=2000000030 instance=ExtResource("21_4mwl0")]
+position = Vector2(6238, 600)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda32" parent="." unique_id=2000000031 instance=ExtResource("21_4mwl0")]
+position = Vector2(6192, 536)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda33" parent="." unique_id=2000000032 instance=ExtResource("21_4mwl0")]
+position = Vector2(6644, 600)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda34" parent="." unique_id=2000000033 instance=ExtResource("21_4mwl0")]
+position = Vector2(6727, 600)
+scale = Vector2(0.5, 0.5)
+
+[node name="Moneda35" parent="." unique_id=2000000034 instance=ExtResource("21_4mwl0")]
+position = Vector2(6684, 532)
 scale = Vector2(0.5, 0.5)
 
 [node name="Ave2" parent="." unique_id=526795265 instance=ExtResource("17_eicml")]

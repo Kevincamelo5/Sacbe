@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dsr3su7lcid7u"]
+
+[ext_resource type="Texture2D" uid="uid://budi8umor8cld" path="res://activos/arte/tronco_obstaculo1.png" id="1_jwufa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nbhba"]
+radius = 382.8376
+height = 1958.285
+
+[node name="Piedra" type="Node2D" unique_id=1145926518]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1629251234]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1756713686]
+scale = Vector2(0.34920573, 0.34920573)
+texture = ExtResource("1_jwufa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1060028511]
+position = Vector2(18.999983, -92.00001)
+rotation = 4.69901
+scale = Vector2(0.77573, 0.3487894)
+shape = SubResource("CapsuleShape2D_nbhba")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1485576069]
+position = Vector2(8.999999, 154.99986)
+rotation = 4.7186165
+scale = Vector2(0.7757304, 0.34878957)
+shape = SubResource("CapsuleShape2D_nbhba")

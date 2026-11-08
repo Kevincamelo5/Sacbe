@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://cptskx4rv4ti4" path="res://interfaz/hud/contador_monedas.gd" id="1_kgg8p"]
 [ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="1_uj757"]
 [ext_resource type="Texture2D" uid="uid://d3u4m5hreqwt2" path="res://activos/arte/marco.png" id="2_ak5sh"]
-[ext_resource type="Texture2D" uid="uid://2l1lmi5bpi4j" path="res://activos/arte/divexfre-pixel-art-9788141_1920.png" id="4_4onc6"]
+[ext_resource type="Texture2D" uid="uid://dqubdgg6oa3k4" path="res://activos/arte/Monedas.png" id="3_4onc6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rily"]
+atlas = ExtResource("3_4onc6")
+region = Rect2(1.4000702, 1.4000092, 169.60004, 171.20004)
 
 [node name="Contador_moneda" type="CanvasLayer" unique_id=531681925]
 script = ExtResource("1_kgg8p")
@@ -24,7 +28,7 @@ offset_top = 14.863998
 offset_right = 83.383995
 offset_bottom = 20.183998
 scale = Vector2(1.3367548, 1.3367548)
-texture = ExtResource("4_4onc6")
+texture = SubResource("AtlasTexture_8rily")
 expand_mode = 1
 stretch_mode = 4
 

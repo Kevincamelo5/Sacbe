@@ -6,7 +6,10 @@ class_name Lanza
 @export var daño = 0
 
 func _ready() -> void:
-	velocity.x = x * velocidad
+	# La lanza sale en diagonal, unos 45 grados hacia arriba.
+	var direccion := Vector2(x, -1).normalized()
+	velocity = direccion * velocidad
+	rotation = direccion.angle()
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()

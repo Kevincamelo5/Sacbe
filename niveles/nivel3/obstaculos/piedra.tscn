@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://nfk87ggvg1qi"]
+
+[ext_resource type="Texture2D" uid="uid://cjrydvm77req3" path="res://activos/arte/Rock2.png" id="1_nbhba"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nbhba"]
+radius = 35.057095
+
+[node name="Piedra" type="Node2D" unique_id=1145926518]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1629251234]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1756713686]
+scale = Vector2(1.84375, 1.84375)
+texture = ExtResource("1_nbhba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=233645182]
+position = Vector2(2, 11)
+shape = SubResource("CircleShape2D_nbhba")

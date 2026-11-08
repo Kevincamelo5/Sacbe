@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://ddd4qr3ifjqga" path="res://objetos/interactuables/puerta.gd" id="1_fesny"]
 [ext_resource type="Texture2D" uid="uid://bohraq5n2jutx" path="res://activos/arte/pared.png" id="2_fesny"]
-[ext_resource type="Texture2D" uid="uid://dfof0aftsuxwv" path="res://activos/arte/puerta.png" id="3_uyweu"]
+[ext_resource type="Texture2D" uid="uid://dx68by5elxh43" path="res://activos/arte/plats1.png" id="3_fesny"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3g2fe"]
 size = Vector2(107.173904, 24.170506)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyweu"]
+atlas = ExtResource("3_fesny")
+region = Rect2(215.5, 0, 203.5, 221.81302)
 
 [node name="Puerta" type="Node2D" unique_id=708447874]
 script = ExtResource("1_fesny")
@@ -34,8 +38,8 @@ texture = ExtResource("2_fesny")
 [node name="Sprite2D2" type="Sprite2D" parent="Area2D" unique_id=1358788421]
 light_mask = 33
 visibility_layer = 6
-position = Vector2(-1.0000005, -5)
-scale = Vector2(0.5638186, 0.65424234)
-texture = ExtResource("3_uyweu")
+position = Vector2(0, 14.000001)
+scale = Vector2(1.0049261, 1.1660932)
+texture = SubResource("AtlasTexture_uyweu")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

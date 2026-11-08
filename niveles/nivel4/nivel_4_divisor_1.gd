@@ -15,11 +15,23 @@ const COLOR_FONDO_BOTONES := Color(0.036, 0.0, 0.339, 0.914)
 const TEX_FONDO_PROBLEMA := preload("res://activos/arte/Gemini_Generated_Image_80ljf80ljf80ljf8.png") 
 const OPERADOR := "÷"
 
+# --- PRECIOS DE LAS ARMAS ---
+const PRECIOS := {
+	"flauta": 30,
+	"hacha": 25,
+	"vida": 40
+}
+
 #conexion de las funciones con sus respectivas terminales.
 @onready var _contenedor_botones: GridContainer = $fondos2/derecha/CenterContainer/GridContainer
 @onready var _campo_respuesta: LineEdit = $fondos2/izquierda/CenterContainer/VBoxContainer/LineEdit
 @onready var _campo_operandos: Label = $fondos2/izquierda/CenterContainer/VBoxContainer/Label
 @onready var _boton_enviar: Button = $fondos2/izquierda/MarginContainer/CenterContainer/BotonEnviar
+@onready var contenedor_objetos = $ContenedorObjetos
+@onready var monedas_tienda = $MonedasTienda
+@onready var boton_flauta = $ContenedorObjetos/BotonFlauta
+@onready var boton_hacha = $ContenedorObjetos/BotonHacha
+@onready var boton_vida = $ContenedorObjetos/BotonVida
 
 @onready var _texture_fondo_mayor: TextureRect = $TextureRect
 
@@ -28,12 +40,19 @@ var _operandos:= []
 var _respuesta_correcta := "0"
 
 var label_aciertos: Label
+var label_error_dinero: Label
 
 var respuesta_correcta: String = ""
 var correctos: int = 0
 const ACIERTOS_OBJETIVO: int = 5
 
 func _ready() -> void:
+	if contenedor_objetos:
+		contenedor_objetos.hide()
+		monedas_tienda.hide()
+		boton_flauta.pressed.connect(_seleccionar_objeto.bind("flauta"))
+		boton_hacha.pressed.connect(_seleccionar_objeto.bind("hacha"))
+		boton_vida.pressed.connect(_seleccionar_objeto.bind("vida"))
 	
 	if not _texture_fondo_mayor:
 		_texture_fondo_mayor = TextureRect.new()
@@ -47,6 +66,7 @@ func _ready() -> void:
 	_texture_fondo_mayor.set_anchors_preset(Control.PRESET_FULL_RECT)
 
 	_crear_contador_aciertos()
+	_crear_label_error()
 	
 	var margins_centrales := 100 # Margen para el octágono
 	$fondos2.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -175,6 +195,21 @@ func _crear_contador_aciertos() -> void:
 func _actualizar_texto_aciertos() -> void:
 	if label_aciertos:
 		label_aciertos.text = "Aciertos: " + str(correctos) + " / " + str(ACIERTOS_OBJETIVO)
+
+func _crear_label_error() -> void:
+	label_error_dinero = Label.new()
+	label_error_dinero.name = "LabelErrorDinero"
+	label_error_dinero.text = "¡No tienes suficientes monedas!"
+	label_error_dinero.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label_error_dinero.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label_error_dinero.add_theme_font_size_override("font_size", 32)
+	label_error_dinero.add_theme_color_override("font_color", PALETA_ACENTO_ROJO)
+	label_error_dinero.add_theme_constant_override("outline_size", 3)
+	label_error_dinero.add_theme_color_override("font_outline_color", PALETA_BORDE_NEGRO)
+	label_error_dinero.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	label_error_dinero.position.y -= 80
+	label_error_dinero.hide()
+	add_child(label_error_dinero)
 
 func _crear_estilo_boton_piedra_maya(accent_color: Color = PALETA_PIEDRA_FONDO, is_hover: bool = false) -> StyleBoxFlat:
 	var style = StyleBoxFlat.new()
@@ -380,8 +415,66 @@ func _aumentar_aciertos() -> int:
 	_actualizar_texto_aciertos()
 	print("Correctos: ", correctos)
 	if correctos >= ACIERTOS_OBJETIVO:
-		get_tree().change_scene_to_file("res://niveles/nivel4/nivel4_parte_2.tscn")
+		_mostrar_recompensas()
 	return correctos
+
+func _avanzar_siguiente_nivel() -> void:
+	get_tree().change_scene_to_file("res://niveles/nivel4/nivel4_parte_2.tscn")
+
+func _mostrar_recompensas() -> void:
+	$fondos2.hide()
+	_texture_fondo_mayor.modulate = Color(0.5, 0.5, 0.5)
+	if contenedor_objetos:
+		contenedor_objetos.show()
+		monedas_tienda.show()
+
+
+func _seleccionar_objeto(objeto_elegido: String) -> void:
+	var ya_desbloqueada: bool = GameManager.armasDesbloqueadas.get(objeto_elegido, false)
+	var costo: int = PRECIOS.get(objeto_elegido, 0)
+	
+	if objeto_elegido == "vida":
+		if GameManager.comprar_vida(costo):
+			_avanzar_siguiente_nivel()
+		else:
+			_mostrar_error_dinero()
+		return
+	
+	if ya_desbloqueada:
+		_equipar_y_avanzar(objeto_elegido)
+	elif GameManager.gastar_monedas(costo):
+		GameManager.desbloquear_arma(objeto_elegido)
+		_equipar_y_avanzar(objeto_elegido)
+	else:
+		_mostrar_error_dinero()
+
+
+func _mostrar_error_dinero() -> void:
+	if label_error_dinero:
+		label_error_dinero.show()
+		var timer := get_tree().create_timer(2.0)
+		await timer.timeout
+		label_error_dinero.hide()
+
+
+func _equipar_y_avanzar(objeto_elegido: String) -> void:
+	print("Quitzal ha obtenido/equipado: ", objeto_elegido)
+	
+	GameManager.arma_equipada_actual = objeto_elegido
+	if GameManager.has_signal("arma_cambiada"):
+		GameManager.arma_cambiada.emit()
+	
+	var jugador = get_tree().get_first_node_in_group("jugador")
+	if jugador:
+		match objeto_elegido:
+			"flauta":
+				jugador.objetoActual = jugador.OBJETOS.FLAUTA
+			"hacha":
+				jugador.objetoActual = jugador.OBJETOS.HACHA
+			"lanza":
+				jugador.objetoActual = jugador.OBJETOS.LANZA
+	
+	get_tree().change_scene_to_file("res://niveles/nivel4/nivel4_parte_2.tscn")
 
 func _es_respuesta_incorrecta() -> void:
 	# Crear canvas layer para el efecto

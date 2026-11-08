@@ -6,7 +6,11 @@
 [ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="4_7um32"]
 [ext_resource type="Texture2D" uid="uid://cpssa5krlitf5" path="res://objetos/flauta peque.png" id="5_bkq7i"]
 [ext_resource type="Texture2D" uid="uid://c4730iaatv2jl" path="res://activos/arte/card.png" id="6_55g0b"]
+[ext_resource type="Texture2D" uid="uid://dqubdgg6oa3k4" path="res://activos/arte/Monedas.png" id="7_55g0b"]
 [ext_resource type="Texture2D" uid="uid://iq4t35c4xr2q" path="res://objetos/lanza peque.png" id="8_puwoa"]
+[ext_resource type="Texture2D" uid="uid://d316u3porgwb5" path="res://activos/arte/Escudo peque.png" id="9_sjgid"]
+[ext_resource type="PackedScene" path="res://interfaz/hud/boton_pausa.tscn" id="99_boton_pausa"]
+[ext_resource type="PackedScene" path="res://interfaz/hud/monedas_tienda.tscn" id="99_monedas_tienda"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtkfd"]
 content_margin_left = 10.0
@@ -16,8 +20,9 @@ content_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6tms"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7um32"]
-load_path = "res://.godot/imported/hacha peque.png-6d5423273a08cac5a15ffa99f9a2360b.ctex"
+[sub_resource type="AtlasTexture" id="AtlasTexture_puwoa"]
+atlas = ExtResource("7_55g0b")
+region = Rect2(4.016556, 2.3140564, 161.9835, 167.27275)
 
 [node name="Nivel1_sumador1" type="Control" unique_id=243521744]
 layout_mode = 3
@@ -174,12 +179,44 @@ offset_bottom = 161.0
 texture = ExtResource("6_55g0b")
 expand_mode = 2
 
-[node name="BotonHacha" type="TextureButton" parent="ContenedorObjetos" unique_id=2070623045]
+[node name="Precio" type="HBoxContainer" parent="ContenedorObjetos/BotonFlauta" unique_id=1992000001]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Moneda2" type="TextureRect" parent="ContenedorObjetos/BotonFlauta/Precio" unique_id=1714144781]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = SubResource("AtlasTexture_puwoa")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ContenedorObjetos/BotonFlauta/Precio" unique_id=1992000003]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "20"
+vertical_alignment = 1
+
+[node name="BotonLanza" type="TextureButton" parent="ContenedorObjetos" unique_id=2070623045]
 layout_mode = 2
 focus_mode = 0
-texture_normal = SubResource("CompressedTexture2D_7um32")
+texture_normal = ExtResource("8_puwoa")
 
-[node name="TextureRect2" type="TextureRect" parent="ContenedorObjetos/BotonHacha" unique_id=58744490]
+[node name="TextureRect2" type="TextureRect" parent="ContenedorObjetos/BotonLanza" unique_id=58744490]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
@@ -194,12 +231,44 @@ offset_bottom = 149.0
 texture = ExtResource("6_55g0b")
 expand_mode = 2
 
-[node name="BotonLanza" type="TextureButton" parent="ContenedorObjetos" unique_id=249622543]
+[node name="Precio" type="HBoxContainer" parent="ContenedorObjetos/BotonLanza" unique_id=1992000004]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Moneda2" type="TextureRect" parent="ContenedorObjetos/BotonLanza/Precio" unique_id=136336382]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = SubResource("AtlasTexture_puwoa")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ContenedorObjetos/BotonLanza/Precio" unique_id=1992000006]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "30"
+vertical_alignment = 1
+
+[node name="BotonEscudo" type="TextureButton" parent="ContenedorObjetos" unique_id=249622543]
 layout_mode = 2
 focus_mode = 0
-texture_normal = ExtResource("8_puwoa")
+texture_normal = ExtResource("9_sjgid")
 
-[node name="TextureRect3" type="TextureRect" parent="ContenedorObjetos/BotonLanza" unique_id=1241341171]
+[node name="TextureRect3" type="TextureRect" parent="ContenedorObjetos/BotonEscudo" unique_id=1241341171]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
@@ -214,3 +283,44 @@ offset_bottom = 70.5
 texture = ExtResource("6_55g0b")
 expand_mode = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="Precio" type="HBoxContainer" parent="ContenedorObjetos/BotonEscudo" unique_id=1992000007]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Moneda2" type="TextureRect" parent="ContenedorObjetos/BotonEscudo/Precio" unique_id=1889709710]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = SubResource("AtlasTexture_puwoa")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ContenedorObjetos/BotonEscudo/Precio" unique_id=1992000009]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "40"
+vertical_alignment = 1
+
+[node name="MonedasTienda" parent="." unique_id=168170618 instance=ExtResource("99_monedas_tienda")]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 12.0
+offset_right = 677.0
+offset_bottom = 88.0
+
+[node name="BotonPausa" parent="." unique_id=1114229905 instance=ExtResource("99_boton_pausa")]

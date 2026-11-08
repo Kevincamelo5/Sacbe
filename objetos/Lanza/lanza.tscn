@@ -1,10 +1,7 @@
 [gd_scene format=3 uid="uid://br8f7lxf36utj"]
 
 [ext_resource type="Script" uid="uid://dr3cokpymbwyw" path="res://objetos/Lanza/lanza.gd" id="1_ymjk1"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cmoyt"]
-width = 60
-height = 10
+[ext_resource type="Texture2D" uid="uid://iq4t35c4xr2q" path="res://objetos/lanza peque.png" id="2_2a655"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klyi8"]
 size = Vector2(62, 12)
@@ -16,7 +13,10 @@ motion_mode = 1
 script = ExtResource("1_ymjk1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1565647456]
-texture = SubResource("NoiseTexture2D_cmoyt")
+position = Vector2(-1.9999998, -1.0000004)
+rotation = 0.7545505
+scale = Vector2(0.5938931, 0.5938931)
+texture = ExtResource("2_2a655")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=286845214]
 

@@ -8,6 +8,8 @@ var nivel_actual: String = "res://niveles/nivel1/nivel1_parte1.tscn"
 
 ## Indica si hay una partida empezada que se pueda continuar.
 var partida_guardada: bool = false
+## Indica si el tutorial inicial ya se mostró en la partida actual.
+var tutorial_visto: bool = false
 ## Escena que cargara el boton "Cargar partida".
 var escena_guardada: String = ""
 ## Vida y monedas que se restauran al cargar la partida.
@@ -31,6 +33,16 @@ var armasDesbloqueadas = {
 	"escudo": false,
 	"flauta": false,
 	"macuahuitle": false 
+}
+
+## Armas que ya fueron mejoradas en la tienda (solo estas pueden dañar a Huay).
+var armasMejoradas = {
+	"cuchillo": false,
+	"hacha": false,
+	"lanza": false,
+	"escudo": false,
+	"flauta": false,
+	"macuahuitle": false
 }
 
 ## Escena inicial de cada nivel, usada para reiniciar desde el principio del nivel.
@@ -116,6 +128,7 @@ func nueva_partida() -> void:
 	nivel_actual = "res://niveles/nivel1/nivel1_parte1.tscn"
 	partida_guardada = false
 	escena_guardada = ""
+	tutorial_visto = false
 	vida_actualizada.emit(vida)
 	puntuacion_actualizada.emit(moneda)
 
@@ -182,5 +195,21 @@ func comprar_vida(costo: int = 30) -> bool:
 func desbloquear_arma(nombreArma: String):
 	if armasDesbloqueadas.has(nombreArma):
 		armasDesbloqueadas[nombreArma] = true
-		print(nombreArma, "desbloqueada")
+		print(nombreArma, " desbloqueada")
 	else: print_debug("Error: El arma '", nombreArma, "' no existe en el diccionario.")
+
+## Marca el arma indicada como mejorada. Devuelve true si se pudo mejorar.
+func mejorar_arma(nombreArma: String) -> bool:
+	if not armasMejoradas.has(nombreArma):
+		print_debug("Error: El arma '", nombreArma, "' no existe en el diccionario.")
+		return false
+	if armasMejoradas[nombreArma]:
+		return false
+	
+	armasMejoradas[nombreArma] = true
+	print(nombreArma, " mejorada")
+	return true
+
+## Indica si el arma indicada ya fue mejorada.
+func arma_esta_mejorada(nombreArma: String) -> bool:
+	return armasMejoradas.get(nombreArma, false)

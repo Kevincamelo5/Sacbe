@@ -17,9 +17,9 @@ const OPERADOR := "-"
 
 # --- PRECIOS DE LAS ARMAS ---
 const PRECIOS := {
-	"flauta": 15,
-	"hacha": 35,
-	"lanza": 40
+	"flauta": 20,
+	"hacha": 25,
+	"lanza": 30
 }
 
 @onready var _contenedor_botones: GridContainer = $fondos2/derecha/CenterContainer/GridContainer
@@ -27,6 +27,7 @@ const PRECIOS := {
 @onready var _campo_operandos: Label = $fondos2/izquierda/CenterContainer/VBoxContainer/Label
 @onready var _boton_enviar: Button = $fondos2/izquierda/MarginContainer/CenterContainer/BotonEnviar
 @onready var contenedor_objetos = $ContenedorObjetos
+@onready var monedas_tienda = $MonedasTienda
 @onready var boton_flauta = $ContenedorObjetos/BotonFlauta
 @onready var boton_hacha = $ContenedorObjetos/BotonHacha
 @onready var boton_lanza = $ContenedorObjetos/BotonLanza
@@ -47,6 +48,7 @@ const ACIERTOS_OBJETIVO: int = 5
 func _ready() -> void:
 	if contenedor_objetos:
 		contenedor_objetos.hide()
+		monedas_tienda.hide()
 		boton_flauta.pressed.connect(_seleccionar_objeto.bind("flauta"))
 		boton_hacha.pressed.connect(_seleccionar_objeto.bind("hacha"))
 		boton_lanza.pressed.connect(_seleccionar_objeto.bind("lanza"))
@@ -417,6 +419,7 @@ func _mostrar_recompensas():
 	_texture_fondo_mayor.modulate = Color(0.5, 0.5, 0.5) 
 	if contenedor_objetos:
 		contenedor_objetos.show()
+		monedas_tienda.show()
 
 # --- LÓGICA DE COMPRA Y SELECCIÓN MODIFICADA ---
 func _seleccionar_objeto(objeto_elegido: String) -> void:

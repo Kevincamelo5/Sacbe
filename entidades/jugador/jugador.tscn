@@ -143,7 +143,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Ataque Hacha",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -157,7 +157,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Ataque Lanza",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -171,7 +171,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Toca Flauta",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -191,7 +191,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"acuchillar",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 0.6,
@@ -219,7 +219,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"escudarse",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,

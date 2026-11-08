@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b3almajmtpdlb"]
+
+[ext_resource type="Texture2D" uid="uid://rjn1icyvfws5" path="res://activos/arte/Arbol2.png" id="1_jmng4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jmng4"]
+radius = 335.43106
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lnjui"]
+radius = 268.31512
+
+[node name="Piedra" type="Node2D" unique_id=1145926518]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1629251234]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1756713686]
+scale = Vector2(1.84375, 1.84375)
+texture = ExtResource("1_jmng4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=220284136]
+position = Vector2(-55, -164)
+shape = SubResource("CircleShape2D_jmng4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1052429174]
+position = Vector2(-301, -103)
+shape = SubResource("CircleShape2D_lnjui")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=503747163]
+position = Vector2(273, -123)
+shape = SubResource("CircleShape2D_lnjui")

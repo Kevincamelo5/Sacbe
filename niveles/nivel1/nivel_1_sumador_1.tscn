@@ -4,6 +4,13 @@
 [ext_resource type="Script" uid="uid://b8rup3ah07oax" path="res://niveles/nivel1/nivel_1_sumador_1.gd" id="1_rtkfd"]
 [ext_resource type="Texture2D" uid="uid://crmuas4pqr5n2" path="res://activos/arte/Gemini_Generated_Image_80ljf80ljf80ljf8.png" id="2_hlnvc"]
 [ext_resource type="FontFile" uid="uid://87tb7imou5yb" path="res://activos/fuentes/Mayan.ttf" id="3_g6tms"]
+[ext_resource type="Texture2D" uid="uid://c4730iaatv2jl" path="res://activos/arte/card.png" id="4_card"]
+[ext_resource type="Texture2D" uid="uid://chw0anm52ymwm" path="res://activos/arte/Hacha.png" id="5_hacha"]
+[ext_resource type="Texture2D" uid="uid://dpyicnkndmbk6" path="res://activos/arte/(256) Escudo.png" id="6_escudo"]
+[ext_resource type="Texture2D" uid="uid://dqubdgg6oa3k4" path="res://activos/arte/Monedas.png" id="7_0ybbi"]
+[ext_resource type="Texture2D" uid="uid://ctpebtatsckvt" path="res://activos/arte/(512) Quitzal flauta v2 frentre.png" id="7_vida"]
+[ext_resource type="PackedScene" path="res://interfaz/hud/boton_pausa.tscn" id="99_boton_pausa"]
+[ext_resource type="PackedScene" path="res://interfaz/hud/monedas_tienda.tscn" id="99_monedas_tienda"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtkfd"]
 content_margin_left = 10.0
@@ -13,7 +20,11 @@ content_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6tms"]
 
-[node name="Nivel1_sumador1" type="Control" unique_id=243521744]
+[sub_resource type="AtlasTexture" id="AtlasTexture_55mxr"]
+atlas = ExtResource("7_0ybbi")
+region = Rect2(4.016556, 2.3140564, 161.9835, 167.27275)
+
+[node name="Nivel1_sumador3" type="Control" unique_id=243521744]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,6 +34,7 @@ grow_vertical = 2
 script = ExtResource("1_rtkfd")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1865623197]
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -136,3 +148,203 @@ layout_mode = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
+
+[node name="ContenedorObjetos" type="HBoxContainer" parent="." unique_id=1990000001]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -486.0
+offset_bottom = -166.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="BotonHacha" type="TextureButton" parent="ContenedorObjetos" unique_id=1990000002]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+texture_normal = ExtResource("5_hacha")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Fondo2" type="TextureRect" parent="ContenedorObjetos/BotonHacha" unique_id=465941009]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -40.0
+offset_right = 34.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_card")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Precio2" type="HBoxContainer" parent="ContenedorObjetos/BotonHacha" unique_id=1857445235]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 28.0
+offset_right = 2.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Moneda" type="TextureRect" parent="ContenedorObjetos/BotonHacha/Precio2" unique_id=260535313]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = SubResource("AtlasTexture_55mxr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ContenedorObjetos/BotonHacha/Precio2" unique_id=2079179075]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "25"
+vertical_alignment = 1
+
+[node name="BotonEscudo" type="TextureButton" parent="ContenedorObjetos" unique_id=1990000005]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+texture_normal = ExtResource("6_escudo")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Fondo" type="TextureRect" parent="ContenedorObjetos/BotonEscudo" unique_id=1990000006]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -40.0
+offset_right = 32.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_card")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Precio" type="HBoxContainer" parent="ContenedorObjetos/BotonEscudo" unique_id=1062474377]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 28.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Moneda" type="TextureRect" parent="ContenedorObjetos/BotonEscudo/Precio" unique_id=554418455]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = SubResource("AtlasTexture_55mxr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ContenedorObjetos/BotonEscudo/Precio" unique_id=464901972]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "30"
+vertical_alignment = 1
+
+[node name="BotonVida" type="TextureButton" parent="ContenedorObjetos" unique_id=1990000008]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+texture_normal = ExtResource("7_vida")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Fondo2" type="TextureRect" parent="ContenedorObjetos/BotonVida" unique_id=410360891]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -40.0
+offset_right = 33.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_card")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Precio2" type="HBoxContainer" parent="ContenedorObjetos/BotonVida" unique_id=1599708879]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 28.0
+offset_right = 1.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Moneda" type="TextureRect" parent="ContenedorObjetos/BotonVida/Precio2" unique_id=1939323789]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = SubResource("AtlasTexture_55mxr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ContenedorObjetos/BotonVida/Precio2" unique_id=1374637261]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "40"
+vertical_alignment = 1
+
+[node name="MonedasTienda" parent="." unique_id=135669247 instance=ExtResource("99_monedas_tienda")]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 20.0
+offset_right = 661.0
+offset_bottom = 96.0
+
+[node name="BotonPausa" parent="." unique_id=290761144 instance=ExtResource("99_boton_pausa")]

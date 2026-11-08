@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://interfaz/hud/boton_pausa.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://activos/arte/botones/pause-button-2148106_1280.png" id="2_texture"]
+
+[node name="BotonPausa" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_script")
+
+[node name="Boton" type="TextureButton" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -116.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 116.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+tooltip_text = "Pausa"
+texture_normal = ExtResource("2_texture")
+ignore_texture_size = true
+stretch_mode = 5

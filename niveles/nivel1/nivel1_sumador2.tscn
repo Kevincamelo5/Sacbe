@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dm0q8p7fcffb" path="res://activos/arte/cueva.jpg" id="2_f8cl7"]
 [ext_resource type="Texture2D" uid="uid://b0ihrpf4w5om1" path="res://activos/arte/Sin título.png" id="3_f8cl7"]
 [ext_resource type="Texture2D" uid="uid://bvkha0yr7i400" path="res://activos/arte/cuerda estatica.png" id="3_fybjc"]
+[ext_resource type="PackedScene" path="res://interfaz/hud/boton_pausa.tscn" id="99_boton_pausa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sl1ed"]
 atlas = ExtResource("3_f8cl7")
@@ -161,3 +162,5 @@ layout_mode = 2
 
 [node name="Boton3" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=955297581]
 layout_mode = 2
+
+[node name="BotonPausa" parent="." instance=ExtResource("99_boton_pausa")]

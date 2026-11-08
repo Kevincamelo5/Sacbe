@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # --- CONFIGURACIÓN ---
 @export var speed: float = 160.0
-@export var vida: int = 20
+@export var vida: int = 6
 
 # Parámetros para el movimiento de subida y bajada (onda)
 @export var amplitud_onda: float = 50.0  # Distancia máxima vertical
@@ -11,6 +11,9 @@ extends CharacterBody2D
 # Escenas
 @export var escena_piedra: PackedScene 
 @export var escena_llave: PackedScene
+## Escena a la que se pasa automáticamente al derrotar al pájaro.
+## Si se deja vacía, el pájaro solo suelta la llave y desaparece.
+@export_file("*.tscn") var siguiente_escena: String = ""
 
 var direccion: int = 1 # 1 es derecha, -1 es izquierda
 var puede_recibir_daño: bool = true
@@ -80,6 +83,12 @@ func recibir_daño(cantidad: int = 1) -> void:
 		puede_recibir_daño = true
 
 func morir() -> void:
+	# Si el nivel define una escena siguiente, avanzamos en cuanto el pájaro
+	# es derrotado.
+	if siguiente_escena != "":
+		get_tree().change_scene_to_file(siguiente_escena)
+		return
+
 	if escena_llave:
 		var nueva_llave = escena_llave.instantiate()
 		get_parent().add_child(nueva_llave)

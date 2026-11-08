@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://nik8f1k4lf7t" path="res://activos/arte/Pajaro sprite.png" id="4_xhir8"]
 [ext_resource type="Script" uid="uid://18q5o1cf68y3" path="res://entidades/enemigos/hurtbox.gd" id="5_xhir8"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cuerpo"]
+radius = 30.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_x3jag"]
 atlas = ExtResource("4_xhir8")
 region = Rect2(0, 0, 125, 125)
@@ -36,17 +39,17 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_py2qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plxbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqxqw")
 }],
 "loop": true,
 "name": &"volar",
 "speed": 5.0
 }]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_8b16g"]
-radius = 14.142136
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_cuerpo"]
-radius = 30.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_barra_fondo"]
 bg_color = Color(0.06, 0.05, 0.04, 0.85)
@@ -61,54 +64,42 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_barra_relleno"]
-bg_color = Color(0.30, 0.80, 0.30, 1)
+bg_color = Color(0.3, 0.8, 0.3, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8b16g"]
+radius = 14.142136
+
 [node name="Pajaro" type="CharacterBody2D" unique_id=1371614823]
 collision_layer = 0
-collision_mask = 1
 script = ExtResource("1_wulyk")
-speed = 160.0
-vida = 20
 escena_piedra = ExtResource("2_ps2we")
 escena_llave = ExtResource("3_xhir8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=379455299]
 shape = SubResource("CircleShape2D_cuerpo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1091444865]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_mvjrk")
 animation = &"volar"
+autoplay = &"volar"
+frame_progress = 0.10251641
 
-[node name="BarraVida" type="ProgressBar" parent="."]
-layout_mode = 0
+[node name="BarraVida" type="ProgressBar" parent="." unique_id=1880185657]
 offset_left = -50.0
 offset_top = -78.0
 offset_right = 50.0
 offset_bottom = -66.0
 mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_barra_fondo")
+theme_override_styles/fill = SubResource("StyleBoxFlat_barra_relleno")
 max_value = 20.0
 value = 20.0
 show_percentage = false
-theme_override_styles/background = SubResource("StyleBoxFlat_barra_fondo")
-theme_override_styles/fill = SubResource("StyleBoxFlat_barra_relleno")
-
-[node name="Label" type="Label" parent="BarraVida"]
-layout_mode = 0
-offset_left = 0.0
-offset_top = -17.0
-offset_right = 100.0
-offset_bottom = 0.0
-theme_override_colors/font_color = Color(0.95, 0.9, 0.8, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 11
-text = "20/20"
-horizontal_alignment = 1
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1741170822]
 collision_layer = 3

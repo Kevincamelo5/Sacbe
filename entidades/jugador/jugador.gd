@@ -37,6 +37,7 @@ func _ready() -> void:
 		animatedSprite.sprite_frames.add_animation("macuahuitle")
 		animatedSprite.sprite_frames.add_frame("macuahuitle", tex_macuahuitl, 1.0)
 		animatedSprite.sprite_frames.set_animation_loop("macuahuitle", false)
+	animatedSprite.sprite_frames.set_animation_speed("macuahuitle", 6.0)
 
 	
 
@@ -216,6 +217,11 @@ var lanza: PackedScene = preload("res://objetos/Lanza/lanza.tscn")
 
 func acuchillar():
 	print_debug("Acuchillando")
+	# Reproducimos la animación antes de aplicar el daño. Si el golpe activa
+	# el daño del jugador (por ejemplo, una puerta con respuesta incorrecta),
+	# la animación de recibir daño no debe ser sobrescrita por la de ataque.
+	animatedSprite.play("acuchillar")
+
 	var areas = areaCuchillo.get_overlapping_areas()
 	
 	for area in areas:
@@ -223,8 +229,6 @@ func acuchillar():
 			area.lastimar(dañoCuchillo)
 		elif area.has_method("recibir_dano"):
 			area.recibir_dano(dañoCuchillo)
-			
-	animatedSprite.play("acuchillar")
 
 # LANZA
 func lanzar():
@@ -243,8 +247,25 @@ func lanzar():
 # ESCUDO
 func escudar():
 	print_debug("Escudando")
-	_estaProtegido = true
+	_estaProtegido = false
 	animatedSprite.play("escudarse")
+
+	# La protección empieza justo cuando la animación muestra el escudo
+	# cubriendo por completo al jugador (último frame).
+	var ultimo_frame := animatedSprite.sprite_frames.get_frame_count("escudarse") - 1
+	while animatedSprite.animation == "escudarse" and animatedSprite.frame < ultimo_frame:
+		await animatedSprite.frame_changed
+
+	if animatedSprite.animation != "escudarse":
+		# La animación se interrumpió (por ejemplo, al recibir daño):
+		# liberamos el uso del objeto para que no se quede bloqueado.
+		_temporizadorObjeto = 0.0
+		return
+
+	_estaProtegido = true
+	# Mantener la protección durante todo el tiempo configurado
+	# a partir del momento en que el escudo ya está completo.
+	_temporizadorObjeto = tiempoEscudo
 
 # HACHA
 func atacar_hacha():
@@ -269,13 +290,14 @@ func atacar_hacha():
 # MACUAHUITLE
 func atacar_macuahuitl():
 	print_debug("Atacando con Macuahuitl")
+	animatedSprite.play("macuahuitle")
+
 	var areas = areaCuchillo.get_overlapping_areas()
 	for area in areas:
 		if area.has_method("lastimar"):
 			area.lastimar(dañoMacuahuitle)
 		elif area.has_method("recibir_dano"):
 			area.recibir_dano(dañoMacuahuitle)
-	animatedSprite.play("macuahuitle")
 
 # FLAUTA
 func tocar_flauta():
@@ -315,12 +337,21 @@ func _cambiar_siguiente_objeto_desbloqueado():
 	
 # perder vidas
 @onready var Audio_dano = $AudioDano
+
+## Alias público para que otros nodos (puertas, enemigos, trampas...) le
+## quiten vida al jugador usando el mismo flujo de daño.
+func recibir_dano(cantidad: int = 1) -> void:
+	_lose_lives()
+
 func _lose_lives() -> void:
 	if not _estaProtegido and not _recibiendo_dano:
 		_recibiendo_dano = true
 		_tiempo_invulnerable = 0.6
 		Audio_dano.play()
 		animatedSprite.play("recibirDaño")
+		# Forzamos el reinicio: si "recibirDaño" ya era la animación actual
+		# (por ejemplo, tras un golpe anterior) Godot no la reinicia sola.
+		animatedSprite.set_frame_and_progress(0, 0.0)
 		
 		# Reducimos la vida de inmediato, sin depender de la animación
 		GameManager.disminuir_vida(false)

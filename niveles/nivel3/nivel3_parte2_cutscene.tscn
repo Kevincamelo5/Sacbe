@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dxqf8dqh4f3rg" path="res://activos/arte/maleza.png" id="3_uuecq"]
 [ext_resource type="Texture2D" uid="uid://jtdsl00sxy1s" path="res://activos/arte/TX Tileset Grass.png" id="4_viswb"]
 [ext_resource type="PackedScene" uid="uid://b2wjj7buuqhdw" path="res://objetos/interactuables/puerta.tscn" id="6_aukd7"]
-[ext_resource type="Texture2D" uid="uid://d1a8jic80f0cs" path="res://activos/arte/pajaro.png" id="7_8k4ud"]
+[ext_resource type="Texture2D" uid="uid://nik8f1k4lf7t" path="res://activos/arte/Pajaro sprite.png" id="7_uuecq"]
 [ext_resource type="Texture2D" uid="uid://n8d5bfjitcjc" path="res://activos/arte/llave.png" id="8_ogt1u"]
 [ext_resource type="PackedScene" uid="uid://dgaku384lbo3k" path="res://objetos/peligrosos/vacio.tscn" id="8_tqasg"]
 [ext_resource type="Texture2D" uid="uid://6fh0hh0fhiex" path="res://activos/arte/Quitzal m peleando.png" id="9_uuecq"]
@@ -256,6 +256,48 @@ _data = {
 &"robar_llave": SubResource("Animation_uuecq")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3jag"]
+atlas = ExtResource("7_uuecq")
+region = Rect2(0, 0, 125, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqxqw"]
+atlas = ExtResource("7_uuecq")
+region = Rect2(125, 0, 125, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plxbs"]
+atlas = ExtResource("7_uuecq")
+region = Rect2(250, 0, 125, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py2qd"]
+atlas = ExtResource("7_uuecq")
+region = Rect2(375, 0, 125, 125)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_viswb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3jag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqxqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plxbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py2qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plxbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqxqw")
+}],
+"loop": true,
+"name": &"volar",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsx3y"]
 atlas = ExtResource("9_uuecq")
 region = Rect2(1364, 1024, 682, 1024)
@@ -363,7 +405,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Nivel3Parte2" type="Node2D" unique_id=1852784523]
+[node name="Nivel3Parte3" type="Node2D" unique_id=1852784523]
 script = ExtResource("1_84c07")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=198321590]
@@ -413,7 +455,8 @@ position = Vector2(7824, 148)
 shape = SubResource("RectangleShape2D_8uit8")
 
 [node name="Puerta" parent="pisos" unique_id=708447874 instance=ExtResource("6_aukd7")]
-position = Vector2(463, 1015)
+z_index = -1
+position = Vector2(463, 1032)
 scale = Vector2(1.2, 1.2)
 
 [node name="Vacio" parent="." unique_id=278364109 instance=ExtResource("8_tqasg")]
@@ -424,10 +467,14 @@ scale = Vector2(1090, 2)
 libraries/ = SubResource("AnimationLibrary_viswb")
 autoplay = &"robar_llave"
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=193905086]
+[node name="Sprite2D3" type="AnimatedSprite2D" parent="." unique_id=1795821583]
 position = Vector2(991, 107)
-scale = Vector2(0.25300607, 0.25300607)
-texture = ExtResource("7_8k4ud")
+scale = Vector2(0.7392518, 0.7392518)
+sprite_frames = SubResource("SpriteFrames_viswb")
+animation = &"volar"
+autoplay = "volar"
+frame = 4
+frame_progress = 0.49892712
 flip_h = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1510858798]

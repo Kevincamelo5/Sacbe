@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://coaul87nwtmqe" path="res://niveles/nivel2/nivel_2_restador_2.gd" id="1_t2v5q"]
 [ext_resource type="Texture2D" uid="uid://crmuas4pqr5n2" path="res://activos/arte/Gemini_Generated_Image_80ljf80ljf80ljf8.png" id="2_mlwm7"]
+[ext_resource type="PackedScene" path="res://interfaz/hud/boton_pausa.tscn" id="99_boton_pausa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efvgq"]
 bg_color = Color(0.6, 0.6, 0.6, 0.49803922)
@@ -53,3 +54,5 @@ layout_mode = 2
 
 [node name="Boton3" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=610189771]
 layout_mode = 2
+
+[node name="BotonPausa" parent="." instance=ExtResource("99_boton_pausa")]
