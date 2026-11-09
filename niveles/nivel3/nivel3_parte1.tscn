@@ -1013,11 +1013,11 @@ position = Vector2(13707, 750)
 shape = SubResource("RectangleShape2D_gwa17")
 
 [node name="piso23" type="CollisionShape2D" parent="pisos" unique_id=1100021762]
-position = Vector2(14092, 881)
+position = Vector2(13704, 500)
 shape = SubResource("RectangleShape2D_gwa17")
 
 [node name="piso24" type="CollisionShape2D" parent="pisos" unique_id=614332122]
-position = Vector2(13911, 739)
+position = Vector2(13700, 632)
 shape = SubResource("RectangleShape2D_gwa17")
 
 [node name="TileMap" type="TileMap" parent="pisos" unique_id=563880536]

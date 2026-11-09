@@ -15,6 +15,10 @@ const ARMAS_MEJORABLES := ["cuchillo", "hacha", "lanza", "macuahuitle"]
 @onready var boton_mejorar: Button = $TiendaMejora/Centro/Panel/VBox/BotonMejorar
 @onready var boton_cerrar: Button = $TiendaMejora/Centro/Panel/VBox/BotonCerrar
 
+func _enter_tree() -> void:
+	if GameManager:
+		GameManager.equipar_arma_inicial()
+
 func _ready() -> void:
 	tienda.visible = false
 	boton_tienda.hide()

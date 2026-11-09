@@ -2,11 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://cemd7cuim48g2" path="res://activos/arte/arbol.png" id="1_06hy4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_06hy4"]
-radius = 246.5948
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06hy4"]
+size = Vector2(421, 391)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_o8loc"]
-radius = 305.59122
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8loc"]
+size = Vector2(383, 425.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wdh1"]
+size = Vector2(440, 473)
 
 [node name="Piedra" type="Node2D" unique_id=1145926518]
 
@@ -17,13 +20,13 @@ scale = Vector2(1.84375, 1.84375)
 texture = ExtResource("1_06hy4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=90600583]
-position = Vector2(-236, -307)
-shape = SubResource("CircleShape2D_06hy4")
+position = Vector2(-248, -289)
+shape = SubResource("RectangleShape2D_06hy4")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1185711855]
-position = Vector2(270, -305)
-shape = SubResource("CircleShape2D_06hy4")
+position = Vector2(312.5, -306.25)
+shape = SubResource("RectangleShape2D_o8loc")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=174818833]
-position = Vector2(13, -330)
-shape = SubResource("CircleShape2D_o8loc")
+position = Vector2(-41, -324.5)
+shape = SubResource("RectangleShape2D_2wdh1")

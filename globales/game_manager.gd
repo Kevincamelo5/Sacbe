@@ -45,6 +45,11 @@ var armasMejoradas = {
 	"macuahuitle": false
 }
 
+## Equipa el cuchillo como arma inicial al empezar un nivel.
+func equipar_arma_inicial() -> void:
+	arma_equipada_actual = "cuchillo"
+	arma_cambiada.emit()
+
 ## Escena inicial de cada nivel, usada para reiniciar desde el principio del nivel.
 const INICIO_NIVELES := {
 	"nivel1/": "res://niveles/nivel1/nivel1_parte1.tscn",

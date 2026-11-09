@@ -2,6 +2,10 @@ extends Node2D
 
 const ESCENA_TUTORIAL := preload("res://interfaz/tutorial/tutorial.tscn")
 
+func _enter_tree() -> void:
+	if GameManager:
+		GameManager.equipar_arma_inicial()
+
 func _ready() -> void:
 	$AudioStreamPlayer.play()
 	_mostrar_tutorial_inicial()
