@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://brcdsuq38nok0" path="res://interfaz/hud/controles.gd" id="1_4hprl"]
 [ext_resource type="Texture2D" uid="uid://dn0gn66iams0g" path="res://activos/arte/botones/Boton I.png" id="2_8xp63"]
-[ext_resource type="Texture2D" uid="uid://7wwrh5yilhm0" path="res://activos/arte/cuchillo.png" id="2_wfijh"]
+[ext_resource type="Texture2D" uid="uid://dkp16nleif42u" path="res://activos/arte/CuchilloA.png" id="2_wfijh"]
 [ext_resource type="Texture2D" uid="uid://4g7fnv1m6hye" path="res://activos/arte/botones/Boton D.png" id="3_ewpmo"]
 [ext_resource type="Texture2D" uid="uid://d258tbaxx2846" path="res://componentes/escenarios/lanza-test.png" id="3_mevix"]
 [ext_resource type="Texture2D" uid="uid://dmc187xkddmac" path="res://activos/arte/botones/Boton A.png" id="4_8xp63"]

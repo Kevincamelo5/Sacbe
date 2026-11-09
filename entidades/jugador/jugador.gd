@@ -6,11 +6,13 @@ var spawn_position : Vector2
 var _estaProtegido := false
 var _recibiendo_dano := false
 var _tiempo_invulnerable := 0.0
+var _escala_sprite_base := Vector2.ONE
 
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 func _ready() -> void:
 	add_to_group("jugador")
 	spawn_position = global_position
+	_escala_sprite_base = animatedSprite.scale
 	
 	if hayGravedad:
 		velocity.y = 0
@@ -89,13 +91,27 @@ func _movimiento_horizontal() -> void:
 	# 2. Luego controlamos las animaciones basándonos en si está en el suelo o no
 	if not _estaUsandoObjeto and not _recibiendo_dano:
 		if not is_on_floor():
-			animatedSprite.play("saltar")
+			_reproducir("saltar")
 		elif direccion.x != 0:
-			animatedSprite.play("correr")
+			_reproducir("correr")
 		else:
-			animatedSprite.play("parado")
+			_reproducir("parado")
 	# 3. Aplicamos la velocidad
 	velocity.x = direccion.x * _aceleracion
+
+## Reproduce una animación ajustando la escala para que todas las poses
+## del personaje se vean del mismo tamaño.
+func _reproducir(anim: String) -> void:
+	animatedSprite.play(anim)
+	animatedSprite.scale = _escala_sprite_base * _factor_escala(anim)
+
+## Devuelve el factor de escala según la animación. La animación "parado"
+## está dibujada más grande en su imagen original, así que la reducimos
+## para que coincida con "correr" y las animaciones de ataque.
+func _factor_escala(anim: String) -> float:
+	if anim == "parado":
+		return 0.88
+	return 1.0
 
 @export_category("salto")
 @export var fuerzaSalto: float = -500.0
@@ -220,7 +236,7 @@ func acuchillar():
 	# Reproducimos la animación antes de aplicar el daño. Si el golpe activa
 	# el daño del jugador (por ejemplo, una puerta con respuesta incorrecta),
 	# la animación de recibir daño no debe ser sobrescrita por la de ataque.
-	animatedSprite.play("acuchillar")
+	_reproducir("acuchillar")
 
 	var areas = areaCuchillo.get_overlapping_areas()
 	
@@ -242,13 +258,13 @@ func lanzar():
 	nuevaLanza.set_global_position(areaCuchillo.get_global_position() + Vector2(0, -20))
 	
 	# Agrega esta línea para que se vea la animación
-	animatedSprite.play("Ataque Lanza")
+	_reproducir("Ataque Lanza")
 
 # ESCUDO
 func escudar():
 	print_debug("Escudando")
 	_estaProtegido = false
-	animatedSprite.play("escudarse")
+	_reproducir("escudarse")
 
 	# La protección empieza justo cuando la animación muestra el escudo
 	# cubriendo por completo al jugador (último frame).
@@ -272,7 +288,7 @@ func atacar_hacha():
 	print("--- INTENTO DE ATAQUE CON HACHA ---")
 	
 	# 1. Reproducimos la animación
-	animatedSprite.play("Ataque Hacha")
+	_reproducir("Ataque Hacha")
 	
 	# 2. Le damos tiempo a Godot de mover el área invisible a los 77 píxeles
 	await get_tree().physics_frame
@@ -290,7 +306,7 @@ func atacar_hacha():
 # MACUAHUITLE
 func atacar_macuahuitl():
 	print_debug("Atacando con Macuahuitl")
-	animatedSprite.play("macuahuitle")
+	_reproducir("macuahuitle")
 
 	var areas = areaCuchillo.get_overlapping_areas()
 	for area in areas:
@@ -302,7 +318,7 @@ func atacar_macuahuitl():
 # FLAUTA
 func tocar_flauta():
 	print_debug("Tocando la Flauta")
-	animatedSprite.play("Toca Flauta")
+	_reproducir("Toca Flauta")
 	
 
 #ENTRADAS
@@ -348,7 +364,7 @@ func _lose_lives() -> void:
 		_recibiendo_dano = true
 		_tiempo_invulnerable = 0.6
 		Audio_dano.play()
-		animatedSprite.play("recibirDaño")
+		_reproducir("recibirDaño")
 		# Forzamos el reinicio: si "recibirDaño" ya era la animación actual
 		# (por ejemplo, tras un golpe anterior) Godot no la reinicia sola.
 		animatedSprite.set_frame_and_progress(0, 0.0)

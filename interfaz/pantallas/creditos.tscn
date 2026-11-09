@@ -71,38 +71,39 @@ offset_right = 1152.0
 offset_bottom = 959.0
 theme_override_fonts/font = ExtResource("3_gyq5y")
 text = "Creditos:
-Desarrollado por  prestadores del servicio social UADY-UMT.
+Desarrollado por: Jhonatan Solis y Jimena Bates.
 
 Dirección y producción
-Director del juego:
-Productor ejecutivo:
-Gionista: Kevin Leandro Camelo Suaste
+Director del juego: Jhonatan Solis
+Productor ejecutivo: Jimena Bates
+Guionista: Kevin Leandro Camelo Suaste
 
 Diseño y programación
-Diseñador principal:
-Programación del gameplay:
-Progrmación de interfaz:
+Diseñador principal: Jimena Bates
+Programación del gameplay: Jhonatan Solis
+Programación de interfaz: Jimena Bates
 
 Arte y Animación
-Director de arte:
+Director de arte: Jimena Bates
 Artista de personajes:  Tania Miranda.
 Artista de escenarios:  Tania Miranda.
 Animación 2D:  Tania Miranda.
 
-Músca y sonido
-Compositor:
+Música y sonido
+Compositor: Jimena Bates
 mystical-flute-ritual-instrumental-399259: Paijo_G.
-Diseño de sonido:
+Diseño de sonido: Jhonatan Solis
 
 QA y pruebas
-Tester líder:
-Testers:
+Tester líder: Jhonatan Solis
+Testers: Jhonatan Solis y Jimena Bates
 
 Agradecimientos Especiales
+Unidad Multidisciplinaria Tizimín - UADY
 
 Herramientas
 Desarrollado en Godot Engine,
-Graficos creados con Krita y ...	
+Gráficos creados con Krita.
 
 2026 Servicio Social UADY-UMT.
 

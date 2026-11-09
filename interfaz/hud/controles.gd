@@ -107,17 +107,21 @@ func _ready():
 
 func actualizar_icono_arma() -> void:
 	if GameManager:
+		var textura: Texture2D = icono_cuchillo
 		match GameManager.arma_equipada_actual:
 			"cuchillo":
-				boton_usar.texture_normal = icono_cuchillo
+				textura = icono_cuchillo
 			"lanza":
-				boton_usar.texture_normal = icono_lanza
+				textura = icono_lanza
 			"escudo":
-				boton_usar.texture_normal = icono_escudo
+				textura = icono_escudo
 			"hacha":
-				boton_usar.texture_normal = icono_hacha
+				textura = icono_hacha
 			"flauta":
-				boton_usar.texture_normal = icono_flauta
+				textura = icono_flauta
 			"macuahuitle":
-				boton_usar.texture_normal = icono_macuahuitle
-		boton_usar.scale = Vector2(0.4, 0.4)
+				textura = icono_macuahuitle
+		boton_usar.texture_normal = textura
+		# Escalamos proporcionalmente para que todas las armas se vean del mismo tamaño
+		var escala := 100.0 / float(textura.get_width())
+		boton_usar.scale = Vector2(escala, escala)
