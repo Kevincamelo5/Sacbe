@@ -8,6 +8,8 @@ var gravedad: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 enum Estado { ESPERANDO, PREPARANDO, EMBISTIENDO }
 var estado_actual = Estado.ESPERANDO
 var direccion = -1 # -1 es izquierda, 1 es derecha
+var jugador: Node2D = null
+var _ataque_cd: float = 0.0
 
 @onready var timer = $Timer
 @onready var sprite = $AnimatedSprite2D
@@ -30,6 +32,10 @@ func _physics_process(delta: float) -> void:
 	# 1. Aplicar gravedad para que toque el suelo
 	if not is_on_floor():
 		velocity.y += gravedad * delta
+
+	_ataque_cd = max(_ataque_cd - delta, 0.0)
+	if jugador == null:
+		jugador = get_tree().get_first_node_in_group("jugador")
 
 	# 2. Comportamiento según el estado
 	match estado_actual:
@@ -54,6 +60,18 @@ func _physics_process(delta: float) -> void:
 
 	# Ejecutar el movimiento
 	move_and_slide()
+	_comprobar_contacto()
+
+## Daña al jugador cuando el jabalí lo toca durante la embestida.
+func _comprobar_contacto() -> void:
+	if jugador == null or _ataque_cd > 0:
+		return
+	if global_position.distance_to(jugador.global_position) < 75.0:
+		_ataque_cd = 1.0
+		if jugador.has_method("_lose_lives"):
+			jugador._lose_lives()
+		elif jugador.has_method("recibir_dano"):
+			jugador.recibir_dano(1)
 
 # Función que se activa cuando el Timer llega a 0
 func _on_timer_timeout() -> void:
@@ -82,9 +100,9 @@ func chocar_contra_muro() -> void:
 	timer.start()
 
 # Esta función la llamarás desde el arma de tu jugador o si saltas sobre él
-func recibir_dano(cantidad: int) -> void:
-	# Restamos el daño
-	vida -= cantidad
+func recibir_dano(_cantidad: int) -> void:
+	# Cada golpe quita exactamente 1 de vida, sin importar el arma.
+	vida -= 1
 	
 	# Prevenimos que la vida baje de 0 para evitar errores visuales
 	if vida < 0:

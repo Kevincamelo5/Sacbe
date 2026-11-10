@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://cqyiyxfwautbj"]
 
+[ext_resource type="AudioStream" uid="uid://br43nqbmu7pw8" path="res://activos/audio/Batalla-Jabali.mp3" id="1_l2jjq"]
+[ext_resource type="Script" uid="uid://dy5hi1r7e0g60" path="res://niveles/nivel2/batalla_jabali.gd" id="1_pijcq"]
 [ext_resource type="PackedScene" uid="uid://caokkywjfo4gv" path="res://entidades/jugador/jugador.tscn" id="2_44hai"]
 [ext_resource type="Texture2D" uid="uid://ctb57agxy30bi" path="res://componentes/escenarios/Fondo-JefeJabali.jpg" id="2_axefc"]
 [ext_resource type="PackedScene" uid="uid://cf1cdu71ifkog" path="res://entidades/enemigos/Jabali/jabali_jefe.tscn" id="3_lkqam"]
 [ext_resource type="PackedScene" uid="uid://bw8ubk8v43lho" path="res://interfaz/hud/controles.tscn" id="4_4gcfx"]
 [ext_resource type="Texture2D" uid="uid://bjauf0av7odqs" path="res://componentes/escenarios/Columna batalla jabali.png" id="4_axefc"]
 [ext_resource type="Texture2D" uid="uid://dyv4g4pnfofng" path="res://componentes/escenarios/Pasto-Jabali.png" id="4_ualh1"]
+[ext_resource type="PackedScene" uid="uid://bm40afqfwxlta" path="res://interfaz/hud/contador_vidas.tscn" id="5_vidas"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44hai"]
 size = Vector2(2250.5, 76)
@@ -17,6 +20,10 @@ size = Vector2(102, 455)
 size = Vector2(64.125, 370.5)
 
 [node name="Arena_Batalla" type="Node2D" unique_id=1437027823]
+script = ExtResource("1_pijcq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=297902490]
+stream = ExtResource("1_l2jjq")
 
 [node name="Jugador" parent="." unique_id=1232762003 instance=ExtResource("2_44hai")]
 position = Vector2(523, 378)
@@ -74,3 +81,5 @@ scale = Vector2(1.1094769, 1.2205883)
 texture = ExtResource("4_axefc")
 
 [node name="controles" parent="." unique_id=1499453252 instance=ExtResource("4_4gcfx")]
+
+[node name="ContadorVidas" parent="." unique_id=154207805 instance=ExtResource("5_vidas")]
