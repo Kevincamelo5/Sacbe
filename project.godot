@@ -96,3 +96,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_5="colectibles"
 2d_physics/layer_6="dangerous_items"
 2d_physics/layer_7="altar"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

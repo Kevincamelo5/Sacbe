@@ -7,14 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://d258tbaxx2846" path="res://componentes/escenarios/lanza-test.png" id="3_mevix"]
 [ext_resource type="Texture2D" uid="uid://dmc187xkddmac" path="res://activos/arte/botones/Boton A.png" id="4_8xp63"]
 [ext_resource type="Texture2D" uid="uid://dpyicnkndmbk6" path="res://activos/arte/(256) Escudo.png" id="4_fpkyn"]
-[ext_resource type="Texture2D" uid="uid://c255bkqdlx7qk" path="res://activos/arte/botones/Boton Abajo.png" id="5_av1pb"]
 [ext_resource type="Texture2D" uid="uid://ddapt1xkgg73b" path="res://activos/arte/botones/pause-button-2148106_1280.png" id="5_totj0"]
 [ext_resource type="Texture2D" uid="uid://7uu1nywbh17h" path="res://componentes/escenarios/hacha-test.png" id="5_wfijh"]
 [ext_resource type="Texture2D" uid="uid://d3lb10g5lqvrv" path="res://activos/arte/botones/arrow-31177_1920.png" id="6_2mbvt"]
 [ext_resource type="Texture2D" uid="uid://c3c02ysfxog4d" path="res://componentes/escenarios/flauta-test.png" id="6_fpkyn"]
 [ext_resource type="Texture2D" uid="uid://qeevfbm1li0g" path="res://activos/arte/botones/bang-148261_1920.png" id="7_7aew7"]
 [ext_resource type="Texture2D" uid="uid://c15juj0im74bp" path="res://activos/arte/boton-ataque.png" id="14_wfijh"]
-[ext_resource type="Texture2D" path="res://activos/arte/(512) Quitzal macuahuitle v2 frentre.png" id="15_macuahuitle"]
+[ext_resource type="Texture2D" uid="uid://eoyp22e6b7pe" path="res://activos/arte/(512) Quitzal macuahuitle v2 frentre.png" id="15_macuahuitle"]
 
 [node name="controles" type="CanvasLayer" unique_id=1681580207]
 script = ExtResource("1_4hprl")
@@ -28,33 +27,25 @@ icono_macuahuitle = ExtResource("15_macuahuitle")
 [node name="Izquierda" type="TouchScreenButton" parent="." unique_id=1811504451]
 modulate = Color(1, 1, 1, 0.78431374)
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(20, 444)
-scale = Vector2(0.218, 0.192)
+position = Vector2(22.000002, 503)
+scale = Vector2(0.268, 0.242)
 texture_normal = ExtResource("2_8xp63")
 action = "izquierda"
 
 [node name="Derecha" type="TouchScreenButton" parent="." unique_id=688359783]
 modulate = Color(1, 1, 1, 0.78431374)
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(185, 444.00003)
-scale = Vector2(0.218, 0.192)
+position = Vector2(163, 503)
+scale = Vector2(0.268, 0.242)
 texture_normal = ExtResource("3_ewpmo")
 action = "derecha"
 
 [node name="Saltar" type="TouchScreenButton" parent="." unique_id=467308388]
 modulate = Color(1, 1, 1, 0.78431374)
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(104, 374)
-scale = Vector2(0.21799996, 0.19238472)
+position = Vector2(976, 324)
+scale = Vector2(0.268, 0.242)
 texture_normal = ExtResource("4_8xp63")
-action = "saltar"
-
-[node name="Agacharse" type="TouchScreenButton" parent="." unique_id=840248526]
-modulate = Color(1, 1, 1, 0.78431374)
-self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(100, 514)
-scale = Vector2(0.218, 0.192)
-texture_normal = ExtResource("5_av1pb")
 action = "saltar"
 
 [node name="Pausa" type="TouchScreenButton" parent="." unique_id=1205231196]
@@ -64,7 +55,7 @@ texture_normal = ExtResource("5_totj0")
 action = "pausa"
 
 [node name="CambiarObjeto" type="TouchScreenButton" parent="." unique_id=983955024]
-position = Vector2(1007, 285)
+position = Vector2(806, 486)
 scale = Vector2(0.065, 0.059895832)
 texture_normal = ExtResource("6_2mbvt")
 action = "cambiar_objeto"
@@ -90,8 +81,6 @@ expand_mode = 1
 [connection signal="released" from="Derecha" to="." method="_on_derecha_released"]
 [connection signal="pressed" from="Saltar" to="." method="_on_saltar_pressed"]
 [connection signal="released" from="Saltar" to="." method="_on_saltar_released"]
-[connection signal="pressed" from="Agacharse" to="." method="_on_agacharse_pressed"]
-[connection signal="released" from="Agacharse" to="." method="_on_agacharse_released"]
 [connection signal="pressed" from="Pausa" to="." method="_on_pausa_pressed"]
 [connection signal="released" from="Pausa" to="." method="_on_pausa_released"]
 [connection signal="pressed" from="CambiarObjeto" to="." method="_on_cambiar_objeto_pressed"]

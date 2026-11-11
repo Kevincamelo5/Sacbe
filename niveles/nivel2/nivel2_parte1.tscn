@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://crq1d3r1wakbo" path="res://componentes/moneda.tscn" id="21_4mwl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cablh"]
-size = Vector2(2509.75, 86.5)
+size = Vector2(2871.875, 86.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mxly"]
 size = Vector2(596.5, 186)
@@ -58,7 +58,7 @@ texture = ExtResource("4_u4ah2")
 [node name="StaticBody2D-PisoVilla" type="StaticBody2D" parent="." unique_id=1963764583]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D-PisoVilla" unique_id=296980692]
-position = Vector2(1273, 703)
+position = Vector2(1091.9375, 703)
 shape = SubResource("RectangleShape2D_cablh")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D-PisoVilla/CollisionShape2D" unique_id=1442333211]
