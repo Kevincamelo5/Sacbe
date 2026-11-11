@@ -68,8 +68,13 @@ func reiniciar_nivel():
 	# 2. Restablecer monedas y emitir señal para la interfaz
 	moneda = 0
 	puntuacion_actualizada.emit(moneda)
+
+	# 3. En el Nivel 4, al reiniciar el nivel el arma pierde su mejora:
+	# el jugador deberá volver a juntar las monedas especiales y mejorarla.
+	if nivel_actual.contains("nivel4/"):
+		reiniciar_mejoras_armas()
 	
-	# 3. Cambiar de escena al inicio del nivel correspondiente
+	# 4. Cambiar de escena al inicio del nivel correspondiente
 	get_tree().change_scene_to_file(_inicio_del_nivel(nivel_actual))
 
 ## Reinicia las vidas del jugador al empezar un nuevo nivel.
@@ -108,6 +113,11 @@ func guardar_partida_en_inicio_nivel(ruta_escena: String = "") -> void:
 	
 	nivel_actual = ruta_escena
 	escena_guardada = _inicio_del_nivel(ruta_escena)
+
+	# Si se pierde en el Nivel 4, las armas vuelven a estar sin mejorar.
+	if ruta_escena.contains("nivel4/"):
+		reiniciar_mejoras_armas()
+
 	# Al reiniciar el nivel se recuperan las vidas y se pierden las monedas.
 	vida_guardada = 5
 	moneda_guardada = 0
@@ -218,3 +228,9 @@ func mejorar_arma(nombreArma: String) -> bool:
 ## Indica si el arma indicada ya fue mejorada.
 func arma_esta_mejorada(nombreArma: String) -> bool:
 	return armasMejoradas.get(nombreArma, false)
+
+## Vuelve a dejar todas las armas sin mejorar.
+## Se usa al reiniciar el Nivel 4 para que el jugador deba mejorarlas de nuevo.
+func reiniciar_mejoras_armas() -> void:
+	for arma in armasMejoradas:
+		armasMejoradas[arma] = false

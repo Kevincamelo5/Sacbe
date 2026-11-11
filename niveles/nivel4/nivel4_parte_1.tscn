@@ -1322,3 +1322,4 @@ autowrap_mode = 3
 
 [node name="Huay" parent="." unique_id=1994500001 instance=ExtResource("15_huay")]
 position = Vector2(11547, 531)
+zona_final = Rect2(11300, 300, 2000, 600)

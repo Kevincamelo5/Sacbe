@@ -17,6 +17,9 @@ const ARMAS_MEJORABLES := ["cuchillo", "hacha", "lanza", "macuahuitle"]
 
 func _enter_tree() -> void:
 	if GameManager:
+		# Al entrar (o reiniciar) este nivel, el arma vuelve a estar sin mejorar:
+		# si el jugador pierde, deberá reunir las monedas especiales y mejorarla otra vez.
+		GameManager.reiniciar_mejoras_armas()
 		GameManager.equipar_arma_inicial()
 
 func _ready() -> void:

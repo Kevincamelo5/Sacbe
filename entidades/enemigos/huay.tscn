@@ -8,8 +8,31 @@
 radius = 38.0
 height = 130.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_golpe"]
+radius = 55.0
+height = 150.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ataque"]
 radius = 95.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_barra_fondo"]
+bg_color = Color(0.06, 0.05, 0.04, 0.85)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.85, 0.72, 0.35, 0.9)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_barra_relleno"]
+bg_color = Color(0.3, 0.8, 0.3, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="Huay" type="CharacterBody2D" unique_id=1994400001]
 scale = Vector2(1.6037524, 1.6037524)
@@ -31,7 +54,7 @@ script = ExtResource("2_cuerpo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cuerpo" unique_id=1994400006]
 position = Vector2(0, -65)
-shape = SubResource("CapsuleShape2D_cuerpo")
+shape = SubResource("CapsuleShape2D_golpe")
 
 [node name="AreaAtaque" type="Area2D" parent="." unique_id=1994400007]
 collision_layer = 8
@@ -40,6 +63,18 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque" unique_id=1994400008]
 position = Vector2(0, -65)
 shape = SubResource("CircleShape2D_ataque")
+
+[node name="BarraVida" type="ProgressBar" parent="." unique_id=1994400010]
+offset_left = -85.0
+offset_top = -169.0
+offset_right = 85.0
+offset_bottom = -153.0
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_barra_fondo")
+theme_override_styles/fill = SubResource("StyleBoxFlat_barra_relleno")
+max_value = 6.0
+value = 6.0
+show_percentage = false
 
 [node name="TimerAtaque" type="Timer" parent="." unique_id=1994400009]
 wait_time = 1.5
