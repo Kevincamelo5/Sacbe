@@ -932,7 +932,7 @@ scale = Vector2(1090, 2)
 [node name="Altar" parent="." unique_id=11614497 instance=ExtResource("6_0i806")]
 position = Vector2(13045, 512)
 scale = Vector2(0.75, 0.75)
-next_scene_path = "res://niveles/nivel1/nivel_1_sumador_1.tscn"
+next_scene_path = "uid://dk3myyevlh7c6"
 
 [node name="Contador_moneda" parent="." unique_id=1647204287 instance=ExtResource("9_p66g3")]
 
