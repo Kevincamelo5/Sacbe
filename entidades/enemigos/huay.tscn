@@ -2,7 +2,50 @@
 
 [ext_resource type="Script" uid="uid://c7huay4n1v3l4" path="res://entidades/enemigos/huay.gd" id="1_huay"]
 [ext_resource type="Script" uid="uid://qt8vbjryc7my" path="res://entidades/enemigos/cuerpo.gd" id="2_cuerpo"]
-[ext_resource type="Texture2D" uid="uid://c3yp4g6rfm1sp" path="res://entidades/enemigos/Huay.png" id="3_textura"]
+[ext_resource type="Texture2D" uid="uid://cbfe4dka6xgxr" path="res://entidades/enemigos/huay sprite.png" id="2_fymsi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfy4u"]
+atlas = ExtResource("2_fymsi")
+region = Rect2(0, 1119, 666, 373)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljldh"]
+atlas = ExtResource("2_fymsi")
+region = Rect2(0, 0, 666, 373)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_563rx"]
+atlas = ExtResource("2_fymsi")
+region = Rect2(666, 0, 666, 373)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt8on"]
+atlas = ExtResource("2_fymsi")
+region = Rect2(0, 373, 666, 373)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1txr1"]
+atlas = ExtResource("2_fymsi")
+region = Rect2(666, 373, 666, 373)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hruf7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfy4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljldh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_563rx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wt8on")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1txr1")
+}],
+"loop": true,
+"name": &"Movimiento",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cuerpo"]
 radius = 38.0
@@ -39,10 +82,11 @@ scale = Vector2(1.6037524, 1.6037524)
 collision_layer = 4
 script = ExtResource("1_huay")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994400002]
-position = Vector2(0, -72)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_textura")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1000718777]
+position = Vector2(6.235381, -75.44805)
+scale = Vector2(0.29840395, 0.39427024)
+sprite_frames = SubResource("SpriteFrames_hruf7")
+animation = &"Movimiento"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1994400004]
 position = Vector2(0, -65)

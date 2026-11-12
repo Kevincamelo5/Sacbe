@@ -16,7 +16,7 @@ extends CharacterBody2D
 ## más fácil resulta conectar varios ataques seguidos.
 const TIEMPO_INVULNERABILIDAD := 0.18
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite = $AnimatedSprite2D
 @onready var barra_vida: ProgressBar = $BarraVida
 @onready var label_vida: Label = $BarraVida/Label
 @onready var attack_timer: Timer = $TimerAtaque
@@ -89,6 +89,7 @@ func _on_timer_ataque_timeout() -> void:
 	for body in area_ataque.get_overlapping_bodies():
 		if body == jugador:
 			_on_area_ataque_body_entered(body)
+			sprite.play("Movimiento")
 			break
 
 func recibir_daño(cantidad: int = 1) -> void:

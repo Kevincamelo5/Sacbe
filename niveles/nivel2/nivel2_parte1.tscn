@@ -29,6 +29,9 @@ size = Vector2(596.5, 186)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4ah2"]
 size = Vector2(1.5162497, 0.8771876)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7r5rn"]
+size = Vector2(79, 374)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_y1rvv"]
 radius = 25.019993
 
@@ -62,7 +65,7 @@ position = Vector2(1091.9375, 703)
 shape = SubResource("RectangleShape2D_cablh")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D-PisoVilla/CollisionShape2D" unique_id=1442333211]
-position = Vector2(-301.00003, 61)
+position = Vector2(-134.93748, 65)
 scale = Vector2(3.294427, 0.8244275)
 texture = ExtResource("5_lfnq5")
 
@@ -101,6 +104,10 @@ shape = SubResource("RectangleShape2D_8mxly")
 position = Vector2(2347, 600.8594)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_u4ah2")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D-PisoVilla" unique_id=790880513]
+position = Vector2(-133, 475)
+shape = SubResource("RectangleShape2D_7r5rn")
 
 [node name="Jugador" parent="." unique_id=1101638843 groups=["player"] instance=ExtResource("1_1xc8m")]
 position = Vector2(56, 274)
